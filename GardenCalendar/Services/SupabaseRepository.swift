@@ -187,6 +187,46 @@ final class SupabaseRepository {
             .execute()
     }
 
+    func fetchNextIrrigation(piantaId: UUID, nome: String, after: Date) async throws -> Attivita? {
+        let results: [Attivita] = try await client
+            .from("attivita")
+            .select()
+            .eq("pianta_id", value: piantaId)
+            .eq("nome", value: nome)
+            .gt("data", value: after)
+            .eq("done", value: false)
+            .order("data", ascending: true)
+            .limit(1)
+            .execute()
+            .value
+        return results.first
+    }
+
+    func markRainAbsorbed(id: UUID) async throws {
+        struct Payload: Encodable {
+            let rainAdjusted = true
+            let rainRescheduled = true
+            enum CodingKeys: String, CodingKey {
+                case rainAdjusted = "rain_adjusted"
+                case rainRescheduled = "rain_rescheduled"
+            }
+        }
+        try await client
+            .from("attivita")
+            .update(Payload(), returning: .minimal)
+            .eq("id", value: id)
+            .execute()
+    }
+
+    func rescheduleWithRain(id: UUID, newDate: Date) async throws {
+        struct Payload: Encodable { let data: Date }
+        try await client
+            .from("attivita")
+            .update(Payload(data: newDate), returning: .minimal)
+            .eq("id", value: id)
+            .execute()
+    }
+
     // MARK: - Catalogo / PlantKnowledge
 
     func fetchCatalogo() async throws -> [PlantKnowledge] {
