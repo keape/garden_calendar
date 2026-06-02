@@ -9,6 +9,7 @@ struct PiantaColtivata: Codable, Identifiable, Hashable {
     let growthDays: Int
     let note: String?
     let fotoUrl: String?
+    let activityOverrides: [ActivityOverride]?
     let createdAt: Date
     let updatedAt: Date
 
@@ -25,6 +26,7 @@ struct PiantaColtivata: Codable, Identifiable, Hashable {
         case growthDays = "growth_days"
         case note
         case fotoUrl = "foto_url"
+        case activityOverrides = "activity_overrides"
         case createdAt = "created_at"
         case updatedAt = "updated_at"
     }
@@ -78,6 +80,18 @@ extension PiantaColtivata {
             case growthDays = "growth_days"
             case note
             case fotoUrl = "foto_url"
+        }
+    }
+
+    struct ActivityOverride: Codable {
+        let nome: String
+        let recurrenceDays: Int?
+        let offsetDays: Int?
+
+        enum CodingKeys: String, CodingKey {
+            case nome
+            case recurrenceDays = "recurrence_days"
+            case offsetDays = "offset_days"
         }
     }
 }
