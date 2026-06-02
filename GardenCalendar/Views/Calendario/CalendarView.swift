@@ -457,6 +457,7 @@ struct CalendarGridView: View {
 
     private func loadMonth() async {
         isLoading = true
+        if orti.isEmpty { await loadFiltersData() }
         activities = (try? await repository.fetchAttivita(date: currentMonth)) ?? []
         await applyRainRescheduling()
         isLoading = false
