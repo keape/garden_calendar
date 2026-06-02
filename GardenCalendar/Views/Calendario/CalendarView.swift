@@ -433,12 +433,14 @@ struct CalendarGridView: View {
         guard !actions.isEmpty else { return }
 
         for action in actions {
-            let nextActivity: Attivita? = activities
+            var nextActivity: Attivita? = activities
                 .filter { $0.piantaId == action.piantaId && $0.nome == action.nome && $0.data > action.absorbedDate }
                 .sorted { $0.data < $1.data }
                 .first
-                ?? (try? await repository.fetchNextIrrigation(
-                    piantaId: action.piantaId, nome: action.nome, after: action.absorbedDate))
+            if nextActivity == nil {
+                nextActivity = try? await repository.fetchNextIrrigation(
+                    piantaId: action.piantaId, nome: action.nome, after: action.absorbedDate)
+            }
 
             var rescheduleOk = true
             if let next = nextActivity {

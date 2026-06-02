@@ -30,6 +30,7 @@
 		B10018 /* QuickJournalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B20018 /* QuickJournalView.swift */; };
 		B10019 /* OrtoDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B20019 /* OrtoDetailView.swift */; };
 		B10020 /* OrtoListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B20020 /* OrtoListView.swift */; };
+		B10026 /* ModificaIntervalloSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = B20026 /* ModificaIntervalloSheet.swift */; };
 		B10021 /* AggiungiPiantaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B20021 /* AggiungiPiantaView.swift */; };
 		B10022 /* PiantaDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B20022 /* PiantaDetailView.swift */; };
 		B10023 /* PiantaListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B20023 /* PiantaListView.swift */; };
@@ -63,6 +64,7 @@
 		B20018 /* QuickJournalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuickJournalView.swift; sourceTree = "<group>"; };
 		B20019 /* OrtoDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrtoDetailView.swift; sourceTree = "<group>"; };
 		B20020 /* OrtoListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrtoListView.swift; sourceTree = "<group>"; };
+		B20026 /* ModificaIntervalloSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModificaIntervalloSheet.swift; sourceTree = "<group>"; };
 		B20021 /* AggiungiPiantaView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AggiungiPiantaView.swift; sourceTree = "<group>"; };
 		B20022 /* PiantaDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PiantaDetailView.swift; sourceTree = "<group>"; };
 		B20023 /* PiantaListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PiantaListView.swift; sourceTree = "<group>"; };
@@ -206,6 +208,7 @@
 		B40013 /* Piante */ = {
 			isa = PBXGroup;
 			children = (
+				B20026 /* ModificaIntervalloSheet.swift */,
 				B20021 /* AggiungiPiantaView.swift */,
 				B20022 /* PiantaDetailView.swift */,
 				B20023 /* PiantaListView.swift */,
@@ -319,6 +322,7 @@
 				B10018 /* QuickJournalView.swift in Sources */,
 				B10019 /* OrtoDetailView.swift in Sources */,
 				B10020 /* OrtoListView.swift in Sources */,
+				B10026 /* ModificaIntervalloSheet.swift in Sources */,
 				B10021 /* AggiungiPiantaView.swift in Sources */,
 				B10022 /* PiantaDetailView.swift in Sources */,
 				B10023 /* PiantaListView.swift in Sources */,
