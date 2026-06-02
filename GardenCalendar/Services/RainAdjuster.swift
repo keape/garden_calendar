@@ -118,14 +118,14 @@ struct RainAdjuster {
 
         return activities.compactMap { activity in
             guard !activity.userEvent,
-                  !activity.rainAdjusted,
+                  !activity.rainAdjusted,       // already processed: markRainAbsorbed sets both flags atomically
                   !activity.rainRescheduled,
                   let recDays = activity.recurrenceDays, recDays > 0,
                   isIrrigation(name: activity.nome)
             else { return nil }
 
             let actStr = formatter.string(from: activity.data)
-            let dayBefore = calendar.date(byAdding: .day, value: -1, to: activity.data)!
+            let dayBefore = calendar.date(byAdding: .day, value: -1, to: activity.data) ?? activity.data
             let dayBeforeStr = formatter.string(from: dayBefore)
 
             let rainDate: Date
@@ -157,7 +157,7 @@ struct RescheduleAction {
     let recurrenceDays: Int
     let rainDate: Date
     var newDate: Date {
-        Calendar.current.date(byAdding: .day, value: recurrenceDays, to: rainDate)!
+        Calendar.current.date(byAdding: .day, value: recurrenceDays, to: rainDate) ?? rainDate
     }
 }
 
