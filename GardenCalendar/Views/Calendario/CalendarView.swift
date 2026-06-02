@@ -415,6 +415,40 @@ struct CalendarGridView: View {
         return formatter.string(from: currentMonth).capitalized
     }
 
+    private func applyRainRescheduling() async {
+        let cal = Calendar.current
+        let components = cal.dateComponents([.year, .month], from: currentMonth)
+        guard let from = cal.date(from: components),
+              let to = cal.date(byAdding: .month, value: 1, to: from) else { return }
+
+        var rainDays: [String: Bool] = [:]
+        for orto in orti {
+            guard let lat = orto.latitudine, let lon = orto.longitudine else { continue }
+            let days = (try? await OpenMeteoClient.shared.fetchRainDays(
+                latitude: lat, longitude: lon, from: from, to: to)) ?? [:]
+            rainDays.merge(days) { existing, _ in existing }
+        }
+
+        let actions = RainAdjuster.computeRescheduling(activities: activities, rainDays: rainDays)
+        guard !actions.isEmpty else { return }
+
+        for action in actions {
+            let nextActivity: Attivita? = activities
+                .filter { $0.piantaId == action.piantaId && $0.nome == action.nome && $0.data > action.absorbedDate }
+                .sorted { $0.data < $1.data }
+                .first
+                ?? (try? await repository.fetchNextIrrigation(
+                    piantaId: action.piantaId, nome: action.nome, after: action.absorbedDate))
+
+            if let next = nextActivity {
+                try? await repository.rescheduleAttivita(id: next.id, date: action.newDate)
+            }
+            try? await repository.markRainAbsorbed(id: action.absorbedId)
+        }
+
+        activities = (try? await repository.fetchAttivita(date: currentMonth)) ?? []
+    }
+
     private func loadFiltersData() async {
         guard let userId = authManager.user?.id else { return }
         orti = (try? await repository.fetchOrti(userId: userId)) ?? []
@@ -424,6 +458,7 @@ struct CalendarGridView: View {
     private func loadMonth() async {
         isLoading = true
         activities = (try? await repository.fetchAttivita(date: currentMonth)) ?? []
+        await applyRainRescheduling()
         isLoading = false
     }
 }
