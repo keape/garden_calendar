@@ -1,0 +1,562 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		A10001 /* GardenCalendarApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20001 /* GardenCalendarApp.swift */; };
+		A10014 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A20014 /* Assets.xcassets */; };
+		A10015 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A20015 /* LaunchScreen.storyboard */; };
+		B10001 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B20001 /* ContentView.swift */; };
+		B10002 /* SupabaseConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = B20002 /* SupabaseConfig.swift */; };
+		B10003 /* Attivita.swift in Sources */ = {isa = PBXBuildFile; fileRef = B20003 /* Attivita.swift */; };
+		B10004 /* Orto.swift in Sources */ = {isa = PBXBuildFile; fileRef = B20004 /* Orto.swift */; };
+		B10005 /* PiantaColtivata.swift in Sources */ = {isa = PBXBuildFile; fileRef = B20005 /* PiantaColtivata.swift */; };
+		B10006 /* PlantKnowledge.swift in Sources */ = {isa = PBXBuildFile; fileRef = B20006 /* PlantKnowledge.swift */; };
+		B10007 /* WikiNote.swift in Sources */ = {isa = PBXBuildFile; fileRef = B20007 /* WikiNote.swift */; };
+		B10008 /* AuthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B20008 /* AuthManager.swift */; };
+		B10009 /* RainAdjuster.swift in Sources */ = {isa = PBXBuildFile; fileRef = B20009 /* RainAdjuster.swift */; };
+		B10010 /* SupabaseRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = B20010 /* SupabaseRepository.swift */; };
+		B10011 /* AppTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = B20011 /* AppTheme.swift */; };
+		B10012 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B20012 /* LoginView.swift */; };
+		B10013 /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B20013 /* SignUpView.swift */; };
+		B10014 /* CalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B20014 /* CalendarView.swift */; };
+		B10015 /* DayDetailSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = B20015 /* DayDetailSheet.swift */; };
+		B10016 /* ActivityColorDot.swift in Sources */ = {isa = PBXBuildFile; fileRef = B20016 /* ActivityColorDot.swift */; };
+		B10017 /* WeatherIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = B20017 /* WeatherIcon.swift */; };
+		B10018 /* QuickJournalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B20018 /* QuickJournalView.swift */; };
+		B10019 /* OrtoDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B20019 /* OrtoDetailView.swift */; };
+		B10020 /* OrtoListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B20020 /* OrtoListView.swift */; };
+		B10021 /* AggiungiPiantaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B20021 /* AggiungiPiantaView.swift */; };
+		B10022 /* PiantaDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B20022 /* PiantaDetailView.swift */; };
+		B10023 /* PiantaListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B20023 /* PiantaListView.swift */; };
+		B10024 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B20024 /* SettingsView.swift */; };
+		B10025 /* LocationHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B20025 /* LocationHelper.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		A20001 /* GardenCalendarApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GardenCalendarApp.swift; sourceTree = "<group>"; };
+		A20014 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		A20015 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
+		A20016 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A20017 /* GardenCalendar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GardenCalendar.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		B20001 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		B20002 /* SupabaseConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SupabaseConfig.swift; sourceTree = "<group>"; };
+		B20003 /* Attivita.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Attivita.swift; sourceTree = "<group>"; };
+		B20004 /* Orto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Orto.swift; sourceTree = "<group>"; };
+		B20005 /* PiantaColtivata.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PiantaColtivata.swift; sourceTree = "<group>"; };
+		B20006 /* PlantKnowledge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlantKnowledge.swift; sourceTree = "<group>"; };
+		B20007 /* WikiNote.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WikiNote.swift; sourceTree = "<group>"; };
+		B20008 /* AuthManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthManager.swift; sourceTree = "<group>"; };
+		B20009 /* RainAdjuster.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RainAdjuster.swift; sourceTree = "<group>"; };
+		B20010 /* SupabaseRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SupabaseRepository.swift; sourceTree = "<group>"; };
+		B20011 /* AppTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppTheme.swift; sourceTree = "<group>"; };
+		B20012 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		B20013 /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
+		B20014 /* CalendarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarView.swift; sourceTree = "<group>"; };
+		B20015 /* DayDetailSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayDetailSheet.swift; sourceTree = "<group>"; };
+		B20016 /* ActivityColorDot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityColorDot.swift; sourceTree = "<group>"; };
+		B20017 /* WeatherIcon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherIcon.swift; sourceTree = "<group>"; };
+		B20018 /* QuickJournalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuickJournalView.swift; sourceTree = "<group>"; };
+		B20019 /* OrtoDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrtoDetailView.swift; sourceTree = "<group>"; };
+		B20020 /* OrtoListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrtoListView.swift; sourceTree = "<group>"; };
+		B20021 /* AggiungiPiantaView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AggiungiPiantaView.swift; sourceTree = "<group>"; };
+		B20022 /* PiantaDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PiantaDetailView.swift; sourceTree = "<group>"; };
+		B20023 /* PiantaListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PiantaListView.swift; sourceTree = "<group>"; };
+		B20024 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		B20025 /* LocationHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationHelper.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		A30001 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		A40001 /* root */ = {
+			isa = PBXGroup;
+			children = (
+				A40002 /* GardenCalendar */,
+				A40003 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		A40002 /* GardenCalendar */ = {
+			isa = PBXGroup;
+			children = (
+				A20001 /* GardenCalendarApp.swift */,
+				B20001 /* ContentView.swift */,
+				B20002 /* SupabaseConfig.swift */,
+				B40004 /* Models */,
+				B40005 /* Services */,
+				B40006 /* Theme */,
+				B40007 /* Views */,
+				A20014 /* Assets.xcassets */,
+				A20015 /* LaunchScreen.storyboard */,
+				A20016 /* Info.plist */,
+			);
+			path = GardenCalendar;
+			sourceTree = "<group>";
+		};
+		A40003 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				A20017 /* GardenCalendar.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		B40004 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				B20003 /* Attivita.swift */,
+				B20004 /* Orto.swift */,
+				B20005 /* PiantaColtivata.swift */,
+				B20006 /* PlantKnowledge.swift */,
+				B20007 /* WikiNote.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		B40005 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				B20008 /* AuthManager.swift */,
+				B20025 /* LocationHelper.swift */,
+				B20009 /* RainAdjuster.swift */,
+				B20010 /* SupabaseRepository.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		B40006 /* Theme */ = {
+			isa = PBXGroup;
+			children = (
+				B20011 /* AppTheme.swift */,
+			);
+			path = Theme;
+			sourceTree = "<group>";
+		};
+		B40007 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				B40008 /* Auth */,
+				B40009 /* Calendario */,
+				B40010 /* Components */,
+				B40011 /* Journal */,
+				B40012 /* Orto */,
+				B40013 /* Piante */,
+				B40014 /* Settings */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		B40008 /* Auth */ = {
+			isa = PBXGroup;
+			children = (
+				B20012 /* LoginView.swift */,
+				B20013 /* SignUpView.swift */,
+			);
+			path = Auth;
+			sourceTree = "<group>";
+		};
+		B40009 /* Calendario */ = {
+			isa = PBXGroup;
+			children = (
+				B20014 /* CalendarView.swift */,
+				B20015 /* DayDetailSheet.swift */,
+			);
+			path = Calendario;
+			sourceTree = "<group>";
+		};
+		B40010 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				B20016 /* ActivityColorDot.swift */,
+				B20017 /* WeatherIcon.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		B40011 /* Journal */ = {
+			isa = PBXGroup;
+			children = (
+				B20018 /* QuickJournalView.swift */,
+			);
+			path = Journal;
+			sourceTree = "<group>";
+		};
+		B40012 /* Orto */ = {
+			isa = PBXGroup;
+			children = (
+				B20019 /* OrtoDetailView.swift */,
+				B20020 /* OrtoListView.swift */,
+			);
+			path = Orto;
+			sourceTree = "<group>";
+		};
+		B40013 /* Piante */ = {
+			isa = PBXGroup;
+			children = (
+				B20021 /* AggiungiPiantaView.swift */,
+				B20022 /* PiantaDetailView.swift */,
+				B20023 /* PiantaListView.swift */,
+			);
+			path = Piante;
+			sourceTree = "<group>";
+		};
+		B40014 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				B20024 /* SettingsView.swift */,
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		A50001 /* GardenCalendar */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A70001 /* Build configuration list for PBXNativeTarget "GardenCalendar" */;
+			buildPhases = (
+				A60001 /* Sources */,
+				A30001 /* Frameworks */,
+				A60002 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = GardenCalendar;
+			packageProductDependencies = (
+				C10001 /* Supabase */,
+			);
+			productName = GardenCalendar;
+			productReference = A20017 /* GardenCalendar.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		A80001 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1500;
+				LastUpgradeCheck = 1500;
+				TargetAttributes = {
+					A50001 = {
+						CreatedOnToolsVersion = 15.0;
+					};
+				};
+			};
+			buildConfigurationList = A70002 /* Build configuration list for PBXProject "GardenCalendar" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = it;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+				it,
+			);
+			mainGroup = A40001 /* root */;
+			packageReferences = (
+				C20001 /* XCRemoteSwiftPackageReference "supabase-swift" */,
+			);
+			productRefGroup = A40003 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				A50001 /* GardenCalendar */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		A60002 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A10014 /* Assets.xcassets in Resources */,
+				A10015 /* LaunchScreen.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		A60001 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A10001 /* GardenCalendarApp.swift in Sources */,
+				B10001 /* ContentView.swift in Sources */,
+				B10002 /* SupabaseConfig.swift in Sources */,
+				B10003 /* Attivita.swift in Sources */,
+				B10004 /* Orto.swift in Sources */,
+				B10005 /* PiantaColtivata.swift in Sources */,
+				B10006 /* PlantKnowledge.swift in Sources */,
+				B10007 /* WikiNote.swift in Sources */,
+				B10008 /* AuthManager.swift in Sources */,
+				B10009 /* RainAdjuster.swift in Sources */,
+				B10010 /* SupabaseRepository.swift in Sources */,
+				B10011 /* AppTheme.swift in Sources */,
+				B10012 /* LoginView.swift in Sources */,
+				B10013 /* SignUpView.swift in Sources */,
+				B10014 /* CalendarView.swift in Sources */,
+				B10015 /* DayDetailSheet.swift in Sources */,
+				B10016 /* ActivityColorDot.swift in Sources */,
+				B10017 /* WeatherIcon.swift in Sources */,
+				B10018 /* QuickJournalView.swift in Sources */,
+				B10019 /* OrtoDetailView.swift in Sources */,
+				B10020 /* OrtoListView.swift in Sources */,
+				B10021 /* AggiungiPiantaView.swift in Sources */,
+				B10022 /* PiantaDetailView.swift in Sources */,
+				B10023 /* PiantaListView.swift in Sources */,
+				B10024 /* SettingsView.swift in Sources */,
+				B10025 /* LocationHelper.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		A90001 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		A90002 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		A90003 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGNING_REQUIRED = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"GardenCalendar/Preview Content\"";
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = GardenCalendar/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "Garden Calendar";
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.gardencalendar.app;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.9;
+				TARGETED_DEVICE_FAMILY = "1";
+			};
+			name = Debug;
+		};
+		A90004 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGNING_REQUIRED = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"GardenCalendar/Preview Content\"";
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = GardenCalendar/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "Garden Calendar";
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.gardencalendar.app;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.9;
+				TARGETED_DEVICE_FAMILY = "1";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		A70001 /* Build configuration list for PBXNativeTarget "GardenCalendar" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A90003 /* Debug */,
+				A90004 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A70002 /* Build configuration list for PBXProject "GardenCalendar" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A90001 /* Debug */,
+				A90002 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		C20001 /* XCRemoteSwiftPackageReference "supabase-swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/supabase/supabase-swift.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		C10001 /* Supabase */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C20001 /* XCRemoteSwiftPackageReference "supabase-swift" */;
+			productName = Supabase;
+		};
+/* End XCSwiftPackageProductDependency section */
+
+	};
+	rootObject = A80001 /* Project object */;
+}

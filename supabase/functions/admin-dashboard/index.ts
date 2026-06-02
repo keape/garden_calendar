@@ -1,0 +1,256 @@
+// Garden Calendar — Admin Dashboard Edge Function
+
+const corsHeaders = {
+  "Access-Control-Allow-Origin": "*",
+  "Access-Control-Allow-Headers": "authorization, x-client-info, apikey, content-type",
+  "Content-Type": "text/html; charset=utf-8",
+}
+
+const HTML = `<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GC Admin</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:#0f0f0f;color:#e0e0e0;line-height:1.6;padding:20px}
+.container{max-width:900px;margin:0 auto}
+h1{font-size:1.5rem;margin-bottom:8px;color:#4CAF50}
+.card{background:#1a1a1a;border:1px solid #333;border-radius:12px;padding:20px;margin-bottom:16px}
+.card-title{font-weight:600;font-size:.95rem;margin-bottom:4px}
+.card-sub{font-size:.8rem;color:#888}
+.btn{padding:8px 16px;border:none;border-radius:8px;cursor:pointer;font-size:.85rem;font-weight:500;color:#fff;display:inline-block}
+.btn:hover{opacity:.85}
+.btn-p{background:#2E7D32}
+.btn-d{background:#d32f2f}
+.btn-o{background:transparent;border:1px solid #333;color:#e0e0e0}
+input,textarea{width:100%;padding:10px;background:#242424;border:1px solid #333;border-radius:8px;color:#e0e0e0;font-size:.9rem;margin-bottom:12px}
+textarea{min-height:200px;font-family:monospace;font-size:.85rem;resize:vertical}
+label{display:block;font-size:.85rem;color:#888;margin-bottom:4px}
+.badge{display:inline-block;padding:2px 8px;border-radius:4px;font-size:.75rem;font-weight:500}
+.badge-ok{background:#1b5e20;color:#a5d6a7}
+.badge-w{background:#e65100;color:#ffcc80}
+.h{display:none!important}
+.load{text-align:center;padding:40px;color:#888}
+.spin{display:inline-block;width:24px;height:24px;border:2px solid #333;border-top-color:#4CAF50;border-radius:50%;animation:spin .6s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+.st{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:20px}
+.sc{background:#1a1a1a;border:1px solid #333;border-radius:10px;padding:16px;text-align:center}
+.sn{font-size:1.5rem;font-weight:700;color:#4CAF50}
+.sl{font-size:.8rem;color:#888}
+.tb{display:flex;gap:4px;margin-bottom:20px;background:#1a1a1a;padding:4px;border-radius:10px}
+.tb button{padding:8px 16px;border:none;background:transparent;color:#888;cursor:pointer;border-radius:8px;font-size:.85rem}
+.tb button.on{background:#2E7D32;color:#fff}
+.m{padding:8px 12px;border-radius:8px;margin-bottom:12px;font-size:.85rem}
+.mg{background:#1b5e20;color:#a5d6a7}
+.mb{background:#b71c1c;color:#ef9a9a}
+.f{display:flex;justify-content:space-between;align-items:center}
+.g{display:flex;gap:8px;align-items:center}
+.ai{display:flex;gap:8px;align-items:center;padding:6px 0;font-size:.85rem;border-bottom:1px solid #333}
+.dt{width:8px;height:8px;border-radius:50%;flex-shrink:0}
+</style>
+</head>
+<body>
+<div class="container" id="app">
+  <div id="load" class="load"><div class="spin"></div><p style="margin-top:12px">Caricamento...</p></div>
+  <div id="login" class="h">
+    <div class="card" style="max-width:400px;margin:80px auto">
+      <div id="le" class="m mb h"></div>
+      <input id="li-em" placeholder="Email">
+      <input id="li-pw" type="password" placeholder="Password">
+      <button class="btn btn-p" style="width:100%" data-act="login">Accedi</button>
+      <p style="text-align:center;margin-top:12px;font-size:.8rem;color:#888"><a href="#" data-act="show-signup" style="color:#4CAF50">Registrati</a></p>
+    </div>
+  </div>
+  <div id="signup" class="h">
+    <div class="card" style="max-width:400px;margin:80px auto">
+      <div id="se" class="m mb h"></div>
+      <input id="su-em" placeholder="Email">
+      <input id="su-pw" type="password" placeholder="Password">
+      <button class="btn btn-p" style="width:100%" data-act="signup">Registrati</button>
+      <p style="text-align:center;margin-top:12px;font-size:.8rem;color:#888"><a href="#" data-act="show-login" style="color:#4CAF50">Hai un account? Accedi</a></p>
+    </div>
+  </div>
+  <div id="dash" class="h">
+    <div class="f">
+      <div><h1>Garden Calendar Admin</h1><p class="card-sub" id="uem"></p></div>
+      <button class="btn btn-o" data-act="logout">Esci</button>
+    </div>
+    <div class="st">
+      <div class="sc"><div class="sn" id="sw">-</div><div class="sl">Wiki Notes</div></div>
+      <div class="sc"><div class="sn" id="sk">-</div><div class="sl">Knowledge</div></div>
+      <div class="sc"><div class="sn" id="sp">-</div><div class="sl">Da Estrarre</div></div>
+    </div>
+    <div class="tb" id="tabs">
+      <button class="on" data-tab="w-t">Wiki Notes</button>
+      <button data-tab="k-t">Knowledge Base</button>
+    </div>
+    <div id="msg"></div>
+    <div id="w-t">
+      <div class="card">
+        <div class="card-title">Nuova Wiki Note</div>
+        <label>Slug</label><input id="wn-s" placeholder="pomodoro-ramato">
+        <label>Titolo</label><input id="wn-t" placeholder="Pomodoro Ramato">
+        <label>Contenuto Markdown</label><textarea id="wn-c" placeholder="Scrivi le note wiki sulla pianta..."></textarea>
+        <button class="btn btn-p" data-act="cwn">Salva</button>
+      </div>
+      <div id="wl"></div>
+    </div>
+    <div id="k-t" class="h">
+      <h2 style="font-size:1.1rem;margin-bottom:12px">Catalogo Piante</h2>
+      <div id="kl"></div>
+    </div>
+  </div>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.46.1/dist/umd/supabase.min.js"></script>
+<script>
+const U='https://kusprtmfxrsnjycyzlgs.supabase.co',K='eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imt1c3BydG1meHJzbmp5Y3l6bGdzIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Nzk2NTE2OTUsImV4cCI6MjA5NTIyNzY5NX0.Xy9otBRvHYRjOFG7WJmYv-pla6lzIxbL7fF9xXFNZBY',EF=U+'/functions/v1/extract-plant-care'
+const sb=supabase.createClient(U,K)
+let user=null
+
+function show(id){['load','login','signup','dash'].forEach(x=>document.getElementById(x).classList.toggle('h',x!==id))}
+function msg(t,ok){const e=document.getElementById('msg');e.innerHTML='<div class="m '+(ok?'mg':'mb')+'">'+t+'</div>';setTimeout(()=>e.innerHTML='',5000)}
+
+async function doLogin(){
+  const {data,error}=await sb.auth.signInWithPassword({email:document.getElementById('li-em').value,password:document.getElementById('li-pw').value})
+  if(error){const e=document.getElementById('le');e.textContent=error.message;e.classList.remove('h');return}
+  user=data.user;init()
+}
+async function doSignup(){
+  const {data,error}=await sb.auth.signUp({email:document.getElementById('su-em').value,password:document.getElementById('su-pw').value})
+  if(error){const e=document.getElementById('se');e.textContent=error.message;e.classList.remove('h');return}
+  msg('Registrazione ok! Controlla la email.',true);show('login')
+}
+function doLogout(){sb.auth.signOut();user=null;show('login')}
+
+async function init(){
+  show('dash');document.getElementById('uem').textContent=user?.email||''
+  await stats();await wiki();await know()
+}
+async function stats(){
+  const w=await sb.from('wiki_notes').select('*',{count:'exact',head:true})
+  const k=await sb.from('plant_knowledge').select('*',{count:'exact',head:true})
+  const p=await sb.from('wiki_notes').select('*',{count:'exact',head:true}).eq('processed',false)
+  document.getElementById('sw').textContent=w.count||0
+  document.getElementById('sk').textContent=k.count||0
+  document.getElementById('sp').textContent=p.count||0
+}
+
+async function wiki(){
+  const el=document.getElementById('wl');el.innerHTML='<div class="load"><div class="spin"></div></div>'
+  const {data,error}=await sb.from('wiki_notes').select('*').order('created_at',{ascending:false})
+  if(error){el.innerHTML='<p class="m mb">'+error.message+'</p>';return}
+  if(!data||!data.length){el.innerHTML='<p style="color:#888;padding:20px;text-align:center">Nessuna wiki note</p>';return}
+  el.innerHTML=data.map(w=>{
+    const pre=(w.markdown_content||'').substring(0,120)
+    return '<div class="card" data-id="'+w.id+'" data-proc="'+(w.processed?'1':'0')+'"><div class="f"><div><div class="card-title">'+esc(w.title)+' <span class="badge '+(w.processed?'badge-ok':'badge-w')+'">'+(w.processed?'Estratta':'Da estrarre')+'</span></div><div class="card-sub">'+esc(w.slug)+'</div></div><div class="g">'+
+      (!w.processed?'<button class="btn btn-p" data-act="extract">Estrai</button>':'')+
+      '<button class="btn btn-d" data-act="del-wiki">Elimina</button></div></div><p style="font-size:.8rem;color:#888">'+esc(pre)+(pre.length>=120?'...':'')+'</p></div>'
+  }).join('')
+}
+
+async function cwn(){
+  const s=document.getElementById('wn-s').value.trim(),t=document.getElementById('wn-t').value.trim(),c=document.getElementById('wn-c').value.trim()
+  if(!s||!t||!c){msg('Compila tutti i campi',false);return}
+  const {error}=await sb.from('wiki_notes').insert({slug:s,title:t,markdown_content:c})
+  if(error){msg('Errore: '+error.message,false);return}
+  msg('Wiki note creata!',true)
+  document.getElementById('wn-s').value='';document.getElementById('wn-t').value='';document.getElementById('wn-c').value=''
+  await wiki();await stats()
+}
+
+async function delWiki(id){
+  if(!confirm('Eliminare?'))return
+  const {error}=await sb.from('wiki_notes').delete().eq('id',id)
+  if(error){msg('Errore: '+error.message,false);return}
+  msg('Eliminata',true);await wiki();await stats()
+}
+
+async function doExtract(id){
+  const {data:{session}}=await sb.auth.getSession()
+  if(!session){msg('Sessione scaduta',false);return}
+  try{
+    const r=await fetch(EF,{method:'POST',headers:{'Authorization':'Bearer '+session.access_token,'Content-Type':'application/json'},body:JSON.stringify({wiki_note_id:id})})
+    const d=await r.json()
+    if(!r.ok)throw new Error(d.error||'Errore')
+    msg('Estratta: '+d.message,true);await wiki();await know();await stats()
+  }catch(e){msg('Errore: '+e.message,false)}
+}
+
+async function know(){
+  const el=document.getElementById('kl');el.innerHTML='<div class="load"><div class="spin"></div></div>'
+  const {data,error}=await sb.from('plant_knowledge').select('*').order('specie_nome',{ascending:true})
+  if(error){el.innerHTML='<p class="m mb">'+error.message+'</p>';return}
+  if(!data||!data.length){el.innerHTML='<p style="color:#888;padding:20px;text-align:center">Knowledge base vuota</p>';return}
+  const cl={green:'#4CAF50',blue:'#42A5F5',orange:'#FF9800',red:'#EF5350',gray:'#9E9E9E',purple:'#AB47BC'}
+  el.innerHTML=data.map(p=>{
+    let acts=[];try{acts=JSON.parse(p.attivita_suggerite||'[]')}catch(e){}
+    return '<div class="card" data-id="'+p.id+'"><div class="f"><div><div class="card-title">'+esc(p.specie_nome)+'</div><div class="card-sub">Ciclo: '+p.growth_days+'gg</div></div>'+
+      '<button class="btn btn-d" data-act="del-know">Elimina</button></div><div>'+
+      acts.map(a=>'<div class="ai"><span class="dt" style="background:'+(cl[a.color]||'#9E9E9E')+'"></span><span>'+esc(a.nome)+'</span><span style="color:#888;font-size:.75rem">giorno '+a.offset_days+(a.recurrence_days?' (ogni '+a.recurrence_days+'gg)':'')+'</span></div>').join('')+
+    '</div></div>'
+  }).join('')
+}
+async function delKnow(id){
+  if(!confirm('Eliminare?'))return
+  const {error}=await sb.from('plant_knowledge').delete().eq('id',id)
+  if(error){msg('Errore: '+error.message,false);return}
+  msg('Eliminata',true);await know();await stats()
+}
+
+function esc(s){const d=document.createElement('div');d.textContent=s||'';return d.innerHTML}
+
+// Event delegation
+document.getElementById('app').addEventListener('click', function(e) {
+  const act = e.target.getAttribute('data-act')
+  if(!act) return
+  e.preventDefault()
+  if(act==='login') doLogin()
+  else if(act==='signup') doSignup()
+  else if(act==='logout') doLogout()
+  else if(act==='show-signup') show('signup')
+  else if(act==='show-login') show('login')
+  else if(act==='cwn') cwn()
+  else if(act==='del-wiki') delWiki(e.target.closest('.card').getAttribute('data-id'))
+  else if(act==='extract') {
+    e.target.disabled=true;e.target.textContent='Estraendo...'
+    doExtract(e.target.closest('.card').getAttribute('data-id')).then(()=>{e.target.disabled=false;e.target.textContent='Estrai'})
+  }
+  else if(act==='del-know') delKnow(e.target.closest('.card').getAttribute('data-id'))
+})
+
+// Tab switching
+document.getElementById('tabs').addEventListener('click', function(e) {
+  const tab = e.target.getAttribute('data-tab')
+  if(!tab) return
+  this.querySelectorAll('button').forEach(b=>b.classList.remove('on'))
+  e.target.classList.add('on')
+  document.querySelectorAll('#w-t,#k-t').forEach(t=>t.classList.add('h'))
+  document.getElementById(tab).classList.remove('h')
+})
+
+;(async()=>{
+  const {data:{session}}=await sb.auth.getSession()
+  if(session){user=session.user;init()}else{show('login')}
+  sb.auth.onAuthStateChange((e,s)=>{if(e==='SIGNED_IN'&&s){user=s.user;init()}else if(e==='SIGNED_OUT'){user=null;show('login')}})
+})()
+</script>
+</body>
+</html>`
+
+Deno.serve(async (req) => {
+  if (req.method === "OPTIONS") {
+    return new Response("ok", { 
+      status: 200,
+      headers: new Headers(corsHeaders)
+    })
+  }
+  return new Response(HTML, { 
+    status: 200,
+    headers: new Headers({
+      ...corsHeaders,
+      "Content-Type": "text/html; charset=utf-8"
+    })
+  })
+})
