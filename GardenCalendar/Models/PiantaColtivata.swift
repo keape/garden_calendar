@@ -83,7 +83,7 @@ extension PiantaColtivata {
         }
     }
 
-    struct ActivityOverride: Codable {
+    struct ActivityOverride: Codable, Hashable {
         let nome: String
         let recurrenceDays: Int?
         let offsetDays: Int?
