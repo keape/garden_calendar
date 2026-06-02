@@ -107,6 +107,58 @@ struct RainAdjuster {
         let n = name.lowercased()
         return n.contains("irrigaz") || n.contains("acqua") || n.contains("bevuta")
     }
+
+    static func computeRescheduling(
+        activities: [Attivita],
+        rainDays: [String: Bool]
+    ) -> [RescheduleAction] {
+        let calendar = Calendar.current
+        let formatter = ISO8601DateFormatter()
+        formatter.formatOptions = [.withFullDate]
+
+        return activities.compactMap { activity in
+            guard !activity.userEvent,
+                  !activity.rainAdjusted,
+                  !activity.rainRescheduled,
+                  let recDays = activity.recurrenceDays, recDays > 0,
+                  isIrrigation(name: activity.nome)
+            else { return nil }
+
+            let actStr = formatter.string(from: activity.data)
+            let dayBefore = calendar.date(byAdding: .day, value: -1, to: activity.data)!
+            let dayBeforeStr = formatter.string(from: dayBefore)
+
+            let rainDate: Date
+            if rainDays[actStr] == true {
+                rainDate = activity.data
+            } else if rainDays[dayBeforeStr] == true {
+                rainDate = dayBefore
+            } else {
+                return nil
+            }
+
+            return RescheduleAction(
+                absorbedId: activity.id,
+                absorbedDate: activity.data,
+                piantaId: activity.piantaId,
+                nome: activity.nome,
+                recurrenceDays: recDays,
+                rainDate: rainDate
+            )
+        }
+    }
+}
+
+struct RescheduleAction {
+    let absorbedId: UUID
+    let absorbedDate: Date   // data dell'attività assorbita (non la data pioggia)
+    let piantaId: UUID
+    let nome: String
+    let recurrenceDays: Int
+    let rainDate: Date
+    var newDate: Date {
+        Calendar.current.date(byAdding: .day, value: recurrenceDays, to: rainDate)!
+    }
 }
 
 // MARK: - Models
