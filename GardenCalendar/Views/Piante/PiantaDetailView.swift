@@ -1,10 +1,14 @@
 import SwiftUI
 
 struct PiantaDetailView: View {
-    let pianta: PiantaColtivata
-
+    @State private var pianta: PiantaColtivata
     @Environment(SupabaseRepository.self) private var repository
     @State private var attivita: [Attivita] = []
+    @State private var attivitaSelezionata: Attivita?
+
+    init(pianta: PiantaColtivata) {
+        _pianta = State(initialValue: pianta)
+    }
 
     var body: some View {
         ScrollView {
@@ -25,6 +29,10 @@ struct PiantaDetailView: View {
         .navigationBarTitleDisplayMode(.large)
         .task { await loadData() }
         .refreshable { await loadData() }
+        .sheet(item: $attivitaSelezionata, onDismiss: { Task { await loadData() } }) { att in
+            ModificaIntervalloSheet(pianta: pianta, attivita: att, tutteAttivita: attivita)
+                .environment(repository)
+        }
     }
 
     // MARK: - Header Section
@@ -111,7 +119,11 @@ struct PiantaDetailView: View {
                     .foregroundStyle(AppTheme.primaryGreen)
 
                 ForEach(future) { att in
-                    AttivitaRow(attivita: att, onToggle: { toggleDone(att) })
+                    AttivitaRow(
+                        attivita: att,
+                        onToggle: { toggleDone(att) },
+                        onInfo: { attivitaSelezionata = att }
+                    )
                 }
             }
 
@@ -121,7 +133,11 @@ struct PiantaDetailView: View {
                     .foregroundStyle(.secondary)
 
                 ForEach(past) { att in
-                    AttivitaRow(attivita: att, onToggle: { toggleDone(att) })
+                    AttivitaRow(
+                        attivita: att,
+                        onToggle: { toggleDone(att) },
+                        onInfo: { attivitaSelezionata = att }
+                    )
                 }
             }
         }
@@ -134,7 +150,13 @@ struct PiantaDetailView: View {
     // MARK: - Helpers
 
     private func loadData() async {
-        do { attivita = try await repository.fetchAttivita(piantaId: pianta.id) } catch {}
+        do {
+            async let attivitaFetch = repository.fetchAttivita(piantaId: pianta.id)
+            async let piantaFetch = repository.fetchPianta(id: pianta.id)
+            let (fetchedAttivita, fetchedPianta) = try await (attivitaFetch, piantaFetch)
+            attivita = fetchedAttivita
+            pianta = fetchedPianta
+        } catch {}
     }
 
     private func toggleDone(_ att: Attivita) {
@@ -150,6 +172,7 @@ struct PiantaDetailView: View {
 struct AttivitaRow: View {
     let attivita: Attivita
     let onToggle: () -> Void
+    let onInfo: () -> Void
 
     var body: some View {
         HStack(spacing: 12) {
@@ -179,6 +202,13 @@ struct AttivitaRow: View {
             }
 
             Spacer()
+
+            Button(action: onInfo) {
+                Image(systemName: "info.circle")
+                    .foregroundStyle(.secondary)
+                    .font(.body)
+            }
+            .buttonStyle(.plain)
         }
         .padding(.vertical, 4)
     }
@@ -195,6 +225,7 @@ struct AttivitaRow: View {
             growthDays: 90,
             note: nil,
             fotoUrl: nil,
+            activityOverrides: nil,
             createdAt: Date(),
             updatedAt: Date()
         ))
