@@ -95,7 +95,7 @@
     "semantic_hash": "c07898c8713465cb201431afc17a6456"
   },
   "/Users/keape/Library/Mobile Documents/com~apple~CloudDocs/app sviluppate e html/garden-calendar-ios/GardenCalendar/Models/PiantaColtivata.swift": {
-    "mtime": 1780435430.9612508,
+    "mtime": 1780065757.683521,
     "ast_hash": "fb56170d11aba9a760f57ad429185a4b",
     "semantic_hash": ""
   },
@@ -135,8 +135,8 @@
     "semantic_hash": ""
   },
   "/Users/keape/Library/Mobile Documents/com~apple~CloudDocs/app sviluppate e html/garden-calendar-ios/GardenCalendar/Views/Calendario/CalendarView.swift": {
-    "mtime": 1780435717.5682905,
-    "ast_hash": "fc5a3a8d433e007b5790e65418e5357e",
+    "mtime": 1780418016.9804735,
+    "ast_hash": "373512e1c98876bc4d1ed74bb518c694",
     "semantic_hash": ""
   },
   "/Users/keape/Library/Mobile Documents/com~apple~CloudDocs/app sviluppate e html/garden-calendar-ios/GardenCalendar/Views/Settings/SettingsView.swift": {
@@ -190,8 +190,8 @@
     "semantic_hash": ""
   },
   "/Users/keape/Library/Mobile Documents/com~apple~CloudDocs/app sviluppate e html/garden-calendar-ios/GardenCalendar/Services/SupabaseRepository.swift": {
-    "mtime": 1780435735.3721306,
-    "ast_hash": "b06dbd531f4d7ce8b5e0b9bb7a26b820",
+    "mtime": 1780435372.5015695,
+    "ast_hash": "c633596f683028fbcd9f733f6ffb7a58",
     "semantic_hash": ""
   },
   "/Users/keape/Library/Mobile Documents/com~apple~CloudDocs/app sviluppate e html/garden-calendar-ios/GardenCalendar/Services/AuthManager.swift": {
@@ -307,6 +307,11 @@
   "/Users/keape/Library/Mobile Documents/com~apple~CloudDocs/app sviluppate e html/garden-calendar-ios/docs/superpowers/plans/2026-06-02-activity-interval-override.md": {
     "mtime": 1780435186.8884017,
     "ast_hash": "01bb0a74e7ff8812aaaa5ac0286babe6",
+    "semantic_hash": ""
+  },
+  "/Users/keape/Library/Mobile Documents/com~apple~CloudDocs/app sviluppate e html/garden-calendar-ios/supabase/migrations/20260602000001_activity_overrides.sql": {
+    "mtime": 1780435304.5631495,
+    "ast_hash": "9c28f876f0e910af27919f467a8f5914",
     "semantic_hash": ""
   }
 }

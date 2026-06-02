@@ -693,7 +693,7 @@
       "source_file": "",
       "source_location": "",
       "id": "view",
-      "community": 1,
+      "community": 3,
       "norm_label": "view"
     },
     {
@@ -801,7 +801,7 @@
       "source_file": "GardenCalendar/Models/Attivita.swift",
       "source_location": "L1",
       "id": "gardencalendar_models_attivita_swift",
-      "community": 60,
+      "community": 49,
       "norm_label": "attivita.swift"
     },
     {
@@ -972,7 +972,7 @@
       "source_file": "GardenCalendar/Models/Attivita.swift",
       "source_location": "L68",
       "id": "models_attivita_create",
-      "community": 60,
+      "community": 49,
       "norm_label": "create"
     },
     {
@@ -981,7 +981,7 @@
       "source_file": "",
       "source_location": "",
       "id": "encodable",
-      "community": 60,
+      "community": 49,
       "norm_label": "encodable"
     },
     {
@@ -990,7 +990,7 @@
       "source_file": "GardenCalendar/Models/Attivita.swift",
       "source_location": "L96",
       "id": "models_attivita_update",
-      "community": 60,
+      "community": 49,
       "norm_label": "update"
     },
     {
@@ -999,7 +999,7 @@
       "source_file": "GardenCalendar/Models/PiantaColtivata.swift",
       "source_location": "L1",
       "id": "gardencalendar_models_piantacoltivata_swift",
-      "community": 9,
+      "community": 49,
       "norm_label": "piantacoltivata.swift"
     },
     {
@@ -1008,7 +1008,7 @@
       "source_file": "GardenCalendar/Models/PiantaColtivata.swift",
       "source_location": "L3",
       "id": "models_piantacoltivata_piantacoltivata",
-      "community": 9,
+      "community": 49,
       "norm_label": "piantacoltivata"
     },
     {
@@ -1017,7 +1017,7 @@
       "source_file": "",
       "source_location": "",
       "id": "hashable",
-      "community": 9,
+      "community": 49,
       "norm_label": "hashable"
     },
     {
@@ -1026,7 +1026,7 @@
       "source_file": "GardenCalendar/Models/PiantaColtivata.swift",
       "source_location": "L19",
       "id": "models_piantacoltivata_codingkeys",
-      "community": 9,
+      "community": 49,
       "norm_label": "codingkeys"
     },
     {
@@ -1035,7 +1035,7 @@
       "source_file": "GardenCalendar/Models/PiantaColtivata.swift",
       "source_location": "L20",
       "id": "models_piantacoltivata_codingkeys_id",
-      "community": 9,
+      "community": 49,
       "norm_label": "id"
     },
     {
@@ -1044,7 +1044,7 @@
       "source_file": "GardenCalendar/Models/PiantaColtivata.swift",
       "source_location": "L21",
       "id": "models_piantacoltivata_codingkeys_ortoid",
-      "community": 9,
+      "community": 49,
       "norm_label": "ortoid"
     },
     {
@@ -1053,7 +1053,7 @@
       "source_file": "GardenCalendar/Models/PiantaColtivata.swift",
       "source_location": "L22",
       "id": "models_piantacoltivata_codingkeys_specieid",
-      "community": 9,
+      "community": 49,
       "norm_label": "specieid"
     },
     {
@@ -1062,7 +1062,7 @@
       "source_file": "GardenCalendar/Models/PiantaColtivata.swift",
       "source_location": "L23",
       "id": "models_piantacoltivata_codingkeys_nomepersonalizzato",
-      "community": 9,
+      "community": 49,
       "norm_label": "nomepersonalizzato"
     },
     {
@@ -1071,7 +1071,7 @@
       "source_file": "GardenCalendar/Models/PiantaColtivata.swift",
       "source_location": "L24",
       "id": "models_piantacoltivata_codingkeys_datasemina",
-      "community": 9,
+      "community": 49,
       "norm_label": "datasemina"
     },
     {
@@ -1080,7 +1080,7 @@
       "source_file": "GardenCalendar/Models/PiantaColtivata.swift",
       "source_location": "L25",
       "id": "models_piantacoltivata_codingkeys_growthdays",
-      "community": 9,
+      "community": 49,
       "norm_label": "growthdays"
     },
     {
@@ -1089,7 +1089,7 @@
       "source_file": "GardenCalendar/Models/PiantaColtivata.swift",
       "source_location": "L26",
       "id": "models_piantacoltivata_codingkeys_note",
-      "community": 9,
+      "community": 49,
       "norm_label": "note"
     },
     {
@@ -1098,7 +1098,7 @@
       "source_file": "GardenCalendar/Models/PiantaColtivata.swift",
       "source_location": "L27",
       "id": "models_piantacoltivata_codingkeys_fotourl",
-      "community": 9,
+      "community": 49,
       "norm_label": "fotourl"
     },
     {
@@ -1107,7 +1107,7 @@
       "source_file": "GardenCalendar/Models/PiantaColtivata.swift",
       "source_location": "L28",
       "id": "models_piantacoltivata_codingkeys_createdat",
-      "community": 9,
+      "community": 49,
       "norm_label": "createdat"
     },
     {
@@ -1116,7 +1116,7 @@
       "source_file": "GardenCalendar/Models/PiantaColtivata.swift",
       "source_location": "L29",
       "id": "models_piantacoltivata_codingkeys_updatedat",
-      "community": 9,
+      "community": 49,
       "norm_label": "updatedat"
     },
     {
@@ -1125,7 +1125,7 @@
       "source_file": "GardenCalendar/Models/PiantaColtivata.swift",
       "source_location": "L48",
       "id": "models_piantacoltivata_create",
-      "community": 9,
+      "community": 49,
       "norm_label": "create"
     },
     {
@@ -1134,7 +1134,7 @@
       "source_file": "GardenCalendar/Models/PiantaColtivata.swift",
       "source_location": "L68",
       "id": "models_piantacoltivata_update",
-      "community": 9,
+      "community": 49,
       "norm_label": "update"
     },
     {
@@ -1242,7 +1242,7 @@
       "source_file": "GardenCalendar/Models/PlantKnowledge.swift",
       "source_location": "L15",
       "id": "models_plantknowledge_codingkeys",
-      "community": 49,
+      "community": 9,
       "norm_label": "codingkeys"
     },
     {
@@ -1251,7 +1251,7 @@
       "source_file": "GardenCalendar/Models/PlantKnowledge.swift",
       "source_location": "L16",
       "id": "models_plantknowledge_codingkeys_id",
-      "community": 49,
+      "community": 9,
       "norm_label": "id"
     },
     {
@@ -1260,7 +1260,7 @@
       "source_file": "GardenCalendar/Models/PlantKnowledge.swift",
       "source_location": "L17",
       "id": "models_plantknowledge_codingkeys_slug",
-      "community": 49,
+      "community": 9,
       "norm_label": "slug"
     },
     {
@@ -1269,7 +1269,7 @@
       "source_file": "GardenCalendar/Models/PlantKnowledge.swift",
       "source_location": "L18",
       "id": "models_plantknowledge_codingkeys_specienome",
-      "community": 49,
+      "community": 9,
       "norm_label": "specienome"
     },
     {
@@ -1278,7 +1278,7 @@
       "source_file": "GardenCalendar/Models/PlantKnowledge.swift",
       "source_location": "L19",
       "id": "models_plantknowledge_codingkeys_growthdays",
-      "community": 49,
+      "community": 9,
       "norm_label": "growthdays"
     },
     {
@@ -1287,7 +1287,7 @@
       "source_file": "GardenCalendar/Models/PlantKnowledge.swift",
       "source_location": "L20",
       "id": "models_plantknowledge_codingkeys_attivitasuggerite",
-      "community": 49,
+      "community": 9,
       "norm_label": "attivitasuggerite"
     },
     {
@@ -1296,7 +1296,7 @@
       "source_file": "GardenCalendar/Models/PlantKnowledge.swift",
       "source_location": "L21",
       "id": "models_plantknowledge_codingkeys_createdat",
-      "community": 49,
+      "community": 9,
       "norm_label": "createdat"
     },
     {
@@ -1305,7 +1305,7 @@
       "source_file": "GardenCalendar/Models/PlantKnowledge.swift",
       "source_location": "L22",
       "id": "models_plantknowledge_codingkeys_updatedat",
-      "community": 49,
+      "community": 9,
       "norm_label": "updatedat"
     },
     {
@@ -1323,7 +1323,7 @@
       "source_file": "GardenCalendar/Models/PlantKnowledge.swift",
       "source_location": "L43",
       "id": "models_plantknowledge_codingkeys_nome",
-      "community": 49,
+      "community": 9,
       "norm_label": "nome"
     },
     {
@@ -1332,7 +1332,7 @@
       "source_file": "GardenCalendar/Models/PlantKnowledge.swift",
       "source_location": "L44",
       "id": "models_plantknowledge_codingkeys_offsetdays",
-      "community": 49,
+      "community": 9,
       "norm_label": "offsetdays"
     },
     {
@@ -1341,7 +1341,7 @@
       "source_file": "GardenCalendar/Models/PlantKnowledge.swift",
       "source_location": "L45",
       "id": "models_plantknowledge_codingkeys_recurrencedays",
-      "community": 49,
+      "community": 9,
       "norm_label": "recurrencedays"
     },
     {
@@ -1350,7 +1350,7 @@
       "source_file": "GardenCalendar/Models/PlantKnowledge.swift",
       "source_location": "L46",
       "id": "models_plantknowledge_codingkeys_color",
-      "community": 49,
+      "community": 9,
       "norm_label": "color"
     },
     {
@@ -1359,7 +1359,7 @@
       "source_file": "GardenCalendar/Models/Orto.swift",
       "source_location": "L1",
       "id": "gardencalendar_models_orto_swift",
-      "community": 60,
+      "community": 49,
       "norm_label": "orto.swift"
     },
     {
@@ -1458,7 +1458,7 @@
       "source_file": "GardenCalendar/Models/Orto.swift",
       "source_location": "L26",
       "id": "models_orto_create",
-      "community": 60,
+      "community": 49,
       "norm_label": "create"
     },
     {
@@ -1467,7 +1467,7 @@
       "source_file": "GardenCalendar/Models/Orto.swift",
       "source_location": "L33",
       "id": "models_orto_update",
-      "community": 60,
+      "community": 49,
       "norm_label": "update"
     },
     {
@@ -1944,7 +1944,7 @@
       "source_file": "GardenCalendar/Views/Orto/OrtoListView.swift",
       "source_location": "L1",
       "id": "gardencalendar_views_orto_ortolistview_swift",
-      "community": 49,
+      "community": 3,
       "norm_label": "ortolistview.swift"
     },
     {
@@ -1953,7 +1953,7 @@
       "source_file": "GardenCalendar/Views/Orto/OrtoListView.swift",
       "source_location": "L4",
       "id": "orto_ortolistview_ortolistview",
-      "community": 49,
+      "community": 3,
       "norm_label": "ortolistview"
     },
     {
@@ -1980,7 +1980,7 @@
       "source_file": "GardenCalendar/Views/Orto/OrtoListView.swift",
       "source_location": "L201",
       "id": "orto_ortolistview_ortolistview_geocodecityname",
-      "community": 49,
+      "community": 3,
       "norm_label": ".geocodecityname()"
     },
     {
@@ -1989,7 +1989,7 @@
       "source_file": "GardenCalendar/Views/Orto/OrtoListView.swift",
       "source_location": "L216",
       "id": "orto_ortolistview_ortolistview_reversegeocode",
-      "community": 49,
+      "community": 3,
       "norm_label": ".reversegeocode()"
     },
     {
@@ -1998,7 +1998,7 @@
       "source_file": "GardenCalendar/Views/Orto/OrtoListView.swift",
       "source_location": "L227",
       "id": "orto_ortolistview_ortolistview_deleteorto",
-      "community": 49,
+      "community": 3,
       "norm_label": ".deleteorto()"
     },
     {
@@ -2007,7 +2007,7 @@
       "source_file": "GardenCalendar/Views/Orto/OrtoListView.swift",
       "source_location": "L235",
       "id": "orto_ortolistview_ortorow",
-      "community": 49,
+      "community": 3,
       "norm_label": "ortorow"
     },
     {
@@ -2106,7 +2106,7 @@
       "source_file": "GardenCalendar/Views/Piante/PiantaListView.swift",
       "source_location": "L1",
       "id": "gardencalendar_views_piante_piantalistview_swift",
-      "community": 1,
+      "community": 3,
       "norm_label": "piantalistview.swift"
     },
     {
@@ -2115,7 +2115,7 @@
       "source_file": "GardenCalendar/Views/Piante/PiantaListView.swift",
       "source_location": "L3",
       "id": "piante_piantalistview_piantalistview",
-      "community": 1,
+      "community": 3,
       "norm_label": "piantalistview"
     },
     {
@@ -2124,7 +2124,7 @@
       "source_file": "GardenCalendar/Views/Piante/PiantaListView.swift",
       "source_location": "L95",
       "id": "piante_piantalistview_piantalistview_loaddata",
-      "community": 1,
+      "community": 3,
       "norm_label": ".loaddata()"
     },
     {
@@ -2133,7 +2133,7 @@
       "source_file": "GardenCalendar/Views/Piante/PiantaListView.swift",
       "source_location": "L103",
       "id": "piante_piantalistview_piantacardview",
-      "community": 1,
+      "community": 3,
       "norm_label": "piantacardview"
     },
     {
@@ -2142,7 +2142,7 @@
       "source_file": "GardenCalendar/Views/Piante/PiantaDetailView.swift",
       "source_location": "L1",
       "id": "gardencalendar_views_piante_piantadetailview_swift",
-      "community": 1,
+      "community": 3,
       "norm_label": "piantadetailview.swift"
     },
     {
@@ -2151,7 +2151,7 @@
       "source_file": "GardenCalendar/Views/Piante/PiantaDetailView.swift",
       "source_location": "L3",
       "id": "piante_piantadetailview_piantadetailview",
-      "community": 1,
+      "community": 3,
       "norm_label": "piantadetailview"
     },
     {
@@ -2160,7 +2160,7 @@
       "source_file": "GardenCalendar/Views/Piante/PiantaDetailView.swift",
       "source_location": "L136",
       "id": "piante_piantadetailview_piantadetailview_loaddata",
-      "community": 1,
+      "community": 3,
       "norm_label": ".loaddata()"
     },
     {
@@ -2178,7 +2178,7 @@
       "source_file": "GardenCalendar/Views/Piante/PiantaDetailView.swift",
       "source_location": "L150",
       "id": "piante_piantadetailview_attivitarow",
-      "community": 1,
+      "community": 3,
       "norm_label": "attivitarow"
     },
     {
@@ -2286,7 +2286,7 @@
       "source_file": "GardenCalendar/Views/Components/ActivityColorDot.swift",
       "source_location": "L5",
       "id": "components_activitycolordot_activitycolordot",
-      "community": 1,
+      "community": 3,
       "norm_label": "activitycolordot"
     },
     {
@@ -2421,7 +2421,7 @@
       "source_file": "GardenCalendar/Services/SupabaseRepository.swift",
       "source_location": "L142",
       "id": "services_supabaserepository_supabaserepository_createattivita",
-      "community": 54,
+      "community": 2,
       "norm_label": ".createattivita()"
     },
     {
@@ -2497,46 +2497,10 @@
       "norm_label": ".searchcatalogo()"
     },
     {
-      "label": ".fetchPianta()",
-      "file_type": "code",
-      "source_file": "GardenCalendar/Services/SupabaseRepository.swift",
-      "source_location": "L242",
-      "id": "services_supabaserepository_supabaserepository_fetchpianta",
-      "community": 2,
-      "norm_label": ".fetchpianta()"
-    },
-    {
-      "label": ".fetchPlantKnowledge()",
-      "file_type": "code",
-      "source_file": "GardenCalendar/Services/SupabaseRepository.swift",
-      "source_location": "L252",
-      "id": "services_supabaserepository_supabaserepository_fetchplantknowledge",
-      "community": 2,
-      "norm_label": ".fetchplantknowledge()"
-    },
-    {
-      "label": ".updateActivityOverrides()",
-      "file_type": "code",
-      "source_file": "GardenCalendar/Services/SupabaseRepository.swift",
-      "source_location": "L264",
-      "id": "services_supabaserepository_supabaserepository_updateactivityoverrides",
-      "community": 2,
-      "norm_label": ".updateactivityoverrides()"
-    },
-    {
-      "label": ".rescheduleActivity()",
-      "file_type": "code",
-      "source_file": "GardenCalendar/Services/SupabaseRepository.swift",
-      "source_location": "L276",
-      "id": "services_supabaserepository_supabaserepository_rescheduleactivity",
-      "community": 54,
-      "norm_label": ".rescheduleactivity()"
-    },
-    {
       "label": "ScheduleRequest",
       "file_type": "code",
       "source_file": "GardenCalendar/Services/SupabaseRepository.swift",
-      "source_location": "L349",
+      "source_location": "L244",
       "id": "services_supabaserepository_schedulerequest",
       "community": 58,
       "norm_label": "schedulerequest"
@@ -2545,7 +2509,7 @@
       "label": "CodingKeys",
       "file_type": "code",
       "source_file": "GardenCalendar/Services/SupabaseRepository.swift",
-      "source_location": "L355",
+      "source_location": "L250",
       "id": "services_supabaserepository_codingkeys",
       "community": 53,
       "norm_label": "codingkeys"
@@ -2554,7 +2518,7 @@
       "label": "piantaId",
       "file_type": "code",
       "source_file": "GardenCalendar/Services/SupabaseRepository.swift",
-      "source_location": "L356",
+      "source_location": "L251",
       "id": "services_supabaserepository_codingkeys_piantaid",
       "community": 53,
       "norm_label": "piantaid"
@@ -2563,7 +2527,7 @@
       "label": "dataSemina",
       "file_type": "code",
       "source_file": "GardenCalendar/Services/SupabaseRepository.swift",
-      "source_location": "L357",
+      "source_location": "L252",
       "id": "services_supabaserepository_codingkeys_datasemina",
       "community": 53,
       "norm_label": "datasemina"
@@ -2572,7 +2536,7 @@
       "label": "growthDays",
       "file_type": "code",
       "source_file": "GardenCalendar/Services/SupabaseRepository.swift",
-      "source_location": "L358",
+      "source_location": "L253",
       "id": "services_supabaserepository_codingkeys_growthdays",
       "community": 53,
       "norm_label": "growthdays"
@@ -2581,7 +2545,7 @@
       "label": "activities",
       "file_type": "code",
       "source_file": "GardenCalendar/Services/SupabaseRepository.swift",
-      "source_location": "L359",
+      "source_location": "L254",
       "id": "services_supabaserepository_codingkeys_activities",
       "community": 53,
       "norm_label": "activities"
@@ -2590,7 +2554,7 @@
       "label": "ScheduledTemplateActivity",
       "file_type": "code",
       "source_file": "GardenCalendar/Services/SupabaseRepository.swift",
-      "source_location": "L363",
+      "source_location": "L258",
       "id": "services_supabaserepository_scheduledtemplateactivity",
       "community": 0,
       "norm_label": "scheduledtemplateactivity"
@@ -2599,7 +2563,7 @@
       "label": "nome",
       "file_type": "code",
       "source_file": "GardenCalendar/Services/SupabaseRepository.swift",
-      "source_location": "L370",
+      "source_location": "L265",
       "id": "services_supabaserepository_codingkeys_nome",
       "community": 53,
       "norm_label": "nome"
@@ -2608,7 +2572,7 @@
       "label": "offsetDays",
       "file_type": "code",
       "source_file": "GardenCalendar/Services/SupabaseRepository.swift",
-      "source_location": "L371",
+      "source_location": "L266",
       "id": "services_supabaserepository_codingkeys_offsetdays",
       "community": 53,
       "norm_label": "offsetdays"
@@ -2617,7 +2581,7 @@
       "label": "recurrenceDays",
       "file_type": "code",
       "source_file": "GardenCalendar/Services/SupabaseRepository.swift",
-      "source_location": "L372",
+      "source_location": "L267",
       "id": "services_supabaserepository_codingkeys_recurrencedays",
       "community": 53,
       "norm_label": "recurrencedays"
@@ -2626,7 +2590,7 @@
       "label": "color",
       "file_type": "code",
       "source_file": "GardenCalendar/Services/SupabaseRepository.swift",
-      "source_location": "L373",
+      "source_location": "L268",
       "id": "services_supabaserepository_codingkeys_color",
       "community": 53,
       "norm_label": "color"
@@ -2635,7 +2599,7 @@
       "label": "ScheduleResponse",
       "file_type": "code",
       "source_file": "GardenCalendar/Services/SupabaseRepository.swift",
-      "source_location": "L377",
+      "source_location": "L272",
       "id": "services_supabaserepository_scheduleresponse",
       "community": 0,
       "norm_label": "scheduleresponse"
@@ -2653,7 +2617,7 @@
       "label": ".scheduleActivities()",
       "file_type": "code",
       "source_file": "GardenCalendar/Services/SupabaseRepository.swift",
-      "source_location": "L382",
+      "source_location": "L277",
       "id": "services_supabaserepository_supabaserepository_scheduleactivities",
       "community": 58,
       "norm_label": ".scheduleactivities()"
@@ -2662,7 +2626,7 @@
       "label": "RepositoryError",
       "file_type": "code",
       "source_file": "GardenCalendar/Services/SupabaseRepository.swift",
-      "source_location": "L408",
+      "source_location": "L303",
       "id": "services_supabaserepository_repositoryerror",
       "community": 0,
       "norm_label": "repositoryerror"
@@ -2680,7 +2644,7 @@
       "label": "invalidDate",
       "file_type": "code",
       "source_file": "GardenCalendar/Services/SupabaseRepository.swift",
-      "source_location": "L409",
+      "source_location": "L304",
       "id": "services_supabaserepository_repositoryerror_invaliddate",
       "community": 0,
       "norm_label": "invaliddate"
@@ -4463,7 +4427,7 @@
       "file_type": "code",
       "source_file": "GardenCalendar/Models/PiantaColtivata.swift",
       "source_location": "L16",
-      "community": 9,
+      "community": 49,
       "norm_label": "activityoverride",
       "id": "models_piantacoltivata_activityoverride"
     },
@@ -4472,7 +4436,7 @@
       "file_type": "code",
       "source_file": "GardenCalendar/Models/PiantaColtivata.swift",
       "source_location": "L22",
-      "community": 9,
+      "community": 49,
       "norm_label": "nome",
       "id": "models_piantacoltivata_codingkeys_nome"
     },
@@ -4481,7 +4445,7 @@
       "file_type": "code",
       "source_file": "GardenCalendar/Models/PiantaColtivata.swift",
       "source_location": "L23",
-      "community": 9,
+      "community": 49,
       "norm_label": "recurrencedays",
       "id": "models_piantacoltivata_codingkeys_recurrencedays"
     },
@@ -4490,7 +4454,7 @@
       "file_type": "code",
       "source_file": "GardenCalendar/Models/PiantaColtivata.swift",
       "source_location": "L24",
-      "community": 9,
+      "community": 49,
       "norm_label": "offsetdays",
       "id": "models_piantacoltivata_codingkeys_offsetdays"
     },
@@ -4499,7 +4463,7 @@
       "file_type": "code",
       "source_file": "GardenCalendar/Models/PiantaColtivata.swift",
       "source_location": "L41",
-      "community": 9,
+      "community": 49,
       "norm_label": "activityoverrides",
       "id": "models_piantacoltivata_codingkeys_activityoverrides"
     },
@@ -4517,7 +4481,7 @@
       "file_type": "code",
       "source_file": "GardenCalendar/Models/PiantaColtivata.swift",
       "source_location": "L64",
-      "community": 9,
+      "community": 49,
       "norm_label": "dataraccoltaprevista",
       "id": "models_piantacoltivata_codingkeys_dataraccoltaprevista"
     },
@@ -4526,7 +4490,7 @@
       "file_type": "code",
       "source_file": "GardenCalendar/Views/Piante/PiantaDetailView.swift",
       "source_location": "L134",
-      "community": 1,
+      "community": 3,
       "norm_label": ".timelinesection()",
       "id": "piante_piantadetailview_piantadetailview_timelinesection"
     },
@@ -4535,7 +4499,7 @@
       "file_type": "code",
       "source_file": "GardenCalendar/Views/Piante/PiantaDetailView.swift",
       "source_location": "L283",
-      "community": 1,
+      "community": 3,
       "norm_label": ".prepareoverride()",
       "id": "piante_piantadetailview_piantadetailview_prepareoverride"
     },
@@ -4544,7 +4508,7 @@
       "file_type": "code",
       "source_file": "GardenCalendar/Views/Piante/PiantaDetailView.swift",
       "source_location": "L291",
-      "community": 1,
+      "community": 3,
       "norm_label": "activitytaskrow",
       "id": "piante_piantadetailview_activitytaskrow"
     },
@@ -4553,7 +4517,7 @@
       "file_type": "code",
       "source_file": "GardenCalendar/Views/Piante/PiantaDetailView.swift",
       "source_location": "L328",
-      "community": 1,
+      "community": 3,
       "norm_label": ".toggledone()",
       "id": "piante_piantadetailview_activitytaskrow_toggledone"
     },
@@ -4562,7 +4526,7 @@
       "file_type": "code",
       "source_file": "GardenCalendar/Views/Piante/PiantaDetailView.swift",
       "source_location": "L335",
-      "community": 1,
+      "community": 3,
       "norm_label": "journaleventrow",
       "id": "piante_piantadetailview_journaleventrow"
     },
@@ -4571,7 +4535,7 @@
       "file_type": "code",
       "source_file": "GardenCalendar/Views/Piante/PiantaListView.swift",
       "source_location": "L199",
-      "community": 54,
+      "community": 3,
       "norm_label": ".progressdays()",
       "id": "piante_piantalistview_piantacardview_progressdays"
     },
@@ -5015,7 +4979,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 9,
+      "community": 49,
       "norm_label": "piantacoltivata.create dto",
       "id": "models_piantacoltivata_piantacoltivata_create"
     },
@@ -5028,7 +4992,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 9,
+      "community": 49,
       "norm_label": "piantacoltivata.update dto",
       "id": "models_piantacoltivata_piantacoltivata_update"
     },
@@ -5314,7 +5278,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 1,
+      "community": 3,
       "norm_label": "aggiungipiantaview",
       "id": "piante_aggiungipianta_aggiungipianta_view"
     },
@@ -5327,7 +5291,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 1,
+      "community": 3,
       "norm_label": "templateactivity",
       "id": "piante_aggiungipianta_templateactivity"
     },
@@ -5340,7 +5304,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 1,
+      "community": 3,
       "norm_label": "aggiungipiantaview.generatetemplateactivities(for:)",
       "id": "piante_aggiungipianta_generatetemplate"
     },
@@ -5574,7 +5538,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 1,
+      "community": 3,
       "norm_label": "plant catalog with activity templates",
       "id": "concept_plant_catalog_template"
     }
@@ -8419,20 +8383,9 @@
       "source_file": "GardenCalendar/Views/Calendario/CalendarView.swift",
       "source_location": "L461",
       "weight": 1.0,
-      "confidence_score": 1.0,
       "source": "calendario_calendarview_calendargridview_loadmonth",
-      "target": "calendario_calendarview_calendargridview_applyrainrescheduling"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "source_file": "GardenCalendar/Views/Calendario/CalendarView.swift",
-      "source_location": "L460",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "calendario_calendarview_calendargridview_loadmonth",
-      "target": "calendario_calendarview_calendargridview_loadfiltersdata"
+      "target": "calendario_calendarview_calendargridview_applyrainrescheduling",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -9524,46 +9477,6 @@
       "relation": "method",
       "confidence": "EXTRACTED",
       "source_file": "GardenCalendar/Services/SupabaseRepository.swift",
-      "source_location": "L242",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "services_supabaserepository_supabaserepository",
-      "target": "services_supabaserepository_supabaserepository_fetchpianta"
-    },
-    {
-      "relation": "method",
-      "confidence": "EXTRACTED",
-      "source_file": "GardenCalendar/Services/SupabaseRepository.swift",
-      "source_location": "L252",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "services_supabaserepository_supabaserepository",
-      "target": "services_supabaserepository_supabaserepository_fetchplantknowledge"
-    },
-    {
-      "relation": "method",
-      "confidence": "EXTRACTED",
-      "source_file": "GardenCalendar/Services/SupabaseRepository.swift",
-      "source_location": "L264",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "services_supabaserepository_supabaserepository",
-      "target": "services_supabaserepository_supabaserepository_updateactivityoverrides"
-    },
-    {
-      "relation": "method",
-      "confidence": "EXTRACTED",
-      "source_file": "GardenCalendar/Services/SupabaseRepository.swift",
-      "source_location": "L276",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "services_supabaserepository_supabaserepository",
-      "target": "services_supabaserepository_supabaserepository_rescheduleactivity"
-    },
-    {
-      "relation": "method",
-      "confidence": "EXTRACTED",
-      "source_file": "GardenCalendar/Services/SupabaseRepository.swift",
       "source_location": "L219",
       "weight": 1.0,
       "confidence_score": 1.0,
@@ -9711,28 +9624,6 @@
       "confidence_score": 1.0,
       "source": "services_supabaserepository_supabaserepository_fetchallpiante",
       "target": "services_supabaserepository_supabaserepository_fetchpiante"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "source_file": "GardenCalendar/Services/SupabaseRepository.swift",
-      "source_location": "L338",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "services_supabaserepository_supabaserepository_rescheduleactivity",
-      "target": "services_supabaserepository_supabaserepository_createattivita"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "INFERRED",
-      "confidence_score": 0.8,
-      "source_file": "GardenCalendar/Services/SupabaseRepository.swift",
-      "source_location": "L282",
-      "weight": 1.0,
-      "source": "services_supabaserepository_supabaserepository_rescheduleactivity",
-      "target": "services_rainadjuster_date"
     },
     {
       "relation": "calls",
@@ -12520,5 +12411,5 @@
       "source_file": "GardenCalendar/Views/Piante/PiantaListView.swift"
     }
   ],
-  "built_at_commit": "97c355fbe34ccec50e151f7a8a8c76316aa4efc1"
+  "built_at_commit": "7f788f58ef232082966e0ff9578125742040449c"
 }

@@ -1,7 +1,7 @@
 # Graph Report - garden-calendar-ios  (2026-06-02)
 
 ## Corpus Check
-- 61 files · ~25,612 words
+- 61 files · ~25,596 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
@@ -10,7 +10,7 @@
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `97c355fb`
+- Built from commit: `e599829b`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 

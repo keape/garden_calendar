@@ -293,8 +293,10 @@ final class SupabaseRepository {
 
         // Genera nuove occorrenze (replica logica Edge Function per singola attività)
         let plantLifespan = max(growthDays, 30)
-        let endDate = Calendar.current.date(byAdding: .day, value: plantLifespan, to: dataSemina)!
-        let baseDate = Calendar.current.date(byAdding: .day, value: activity.offsetDays, to: dataSemina)!
+        guard let endDate = Calendar.current.date(byAdding: .day, value: plantLifespan, to: dataSemina),
+              let baseDate = Calendar.current.date(byAdding: .day, value: activity.offsetDays, to: dataSemina) else {
+            throw RepositoryError.invalidDate
+        }
 
         var toInsert: [Attivita.Create] = []
 
@@ -316,7 +318,10 @@ final class SupabaseRepository {
                         recurrenceDays: recurrenceDays
                     ))
                 }
-                occurrence = Calendar.current.date(byAdding: .day, value: recurrenceDays, to: occurrence)!
+                guard let next = Calendar.current.date(byAdding: .day, value: recurrenceDays, to: occurrence) else {
+                    throw RepositoryError.invalidDate
+                }
+                occurrence = next
             }
         } else if activity.offsetDays <= plantLifespan && baseDate >= today {
             toInsert.append(Attivita.Create(

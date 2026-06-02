@@ -1,16 +1,16 @@
 # Graph Report - garden-calendar-ios  (2026-06-02)
 
 ## Corpus Check
-- 61 files · ~25,612 words
+- 61 files · ~25,590 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 577 nodes · 682 edges · 60 communities (47 shown, 13 thin omitted)
+- 577 nodes · 681 edges · 60 communities (48 shown, 12 thin omitted)
 - Extraction: 95% EXTRACTED · 5% INFERRED · 0% AMBIGUOUS · INFERRED: 34 edges (avg confidence: 0.84)
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `97c355fb`
+- Built from commit: `6b9f425d`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -106,19 +106,23 @@
 - **Activity Color Rendering: AppTheme, ActivityColorDot, DayActivityRow** — theme_apptheme_apptheme, components_activitycolordot_activitycolordot, calendario_daydetailsheet_dayactivityrow [INFERRED 0.95]
 - **Plant Lifecycle: PiantaListView, OrtoDetailView, AggiungiPiantaView** — piante_piantalistview_piantalistview, orto_ortodetailview_ortodetailview, piante_aggiungipianta_aggiungipianta_view [INFERRED 0.85]
 
-## Communities (60 total, 13 thin omitted)
+## Communities (60 total, 12 thin omitted)
 
 ### Community 0 - "Orto Data Model"
 Cohesion: 0.22
 Nodes (8): LocalizedError, RainError, apiError, invalidURL, RepositoryError, invalidDate, ScheduledTemplateActivity, ScheduleResponse
 
 ### Community 1 - "Calendar UI Views"
-Cohesion: 0.06
-Nodes (22): DayActivityRow, DayDetailSheet, ActivityColorDot, AppTheme, AppTheme (ActivityColorDot local copy), WeatherIcon, Activity Color System, Plant Catalog with Activity Templates (+14 more)
+Cohesion: 0.08
+Nodes (10): DayActivityRow, DayDetailSheet, AppTheme, AppTheme (ActivityColorDot local copy), WeatherIcon, Activity Color System, QuickJournalView, AppTheme (+2 more)
 
 ### Community 2 - "Day Detail & Activity"
 Cohesion: 0.06
 Nodes (4): DayDetailSheet.rescheduleActivity(_:), payload, OrtoDetailView.deletePiante(at:), SupabaseRepository
+
+### Community 3 - "UI Theme & Color System"
+Cohesion: 0.10
+Nodes (14): ActivityColorDot, Plant Catalog with Activity Templates, OrtoDetailView, PiantaRowView, AggiungiPiantaView, AggiungiPiantaView.generateTemplateActivities(for:), TemplateActivity, ActivityTaskRow (+6 more)
 
 ### Community 4 - "Admin Dashboard Functions"
 Cohesion: 0.17
@@ -141,8 +145,8 @@ Cohesion: 0.12
 Nodes (15): App Description (Italian), App Information, App Store Connect, App Store Icon Requirements, Apple Sign-In, Bundle ID, Garden Calendar iOS — App Store Connect Preparation, Going Live Checklist (+7 more)
 
 ### Community 9 - "Community 9"
-Cohesion: 0.09
-Nodes (23): Hashable, ActivityOverride, CodingKeys, activityOverrides, createdAt, dataRaccoltaPrevista, dataSemina, fotoUrl (+15 more)
+Cohesion: 0.17
+Nodes (12): CodingKeys, attivitaSuggerite, color, createdAt, growthDays, id, nome, offsetDays (+4 more)
 
 ### Community 10 - "Community 10"
 Cohesion: 0.29
@@ -241,8 +245,8 @@ Cohesion: 0.33
 Nodes (5): Contesto tecnico rilevante, Cosa abbiamo fatto, Creazione Orto con GPS e Geocoding, Decisioni prese, Prossimi passi
 
 ### Community 49 - "Community 49"
-Cohesion: 0.07
-Nodes (27): Codable, Wiki Note to Knowledge Base LLM Pipeline, Identifiable, Orto, Orto.Create, Orto.Update, AttivitaSuggerita, CodingKeys (+19 more)
+Cohesion: 0.05
+Nodes (38): Codable, Wiki Note to Knowledge Base LLM Pipeline, Hashable, Identifiable, Orto, Orto.Create, Orto.Update, ActivityOverride (+30 more)
 
 ### Community 50 - "Community 50"
 Cohesion: 0.13
@@ -291,14 +295,14 @@ Nodes (19): Encodable, CodingKeys, color, createdAt, data, done, id, nome (+11 m
 ## Knowledge Gaps
 - **241 isolated node(s):** `build.sh script`, `PostToolUse`, `PreToolUse`, `ref`, `name` (+236 more)
   These have ≤1 connection - possible missing edges or undocumented components.
-- **13 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
+- **12 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
 ## Suggested Questions
 _Questions this graph is uniquely positioned to answer:_
 
 - **Why does `SupabaseRepository` connect `Day Detail & Activity` to `Orto Data Model`, `Calendar UI Views`, `UI Theme & Color System`, `Settings & Theme Mode`, `Community 49`, `Community 52`, `Community 54`, `Community 58`?**
   _High betweenness centrality (0.167) - this node is a cross-community bridge._
-- **Why does `Orto` connect `Community 49` to `Community 9`, `Day Detail & Activity`, `Community 60`?**
+- **Why does `Orto` connect `Community 49` to `Day Detail & Activity`, `Community 60`?**
   _High betweenness centrality (0.054) - this node is a cross-community bridge._
 - **Why does `Attivita` connect `Community 49` to `Community 60`, `Wiki & Knowledge Pipeline`?**
   _High betweenness centrality (0.038) - this node is a cross-community bridge._
@@ -307,6 +311,6 @@ _Questions this graph is uniquely positioned to answer:_
 - **What connects `build.sh script`, `PostToolUse`, `PreToolUse` to the rest of the system?**
   _242 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `Calendar UI Views` be split into smaller, more focused modules?**
-  _Cohesion score 0.060408163265306125 - nodes in this community are weakly interconnected._
+  _Cohesion score 0.08172043010752689 - nodes in this community are weakly interconnected._
 - **Should `Day Detail & Activity` be split into smaller, more focused modules?**
   _Cohesion score 0.06417112299465241 - nodes in this community are weakly interconnected._
