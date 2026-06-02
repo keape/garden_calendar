@@ -239,6 +239,106 @@ final class SupabaseRepository {
             .value
     }
 
+    func fetchPianta(id: UUID) async throws -> PiantaColtivata {
+        try await client
+            .from("piante_coltivate")
+            .select()
+            .eq("id", value: id)
+            .single()
+            .execute()
+            .value
+    }
+
+    func fetchPlantKnowledge(id: UUID) async throws -> PlantKnowledge {
+        try await client
+            .from("plant_knowledge")
+            .select()
+            .eq("id", value: id)
+            .single()
+            .execute()
+            .value
+    }
+
+    // MARK: - Activity Overrides
+
+    func updateActivityOverrides(piantaId: UUID, overrides: [PiantaColtivata.ActivityOverride]) async throws {
+        struct OverrideUpdate: Encodable {
+            let activityOverrides: [PiantaColtivata.ActivityOverride]
+            enum CodingKeys: String, CodingKey { case activityOverrides = "activity_overrides" }
+        }
+        try await client
+            .from("piante_coltivate")
+            .update(OverrideUpdate(activityOverrides: overrides), returning: .minimal)
+            .eq("id", value: piantaId)
+            .execute()
+    }
+
+    func rescheduleActivity(
+        piantaId: UUID,
+        dataSemina: Date,
+        growthDays: Int,
+        activity: ScheduledTemplateActivity
+    ) async throws {
+        let today = Calendar.current.startOfDay(for: Date())
+
+        // Cancella occorrenze future non completate per questo tipo di attività
+        try await client
+            .from("attivita")
+            .delete()
+            .eq("pianta_id", value: piantaId)
+            .eq("nome", value: activity.nome)
+            .eq("done", value: false)
+            .gte("data", value: today)
+            .execute()
+
+        // Genera nuove occorrenze (replica logica Edge Function per singola attività)
+        let plantLifespan = max(growthDays, 30)
+        let endDate = Calendar.current.date(byAdding: .day, value: plantLifespan, to: dataSemina)!
+        let baseDate = Calendar.current.date(byAdding: .day, value: activity.offsetDays, to: dataSemina)!
+
+        var toInsert: [Attivita.Create] = []
+
+        if let recurrenceDays = activity.recurrenceDays, recurrenceDays > 0 {
+            var occurrence = baseDate
+            while occurrence <= endDate {
+                if occurrence >= today {
+                    toInsert.append(Attivita.Create(
+                        piantaId: piantaId,
+                        nome: activity.nome,
+                        data: occurrence,
+                        done: false,
+                        rainAdjusted: false,
+                        rainRescheduled: false,
+                        userEvent: false,
+                        sourceAction: "override",
+                        note: nil,
+                        color: activity.color,
+                        recurrenceDays: recurrenceDays
+                    ))
+                }
+                occurrence = Calendar.current.date(byAdding: .day, value: recurrenceDays, to: occurrence)!
+            }
+        } else if activity.offsetDays <= plantLifespan && baseDate >= today {
+            toInsert.append(Attivita.Create(
+                piantaId: piantaId,
+                nome: activity.nome,
+                data: baseDate,
+                done: false,
+                rainAdjusted: false,
+                rainRescheduled: false,
+                userEvent: false,
+                sourceAction: "override",
+                note: nil,
+                color: activity.color,
+                recurrenceDays: nil
+            ))
+        }
+
+        for att in toInsert {
+            _ = try await createAttivita(attivita: att)
+        }
+    }
+
     // MARK: - Forward Scheduling (Edge Function)
 
     struct ScheduleRequest: Encodable {
