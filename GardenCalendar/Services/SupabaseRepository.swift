@@ -203,7 +203,7 @@ final class SupabaseRepository {
     }
 
     func markRainAbsorbed(id: UUID) async throws {
-        struct Payload: Encodable {
+        struct RainAbsorbedUpdate: Encodable {
             let rainAdjusted = true
             let rainRescheduled = true
             enum CodingKeys: String, CodingKey {
@@ -213,16 +213,7 @@ final class SupabaseRepository {
         }
         try await client
             .from("attivita")
-            .update(Payload(), returning: .minimal)
-            .eq("id", value: id)
-            .execute()
-    }
-
-    func rescheduleWithRain(id: UUID, newDate: Date) async throws {
-        struct Payload: Encodable { let data: Date }
-        try await client
-            .from("attivita")
-            .update(Payload(data: newDate), returning: .minimal)
+            .update(RainAbsorbedUpdate(), returning: .minimal)
             .eq("id", value: id)
             .execute()
     }

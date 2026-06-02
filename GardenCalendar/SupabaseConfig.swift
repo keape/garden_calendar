@@ -31,11 +31,14 @@ enum SupabaseConfig {
             )
         }
 
+        let encoder = JSONEncoder()
+        encoder.dateEncodingStrategy = .iso8601
+
         return SupabaseClient(
             supabaseURL: supabaseURL,
             supabaseKey: supabaseAnonKey,
             options: SupabaseClientOptions(
-                db: .init(decoder: decoder)
+                db: .init(encoder: encoder, decoder: decoder)
             )
         )
     }()
