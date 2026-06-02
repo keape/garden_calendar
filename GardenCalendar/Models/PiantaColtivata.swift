@@ -9,21 +9,8 @@ struct PiantaColtivata: Codable, Identifiable, Hashable {
     let growthDays: Int
     let note: String?
     let fotoUrl: String?
-    let activityOverrides: [ActivityOverride]?
     let createdAt: Date
     let updatedAt: Date
-
-    struct ActivityOverride: Codable, Hashable {
-        let nome: String
-        var recurrenceDays: Int?
-        var offsetDays: Int?
-
-        enum CodingKeys: String, CodingKey {
-            case nome
-            case recurrenceDays = "recurrence_days"
-            case offsetDays = "offset_days"
-        }
-    }
 
     var dataRaccoltaPrevista: Date {
         Calendar.current.date(byAdding: .day, value: growthDays, to: dataSemina) ?? dataSemina
@@ -38,15 +25,17 @@ struct PiantaColtivata: Codable, Identifiable, Hashable {
         case growthDays = "growth_days"
         case note
         case fotoUrl = "foto_url"
-        case activityOverrides = "activity_overrides"
         case createdAt = "created_at"
         case updatedAt = "updated_at"
     }
 
+    /// Giorni trascorsi dalla semina a oggi.
     var giorniTrascorsi: Int {
         Calendar.current.dateComponents([.day], from: dataSemina, to: Date()).day ?? 0
     }
 
+    /// Progresso del ciclo di crescita, normalizzato tra 0.0 e 1.0.
+    /// Se growthDays <= 0, restituisce 0.
     var progressoCiclo: Double {
         guard growthDays > 0 else { return 0 }
         return min(Double(giorniTrascorsi) / Double(growthDays), 1.0)
