@@ -426,7 +426,7 @@ struct CalendarGridView: View {
             guard let lat = orto.latitudine, let lon = orto.longitudine else { continue }
             let days = (try? await OpenMeteoClient.shared.fetchRainDays(
                 latitude: lat, longitude: lon, from: from, to: to)) ?? [:]
-            rainDays.merge(days) { existing, _ in existing }
+            for (k, v) in days where v { rainDays[k] = true }
         }
 
         let actions = RainAdjuster.computeRescheduling(activities: activities, rainDays: rainDays)
@@ -440,10 +440,12 @@ struct CalendarGridView: View {
                 ?? (try? await repository.fetchNextIrrigation(
                     piantaId: action.piantaId, nome: action.nome, after: action.absorbedDate))
 
+            var rescheduleOk = true
             if let next = nextActivity {
-                try? await repository.rescheduleAttivita(id: next.id, date: action.newDate)
+                do { try await repository.rescheduleAttivita(id: next.id, date: action.newDate) }
+                catch { rescheduleOk = false }
             }
-            try? await repository.markRainAbsorbed(id: action.absorbedId)
+            if rescheduleOk { try? await repository.markRainAbsorbed(id: action.absorbedId) }
         }
 
         activities = (try? await repository.fetchAttivita(date: currentMonth)) ?? []
