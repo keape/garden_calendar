@@ -1,158 +1,137 @@
 import SwiftUI
 
-struct DayDetailSheet: View {
+struct DayDetailView: View {
     let selectedDate: Date
     @State private var activities: [Attivita]
+    @State private var rainMm: Double = 0
+    @State private var showAddActivity = false
+    @State private var editingActivity: Attivita?
+    @State private var showReschedulePicker = false
+    @State private var rescheduleDate = Date()
+    @State private var pianteLookup: [UUID: String] = [:]
+    @State private var ortoLookup: [UUID: String] = [:]
 
     @Environment(SupabaseRepository.self) private var repository
-    @Environment(\.dismiss) private var dismiss
 
     init(selectedDate: Date, activities: [Attivita] = []) {
         self.selectedDate = selectedDate
         self._activities = State(initialValue: activities)
     }
-    @State private var showQuickJournal = false
-    @State private var editingActivity: Attivita?
-    @State private var showReschedulePicker = false
-    @State private var rescheduleDate = Date()
-    @State private var pianteLookup: [UUID: String] = [:]
 
     private let calendar = Calendar.current
 
-    private var journalActivities: [Attivita] {
-        activities.filter { $0.userEvent }
+    private var doneFraction: Double {
+        guard !activities.isEmpty else { return 0 }
+        return Double(activities.filter(\.done).count) / Double(activities.count)
     }
 
-    private var aiActivities: [Attivita] {
-        let trapiantoPiantaIds = Set(
-            journalActivities
-                .filter { $0.nome.lowercased() == "trapianto" }
-                .map { $0.piantaId }
-        )
-        return activities.filter { !$0.userEvent }.filter { activity in
-            !(activity.nome.lowercased() == "semina" && trapiantoPiantaIds.contains(activity.piantaId))
-        }
+    private var progressLabel: String {
+        "\(activities.filter(\.done).count) / \(activities.count)"
     }
 
     var body: some View {
-        NavigationStack {
-            List {
-                // Header data
-                Section {
-                    HStack {
-                        VStack(alignment: .leading, spacing: 4) {
-                            Text(formattedDate)
-                                .font(.title.bold())
+        VStack(spacing: 0) {
+            Text(dateHeaderString)
+                .font(.dmSans(11, weight: .medium))
+                .foregroundStyle(AppTheme.textSecondary)
+                .frame(maxWidth: .infinity, alignment: .leading)
+                .padding(.horizontal, 20)
+                .padding(.top, 4)
 
-                            Text(dayRelativeString)
-                                .font(.subheadline)
-                                .foregroundStyle(.secondary)
-                        }
+            Text("Attività del giorno")
+                .font(.lora(22))
+                .foregroundStyle(AppTheme.textPrimary)
+                .frame(maxWidth: .infinity, alignment: .leading)
+                .padding(.horizontal, 20)
+                .padding(.top, 4)
 
-                        Spacer()
-
-                        WeatherIcon(rainDays: activities.contains { $0.rainAdjusted || $0.rainRescheduled } ? 3 : 0, size: 28)
-                    }
-                    .padding(.vertical, 4)
-                }
-
-                // 📝 Journal eventi
-                if !journalActivities.isEmpty {
-                    Section("📝 Dal tuo journal") {
-                        ForEach(journalActivities) { activity in
-                            DayActivityRow(activity: activity, piantaNome: pianteLookup[activity.piantaId])
-                                .swipeActions(edge: .trailing) {
-                                    Button(action: { rescheduleActivity(activity) }) {
-                                        Label("Sposta", systemImage: "arrow.right")
-                                    }
-                                    .tint(.blue)
-                                }
-                                .swipeActions(edge: .leading) {
-                                    Button(action: { moveActivityBack(activity) }) {
-                                        Label("Indietro", systemImage: "arrow.left")
-                                    }
-                                    .tint(.orange)
-                                }
-                        }
+            VStack(alignment: .trailing, spacing: 3) {
+                GeometryReader { geo in
+                    ZStack(alignment: .leading) {
+                        Capsule()
+                            .fill(AppTheme.cardSecondaryWarm)
+                            .frame(height: 4)
+                        Capsule()
+                            .fill(AppTheme.primaryGreen)
+                            .frame(width: geo.size.width * doneFraction, height: 4)
                     }
                 }
+                .frame(height: 4)
 
-                // 💡 Suggerimenti AI
-                if !aiActivities.isEmpty {
-                    Section("💡 Suggerimenti AI") {
-                        ForEach(aiActivities) { activity in
-                            DayActivityRow(activity: activity, piantaNome: pianteLookup[activity.piantaId])
-                                .swipeActions(edge: .trailing) {
-                                    Button(action: { rescheduleActivity(activity) }) {
-                                        Label("Sposta", systemImage: "arrow.right")
-                                    }
-                                    .tint(.blue)
+                Text(progressLabel)
+                    .font(.dmSans(10))
+                    .foregroundStyle(AppTheme.textSecondary)
+            }
+            .padding(.horizontal, 20)
+            .padding(.top, 8)
+            .padding(.bottom, 4)
+
+            if activities.isEmpty {
+                Spacer()
+                VStack(spacing: 12) {
+                    Image(systemName: "calendar.day.timeline.left")
+                        .font(.system(size: 40))
+                        .foregroundStyle(AppTheme.textSecondary.opacity(0.4))
+                    Text("Nessuna attività per questo giorno")
+                        .font(.dmSans(15, weight: .medium))
+                        .foregroundStyle(AppTheme.textSecondary)
+                }
+                Spacer()
+            } else {
+                ScrollView {
+                    LazyVStack(spacing: 8) {
+                        ForEach(activities) { activity in
+                            NaturalistaActivityRow(
+                                activity: activity,
+                                piantaNome: pianteLookup[activity.piantaId],
+                                ortoNome: ortoLookup[activity.piantaId]
+                            )
+                            .swipeActions(edge: .trailing) {
+                                Button { rescheduleActivity(activity) } label: {
+                                    Label("Sposta", systemImage: "arrow.right")
                                 }
-                                .swipeActions(edge: .leading) {
-                                    Button(action: { moveActivityBack(activity) }) {
-                                        Label("Indietro", systemImage: "arrow.left")
-                                    }
-                                    .tint(.orange)
+                                .tint(.blue)
+                            }
+                            .swipeActions(edge: .leading) {
+                                Button { moveActivityBack(activity) } label: {
+                                    Label("Indietro", systemImage: "arrow.left")
                                 }
+                                .tint(.orange)
+                            }
                         }
                     }
-                }
-
-                // Nessuna attività
-                if activities.isEmpty {
-                    Section {
-                        VStack(spacing: 12) {
-                            Image(systemName: "calendar.day.timeline.left")
-                                .font(.system(size: 40))
-                                .foregroundStyle(.secondary.opacity(0.5))
-
-                            Text("Nessuna attività per questo giorno")
-                                .font(.headline)
-                                .foregroundStyle(.secondary)
-
-                            Text("Aggiungi un evento rapido per iniziare.")
-                                .font(.caption)
-                                .foregroundStyle(.secondary)
-                        }
-                        .frame(maxWidth: .infinity)
-                        .padding(.vertical, 24)
-                    }
-                }
-
-                // Bottone aggiungi journal
-                Section {
-                    Button(action: { showQuickJournal = true }) {
-                        Label("Aggiungi journal entry", systemImage: "plus.circle.fill")
-                            .fontWeight(.semibold)
-                            .frame(maxWidth: .infinity)
-                    }
-                    .buttonStyle(.borderedProminent)
-                    .tint(AppTheme.accentAmbra)
-                    .listRowInsets(EdgeInsets())
-                    .listRowBackground(Color.clear)
+                    .padding(.horizontal, 16)
+                    .padding(.vertical, 8)
                 }
             }
-            .listStyle(.insetGrouped)
-            .navigationTitle("Dettaglio giorno")
-            .navigationBarTitleDisplayMode(.inline)
-            .toolbar {
-                ToolbarItem(placement: .topBarTrailing) {
-                    Button("Chiudi") { dismiss() }
+
+            Button {
+                showAddActivity = true
+            } label: {
+                HStack {
+                    Image(systemName: "plus")
+                    Text("Aggiungi attività")
+                        .font(.dmSans(15, weight: .semibold))
                 }
+                .foregroundStyle(.white)
+                .frame(maxWidth: .infinity)
+                .padding(.vertical, 14)
+                .background(AppTheme.ctaDarkGreen)
+                .clipShape(Capsule())
             }
-            .sheet(isPresented: $showQuickJournal, onDismiss: { Task { await loadActivities() } }) {
-                QuickJournalView()
-            }
-            .task { await loadActivities() }
-            .sheet(isPresented: $showReschedulePicker) {
-                rescheduleSheet
-            }
+            .padding(.horizontal, 16)
+            .padding(.bottom, 12)
         }
-        .presentationDetents([.medium, .large])
-        .presentationDragIndicator(.visible)
+        .background(AppTheme.backgroundCream)
+        .navigationBarTitleDisplayMode(.inline)
+        .task { await loadActivities() }
+        .sheet(isPresented: $showAddActivity, onDismiss: { Task { await loadActivities() } }) {
+            QuickJournalView()
+        }
+        .sheet(isPresented: $showReschedulePicker) {
+            rescheduleSheet
+        }
     }
-
-    // MARK: - Reschedule Sheet
 
     private var rescheduleSheet: some View {
         NavigationStack {
@@ -160,7 +139,6 @@ struct DayDetailSheet: View {
                 Section("Sposta attività") {
                     DatePicker("Nuova data", selection: $rescheduleDate, displayedComponents: .date)
                 }
-
                 Section {
                     Button(action: confirmReschedule) {
                         Text("Conferma spostamento")
@@ -181,20 +159,11 @@ struct DayDetailSheet: View {
         .presentationDetents([.height(250)])
     }
 
-    // MARK: - Helpers
-
-    private var formattedDate: String {
-        let formatter = DateFormatter()
-        formatter.dateFormat = "EEEE d MMMM"
-        formatter.locale = Locale(identifier: "it_IT")
-        return formatter.string(from: selectedDate).capitalized
-    }
-
-    private var dayRelativeString: String {
-        if calendar.isDateInToday(selectedDate) { return "Oggi" }
-        if calendar.isDateInYesterday(selectedDate) { return "Ieri" }
-        if calendar.isDateInTomorrow(selectedDate) { return "Domani" }
-        return ""
+    private var dateHeaderString: String {
+        let f = DateFormatter()
+        f.locale = Locale(identifier: "it_IT")
+        f.dateFormat = "EEE · d MMMM yyyy"
+        return f.string(from: selectedDate).uppercased()
     }
 
     private func rescheduleActivity(_ activity: Attivita) {
@@ -208,16 +177,6 @@ struct DayDetailSheet: View {
         Task { try? await repository.rescheduleAttivita(id: activity.id, date: newDate) }
     }
 
-    private func loadActivities() async {
-        let all = (try? await repository.fetchAttivita(date: selectedDate)) ?? []
-        activities = all.filter { Calendar.current.isDate($0.data, inSameDayAs: selectedDate) }
-
-        if let userId = AuthManager.shared.user?.id {
-            let piante = (try? await repository.fetchAllPiante(userId: userId)) ?? []
-            pianteLookup = Dictionary(uniqueKeysWithValues: piante.map { ($0.id, $0.nomePersonalizzato) })
-        }
-    }
-
     private func confirmReschedule() {
         if let activity = editingActivity {
             Task { try? await repository.rescheduleAttivita(id: activity.id, date: rescheduleDate) }
@@ -225,9 +184,139 @@ struct DayDetailSheet: View {
         showReschedulePicker = false
         editingActivity = nil
     }
+
+    private func loadActivities() async {
+        let all = (try? await repository.fetchAttivita(date: selectedDate)) ?? []
+        activities = all.filter { calendar.isDate($0.data, inSameDayAs: selectedDate) }
+
+        if let userId = AuthManager.shared.user?.id {
+            let piante = (try? await repository.fetchAllPiante(userId: userId)) ?? []
+            let orti = (try? await repository.fetchOrti(userId: userId)) ?? []
+            pianteLookup = Dictionary(uniqueKeysWithValues: piante.map { ($0.id, $0.nomePersonalizzato) })
+
+            var map: [UUID: String] = [:]
+            for p in piante {
+                if let orto = orti.first(where: { $0.id == p.ortoId }) {
+                    map[p.id] = orto.nome
+                }
+            }
+            ortoLookup = map
+
+            await fetchRainStatus(orti: orti)
+        }
+    }
+
+    private func fetchRainStatus(orti: [Orto]) async {
+        let cal = Calendar.current
+        let from = cal.date(byAdding: .day, value: -1, to: selectedDate) ?? selectedDate
+        let to = cal.date(byAdding: .day, value: 1, to: selectedDate) ?? selectedDate
+        let f = ISO8601DateFormatter(); f.formatOptions = [.withFullDate]
+        let dateStr = f.string(from: selectedDate)
+
+        for orto in orti {
+            guard let lat = orto.latitudine, let lon = orto.longitudine else { continue }
+            let days = (try? await OpenMeteoClient.shared.fetchRainDays(
+                latitude: lat, longitude: lon, from: from, to: to)) ?? [:]
+            if let mm = days[dateStr], mm > 0 {
+                rainMm = mm
+                return
+            }
+        }
+        rainMm = 0
+    }
 }
 
-// MARK: - Day Activity Row
+// MARK: - NaturalistaActivityRow
+
+struct NaturalistaActivityRow: View {
+    let activity: Attivita
+    var piantaNome: String?
+    var ortoNome: String?
+
+    @Environment(SupabaseRepository.self) private var repository
+
+    var body: some View {
+        HStack(spacing: 12) {
+            ZStack {
+                Circle()
+                    .fill(AppTheme.color(for: activity.nome).opacity(0.15))
+                    .frame(width: 36, height: 36)
+                Image(systemName: iconForActivity(activity.nome))
+                    .font(.system(size: 14))
+                    .foregroundStyle(AppTheme.color(for: activity.nome))
+            }
+
+            VStack(alignment: .leading, spacing: 2) {
+                Text(piantaNome ?? activity.nome.capitalized)
+                    .font(.dmSans(13, weight: .semibold))
+                    .foregroundStyle(AppTheme.textPrimary)
+                    .strikethrough(activity.done)
+
+                HStack(spacing: 4) {
+                    Text(activity.nome.capitalized)
+                    if let orto = ortoNome {
+                        Text("·")
+                        Text(orto)
+                    }
+                }
+                .font(.dmSans(10))
+                .foregroundStyle(AppTheme.textSecondary)
+            }
+
+            Spacer()
+
+            if !formattedTime.isEmpty {
+                Text(formattedTime)
+                    .font(.dmSans(11))
+                    .foregroundStyle(AppTheme.textSecondary)
+            }
+
+            Button(action: toggleDone) {
+                Image(systemName: activity.done ? "checkmark.circle.fill" : "circle")
+                    .foregroundStyle(activity.done ? AppTheme.primaryGreen : Color.secondary.opacity(0.4))
+                    .font(.system(size: 20))
+            }
+            .buttonStyle(.plain)
+        }
+        .padding(.horizontal, 12)
+        .padding(.vertical, 10)
+        .background(AppTheme.cardBackground)
+        .clipShape(RoundedRectangle(cornerRadius: 12))
+        .shadow(color: .black.opacity(0.04), radius: 4, y: 1)
+        .opacity(activity.done ? 0.7 : 1.0)
+    }
+
+    private var formattedTime: String {
+        let cal = Calendar.current
+        let h = cal.component(.hour, from: activity.data)
+        let m = cal.component(.minute, from: activity.data)
+        guard h != 0 || m != 0 else { return "" }
+        let f = DateFormatter()
+        f.dateFormat = "HH:mm"
+        return f.string(from: activity.data)
+    }
+
+    private func toggleDone() {
+        Task { try? await repository.setDone(id: activity.id, done: !activity.done) }
+    }
+
+    private func iconForActivity(_ name: String) -> String {
+        switch name.lowercased() {
+        case "semina":    return "leaf.fill"
+        case "trapianto": return "arrow.triangle.branch"
+        case "raccolta":  return "basket.fill"
+        case "irrigazione", "bevuta": return "drop.fill"
+        case "concimazione": return "flask.fill"
+        case "potatura":  return "scissors"
+        case "sarchiatura": return "leaf.arrow.triangle.circlepath"
+        case "trattamento": return "cross.case.fill"
+        case "innesto":   return "point.topleft.down.curvedto.point.bottomright.up"
+        default:          return "leaf.fill"
+        }
+    }
+}
+
+// MARK: - Day Activity Row (used by CalendarView agenda)
 
 struct DayActivityRow: View {
     let activity: Attivita
@@ -310,6 +399,8 @@ struct DayActivityRow: View {
 }
 
 #Preview {
-    DayDetailSheet(selectedDate: Date(), activities: [])
-        .environment(SupabaseRepository.shared)
+    NavigationStack {
+        DayDetailView(selectedDate: Date(), activities: [])
+            .environment(SupabaseRepository.shared)
+    }
 }

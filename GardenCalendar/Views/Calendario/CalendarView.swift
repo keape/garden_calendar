@@ -108,7 +108,7 @@ struct CalendarGridView: View {
             }
             .navigationDestination(isPresented: $showDayDetail) {
                 if let date = selectedDate {
-                    DayDetailSheet(
+                    DayDetailView(
                         selectedDate: date,
                         activities: filteredActivities.filter { calendar.isDate($0.data, inSameDayAs: date) }
                     )
