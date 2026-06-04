@@ -41,10 +41,31 @@ enum AppTheme {
     // MARK: Surfaces
 
     /// Card and input background.
-    static let cardBackground = Color(.systemGray6)
+    static let cardBackground = Color.white
 
     /// Secondary card / login screen background.
     static let cardSecondary = Color(.systemGray5)
+
+    // MARK: Naturalista Surfaces
+
+    /// Warm cream background — main app background.
+    static let backgroundCream = Color(red: 0.973, green: 0.949, blue: 0.910)
+
+    /// Warm secondary surface — calendar area, segmented bg.
+    static let cardSecondaryWarm = Color(red: 0.933, green: 0.910, blue: 0.863)
+
+    // MARK: Naturalista Text
+
+    /// Deep botanical green — primary text.
+    static let textPrimary = Color(red: 0.102, green: 0.227, blue: 0.102)
+
+    /// Warm olive — secondary text.
+    static let textSecondary = Color(red: 0.420, green: 0.420, blue: 0.290)
+
+    // MARK: Naturalista CTA
+
+    /// Dark forest green — full-width CTA pill.
+    static let ctaDarkGreen = Color(red: 0.180, green: 0.239, blue: 0.180)
 
     // MARK: Activity Color Map
 
@@ -119,4 +140,26 @@ extension Color {
 
     /// Secondary card / login background.
     static let cardSecondary = AppTheme.cardSecondary
+
+    static let backgroundCream   = AppTheme.backgroundCream
+    static let cardSecondaryWarm = AppTheme.cardSecondaryWarm
+    static let textPrimary       = AppTheme.textPrimary
+    static let textSecondary     = AppTheme.textSecondary
+    static let ctaDarkGreen      = AppTheme.ctaDarkGreen
+}
+
+// MARK: - Font Helpers
+
+extension Font {
+    static func lora(_ size: CGFloat) -> Font {
+        .custom("Lora-Bold", size: size)
+    }
+
+    static func dmSans(_ size: CGFloat, weight: Font.Weight = .regular) -> Font {
+        switch weight {
+        case .medium:   return .custom("DMSans-Medium", size: size)
+        case .semibold: return .custom("DMSans-SemiBold", size: size)
+        default:        return .custom("DMSans-Regular", size: size)
+        }
+    }
 }
