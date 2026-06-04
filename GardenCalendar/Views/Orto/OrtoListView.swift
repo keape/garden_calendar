@@ -69,7 +69,6 @@ struct OrtoListView: View {
                 Text("Eliminare l'orto \"\(orto.nome)\"? Le piante collegate non verranno eliminate.")
             }
             .task { await loadOrti() }
-            .onAppear { Task { await loadOrti() } }
             .refreshable { await loadOrti() }
             .alert("Errore", isPresented: Binding(
                 get: { errorMessage != nil },
@@ -232,8 +231,14 @@ struct OrtoListView: View {
     }
 
     private func deleteOrto(_ orto: Orto) {
-        orti.removeAll { $0.id == orto.id }
-        Task { try? await repository.deleteOrto(id: orto.id) }
+        Task {
+            do {
+                try await repository.deleteOrto(id: orto.id)
+                orti.removeAll { $0.id == orto.id }
+            } catch {
+                errorMessage = error.localizedDescription
+            }
+        }
     }
 }
 
