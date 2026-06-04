@@ -66,6 +66,20 @@ struct DayDetailView: View {
             .padding(.top, 8)
             .padding(.bottom, 4)
 
+            if rainMm > 0 {
+                HStack(spacing: 4) {
+                    Image(systemName: "cloud.rain.fill")
+                        .font(.system(size: 12))
+                        .foregroundStyle(AppTheme.rainBlue)
+                    Text(String(format: "%.0f mm di pioggia", rainMm))
+                        .font(.dmSans(12, weight: .medium))
+                        .foregroundStyle(AppTheme.rainBlue)
+                }
+                .frame(maxWidth: .infinity, alignment: .leading)
+                .padding(.horizontal, 20)
+                .padding(.bottom, 4)
+            }
+
             if activities.isEmpty {
                 Spacer()
                 VStack(spacing: 12) {
