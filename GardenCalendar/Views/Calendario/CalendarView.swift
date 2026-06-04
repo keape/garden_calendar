@@ -20,6 +20,11 @@ struct CalendarGridView: View {
     @State private var filterTipologia: String? = nil
     @State private var filterPiantaId: UUID? = nil
 
+    // Meteo
+    @State private var rainDays: [String: Double] = [:]
+    @State private var rainRescheduledCount = 0
+    @State private var showRainToast = false
+
     private let calendar = Calendar.current
     private let weekDays = ["L", "M", "M", "G", "V", "S", "D"]
     private let columns = Array(repeating: GridItem(.flexible(), spacing: 0), count: 7)
@@ -65,12 +70,14 @@ struct CalendarGridView: View {
     var body: some View {
         NavigationStack {
             VStack(spacing: 0) {
-                Picker("Vista", selection: $viewMode) {
+                HStack(spacing: 0) {
                     ForEach(ViewMode.allCases, id: \.self) { mode in
-                        Text(mode.rawValue).tag(mode)
+                        pillSegmentButton(mode: mode)
                     }
                 }
-                .pickerStyle(.segmented)
+                .padding(3)
+                .background(AppTheme.cardSecondaryWarm)
+                .clipShape(RoundedRectangle(cornerRadius: 11))
                 .padding(.horizontal)
                 .padding(.top, 8)
                 .padding(.bottom, 4)
@@ -83,6 +90,7 @@ struct CalendarGridView: View {
                     agendaContent
                 }
             }
+            .background(AppTheme.backgroundCream)
             .navigationTitle("Calendario")
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
@@ -93,26 +101,65 @@ struct CalendarGridView: View {
                             selectedDate = Date()
                         }
                     }
+                    .font(.dmSans(14, weight: .semibold))
+                    .foregroundStyle(AppTheme.primaryGreen)
                     .disabled(calendar.isDate(currentMonth, equalTo: Date(), toGranularity: .month))
+                }
+            }
+            .navigationDestination(isPresented: $showDayDetail) {
+                if let date = selectedDate {
+                    DayDetailSheet(
+                        selectedDate: date,
+                        activities: filteredActivities.filter { calendar.isDate($0.data, inSameDayAs: date) }
+                    )
                 }
             }
         }
         .task { await loadFiltersData() }
         .task { await loadMonth() }
         .onChange(of: currentMonth) { _, _ in Task { await loadMonth() } }
+        .onChange(of: showDayDetail) { _, isShowing in
+            if !isShowing { Task { await loadMonth() } }
+        }
         .onChange(of: filterOrtoId) { _, _ in
             if let piantaId = filterPiantaId,
                !visiblePiante.contains(where: { $0.id == piantaId }) {
                 filterPiantaId = nil
             }
         }
-        .sheet(isPresented: $showDayDetail, onDismiss: { Task { await loadMonth() } }) {
-            if let date = selectedDate {
-                DayDetailSheet(
-                    selectedDate: date,
-                    activities: filteredActivities.filter { calendar.isDate($0.data, inSameDayAs: date) }
-                )
+        .overlay(alignment: .top) {
+            if showRainToast {
+                HStack(spacing: 8) {
+                    Image(systemName: "cloud.rain.fill")
+                        .foregroundStyle(AppTheme.rainBlue)
+                    Text("\(rainRescheduledCount) irrigazion\(rainRescheduledCount == 1 ? "e" : "i") spostat\(rainRescheduledCount == 1 ? "a" : "e") per pioggia")
+                        .font(.dmSans(14, weight: .medium))
+                }
+                .padding(.horizontal, 16)
+                .padding(.vertical, 10)
+                .background(.regularMaterial, in: Capsule())
+                .padding(.top, 8)
+                .transition(.move(edge: .top).combined(with: .opacity))
             }
+        }
+        .animation(.spring(duration: 0.4), value: showRainToast)
+    }
+
+    // MARK: - Pill Segment Button
+
+    @ViewBuilder
+    private func pillSegmentButton(mode: ViewMode) -> some View {
+        let isSelected = viewMode == mode
+        Button {
+            withAnimation(.easeInOut(duration: 0.2)) { viewMode = mode }
+        } label: {
+            Text(mode.rawValue)
+                .font(.dmSans(14, weight: isSelected ? .semibold : .regular))
+                .foregroundStyle(isSelected ? AppTheme.textPrimary : AppTheme.textSecondary)
+                .frame(maxWidth: .infinity)
+                .padding(.vertical, 8)
+                .background(isSelected ? AppTheme.cardBackground : Color.clear)
+                .clipShape(RoundedRectangle(cornerRadius: 8))
         }
     }
 
@@ -171,15 +218,14 @@ struct CalendarGridView: View {
     private func filterChip(label: String, isActive: Bool) -> some View {
         HStack(spacing: 4) {
             Text(label)
-                .font(.caption)
-                .fontWeight(isActive ? .semibold : .regular)
+                .font(.dmSans(11, weight: isActive ? .semibold : .regular))
             Image(systemName: "chevron.down")
                 .font(.system(size: 9, weight: .medium))
         }
-        .foregroundColor(isActive ? .white : .primary)
+        .foregroundColor(isActive ? .white : AppTheme.textPrimary)
         .padding(.horizontal, 10)
         .padding(.vertical, 6)
-        .background(isActive ? AppTheme.primaryGreen : AppTheme.cardSecondary)
+        .background(isActive ? AppTheme.primaryGreen : AppTheme.cardBackground)
         .clipShape(Capsule())
         .overlay(
             Capsule()
@@ -197,7 +243,7 @@ struct CalendarGridView: View {
                 calendarGrid
                 legendView
             }
-            .background(AppTheme.cardSecondary)
+            .background(AppTheme.cardSecondaryWarm)
             Spacer()
         }
     }
@@ -277,7 +323,11 @@ struct CalendarGridView: View {
         ))!
         let isToday = calendar.isDateInToday(date)
         let dayActivities = filteredActivities.filter { calendar.isDate($0.data, inSameDayAs: date) }
-        let hasRain = dayActivities.contains { $0.rainAdjusted || $0.rainRescheduled }
+        let dateStr: String = {
+            let f = ISO8601DateFormatter(); f.formatOptions = [.withFullDate]
+            return f.string(from: date)
+        }()
+        let hasRain = dayActivities.contains { $0.rainAdjusted || $0.rainRescheduled } || rainDays[dateStr] != nil
 
         return Button {
             selectedDate = date
@@ -308,7 +358,17 @@ struct CalendarGridView: View {
                 }
 
                 if hasRain {
-                    Text("💧").font(.system(size: 8))
+                    VStack(spacing: 0) {
+                        Image(systemName: "cloud.rain.fill")
+                            .font(.system(size: 9))
+                            .symbolRenderingMode(.monochrome)
+                            .foregroundStyle(AppTheme.rainBlue)
+                        if let mm = rainDays[dateStr] {
+                            Text(String(format: "%.0fmm", mm))
+                                .font(.system(size: 6))
+                                .foregroundStyle(AppTheme.rainBlue)
+                        }
+                    }
                 }
             }
             .frame(height: 52)
@@ -346,7 +406,7 @@ struct CalendarGridView: View {
         }
         .padding(.horizontal)
         .padding(.vertical, 8)
-        .background(AppTheme.cardBackground)
+        .background(AppTheme.backgroundCream)
     }
 
     // MARK: - Agenda Content
@@ -418,20 +478,23 @@ struct CalendarGridView: View {
     private func applyRainRescheduling() async {
         let cal = Calendar.current
         let components = cal.dateComponents([.year, .month], from: currentMonth)
-        guard let from = cal.date(from: components),
-              let to = cal.date(byAdding: .month, value: 1, to: from) else { return }
+        guard let monthStart = cal.date(from: components),
+              let to = cal.date(byAdding: .month, value: 1, to: monthStart),
+              let from = cal.date(byAdding: .day, value: -7, to: monthStart) else { return }
 
-        var rainDays: [String: Bool] = [:]
+        var fetched: [String: Double] = [:]
         for orto in orti {
             guard let lat = orto.latitudine, let lon = orto.longitudine else { continue }
             let days = (try? await OpenMeteoClient.shared.fetchRainDays(
                 latitude: lat, longitude: lon, from: from, to: to)) ?? [:]
-            for (k, v) in days where v { rainDays[k] = true }
+            for (k, v) in days { fetched[k] = max(fetched[k] ?? 0, v) }
         }
+        rainDays = fetched
 
-        let actions = RainAdjuster.computeRescheduling(activities: activities, rainDays: rainDays)
+        let actions = RainAdjuster.computeRescheduling(activities: activities, rainDays: fetched)
         guard !actions.isEmpty else { return }
 
+        var successCount = 0
         for action in actions {
             var nextActivity: Attivita? = activities
                 .filter { $0.piantaId == action.piantaId && $0.nome == action.nome && $0.data > action.absorbedDate }
@@ -447,10 +510,22 @@ struct CalendarGridView: View {
                 do { try await repository.rescheduleAttivita(id: next.id, date: action.newDate) }
                 catch { rescheduleOk = false }
             }
-            if rescheduleOk { try? await repository.markRainAbsorbed(id: action.absorbedId) }
+            if rescheduleOk {
+                try? await repository.markRainAbsorbed(id: action.absorbedId)
+                successCount += 1
+            }
         }
 
         activities = (try? await repository.fetchAttivita(date: currentMonth)) ?? []
+
+        if successCount > 0 {
+            rainRescheduledCount = successCount
+            withAnimation { showRainToast = true }
+            Task {
+                try? await Task.sleep(for: .seconds(4))
+                withAnimation { showRainToast = false }
+            }
+        }
     }
 
     private func loadFiltersData() async {
