@@ -31,15 +31,8 @@ struct SignUpView: View {
 
     var body: some View {
         ZStack {
-            LinearGradient(
-                colors: [
-                    AppTheme.primaryGreen.opacity(0.08),
-                    Color(.systemBackground)
-                ],
-                startPoint: .top,
-                endPoint: .bottom
-            )
-            .ignoresSafeArea()
+            AppTheme.backgroundCream
+                .ignoresSafeArea()
 
             ScrollView {
                 VStack(spacing: 24) {
@@ -50,7 +43,8 @@ struct SignUpView: View {
                         .foregroundStyle(AppTheme.primaryGreen)
 
                     Text("Crea il tuo account")
-                        .font(.title2.bold())
+                        .font(.lora(28))
+                        .foregroundStyle(AppTheme.textPrimary)
 
                     VStack(spacing: 16) {
                         VStack(alignment: .leading, spacing: 4) {
@@ -60,8 +54,9 @@ struct SignUpView: View {
                                 .autocapitalization(.none)
                                 .autocorrectionDisabled()
                                 .padding()
-                                .background(AppTheme.cardSecondary)
+                                .background(AppTheme.cardBackground)
                                 .clipShape(RoundedRectangle(cornerRadius: 12))
+                                .overlay(RoundedRectangle(cornerRadius: 12).stroke(AppTheme.cardSecondaryWarm, lineWidth: 1))
 
                             if !email.isEmpty && !isValidEmail {
                                 Text("Inserisci un indirizzo email valido")
@@ -75,8 +70,9 @@ struct SignUpView: View {
                             SecureField("Password", text: $password)
                                 .textContentType(.newPassword)
                                 .padding()
-                                .background(AppTheme.cardSecondary)
+                                .background(AppTheme.cardBackground)
                                 .clipShape(RoundedRectangle(cornerRadius: 12))
+                                .overlay(RoundedRectangle(cornerRadius: 12).stroke(AppTheme.cardSecondaryWarm, lineWidth: 1))
 
                             if !password.isEmpty && !passwordValid {
                                 Text("Minimo 6 caratteri")
@@ -90,8 +86,9 @@ struct SignUpView: View {
                             SecureField("Conferma password", text: $confirmPassword)
                                 .textContentType(.newPassword)
                                 .padding()
-                                .background(AppTheme.cardSecondary)
+                                .background(AppTheme.cardBackground)
                                 .clipShape(RoundedRectangle(cornerRadius: 12))
+                                .overlay(RoundedRectangle(cornerRadius: 12).stroke(AppTheme.cardSecondaryWarm, lineWidth: 1))
 
                             if !confirmPassword.isEmpty && !passwordsMatch {
                                 Text("Le password non coincidono")
@@ -116,13 +113,13 @@ struct SignUpView: View {
                         .padding(.vertical, 14)
                         .background(canSubmit ? AppTheme.primaryGreen : Color.gray)
                         .foregroundStyle(.white)
-                        .clipShape(RoundedRectangle(cornerRadius: 12))
+                        .clipShape(RoundedRectangle(cornerRadius: 28))
                     }
                     .disabled(!canSubmit)
 
                     Button(action: { dismiss() }) {
                         Text("Hai già un account? **Accedi**")
-                            .font(.subheadline)
+                            .font(.dmSans(14))
                             .foregroundStyle(AppTheme.primaryGreen)
                     }
 

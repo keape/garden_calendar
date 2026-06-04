@@ -15,16 +15,8 @@ struct LoginView: View {
     var body: some View {
         NavigationStack {
             ZStack {
-                // Sfondo con gradiente verde tenue
-                LinearGradient(
-                    colors: [
-                        AppTheme.primaryGreen.opacity(0.08),
-                        Color(.systemBackground)
-                    ],
-                    startPoint: .top,
-                    endPoint: .bottom
-                )
-                .ignoresSafeArea()
+                AppTheme.backgroundCream
+                    .ignoresSafeArea()
 
                 ScrollView {
                     VStack(spacing: 24) {
@@ -36,19 +28,20 @@ struct LoginView: View {
                             .foregroundStyle(AppTheme.primaryGreen)
 
                         Text("Garden Calendar")
-                            .font(.largeTitle.bold())
-                            .foregroundStyle(AppTheme.primaryGreen)
+                            .font(.lora(28))
+                            .foregroundStyle(AppTheme.textPrimary)
 
                         Text("Il tuo diario di giardinaggio intelligente")
-                            .font(.subheadline)
-                            .foregroundStyle(.secondary)
+                            .font(.dmSans(14))
+                            .foregroundStyle(AppTheme.textSecondary)
 
                         Spacer().frame(height: 20)
 
                         // Card login
                         VStack(spacing: 16) {
                             Text("Accedi")
-                                .font(.title2.bold())
+                                .font(.dmSans(18, weight: .semibold))
+                                .foregroundStyle(AppTheme.textPrimary)
                                 .frame(maxWidth: .infinity, alignment: .leading)
 
                             VStack(spacing: 12) {
@@ -58,14 +51,16 @@ struct LoginView: View {
                                     .autocapitalization(.none)
                                     .autocorrectionDisabled()
                                     .padding()
-                                    .background(AppTheme.cardSecondary)
+                                    .background(AppTheme.cardBackground)
                                     .clipShape(RoundedRectangle(cornerRadius: 12))
+                                    .overlay(RoundedRectangle(cornerRadius: 12).stroke(AppTheme.cardSecondaryWarm, lineWidth: 1))
 
                                 SecureField("Password", text: $password)
                                     .textContentType(.password)
                                     .padding()
-                                    .background(AppTheme.cardSecondary)
+                                    .background(AppTheme.cardBackground)
                                     .clipShape(RoundedRectangle(cornerRadius: 12))
+                                    .overlay(RoundedRectangle(cornerRadius: 12).stroke(AppTheme.cardSecondaryWarm, lineWidth: 1))
                             }
 
                             // Bottone Login
@@ -83,22 +78,22 @@ struct LoginView: View {
                                 .padding(.vertical, 14)
                                 .background(AppTheme.primaryGreen)
                                 .foregroundStyle(.white)
-                                .clipShape(RoundedRectangle(cornerRadius: 12))
+                                .clipShape(RoundedRectangle(cornerRadius: 28))
                             }
                             .disabled(authManager.isLoading || email.trimmingCharacters(in: .whitespaces).isEmpty || password.isEmpty)
 
                             // Link registrati
                             Button(action: { showSignUp = true }) {
                                 Text("Non hai un account? **Registrati**")
-                                    .font(.subheadline)
+                                    .font(.dmSans(14))
                                     .foregroundStyle(AppTheme.primaryGreen)
                             }
 
                             // Link password dimenticata
                             Button(action: { showResetPassword = true }) {
                                 Text("Password dimenticata?")
-                                    .font(.caption)
-                                    .foregroundStyle(.secondary)
+                                    .font(.dmSans(14))
+                                    .foregroundStyle(AppTheme.textSecondary)
                             }
                         }
                         .padding(24)
