@@ -94,7 +94,9 @@ struct OrtoDetailView: View {
         .navigationDestination(for: PiantaColtivata.self) { pianta in
             PiantaDetailView(pianta: pianta)
         }
-        .sheet(isPresented: $showAddPianta) {
+        .sheet(isPresented: $showAddPianta, onDismiss: {
+            Task { await loadPiante() }
+        }) {
             AggiungiPiantaView(ortoId: orto.id)
         }
         .sheet(isPresented: $showEditOrto) {
@@ -218,7 +220,11 @@ struct OrtoDetailView: View {
     // MARK: - Helpers
 
     private func loadPiante() async {
-        do { piante = try await repository.fetchPiante(ortoId: orto.id) } catch {}
+        do {
+            piante = try await repository.fetchPiante(ortoId: orto.id)
+        } catch {
+            errorMessage = error.localizedDescription
+        }
     }
 
     private func deletePiante(at offsets: IndexSet) {
