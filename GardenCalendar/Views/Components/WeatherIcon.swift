@@ -45,8 +45,8 @@ struct WeatherIcon: View {
     var body: some View {
         Image(systemName: iconName)
             .font(.system(size: size))
+            .symbolRenderingMode(.monochrome)
             .foregroundStyle(iconColor)
-            .symbolRenderingMode(.multicolor)
     }
 }
 

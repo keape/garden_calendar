@@ -9,13 +9,13 @@ actor OpenMeteoClient {
         c.countLimit = 50
         return c
     }()
-    private var inFlight: [String: Task<[String: Bool], Error>] = [:]
+    private var inFlight: [String: Task<[String: Double], Error>] = [:]
 
     private init() {}
 
     /// Fetch rain days for a location and date range.
     /// Returns a Set of "YYYY-MM-DD" date strings where precipitation >= threshold mm.
-    func fetchRainDays(latitude: Double, longitude: Double, from: Date, to: Date, threshold: Double = 2.0) async throws -> [String: Bool] {
+    func fetchRainDays(latitude: Double, longitude: Double, from: Date, to: Date, threshold: Double = 2.0) async throws -> [String: Double] {
         let clampedTo = min(to, Calendar.current.date(byAdding: .day, value: 16, to: Date()) ?? to)
         let key = "\(latitude),\(longitude),\(from.iso8601),\(clampedTo.iso8601),\(threshold)"
 
@@ -29,7 +29,7 @@ actor OpenMeteoClient {
             return try await existing.value
         }
 
-        let task = Task<[String: Bool], Error> {
+        let task = Task<[String: Double], Error> {
             defer { inFlight.removeValue(forKey: key) }
 
             let formatter = ISO8601DateFormatter()
@@ -51,11 +51,11 @@ actor OpenMeteoClient {
             let decoder = JSONDecoder()
             let result = try decoder.decode(OpenMeteoResponse.self, from: data)
 
-            var days: [String: Bool] = [:]
+            var days: [String: Double] = [:]
             for (index, dateStr) in result.daily.time.enumerated() {
                 let precip = index < result.daily.precipitationSum.count ? result.daily.precipitationSum[index] : 0
                 if precip >= threshold {
-                    days[dateStr] = true
+                    days[dateStr] = precip
                 }
             }
 
@@ -75,7 +75,7 @@ actor OpenMeteoClient {
 
 struct RainAdjuster {
     /// Check if a rain day falls today or yesterday relative to an activity date.
-    static func isAbsorbedByRain(activityDate: Date, rainDays: [String: Bool]) -> Bool {
+    static func isAbsorbedByRain(activityDate: Date, rainDays: [String: Double]) -> Bool {
         let calendar = Calendar.current
         let formatter = ISO8601DateFormatter()
         formatter.formatOptions = [.withFullDate]
@@ -83,12 +83,12 @@ struct RainAdjuster {
         let todayStr = formatter.string(from: activityDate)
         let yesterdayStr = formatter.string(from: calendar.date(byAdding: .day, value: -1, to: activityDate) ?? activityDate)
 
-        return rainDays[todayStr] == true || rainDays[yesterdayStr] == true
+        return rainDays[todayStr] != nil || rainDays[yesterdayStr] != nil
     }
 
     /// Compute rain overrides for a list of activities.
     /// Returns a set of activity IDs that should be marked as rain-absorbed.
-    static func computeOverrides(activities: [Attivita], rainDays: [String: Bool]) -> Set<UUID> {
+    static func computeOverrides(activities: [Attivita], rainDays: [String: Double]) -> Set<UUID> {
         var absorbed = Set<UUID>()
 
         for activity in activities {
@@ -111,7 +111,7 @@ struct RainAdjuster {
 
     static func computeRescheduling(
         activities: [Attivita],
-        rainDays: [String: Bool]
+        rainDays: [String: Double]
     ) -> [RescheduleAction] {
         let calendar = Calendar.current
         let formatter = ISO8601DateFormatter()
@@ -130,9 +130,9 @@ struct RainAdjuster {
             let dayBeforeStr = formatter.string(from: dayBefore)
 
             let rainDate: Date
-            if rainDays[actStr] == true {
+            if rainDays[actStr] != nil {
                 rainDate = activity.data
-            } else if rainDays[dayBeforeStr] == true {
+            } else if rainDays[dayBeforeStr] != nil {
                 rainDate = dayBefore
             } else {
                 return nil
@@ -179,9 +179,9 @@ private struct OpenMeteoResponse: Decodable {
 }
 
 private class CacheEntry {
-    let days: [String: Bool]
+    let days: [String: Double]
     let timestamp: Date
-    init(days: [String: Bool], timestamp: Date) {
+    init(days: [String: Double], timestamp: Date) {
         self.days = days
         self.timestamp = timestamp
     }
