@@ -33,7 +33,7 @@ struct SettingsView: View {
         NavigationStack {
             Form {
                 // MARK: - Profilo
-                Section("Profilo") {
+                Section(header: sectionHeader("Profilo")) {
                     HStack {
                         Image(systemName: "person.circle.fill")
                             .font(.title)
@@ -41,45 +41,56 @@ struct SettingsView: View {
 
                         VStack(alignment: .leading, spacing: 2) {
                             Text("Account")
-                                .font(.subheadline)
-                                .foregroundStyle(.secondary)
+                                .font(.dmSans(13))
+                                .foregroundStyle(AppTheme.textSecondary)
                             Text(email)
-                                .font(.body)
+                                .font(.dmSans(15))
+                                .foregroundStyle(AppTheme.textPrimary)
                         }
                     }
+                    .listRowBackground(AppTheme.cardBackground)
 
                     Button(role: .destructive, action: { showLogoutConfirm = true }) {
                         Label("Esci", systemImage: "rectangle.portrait.and.arrow.right")
+                            .font(.dmSans(15))
                     }
+                    .listRowBackground(AppTheme.cardBackground)
                 }
 
                 // MARK: - Orto Preferito
-                Section("Orto preferito") {
+                Section(header: sectionHeader("Orto preferito")) {
                     Picker("Orto predefinito", selection: $preferredGarden) {
                         ForEach(gardenOptions, id: \.self) { option in
                             Text(option).tag(option)
                         }
                     }
                     .pickerStyle(.menu)
+                    .font(.dmSans(15))
+                    .listRowBackground(AppTheme.cardBackground)
                 }
 
                 // MARK: - Meteo
                 Section(
-                    header: Text("Meteo"),
+                    header: sectionHeader("Meteo"),
                     footer: Text("La soglia di pioggia determina quando mostrare l'icona della pioggia nel calendario.")
+                        .font(.dmSans(12))
+                        .foregroundStyle(AppTheme.textSecondary)
                 ) {
                     HStack {
                         Image(systemName: "mappin")
-                            .foregroundStyle(.secondary)
+                            .foregroundStyle(AppTheme.textSecondary)
                         TextField("Luogo (es. Roma)", text: $weatherLocation)
                             .autocorrectionDisabled()
+                            .font(.dmSans(15))
                     }
+                    .listRowBackground(AppTheme.cardBackground)
 
                     VStack(alignment: .leading, spacing: 8) {
                         HStack {
                             Image(systemName: "drop.fill")
                                 .foregroundStyle(AppTheme.rainBlue)
                             Text("Soglia pioggia: \(rainThreshold, specifier: "%.0f") mm")
+                                .font(.dmSans(15))
                         }
 
                         Stepper("", value: $rainThreshold, in: 1...50, step: 1)
@@ -87,61 +98,81 @@ struct SettingsView: View {
 
                         HStack {
                             Text("1 mm")
-                                .font(.caption)
-                                .foregroundStyle(.secondary)
+                                .font(.dmSans(11))
+                                .foregroundStyle(AppTheme.textSecondary)
                             Spacer()
                             Text("50 mm")
-                                .font(.caption)
-                                .foregroundStyle(.secondary)
+                                .font(.dmSans(11))
+                                .foregroundStyle(AppTheme.textSecondary)
                         }
                     }
+                    .listRowBackground(AppTheme.cardBackground)
                 }
 
                 // MARK: - Aspetto
-                Section("Aspetto") {
+                Section(header: sectionHeader("Aspetto")) {
                     Picker("Tema", selection: $selectedTheme) {
                         Text("🌞 Chiaro").tag(ThemeMode.light)
                         Text("🌙 Scuro").tag(ThemeMode.dark)
                         Text("🔄 Automatico").tag(ThemeMode.automatic)
                     }
                     .pickerStyle(.menu)
+                    .font(.dmSans(15))
+                    .listRowBackground(AppTheme.cardBackground)
                 }
 
                 // MARK: - Info App
-                Section("Info") {
+                Section(header: sectionHeader("Info")) {
                     HStack {
                         Text("Versione")
+                            .font(.dmSans(15))
+                            .foregroundStyle(AppTheme.textPrimary)
                         Spacer()
                         Text(appVersion)
-                            .foregroundStyle(.secondary)
+                            .font(.dmSans(15))
+                            .foregroundStyle(AppTheme.textSecondary)
                     }
+                    .listRowBackground(AppTheme.cardBackground)
 
                     HStack {
                         Text("Build")
+                            .font(.dmSans(15))
+                            .foregroundStyle(AppTheme.textPrimary)
                         Spacer()
                         Text(buildNumber)
-                            .foregroundStyle(.secondary)
+                            .font(.dmSans(15))
+                            .foregroundStyle(AppTheme.textSecondary)
                     }
+                    .listRowBackground(AppTheme.cardBackground)
 
                     HStack {
                         Text("Sviluppata con")
+                            .font(.dmSans(15))
+                            .foregroundStyle(AppTheme.textPrimary)
                         Spacer()
                         Label("Nous Research", systemImage: "brain")
-                            .font(.caption)
-                            .foregroundStyle(.secondary)
+                            .font(.dmSans(12))
+                            .foregroundStyle(AppTheme.textSecondary)
                     }
+                    .listRowBackground(AppTheme.cardBackground)
                 }
 
                 // MARK: - Elimina account
                 Section {
                     Button(role: .destructive, action: { showDeleteConfirm = true }) {
                         Label("Elimina account", systemImage: "trash")
+                            .font(.dmSans(15))
                             .frame(maxWidth: .infinity)
                     }
+                    .listRowBackground(AppTheme.cardBackground)
                 } footer: {
                     Text("L'eliminazione dell'account cancellerà tutti i tuoi dati. Questa azione è irreversibile.")
+                        .font(.dmSans(12))
+                        .foregroundStyle(AppTheme.textSecondary)
                 }
             }
+            .scrollContentBackground(.hidden)
+            .background(AppTheme.backgroundCream)
             .navigationTitle("Impostazioni")
             .alert("Esci dall'account", isPresented: $showLogoutConfirm) {
                 Button("Esci", role: .destructive) {
@@ -170,6 +201,13 @@ struct SettingsView: View {
                 loadSettings()
             }
         }
+    }
+
+    private func sectionHeader(_ title: String) -> some View {
+        Text(title)
+            .font(.dmSans(12, weight: .semibold))
+            .foregroundStyle(AppTheme.textSecondary)
+            .textCase(nil)
     }
 
     private func loadSettings() {
