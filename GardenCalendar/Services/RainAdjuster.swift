@@ -16,7 +16,8 @@ actor OpenMeteoClient {
     /// Fetch rain days for a location and date range.
     /// Returns a Set of "YYYY-MM-DD" date strings where precipitation >= threshold mm.
     func fetchRainDays(latitude: Double, longitude: Double, from: Date, to: Date, threshold: Double = 2.0) async throws -> [String: Bool] {
-        let key = "\(latitude),\(longitude),\(from.iso8601),\(to.iso8601),\(threshold)"
+        let clampedTo = min(to, Calendar.current.date(byAdding: .day, value: 16, to: Date()) ?? to)
+        let key = "\(latitude),\(longitude),\(from.iso8601),\(clampedTo.iso8601),\(threshold)"
 
         // Check cache
         if let cached = cache.object(forKey: key as NSString) {
@@ -34,7 +35,7 @@ actor OpenMeteoClient {
             let formatter = ISO8601DateFormatter()
             formatter.formatOptions = [.withFullDate]
             let fromStr = formatter.string(from: from)
-            let toStr = formatter.string(from: to)
+            let toStr = formatter.string(from: clampedTo)
 
             let urlStr = "https://api.open-meteo.com/v1/forecast?latitude=\(latitude)&longitude=\(longitude)&daily=precipitation_sum&timezone=auto&start_date=\(fromStr)&end_date=\(toStr)"
 
