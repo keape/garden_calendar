@@ -31,17 +31,18 @@ struct OrtoDetailView: View {
                         .foregroundStyle(AppTheme.primaryGreen)
 
                     Text(orto.nome)
-                        .font(.title.bold())
+                        .font(.lora(22))
+                        .foregroundStyle(AppTheme.textPrimary)
 
                     if let luogo = orto.luogo, !luogo.isEmpty {
                         Label(luogo, systemImage: "mappin")
-                            .font(.subheadline)
-                            .foregroundStyle(.secondary)
+                            .font(.dmSans(14))
+                            .foregroundStyle(AppTheme.textSecondary)
                     }
 
                     Label("\(piante.count) piante", systemImage: "leaf")
-                        .font(.caption)
-                        .foregroundStyle(.secondary)
+                        .font(.dmSans(12))
+                        .foregroundStyle(AppTheme.textSecondary)
                         .padding(.top, 4)
                 }
                 .frame(maxWidth: .infinity)
@@ -64,6 +65,8 @@ struct OrtoDetailView: View {
             } header: {
                 HStack {
                     Text("Piante")
+                        .font(.dmSans(12, weight: .semibold))
+                        .foregroundStyle(AppTheme.textSecondary)
                     Spacer()
                     Button(action: { showAddPianta = true }) {
                         Image(systemName: "plus.circle.fill")
@@ -73,6 +76,8 @@ struct OrtoDetailView: View {
             }
         }
         .listStyle(.insetGrouped)
+        .scrollContentBackground(.hidden)
+        .background(AppTheme.backgroundCream)
         .navigationTitle(orto.nome)
         .navigationBarTitleDisplayMode(.inline)
         .toolbar {
@@ -197,8 +202,8 @@ struct OrtoDetailView: View {
                 .foregroundStyle(.secondary.opacity(0.5))
 
             Text("Aggiungi la tua prima pianta")
-                .font(.headline)
-                .foregroundStyle(.secondary)
+                .font(.dmSans(16, weight: .semibold))
+                .foregroundStyle(AppTheme.textSecondary)
 
             Button(action: { showAddPianta = true }) {
                 Label("Aggiungi pianta", systemImage: "plus")
@@ -308,12 +313,13 @@ struct PiantaRowView: View {
 
             VStack(alignment: .leading, spacing: 4) {
                 Text(pianta.nomePersonalizzato)
-                    .font(.headline)
+                    .font(.dmSans(15, weight: .medium))
+                    .foregroundStyle(AppTheme.textPrimary)
 
                 HStack(spacing: 8) {
                     Text("\(pianta.growthDays) giorni")
-                        .font(.caption)
-                        .foregroundStyle(.secondary)
+                        .font(.dmSans(12))
+                        .foregroundStyle(AppTheme.textSecondary)
 
                     if pianta.progressoCiclo >= 1.0 {
                         Image(systemName: "checkmark.circle.fill")
@@ -329,8 +335,8 @@ struct PiantaRowView: View {
             Spacer()
 
             Text("\(pianta.giorniTrascorsi)g")
-                .font(.caption.bold())
-                .foregroundStyle(.secondary)
+                .font(.dmSans(12, weight: .semibold))
+                .foregroundStyle(AppTheme.textSecondary)
         }
         .padding(.vertical, 4)
     }
