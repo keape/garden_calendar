@@ -56,7 +56,7 @@ struct PiantaListView: View {
                     }
                 }
             }
-            .background(Color(.systemGroupedBackground))
+            .background(AppTheme.backgroundCream)
             .navigationTitle("Piante")
             .navigationDestination(for: PiantaColtivata.self) { pianta in
                 PiantaDetailView(pianta: pianta)
@@ -123,19 +123,20 @@ struct PiantaCardView: View {
 
             VStack(alignment: .leading, spacing: 4) {
                 Text(pianta.nomePersonalizzato)
-                    .font(.headline)
+                    .font(.dmSans(15, weight: .medium))
+                    .foregroundStyle(AppTheme.textPrimary)
                     .lineLimit(1)
 
                 Text("\(pianta.growthDays) giorni totali")
-                    .font(.caption)
-                    .foregroundStyle(.secondary)
+                    .font(.dmSans(12))
+                    .foregroundStyle(AppTheme.textSecondary)
 
                 ProgressView(value: pianta.progressoCiclo)
                     .tint(AppTheme.primaryGreen)
 
                 Text("\(pianta.giorniTrascorsi)g / \(pianta.growthDays)g")
-                    .font(.caption2)
-                    .foregroundStyle(.secondary)
+                    .font(.dmSans(12))
+                    .foregroundStyle(AppTheme.textSecondary)
             }
             .frame(maxWidth: .infinity, alignment: .leading)
         }

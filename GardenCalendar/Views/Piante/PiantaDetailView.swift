@@ -5,6 +5,8 @@ struct PiantaDetailView: View {
     @Environment(SupabaseRepository.self) private var repository
     @State private var attivita: [Attivita] = []
     @State private var attivitaSelezionata: Attivita?
+    @State private var showNuovaAttivita = false
+    @State private var showModificaAttivita = false
 
     init(pianta: PiantaColtivata) {
         _pianta = State(initialValue: pianta)
@@ -24,13 +26,26 @@ struct PiantaDetailView: View {
             }
             .padding(.vertical)
         }
-        .background(Color(.systemGroupedBackground))
+        .background(AppTheme.backgroundCream)
         .navigationTitle(pianta.nomePersonalizzato)
         .navigationBarTitleDisplayMode(.large)
+        .toolbar {
+            ToolbarItem(placement: .topBarTrailing) {
+                Button("Modifica") { showModificaAttivita = true }
+            }
+        }
         .task { await loadData() }
         .refreshable { await loadData() }
         .sheet(item: $attivitaSelezionata, onDismiss: { Task { await loadData() } }) { att in
             ModificaIntervalloSheet(pianta: pianta, attivita: att, tutteAttivita: attivita)
+                .environment(repository)
+        }
+        .sheet(isPresented: $showNuovaAttivita, onDismiss: { Task { await loadData() } }) {
+            NuovaAttivitaSheet(pianta: pianta)
+                .environment(repository)
+        }
+        .sheet(isPresented: $showModificaAttivita, onDismiss: { Task { await loadData() } }) {
+            ModificaPiantaSheet(pianta: pianta, attivita: attivita)
                 .environment(repository)
         }
     }
@@ -57,12 +72,12 @@ struct PiantaDetailView: View {
 
             HStack(spacing: 16) {
                 Label("\(pianta.giorniTrascorsi)g / \(pianta.growthDays)g", systemImage: "clock")
-                    .font(.subheadline)
-                    .foregroundStyle(.secondary)
+                    .font(.dmSans(15, weight: .medium))
+                    .foregroundStyle(AppTheme.textSecondary)
 
                 Label("\(attivita.count) attività", systemImage: "checklist")
-                    .font(.subheadline)
-                    .foregroundStyle(.secondary)
+                    .font(.dmSans(15, weight: .medium))
+                    .foregroundStyle(AppTheme.textSecondary)
             }
         }
     }
@@ -77,16 +92,16 @@ struct PiantaDetailView: View {
 
             HStack {
                 Text(pianta.dataSemina, style: .date)
-                    .font(.caption2)
-                    .foregroundStyle(.secondary)
+                    .font(.dmSans(12))
+                    .foregroundStyle(AppTheme.textSecondary)
                 Spacer()
                 Text(pianta.progressoCiclo >= 1.0 ? "Completato! 🎉" : "\(Int(pianta.progressoCiclo * 100))%")
-                    .font(.caption2.bold())
+                    .font(.dmSans(12, weight: .semibold))
                     .foregroundStyle(AppTheme.primaryGreen)
                 Spacer()
                 Text(pianta.dataRaccoltaPrevista, style: .date)
-                    .font(.caption2)
-                    .foregroundStyle(.secondary)
+                    .font(.dmSans(12))
+                    .foregroundStyle(AppTheme.textSecondary)
             }
         }
         .padding()
@@ -99,13 +114,20 @@ struct PiantaDetailView: View {
 
     private var activitiesSection: some View {
         VStack(alignment: .leading, spacing: 12) {
-            Text("📋 Attività")
-                .font(.headline)
+            HStack {
+                Text("📋 Attività")
+                    .font(.dmSans(15, weight: .semibold))
+                    .foregroundStyle(AppTheme.textPrimary)
+                Spacer()
+                Button { showNuovaAttivita = true } label: {
+                    Image(systemName: "plus")
+                }
+            }
 
             if attivita.isEmpty {
                 Text("Nessuna attività registrata per questa pianta.")
-                    .font(.subheadline)
-                    .foregroundStyle(.secondary)
+                    .font(.dmSans(15))
+                    .foregroundStyle(AppTheme.textSecondary)
                     .padding(.vertical, 8)
             }
 
@@ -115,7 +137,7 @@ struct PiantaDetailView: View {
 
             if !future.isEmpty {
                 Text("In programma")
-                    .font(.subheadline.bold())
+                    .font(.dmSans(12, weight: .semibold))
                     .foregroundStyle(AppTheme.primaryGreen)
 
                 ForEach(future) { att in
@@ -129,8 +151,8 @@ struct PiantaDetailView: View {
 
             if !past.isEmpty {
                 Text("Completate / Passate")
-                    .font(.subheadline.bold())
-                    .foregroundStyle(.secondary)
+                    .font(.dmSans(12, weight: .semibold))
+                    .foregroundStyle(AppTheme.textSecondary)
 
                 ForEach(past) { att in
                     AttivitaRow(
@@ -187,17 +209,18 @@ struct AttivitaRow: View {
 
             VStack(alignment: .leading, spacing: 2) {
                 Text(attivita.nome.capitalized)
-                    .font(.subheadline)
+                    .font(.dmSans(15, weight: .medium))
+                    .foregroundStyle(AppTheme.textPrimary)
                     .strikethrough(attivita.done)
 
                 Text(attivita.data, style: .date)
-                    .font(.caption)
-                    .foregroundStyle(.secondary)
+                    .font(.dmSans(12))
+                    .foregroundStyle(AppTheme.textSecondary)
 
                 if attivita.recurrenceDays != nil {
                     Label("Ricorrente", systemImage: "repeat")
-                        .font(.caption2)
-                        .foregroundStyle(.secondary)
+                        .font(.dmSans(12))
+                        .foregroundStyle(AppTheme.textSecondary)
                 }
             }
 
