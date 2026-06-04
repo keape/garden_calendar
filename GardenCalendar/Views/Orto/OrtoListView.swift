@@ -23,22 +23,29 @@ struct OrtoListView: View {
                 if orti.isEmpty {
                     emptyState
                 } else {
-                    List {
-                        ForEach(orti) { orto in
-                            NavigationLink(value: orto) {
-                                OrtoRow(orto: orto)
+                    ScrollView {
+                        LazyVStack(spacing: 10) {
+                            ForEach(orti) { orto in
+                                NavigationLink(value: orto) {
+                                    OrtoCardRow(orto: orto)
+                                }
+                                .buttonStyle(.plain)
+                                .contextMenu {
+                                    Button(role: .destructive) {
+                                        ortoToDelete = orto
+                                        showDeleteConfirm = true
+                                    } label: {
+                                        Label("Elimina", systemImage: "trash")
+                                    }
+                                }
                             }
                         }
-                        .onDelete { indexSet in
-                            if let index = indexSet.first {
-                                ortoToDelete = orti[index]
-                                showDeleteConfirm = true
-                            }
-                        }
+                        .padding(.horizontal, 16)
+                        .padding(.top, 8)
                     }
-                    .listStyle(.insetGrouped)
                 }
             }
+            .background(AppTheme.backgroundCream)
             .navigationTitle("I miei orti")
             .toolbar {
                 ToolbarItem(placement: .topBarTrailing) {
@@ -230,32 +237,45 @@ struct OrtoListView: View {
     }
 }
 
-// MARK: - Orto Row
+// MARK: - Orto Card Row
 
-struct OrtoRow: View {
+struct OrtoCardRow: View {
     let orto: Orto
 
     var body: some View {
-        HStack(spacing: 12) {
-            Image(systemName: "tree.fill")
-                .font(.title2)
-                .foregroundStyle(AppTheme.primaryGreen)
-                .frame(width: 36)
+        HStack(spacing: 14) {
+            ZStack {
+                Circle()
+                    .fill(AppTheme.primaryGreen.opacity(0.12))
+                    .frame(width: 44, height: 44)
+                Image(systemName: "tree.fill")
+                    .font(.system(size: 20))
+                    .foregroundStyle(AppTheme.primaryGreen)
+            }
 
-            VStack(alignment: .leading, spacing: 2) {
+            VStack(alignment: .leading, spacing: 3) {
                 Text(orto.nome)
-                    .font(.headline)
+                    .font(.dmSans(15, weight: .semibold))
+                    .foregroundStyle(AppTheme.textPrimary)
 
                 if let luogo = orto.luogo, !luogo.isEmpty {
                     Label(luogo, systemImage: "mappin")
-                        .font(.caption)
-                        .foregroundStyle(.secondary)
+                        .font(.dmSans(12))
+                        .foregroundStyle(AppTheme.textSecondary)
                 }
             }
 
             Spacer()
+
+            Image(systemName: "chevron.right")
+                .font(.system(size: 12, weight: .semibold))
+                .foregroundStyle(AppTheme.textSecondary.opacity(0.5))
         }
-        .padding(.vertical, 4)
+        .padding(.horizontal, 14)
+        .padding(.vertical, 12)
+        .background(AppTheme.cardBackground)
+        .clipShape(RoundedRectangle(cornerRadius: 14))
+        .shadow(color: .black.opacity(0.04), radius: 4, y: 1)
     }
 }
 
