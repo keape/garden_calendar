@@ -134,8 +134,15 @@ struct LoginView: View {
                     .keyboardType(.emailAddress)
                     .autocapitalization(.none)
                 Button("Invia") {
-                    Task { try? await authManager.resetPassword(email: resetEmail) }
-                    resetSent = true
+                    Task {
+                        do {
+                            try await authManager.resetPassword(email: resetEmail)
+                            resetSent = true
+                        } catch {
+                            errorMessage = error.localizedDescription
+                            showError = true
+                        }
+                    }
                 }
                 Button("Annulla", role: .cancel) {}
             } message: {
