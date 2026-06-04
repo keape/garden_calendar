@@ -84,7 +84,8 @@ struct DayDetailView: View {
                             NaturalistaActivityRow(
                                 activity: activity,
                                 piantaNome: pianteLookup[activity.piantaId],
-                                ortoNome: ortoLookup[activity.piantaId]
+                                ortoNome: ortoLookup[activity.piantaId],
+                                onToggle: { Task { await loadActivities() } }
                             )
                             .swipeActions(edge: .trailing) {
                                 Button { rescheduleActivity(activity) } label: {
@@ -126,7 +127,7 @@ struct DayDetailView: View {
         .navigationBarTitleDisplayMode(.inline)
         .task { await loadActivities() }
         .sheet(isPresented: $showAddActivity, onDismiss: { Task { await loadActivities() } }) {
-            QuickJournalView()
+            QuickJournalView(preselectedDate: selectedDate)
         }
         .sheet(isPresented: $showReschedulePicker) {
             rescheduleSheet
@@ -174,15 +175,20 @@ struct DayDetailView: View {
 
     private func moveActivityBack(_ activity: Attivita) {
         let newDate = calendar.date(byAdding: .day, value: -1, to: activity.data) ?? activity.data
-        Task { try? await repository.rescheduleAttivita(id: activity.id, date: newDate) }
+        Task {
+            try? await repository.rescheduleAttivita(id: activity.id, date: newDate)
+            await loadActivities()
+        }
     }
 
     private func confirmReschedule() {
-        if let activity = editingActivity {
-            Task { try? await repository.rescheduleAttivita(id: activity.id, date: rescheduleDate) }
-        }
+        guard let activity = editingActivity else { return }
         showReschedulePicker = false
         editingActivity = nil
+        Task {
+            try? await repository.rescheduleAttivita(id: activity.id, date: rescheduleDate)
+            await loadActivities()
+        }
     }
 
     private func loadActivities() async {
@@ -232,6 +238,7 @@ struct NaturalistaActivityRow: View {
     let activity: Attivita
     var piantaNome: String?
     var ortoNome: String?
+    var onToggle: (() -> Void)?
 
     @Environment(SupabaseRepository.self) private var repository
 
@@ -297,7 +304,10 @@ struct NaturalistaActivityRow: View {
     }
 
     private func toggleDone() {
-        Task { try? await repository.setDone(id: activity.id, done: !activity.done) }
+        Task {
+            try? await repository.setDone(id: activity.id, done: !activity.done)
+            onToggle?()
+        }
     }
 
     private func iconForActivity(_ name: String) -> String {

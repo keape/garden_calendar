@@ -23,6 +23,10 @@ struct QuickJournalView: View {
     @State private var alertMessage = ""
     @State private var isSaving = false
 
+    init(preselectedDate: Date = Date()) {
+        self._eventDate = State(initialValue: preselectedDate)
+    }
+
     private let actions: [(name: String, icon: String)] = [
         ("semina", "leaf.fill"),
         ("trapianto", "arrow.triangle.branch"),
