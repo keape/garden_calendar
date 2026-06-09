@@ -798,9 +798,9 @@
     {
       "label": "Attivita.swift",
       "file_type": "code",
-      "source_file": "GardenCalendar/Models/Attivita.swift",
+      "source_file": "/Users/keape/Library/Mobile Documents/com~apple~CloudDocs/app sviluppate e html/garden-calendar-ios/GardenCalendar/Models/Attivita.swift",
       "source_location": "L1",
-      "id": "gardencalendar_models_attivita_swift",
+      "id": "users_keape_library_mobile_documents_com_apple_clouddocs_app_sviluppate_e_html_garden_calendar_ios_gardencalendar_models_attivita_swift",
       "community": 7,
       "norm_label": "attivita.swift"
     },
@@ -825,7 +825,7 @@
     {
       "label": "CodingKeys",
       "file_type": "code",
-      "source_file": "GardenCalendar/Models/Attivita.swift",
+      "source_file": "/Users/keape/Library/Mobile Documents/com~apple~CloudDocs/app sviluppate e html/garden-calendar-ios/GardenCalendar/Models/Attivita.swift",
       "source_location": "L19",
       "id": "models_attivita_codingkeys",
       "community": 7,
@@ -852,7 +852,7 @@
     {
       "label": "id",
       "file_type": "code",
-      "source_file": "GardenCalendar/Models/Attivita.swift",
+      "source_file": "/Users/keape/Library/Mobile Documents/com~apple~CloudDocs/app sviluppate e html/garden-calendar-ios/GardenCalendar/Models/Attivita.swift",
       "source_location": "L20",
       "id": "models_attivita_codingkeys_id",
       "community": 7,
@@ -861,7 +861,7 @@
     {
       "label": "piantaId",
       "file_type": "code",
-      "source_file": "GardenCalendar/Models/Attivita.swift",
+      "source_file": "/Users/keape/Library/Mobile Documents/com~apple~CloudDocs/app sviluppate e html/garden-calendar-ios/GardenCalendar/Models/Attivita.swift",
       "source_location": "L21",
       "id": "models_attivita_codingkeys_piantaid",
       "community": 7,
@@ -870,7 +870,7 @@
     {
       "label": "nome",
       "file_type": "code",
-      "source_file": "GardenCalendar/Models/Attivita.swift",
+      "source_file": "/Users/keape/Library/Mobile Documents/com~apple~CloudDocs/app sviluppate e html/garden-calendar-ios/GardenCalendar/Models/Attivita.swift",
       "source_location": "L22",
       "id": "models_attivita_codingkeys_nome",
       "community": 7,
@@ -879,7 +879,7 @@
     {
       "label": "data",
       "file_type": "code",
-      "source_file": "GardenCalendar/Models/Attivita.swift",
+      "source_file": "/Users/keape/Library/Mobile Documents/com~apple~CloudDocs/app sviluppate e html/garden-calendar-ios/GardenCalendar/Models/Attivita.swift",
       "source_location": "L23",
       "id": "models_attivita_codingkeys_data",
       "community": 7,
@@ -888,7 +888,7 @@
     {
       "label": "done",
       "file_type": "code",
-      "source_file": "GardenCalendar/Models/Attivita.swift",
+      "source_file": "/Users/keape/Library/Mobile Documents/com~apple~CloudDocs/app sviluppate e html/garden-calendar-ios/GardenCalendar/Models/Attivita.swift",
       "source_location": "L24",
       "id": "models_attivita_codingkeys_done",
       "community": 7,
@@ -897,7 +897,7 @@
     {
       "label": "rainAdjusted",
       "file_type": "code",
-      "source_file": "GardenCalendar/Models/Attivita.swift",
+      "source_file": "/Users/keape/Library/Mobile Documents/com~apple~CloudDocs/app sviluppate e html/garden-calendar-ios/GardenCalendar/Models/Attivita.swift",
       "source_location": "L25",
       "id": "models_attivita_codingkeys_rainadjusted",
       "community": 7,
@@ -906,7 +906,7 @@
     {
       "label": "rainRescheduled",
       "file_type": "code",
-      "source_file": "GardenCalendar/Models/Attivita.swift",
+      "source_file": "/Users/keape/Library/Mobile Documents/com~apple~CloudDocs/app sviluppate e html/garden-calendar-ios/GardenCalendar/Models/Attivita.swift",
       "source_location": "L26",
       "id": "models_attivita_codingkeys_rainrescheduled",
       "community": 7,
@@ -915,7 +915,7 @@
     {
       "label": "userEvent",
       "file_type": "code",
-      "source_file": "GardenCalendar/Models/Attivita.swift",
+      "source_file": "/Users/keape/Library/Mobile Documents/com~apple~CloudDocs/app sviluppate e html/garden-calendar-ios/GardenCalendar/Models/Attivita.swift",
       "source_location": "L27",
       "id": "models_attivita_codingkeys_userevent",
       "community": 7,
@@ -924,7 +924,7 @@
     {
       "label": "sourceAction",
       "file_type": "code",
-      "source_file": "GardenCalendar/Models/Attivita.swift",
+      "source_file": "/Users/keape/Library/Mobile Documents/com~apple~CloudDocs/app sviluppate e html/garden-calendar-ios/GardenCalendar/Models/Attivita.swift",
       "source_location": "L28",
       "id": "models_attivita_codingkeys_sourceaction",
       "community": 7,
@@ -933,7 +933,7 @@
     {
       "label": "note",
       "file_type": "code",
-      "source_file": "GardenCalendar/Models/Attivita.swift",
+      "source_file": "/Users/keape/Library/Mobile Documents/com~apple~CloudDocs/app sviluppate e html/garden-calendar-ios/GardenCalendar/Models/Attivita.swift",
       "source_location": "L29",
       "id": "models_attivita_codingkeys_note",
       "community": 7,
@@ -942,7 +942,7 @@
     {
       "label": "color",
       "file_type": "code",
-      "source_file": "GardenCalendar/Models/Attivita.swift",
+      "source_file": "/Users/keape/Library/Mobile Documents/com~apple~CloudDocs/app sviluppate e html/garden-calendar-ios/GardenCalendar/Models/Attivita.swift",
       "source_location": "L30",
       "id": "models_attivita_codingkeys_color",
       "community": 7,
@@ -951,7 +951,7 @@
     {
       "label": "recurrenceDays",
       "file_type": "code",
-      "source_file": "GardenCalendar/Models/Attivita.swift",
+      "source_file": "/Users/keape/Library/Mobile Documents/com~apple~CloudDocs/app sviluppate e html/garden-calendar-ios/GardenCalendar/Models/Attivita.swift",
       "source_location": "L31",
       "id": "models_attivita_codingkeys_recurrencedays",
       "community": 7,
@@ -960,7 +960,7 @@
     {
       "label": "createdAt",
       "file_type": "code",
-      "source_file": "GardenCalendar/Models/Attivita.swift",
+      "source_file": "/Users/keape/Library/Mobile Documents/com~apple~CloudDocs/app sviluppate e html/garden-calendar-ios/GardenCalendar/Models/Attivita.swift",
       "source_location": "L32",
       "id": "models_attivita_codingkeys_createdat",
       "community": 7,
@@ -969,7 +969,7 @@
     {
       "label": "Create",
       "file_type": "code",
-      "source_file": "GardenCalendar/Models/Attivita.swift",
+      "source_file": "/Users/keape/Library/Mobile Documents/com~apple~CloudDocs/app sviluppate e html/garden-calendar-ios/GardenCalendar/Models/Attivita.swift",
       "source_location": "L68",
       "id": "models_attivita_create",
       "community": 7,
@@ -987,7 +987,7 @@
     {
       "label": "Update",
       "file_type": "code",
-      "source_file": "GardenCalendar/Models/Attivita.swift",
+      "source_file": "/Users/keape/Library/Mobile Documents/com~apple~CloudDocs/app sviluppate e html/garden-calendar-ios/GardenCalendar/Models/Attivita.swift",
       "source_location": "L96",
       "id": "models_attivita_update",
       "community": 7,
@@ -1815,16 +1815,16 @@
     {
       "label": "CalendarView.swift",
       "file_type": "code",
-      "source_file": "GardenCalendar/Views/Calendario/CalendarView.swift",
+      "source_file": "/Users/keape/Library/Mobile Documents/com~apple~CloudDocs/app sviluppate e html/garden-calendar-ios/GardenCalendar/Views/Calendario/CalendarView.swift",
       "source_location": "L1",
-      "id": "gardencalendar_views_calendario_calendarview_swift",
+      "id": "users_keape_library_mobile_documents_com_apple_clouddocs_app_sviluppate_e_html_garden_calendar_ios_gardencalendar_views_calendario_calendarview_swift",
       "community": 13,
       "norm_label": "calendarview.swift"
     },
     {
       "label": "CalendarGridView",
       "file_type": "code",
-      "source_file": "GardenCalendar/Views/Calendario/CalendarView.swift",
+      "source_file": "/Users/keape/Library/Mobile Documents/com~apple~CloudDocs/app sviluppate e html/garden-calendar-ios/GardenCalendar/Views/Calendario/CalendarView.swift",
       "source_location": "L3",
       "id": "calendario_calendarview_calendargridview",
       "community": 13,
@@ -1833,8 +1833,8 @@
     {
       "label": "ViewMode",
       "file_type": "code",
-      "source_file": "GardenCalendar/Views/Calendario/CalendarView.swift",
-      "source_location": "L41",
+      "source_file": "/Users/keape/Library/Mobile Documents/com~apple~CloudDocs/app sviluppate e html/garden-calendar-ios/GardenCalendar/Views/Calendario/CalendarView.swift",
+      "source_location": "L40",
       "id": "calendario_calendarview_viewmode",
       "community": 13,
       "norm_label": "viewmode"
@@ -1851,8 +1851,8 @@
     {
       "label": "calendar",
       "file_type": "code",
-      "source_file": "GardenCalendar/Views/Calendario/CalendarView.swift",
-      "source_location": "L42",
+      "source_file": "/Users/keape/Library/Mobile Documents/com~apple~CloudDocs/app sviluppate e html/garden-calendar-ios/GardenCalendar/Views/Calendario/CalendarView.swift",
+      "source_location": "L41",
       "id": "calendario_calendarview_viewmode_calendar",
       "community": 13,
       "norm_label": "calendar"
@@ -1860,8 +1860,8 @@
     {
       "label": "agenda",
       "file_type": "code",
-      "source_file": "GardenCalendar/Views/Calendario/CalendarView.swift",
-      "source_location": "L43",
+      "source_file": "/Users/keape/Library/Mobile Documents/com~apple~CloudDocs/app sviluppate e html/garden-calendar-ios/GardenCalendar/Views/Calendario/CalendarView.swift",
+      "source_location": "L42",
       "id": "calendario_calendarview_viewmode_agenda",
       "community": 13,
       "norm_label": "agenda"
@@ -1869,8 +1869,8 @@
     {
       "label": ".pillSegmentButton()",
       "file_type": "code",
-      "source_file": "GardenCalendar/Views/Calendario/CalendarView.swift",
-      "source_location": "L170",
+      "source_file": "/Users/keape/Library/Mobile Documents/com~apple~CloudDocs/app sviluppate e html/garden-calendar-ios/GardenCalendar/Views/Calendario/CalendarView.swift",
+      "source_location": "L150",
       "id": "calendario_calendarview_calendargridview_pillsegmentbutton",
       "community": 13,
       "norm_label": ".pillsegmentbutton()"
@@ -1878,8 +1878,8 @@
     {
       "label": ".filterChip()",
       "file_type": "code",
-      "source_file": "GardenCalendar/Views/Calendario/CalendarView.swift",
-      "source_location": "L238",
+      "source_file": "/Users/keape/Library/Mobile Documents/com~apple~CloudDocs/app sviluppate e html/garden-calendar-ios/GardenCalendar/Views/Calendario/CalendarView.swift",
+      "source_location": "L218",
       "id": "calendario_calendarview_calendargridview_filterchip",
       "community": 13,
       "norm_label": ".filterchip()"
@@ -1887,8 +1887,8 @@
     {
       "label": ".cellView()",
       "file_type": "code",
-      "source_file": "GardenCalendar/Views/Calendario/CalendarView.swift",
-      "source_location": "L338",
+      "source_file": "/Users/keape/Library/Mobile Documents/com~apple~CloudDocs/app sviluppate e html/garden-calendar-ios/GardenCalendar/Views/Calendario/CalendarView.swift",
+      "source_location": "L318",
       "id": "calendario_calendarview_calendargridview_cellview",
       "community": 13,
       "norm_label": ".cellview()"
@@ -1896,8 +1896,8 @@
     {
       "label": ".dateColor()",
       "file_type": "code",
-      "source_file": "GardenCalendar/Views/Calendario/CalendarView.swift",
-      "source_location": "L400",
+      "source_file": "/Users/keape/Library/Mobile Documents/com~apple~CloudDocs/app sviluppate e html/garden-calendar-ios/GardenCalendar/Views/Calendario/CalendarView.swift",
+      "source_location": "L380",
       "id": "calendario_calendarview_calendargridview_datecolor",
       "community": 13,
       "norm_label": ".datecolor()"
@@ -1905,8 +1905,8 @@
     {
       "label": ".agendaDateHeader()",
       "file_type": "code",
-      "source_file": "GardenCalendar/Views/Calendario/CalendarView.swift",
-      "source_location": "L470",
+      "source_file": "/Users/keape/Library/Mobile Documents/com~apple~CloudDocs/app sviluppate e html/garden-calendar-ios/GardenCalendar/Views/Calendario/CalendarView.swift",
+      "source_location": "L450",
       "id": "calendario_calendarview_calendargridview_agendadateheader",
       "community": 13,
       "norm_label": ".agendadateheader()"
@@ -1914,8 +1914,8 @@
     {
       "label": ".applyRainRescheduling()",
       "file_type": "code",
-      "source_file": "GardenCalendar/Views/Calendario/CalendarView.swift",
-      "source_location": "L498",
+      "source_file": "/Users/keape/Library/Mobile Documents/com~apple~CloudDocs/app sviluppate e html/garden-calendar-ios/GardenCalendar/Views/Calendario/CalendarView.swift",
+      "source_location": "L478",
       "id": "calendario_calendarview_calendargridview_applyrainrescheduling",
       "community": 13,
       "norm_label": ".applyrainrescheduling()"
@@ -1923,8 +1923,8 @@
     {
       "label": ".loadFiltersData()",
       "file_type": "code",
-      "source_file": "GardenCalendar/Views/Calendario/CalendarView.swift",
-      "source_location": "L551",
+      "source_file": "/Users/keape/Library/Mobile Documents/com~apple~CloudDocs/app sviluppate e html/garden-calendar-ios/GardenCalendar/Views/Calendario/CalendarView.swift",
+      "source_location": "L531",
       "id": "calendario_calendarview_calendargridview_loadfiltersdata",
       "community": 13,
       "norm_label": ".loadfiltersdata()"
@@ -1932,8 +1932,8 @@
     {
       "label": ".loadMonth()",
       "file_type": "code",
-      "source_file": "GardenCalendar/Views/Calendario/CalendarView.swift",
-      "source_location": "L557",
+      "source_file": "/Users/keape/Library/Mobile Documents/com~apple~CloudDocs/app sviluppate e html/garden-calendar-ios/GardenCalendar/Views/Calendario/CalendarView.swift",
+      "source_location": "L537",
       "id": "calendario_calendarview_calendargridview_loadmonth",
       "community": 13,
       "norm_label": ".loadmonth()"
@@ -2806,7 +2806,7 @@
       "label": "ScheduleRequest",
       "file_type": "code",
       "source_file": "GardenCalendar/Services/SupabaseRepository.swift",
-      "source_location": "L353",
+      "source_location": "L351",
       "id": "services_supabaserepository_schedulerequest",
       "community": 7,
       "norm_label": "schedulerequest"
@@ -2815,7 +2815,7 @@
       "label": "CodingKeys",
       "file_type": "code",
       "source_file": "GardenCalendar/Services/SupabaseRepository.swift",
-      "source_location": "L359",
+      "source_location": "L357",
       "id": "services_supabaserepository_codingkeys",
       "community": 13,
       "norm_label": "codingkeys"
@@ -2824,7 +2824,7 @@
       "label": "piantaId",
       "file_type": "code",
       "source_file": "GardenCalendar/Services/SupabaseRepository.swift",
-      "source_location": "L360",
+      "source_location": "L358",
       "id": "services_supabaserepository_codingkeys_piantaid",
       "community": 13,
       "norm_label": "piantaid"
@@ -2833,7 +2833,7 @@
       "label": "dataSemina",
       "file_type": "code",
       "source_file": "GardenCalendar/Services/SupabaseRepository.swift",
-      "source_location": "L361",
+      "source_location": "L359",
       "id": "services_supabaserepository_codingkeys_datasemina",
       "community": 13,
       "norm_label": "datasemina"
@@ -2842,7 +2842,7 @@
       "label": "growthDays",
       "file_type": "code",
       "source_file": "GardenCalendar/Services/SupabaseRepository.swift",
-      "source_location": "L362",
+      "source_location": "L360",
       "id": "services_supabaserepository_codingkeys_growthdays",
       "community": 13,
       "norm_label": "growthdays"
@@ -2851,7 +2851,7 @@
       "label": "activities",
       "file_type": "code",
       "source_file": "GardenCalendar/Services/SupabaseRepository.swift",
-      "source_location": "L363",
+      "source_location": "L361",
       "id": "services_supabaserepository_codingkeys_activities",
       "community": 13,
       "norm_label": "activities"
@@ -2860,7 +2860,7 @@
       "label": "ScheduledTemplateActivity",
       "file_type": "code",
       "source_file": "GardenCalendar/Services/SupabaseRepository.swift",
-      "source_location": "L367",
+      "source_location": "L365",
       "id": "services_supabaserepository_scheduledtemplateactivity",
       "community": 7,
       "norm_label": "scheduledtemplateactivity"
@@ -2869,7 +2869,7 @@
       "label": "nome",
       "file_type": "code",
       "source_file": "GardenCalendar/Services/SupabaseRepository.swift",
-      "source_location": "L374",
+      "source_location": "L372",
       "id": "services_supabaserepository_codingkeys_nome",
       "community": 13,
       "norm_label": "nome"
@@ -2878,7 +2878,7 @@
       "label": "offsetDays",
       "file_type": "code",
       "source_file": "GardenCalendar/Services/SupabaseRepository.swift",
-      "source_location": "L375",
+      "source_location": "L373",
       "id": "services_supabaserepository_codingkeys_offsetdays",
       "community": 13,
       "norm_label": "offsetdays"
@@ -2887,7 +2887,7 @@
       "label": "recurrenceDays",
       "file_type": "code",
       "source_file": "GardenCalendar/Services/SupabaseRepository.swift",
-      "source_location": "L376",
+      "source_location": "L374",
       "id": "services_supabaserepository_codingkeys_recurrencedays",
       "community": 13,
       "norm_label": "recurrencedays"
@@ -2896,7 +2896,7 @@
       "label": "color",
       "file_type": "code",
       "source_file": "GardenCalendar/Services/SupabaseRepository.swift",
-      "source_location": "L377",
+      "source_location": "L375",
       "id": "services_supabaserepository_codingkeys_color",
       "community": 13,
       "norm_label": "color"
@@ -2905,7 +2905,7 @@
       "label": "ScheduleResponse",
       "file_type": "code",
       "source_file": "GardenCalendar/Services/SupabaseRepository.swift",
-      "source_location": "L381",
+      "source_location": "L379",
       "id": "services_supabaserepository_scheduleresponse",
       "community": 7,
       "norm_label": "scheduleresponse"
@@ -2923,7 +2923,7 @@
       "label": ".scheduleActivities()",
       "file_type": "code",
       "source_file": "GardenCalendar/Services/SupabaseRepository.swift",
-      "source_location": "L386",
+      "source_location": "L384",
       "id": "services_supabaserepository_supabaserepository_scheduleactivities",
       "community": 7,
       "norm_label": ".scheduleactivities()"
@@ -2932,7 +2932,7 @@
       "label": "RepositoryError",
       "file_type": "code",
       "source_file": "GardenCalendar/Services/SupabaseRepository.swift",
-      "source_location": "L412",
+      "source_location": "L410",
       "id": "services_supabaserepository_repositoryerror",
       "community": 7,
       "norm_label": "repositoryerror"
@@ -2950,7 +2950,7 @@
       "label": "invalidDate",
       "file_type": "code",
       "source_file": "GardenCalendar/Services/SupabaseRepository.swift",
-      "source_location": "L413",
+      "source_location": "L411",
       "id": "services_supabaserepository_repositoryerror_invaliddate",
       "community": 7,
       "norm_label": "invaliddate"
@@ -3039,16 +3039,16 @@
     {
       "label": "RainAdjuster.swift",
       "file_type": "code",
-      "source_file": "GardenCalendar/Services/RainAdjuster.swift",
+      "source_file": "/Users/keape/Library/Mobile Documents/com~apple~CloudDocs/app sviluppate e html/garden-calendar-ios/GardenCalendar/Services/RainAdjuster.swift",
       "source_location": "L1",
-      "id": "gardencalendar_services_rainadjuster_swift",
+      "id": "users_keape_library_mobile_documents_com_apple_clouddocs_app_sviluppate_e_html_garden_calendar_ios_gardencalendar_services_rainadjuster_swift",
       "community": 13,
       "norm_label": "rainadjuster.swift"
     },
     {
       "label": "OpenMeteoClient",
       "file_type": "code",
-      "source_file": "GardenCalendar/Services/RainAdjuster.swift",
+      "source_file": "/Users/keape/Library/Mobile Documents/com~apple~CloudDocs/app sviluppate e html/garden-calendar-ios/GardenCalendar/Services/RainAdjuster.swift",
       "source_location": "L5",
       "id": "services_rainadjuster_openmeteoclient",
       "community": 13,
@@ -3057,7 +3057,7 @@
     {
       "label": ".init()",
       "file_type": "code",
-      "source_file": "GardenCalendar/Services/RainAdjuster.swift",
+      "source_file": "/Users/keape/Library/Mobile Documents/com~apple~CloudDocs/app sviluppate e html/garden-calendar-ios/GardenCalendar/Services/RainAdjuster.swift",
       "source_location": "L14",
       "id": "services_rainadjuster_openmeteoclient_init",
       "community": 13,
@@ -3066,7 +3066,7 @@
     {
       "label": ".fetchRainDays()",
       "file_type": "code",
-      "source_file": "GardenCalendar/Services/RainAdjuster.swift",
+      "source_file": "/Users/keape/Library/Mobile Documents/com~apple~CloudDocs/app sviluppate e html/garden-calendar-ios/GardenCalendar/Services/RainAdjuster.swift",
       "source_location": "L18",
       "id": "services_rainadjuster_openmeteoclient_fetchraindays",
       "community": 13,
@@ -3075,8 +3075,8 @@
     {
       "label": "RainAdjuster",
       "file_type": "code",
-      "source_file": "GardenCalendar/Services/RainAdjuster.swift",
-      "source_location": "L78",
+      "source_file": "/Users/keape/Library/Mobile Documents/com~apple~CloudDocs/app sviluppate e html/garden-calendar-ios/GardenCalendar/Services/RainAdjuster.swift",
+      "source_location": "L76",
       "id": "services_rainadjuster_rainadjuster",
       "community": 13,
       "norm_label": "rainadjuster"
@@ -3084,8 +3084,8 @@
     {
       "label": ".isAbsorbedByRain()",
       "file_type": "code",
-      "source_file": "GardenCalendar/Services/RainAdjuster.swift",
-      "source_location": "L80",
+      "source_file": "/Users/keape/Library/Mobile Documents/com~apple~CloudDocs/app sviluppate e html/garden-calendar-ios/GardenCalendar/Services/RainAdjuster.swift",
+      "source_location": "L78",
       "id": "services_rainadjuster_rainadjuster_isabsorbedbyrain",
       "community": 13,
       "norm_label": ".isabsorbedbyrain()"
@@ -3093,8 +3093,8 @@
     {
       "label": ".computeOverrides()",
       "file_type": "code",
-      "source_file": "GardenCalendar/Services/RainAdjuster.swift",
-      "source_location": "L93",
+      "source_file": "/Users/keape/Library/Mobile Documents/com~apple~CloudDocs/app sviluppate e html/garden-calendar-ios/GardenCalendar/Services/RainAdjuster.swift",
+      "source_location": "L91",
       "id": "services_rainadjuster_rainadjuster_computeoverrides",
       "community": 13,
       "norm_label": ".computeoverrides()"
@@ -3102,8 +3102,8 @@
     {
       "label": ".isIrrigation()",
       "file_type": "code",
-      "source_file": "GardenCalendar/Services/RainAdjuster.swift",
-      "source_location": "L109",
+      "source_file": "/Users/keape/Library/Mobile Documents/com~apple~CloudDocs/app sviluppate e html/garden-calendar-ios/GardenCalendar/Services/RainAdjuster.swift",
+      "source_location": "L107",
       "id": "services_rainadjuster_rainadjuster_isirrigation",
       "community": 13,
       "norm_label": ".isirrigation()"
@@ -3111,8 +3111,8 @@
     {
       "label": ".computeRescheduling()",
       "file_type": "code",
-      "source_file": "GardenCalendar/Services/RainAdjuster.swift",
-      "source_location": "L114",
+      "source_file": "/Users/keape/Library/Mobile Documents/com~apple~CloudDocs/app sviluppate e html/garden-calendar-ios/GardenCalendar/Services/RainAdjuster.swift",
+      "source_location": "L112",
       "id": "services_rainadjuster_rainadjuster_computerescheduling",
       "community": 13,
       "norm_label": ".computerescheduling()"
@@ -3120,8 +3120,8 @@
     {
       "label": "RescheduleAction",
       "file_type": "code",
-      "source_file": "GardenCalendar/Services/RainAdjuster.swift",
-      "source_location": "L155",
+      "source_file": "/Users/keape/Library/Mobile Documents/com~apple~CloudDocs/app sviluppate e html/garden-calendar-ios/GardenCalendar/Services/RainAdjuster.swift",
+      "source_location": "L153",
       "id": "services_rainadjuster_rescheduleaction",
       "community": 13,
       "norm_label": "rescheduleaction"
@@ -3129,8 +3129,8 @@
     {
       "label": "OpenMeteoResponse",
       "file_type": "code",
-      "source_file": "GardenCalendar/Services/RainAdjuster.swift",
-      "source_location": "L169",
+      "source_file": "/Users/keape/Library/Mobile Documents/com~apple~CloudDocs/app sviluppate e html/garden-calendar-ios/GardenCalendar/Services/RainAdjuster.swift",
+      "source_location": "L167",
       "id": "services_rainadjuster_openmeteoresponse",
       "community": 13,
       "norm_label": "openmeteoresponse"
@@ -3138,8 +3138,8 @@
     {
       "label": "Daily",
       "file_type": "code",
-      "source_file": "GardenCalendar/Services/RainAdjuster.swift",
-      "source_location": "L172",
+      "source_file": "/Users/keape/Library/Mobile Documents/com~apple~CloudDocs/app sviluppate e html/garden-calendar-ios/GardenCalendar/Services/RainAdjuster.swift",
+      "source_location": "L170",
       "id": "services_rainadjuster_daily",
       "community": 13,
       "norm_label": "daily"
@@ -3147,8 +3147,8 @@
     {
       "label": "CodingKeys",
       "file_type": "code",
-      "source_file": "GardenCalendar/Services/RainAdjuster.swift",
-      "source_location": "L176",
+      "source_file": "/Users/keape/Library/Mobile Documents/com~apple~CloudDocs/app sviluppate e html/garden-calendar-ios/GardenCalendar/Services/RainAdjuster.swift",
+      "source_location": "L174",
       "id": "services_rainadjuster_codingkeys",
       "community": 13,
       "norm_label": "codingkeys"
@@ -3156,8 +3156,8 @@
     {
       "label": "time",
       "file_type": "code",
-      "source_file": "GardenCalendar/Services/RainAdjuster.swift",
-      "source_location": "L177",
+      "source_file": "/Users/keape/Library/Mobile Documents/com~apple~CloudDocs/app sviluppate e html/garden-calendar-ios/GardenCalendar/Services/RainAdjuster.swift",
+      "source_location": "L175",
       "id": "services_rainadjuster_codingkeys_time",
       "community": 13,
       "norm_label": "time"
@@ -3165,8 +3165,8 @@
     {
       "label": "precipitationSum",
       "file_type": "code",
-      "source_file": "GardenCalendar/Services/RainAdjuster.swift",
-      "source_location": "L178",
+      "source_file": "/Users/keape/Library/Mobile Documents/com~apple~CloudDocs/app sviluppate e html/garden-calendar-ios/GardenCalendar/Services/RainAdjuster.swift",
+      "source_location": "L176",
       "id": "services_rainadjuster_codingkeys_precipitationsum",
       "community": 13,
       "norm_label": "precipitationsum"
@@ -3174,8 +3174,8 @@
     {
       "label": "CacheEntry",
       "file_type": "code",
-      "source_file": "GardenCalendar/Services/RainAdjuster.swift",
-      "source_location": "L183",
+      "source_file": "/Users/keape/Library/Mobile Documents/com~apple~CloudDocs/app sviluppate e html/garden-calendar-ios/GardenCalendar/Services/RainAdjuster.swift",
+      "source_location": "L181",
       "id": "services_rainadjuster_cacheentry",
       "community": 13,
       "norm_label": "cacheentry"
@@ -3183,8 +3183,8 @@
     {
       "label": ".init()",
       "file_type": "code",
-      "source_file": "GardenCalendar/Services/RainAdjuster.swift",
-      "source_location": "L186",
+      "source_file": "/Users/keape/Library/Mobile Documents/com~apple~CloudDocs/app sviluppate e html/garden-calendar-ios/GardenCalendar/Services/RainAdjuster.swift",
+      "source_location": "L184",
       "id": "services_rainadjuster_cacheentry_init",
       "community": 13,
       "norm_label": ".init()"
@@ -3192,8 +3192,8 @@
     {
       "label": "RainError",
       "file_type": "code",
-      "source_file": "GardenCalendar/Services/RainAdjuster.swift",
-      "source_location": "L192",
+      "source_file": "/Users/keape/Library/Mobile Documents/com~apple~CloudDocs/app sviluppate e html/garden-calendar-ios/GardenCalendar/Services/RainAdjuster.swift",
+      "source_location": "L190",
       "id": "services_rainadjuster_rainerror",
       "community": 13,
       "norm_label": "rainerror"
@@ -3201,8 +3201,8 @@
     {
       "label": "invalidURL",
       "file_type": "code",
-      "source_file": "GardenCalendar/Services/RainAdjuster.swift",
-      "source_location": "L193",
+      "source_file": "/Users/keape/Library/Mobile Documents/com~apple~CloudDocs/app sviluppate e html/garden-calendar-ios/GardenCalendar/Services/RainAdjuster.swift",
+      "source_location": "L191",
       "id": "services_rainadjuster_rainerror_invalidurl",
       "community": 13,
       "norm_label": "invalidurl"
@@ -3210,8 +3210,8 @@
     {
       "label": "apiError",
       "file_type": "code",
-      "source_file": "GardenCalendar/Services/RainAdjuster.swift",
-      "source_location": "L194",
+      "source_file": "/Users/keape/Library/Mobile Documents/com~apple~CloudDocs/app sviluppate e html/garden-calendar-ios/GardenCalendar/Services/RainAdjuster.swift",
+      "source_location": "L192",
       "id": "services_rainadjuster_rainerror_apierror",
       "community": 13,
       "norm_label": "apierror"
@@ -3219,8 +3219,8 @@
     {
       "label": "Date",
       "file_type": "code",
-      "source_file": "GardenCalendar/Services/RainAdjuster.swift",
-      "source_location": "L206",
+      "source_file": "/Users/keape/Library/Mobile Documents/com~apple~CloudDocs/app sviluppate e html/garden-calendar-ios/GardenCalendar/Services/RainAdjuster.swift",
+      "source_location": "L204",
       "id": "services_rainadjuster_date",
       "community": 13,
       "norm_label": "date"
@@ -5917,33 +5917,6 @@
       "norm_label": "contesto tecnico rilevante"
     },
     {
-      "label": "Attivita.swift",
-      "file_type": "code",
-      "source_file": "/Users/keape/Library/Mobile Documents/com~apple~CloudDocs/app sviluppate e html/garden-calendar-ios/GardenCalendar/Models/Attivita.swift",
-      "source_location": "L1",
-      "community": 7,
-      "norm_label": "attivita.swift",
-      "id": "users_keape_library_mobile_documents_com_apple_clouddocs_app_sviluppate_e_html_garden_calendar_ios_gardencalendar_models_attivita_swift"
-    },
-    {
-      "label": "CalendarView.swift",
-      "file_type": "code",
-      "source_file": "/Users/keape/Library/Mobile Documents/com~apple~CloudDocs/app sviluppate e html/garden-calendar-ios/GardenCalendar/Views/Calendario/CalendarView.swift",
-      "source_location": "L1",
-      "community": 13,
-      "norm_label": "calendarview.swift",
-      "id": "users_keape_library_mobile_documents_com_apple_clouddocs_app_sviluppate_e_html_garden_calendar_ios_gardencalendar_views_calendario_calendarview_swift"
-    },
-    {
-      "label": "RainAdjuster.swift",
-      "file_type": "code",
-      "source_file": "/Users/keape/Library/Mobile Documents/com~apple~CloudDocs/app sviluppate e html/garden-calendar-ios/GardenCalendar/Services/RainAdjuster.swift",
-      "source_location": "L1",
-      "community": 13,
-      "norm_label": "rainadjuster.swift",
-      "id": "users_keape_library_mobile_documents_com_apple_clouddocs_app_sviluppate_e_html_garden_calendar_ios_gardencalendar_services_rainadjuster_swift"
-    },
-    {
       "label": "build.sh",
       "file_type": "code",
       "source_file": "build.sh",
@@ -6074,6 +6047,15 @@
       "id": "gardencalendar_assets_xcassets_appicon_appiconset_contents_json"
     },
     {
+      "label": "Attivita.swift",
+      "file_type": "code",
+      "source_file": "GardenCalendar/Models/Attivita.swift",
+      "source_location": "L1",
+      "community": 7,
+      "norm_label": "attivita.swift",
+      "id": "gardencalendar_models_attivita_swift"
+    },
+    {
       "label": "PiantaColtivata.swift",
       "file_type": "code",
       "source_file": "GardenCalendar/Models/PiantaColtivata.swift",
@@ -6144,6 +6126,15 @@
       "community": 1,
       "norm_label": "daydetailsheet.swift",
       "id": "gardencalendar_views_calendario_daydetailsheet_swift"
+    },
+    {
+      "label": "CalendarView.swift",
+      "file_type": "code",
+      "source_file": "GardenCalendar/Views/Calendario/CalendarView.swift",
+      "source_location": "L1",
+      "community": 13,
+      "norm_label": "calendarview.swift",
+      "id": "gardencalendar_views_calendario_calendarview_swift"
     },
     {
       "label": "SettingsView.swift",
@@ -6270,6 +6261,15 @@
       "community": 9,
       "norm_label": "authmanager.swift",
       "id": "gardencalendar_services_authmanager_swift"
+    },
+    {
+      "label": "RainAdjuster.swift",
+      "file_type": "code",
+      "source_file": "GardenCalendar/Services/RainAdjuster.swift",
+      "source_location": "L1",
+      "community": 13,
+      "norm_label": "rainadjuster.swift",
+      "id": "gardencalendar_services_rainadjuster_swift"
     },
     {
       "label": "LocationHelper.swift",
@@ -7660,9 +7660,9 @@
       "source_file": "/Users/keape/Library/Mobile Documents/com~apple~CloudDocs/app sviluppate e html/garden-calendar-ios/build.sh",
       "source_location": "L1",
       "weight": 1.0,
-      "confidence_score": 1.0,
       "source": "users_keape_library_mobile_documents_com_apple_clouddocs_app_sviluppate_e_html_garden_calendar_ios_build_sh",
-      "target": "users_keape_library_mobile_documents_com_apple_clouddocs_app_sviluppate_e_html_garden_calendar_ios_build_sh__entry"
+      "target": "users_keape_library_mobile_documents_com_apple_clouddocs_app_sviluppate_e_html_garden_calendar_ios_build_sh__entry",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -7680,9 +7680,9 @@
       "source_file": "/Users/keape/Library/Mobile Documents/com~apple~CloudDocs/app sviluppate e html/garden-calendar-ios/.claude/settings.json",
       "source_location": "L2",
       "weight": 1.0,
-      "confidence_score": 1.0,
       "source": "users_keape_library_mobile_documents_com_apple_clouddocs_app_sviluppate_e_html_garden_calendar_ios_claude_settings_json",
-      "target": "claude_settings_hooks"
+      "target": "claude_settings_hooks",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -7720,9 +7720,9 @@
       "source_file": "/Users/keape/Library/Mobile Documents/com~apple~CloudDocs/app sviluppate e html/garden-calendar-ios/supabase/.temp/linked-project.json",
       "source_location": "L1",
       "weight": 1.0,
-      "confidence_score": 1.0,
       "source": "users_keape_library_mobile_documents_com_apple_clouddocs_app_sviluppate_e_html_garden_calendar_ios_supabase_temp_linked_project_json",
-      "target": "temp_linked_project_ref"
+      "target": "temp_linked_project_ref",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -7730,9 +7730,9 @@
       "source_file": "/Users/keape/Library/Mobile Documents/com~apple~CloudDocs/app sviluppate e html/garden-calendar-ios/supabase/.temp/linked-project.json",
       "source_location": "L1",
       "weight": 1.0,
-      "confidence_score": 1.0,
       "source": "users_keape_library_mobile_documents_com_apple_clouddocs_app_sviluppate_e_html_garden_calendar_ios_supabase_temp_linked_project_json",
-      "target": "temp_linked_project_name"
+      "target": "temp_linked_project_name",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -7740,9 +7740,9 @@
       "source_file": "/Users/keape/Library/Mobile Documents/com~apple~CloudDocs/app sviluppate e html/garden-calendar-ios/supabase/.temp/linked-project.json",
       "source_location": "L1",
       "weight": 1.0,
-      "confidence_score": 1.0,
       "source": "users_keape_library_mobile_documents_com_apple_clouddocs_app_sviluppate_e_html_garden_calendar_ios_supabase_temp_linked_project_json",
-      "target": "temp_linked_project_organization_id"
+      "target": "temp_linked_project_organization_id",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -7750,9 +7750,9 @@
       "source_file": "/Users/keape/Library/Mobile Documents/com~apple~CloudDocs/app sviluppate e html/garden-calendar-ios/supabase/.temp/linked-project.json",
       "source_location": "L1",
       "weight": 1.0,
-      "confidence_score": 1.0,
       "source": "users_keape_library_mobile_documents_com_apple_clouddocs_app_sviluppate_e_html_garden_calendar_ios_supabase_temp_linked_project_json",
-      "target": "temp_linked_project_organization_slug"
+      "target": "temp_linked_project_organization_slug",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -7800,9 +7800,9 @@
       "source_file": "/Users/keape/Library/Mobile Documents/com~apple~CloudDocs/app sviluppate e html/garden-calendar-ios/supabase/functions/admin-dashboard/deno.json",
       "source_location": "L2",
       "weight": 1.0,
-      "confidence_score": 1.0,
       "source": "users_keape_library_mobile_documents_com_apple_clouddocs_app_sviluppate_e_html_garden_calendar_ios_supabase_functions_admin_dashboard_deno_json",
-      "target": "admin_dashboard_deno_imports"
+      "target": "admin_dashboard_deno_imports",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -7830,9 +7830,9 @@
       "source_file": "/Users/keape/Library/Mobile Documents/com~apple~CloudDocs/app sviluppate e html/garden-calendar-ios/supabase/functions/extract-plant-care/deno.json",
       "source_location": "L2",
       "weight": 1.0,
-      "confidence_score": 1.0,
       "source": "users_keape_library_mobile_documents_com_apple_clouddocs_app_sviluppate_e_html_garden_calendar_ios_supabase_functions_extract_plant_care_deno_json",
-      "target": "extract_plant_care_deno_imports"
+      "target": "extract_plant_care_deno_imports",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -8002,9 +8002,9 @@
       "source_file": "/Users/keape/Library/Mobile Documents/com~apple~CloudDocs/app sviluppate e html/garden-calendar-ios/supabase/functions/schedule-activities/deno.json",
       "source_location": "L2",
       "weight": 1.0,
-      "confidence_score": 1.0,
       "source": "users_keape_library_mobile_documents_com_apple_clouddocs_app_sviluppate_e_html_garden_calendar_ios_supabase_functions_schedule_activities_deno_json",
-      "target": "schedule_activities_deno_imports"
+      "target": "schedule_activities_deno_imports",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -8199,12 +8199,12 @@
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
-      "source_file": "GardenCalendar/Models/Attivita.swift",
+      "source_file": "/Users/keape/Library/Mobile Documents/com~apple~CloudDocs/app sviluppate e html/garden-calendar-ios/GardenCalendar/Models/Attivita.swift",
       "source_location": "L67",
       "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "gardencalendar_models_attivita_swift",
-      "target": "schedule_activities_index_attivita"
+      "source": "users_keape_library_mobile_documents_com_apple_clouddocs_app_sviluppate_e_html_garden_calendar_ios_gardencalendar_models_attivita_swift",
+      "target": "schedule_activities_index_attivita",
+      "confidence_score": 1.0
     },
     {
       "relation": "inherits",
@@ -8240,11 +8240,11 @@
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
-      "source_file": "/Users/keape/Library/Mobile Documents/com~apple~CloudDocs/app sviluppate e html/garden-calendar-ios/GardenCalendar/Models/Attivita.swift",
+      "source_file": "GardenCalendar/Models/Attivita.swift",
       "source_location": "L67",
       "weight": 1.0,
       "confidence_score": 1.0,
-      "source": "users_keape_library_mobile_documents_com_apple_clouddocs_app_sviluppate_e_html_garden_calendar_ios_gardencalendar_models_attivita_swift",
+      "source": "gardencalendar_models_attivita_swift",
       "target": "schedule_activities_index_attivita"
     },
     {
@@ -8253,9 +8253,9 @@
       "source_file": "/Users/keape/Library/Mobile Documents/com~apple~CloudDocs/app sviluppate e html/garden-calendar-ios/.vscode/settings.json",
       "source_location": "L2",
       "weight": 1.0,
-      "confidence_score": 1.0,
       "source": "users_keape_library_mobile_documents_com_apple_clouddocs_app_sviluppate_e_html_garden_calendar_ios_vscode_settings_json",
-      "target": "vscode_settings_deno_enablepaths"
+      "target": "vscode_settings_deno_enablepaths",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -8263,9 +8263,9 @@
       "source_file": "/Users/keape/Library/Mobile Documents/com~apple~CloudDocs/app sviluppate e html/garden-calendar-ios/.vscode/settings.json",
       "source_location": "L5",
       "weight": 1.0,
-      "confidence_score": 1.0,
       "source": "users_keape_library_mobile_documents_com_apple_clouddocs_app_sviluppate_e_html_garden_calendar_ios_vscode_settings_json",
-      "target": "vscode_settings_deno_lint"
+      "target": "vscode_settings_deno_lint",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -8273,9 +8273,9 @@
       "source_file": "/Users/keape/Library/Mobile Documents/com~apple~CloudDocs/app sviluppate e html/garden-calendar-ios/.vscode/settings.json",
       "source_location": "L6",
       "weight": 1.0,
-      "confidence_score": 1.0,
       "source": "users_keape_library_mobile_documents_com_apple_clouddocs_app_sviluppate_e_html_garden_calendar_ios_vscode_settings_json",
-      "target": "vscode_settings_deno_unstable"
+      "target": "vscode_settings_deno_unstable",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -8283,9 +8283,9 @@
       "source_file": "/Users/keape/Library/Mobile Documents/com~apple~CloudDocs/app sviluppate e html/garden-calendar-ios/.vscode/settings.json",
       "source_location": "L21",
       "weight": 1.0,
-      "confidence_score": 1.0,
       "source": "users_keape_library_mobile_documents_com_apple_clouddocs_app_sviluppate_e_html_garden_calendar_ios_vscode_settings_json",
-      "target": "vscode_settings_typescript"
+      "target": "vscode_settings_typescript",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -8343,9 +8343,9 @@
       "source_file": "/Users/keape/Library/Mobile Documents/com~apple~CloudDocs/app sviluppate e html/garden-calendar-ios/.vscode/extensions.json",
       "source_location": "L2",
       "weight": 1.0,
-      "confidence_score": 1.0,
       "source": "users_keape_library_mobile_documents_com_apple_clouddocs_app_sviluppate_e_html_garden_calendar_ios_vscode_extensions_json",
-      "target": "vscode_extensions_recommendations"
+      "target": "vscode_extensions_recommendations",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -8363,9 +8363,9 @@
       "source_file": "/Users/keape/Library/Mobile Documents/com~apple~CloudDocs/app sviluppate e html/garden-calendar-ios/GardenCalendar/GardenCalendarApp.swift",
       "source_location": "L3",
       "weight": 1.0,
-      "confidence_score": 1.0,
       "source": "users_keape_library_mobile_documents_com_apple_clouddocs_app_sviluppate_e_html_garden_calendar_ios_gardencalendar_gardencalendarapp_swift",
-      "target": "gardencalendar_gardencalendarapp_gardencalendarapp"
+      "target": "gardencalendar_gardencalendarapp_gardencalendarapp",
+      "confidence_score": 1.0
     },
     {
       "relation": "inherits",
@@ -8393,9 +8393,9 @@
       "source_file": "/Users/keape/Library/Mobile Documents/com~apple~CloudDocs/app sviluppate e html/garden-calendar-ios/GardenCalendar/ContentView.swift",
       "source_location": "L3",
       "weight": 1.0,
-      "confidence_score": 1.0,
       "source": "users_keape_library_mobile_documents_com_apple_clouddocs_app_sviluppate_e_html_garden_calendar_ios_gardencalendar_contentview_swift",
-      "target": "gardencalendar_contentview_contentview"
+      "target": "gardencalendar_contentview_contentview",
+      "confidence_score": 1.0
     },
     {
       "relation": "inherits",
@@ -8743,9 +8743,9 @@
       "source_file": "/Users/keape/Library/Mobile Documents/com~apple~CloudDocs/app sviluppate e html/garden-calendar-ios/GardenCalendar/SupabaseConfig.swift",
       "source_location": "L4",
       "weight": 1.0,
-      "confidence_score": 1.0,
       "source": "users_keape_library_mobile_documents_com_apple_clouddocs_app_sviluppate_e_html_garden_calendar_ios_gardencalendar_supabaseconfig_swift",
-      "target": "gardencalendar_supabaseconfig_supabaseconfig"
+      "target": "gardencalendar_supabaseconfig_supabaseconfig",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -8773,9 +8773,9 @@
       "source_file": "/Users/keape/Library/Mobile Documents/com~apple~CloudDocs/app sviluppate e html/garden-calendar-ios/GardenCalendar/Assets.xcassets/Contents.json",
       "source_location": "L2",
       "weight": 1.0,
-      "confidence_score": 1.0,
       "source": "users_keape_library_mobile_documents_com_apple_clouddocs_app_sviluppate_e_html_garden_calendar_ios_gardencalendar_assets_xcassets_contents_json",
-      "target": "assets_xcassets_contents_info"
+      "target": "assets_xcassets_contents_info",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -8813,9 +8813,9 @@
       "source_file": "/Users/keape/Library/Mobile Documents/com~apple~CloudDocs/app sviluppate e html/garden-calendar-ios/GardenCalendar/Assets.xcassets/AppIcon.appiconset/Contents.json",
       "source_location": "L2",
       "weight": 1.0,
-      "confidence_score": 1.0,
       "source": "users_keape_library_mobile_documents_com_apple_clouddocs_app_sviluppate_e_html_garden_calendar_ios_gardencalendar_assets_xcassets_appicon_appiconset_contents_json",
-      "target": "appicon_appiconset_contents_images"
+      "target": "appicon_appiconset_contents_images",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -8823,9 +8823,9 @@
       "source_file": "/Users/keape/Library/Mobile Documents/com~apple~CloudDocs/app sviluppate e html/garden-calendar-ios/GardenCalendar/Assets.xcassets/AppIcon.appiconset/Contents.json",
       "source_location": "L9",
       "weight": 1.0,
-      "confidence_score": 1.0,
       "source": "users_keape_library_mobile_documents_com_apple_clouddocs_app_sviluppate_e_html_garden_calendar_ios_gardencalendar_assets_xcassets_appicon_appiconset_contents_json",
-      "target": "appicon_appiconset_contents_info"
+      "target": "appicon_appiconset_contents_info",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -8870,32 +8870,32 @@
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
-      "source_file": "GardenCalendar/Models/Attivita.swift",
+      "source_file": "/Users/keape/Library/Mobile Documents/com~apple~CloudDocs/app sviluppate e html/garden-calendar-ios/GardenCalendar/Models/Attivita.swift",
       "source_location": "L108",
       "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "gardencalendar_models_attivita_swift",
-      "target": "models_attivita_codingkeys"
+      "source": "users_keape_library_mobile_documents_com_apple_clouddocs_app_sviluppate_e_html_garden_calendar_ios_gardencalendar_models_attivita_swift",
+      "target": "models_attivita_codingkeys",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
-      "source_file": "GardenCalendar/Models/Attivita.swift",
+      "source_file": "/Users/keape/Library/Mobile Documents/com~apple~CloudDocs/app sviluppate e html/garden-calendar-ios/GardenCalendar/Models/Attivita.swift",
       "source_location": "L68",
       "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "gardencalendar_models_attivita_swift",
-      "target": "models_attivita_create"
+      "source": "users_keape_library_mobile_documents_com_apple_clouddocs_app_sviluppate_e_html_garden_calendar_ios_gardencalendar_models_attivita_swift",
+      "target": "models_attivita_create",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
-      "source_file": "GardenCalendar/Models/Attivita.swift",
+      "source_file": "/Users/keape/Library/Mobile Documents/com~apple~CloudDocs/app sviluppate e html/garden-calendar-ios/GardenCalendar/Models/Attivita.swift",
       "source_location": "L96",
       "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "gardencalendar_models_attivita_swift",
-      "target": "models_attivita_update"
+      "source": "users_keape_library_mobile_documents_com_apple_clouddocs_app_sviluppate_e_html_garden_calendar_ios_gardencalendar_models_attivita_swift",
+      "target": "models_attivita_update",
+      "confidence_score": 1.0
     },
     {
       "relation": "inherits",
@@ -9170,11 +9170,11 @@
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
-      "source_file": "/Users/keape/Library/Mobile Documents/com~apple~CloudDocs/app sviluppate e html/garden-calendar-ios/GardenCalendar/Models/Attivita.swift",
+      "source_file": "GardenCalendar/Models/Attivita.swift",
       "source_location": "L108",
       "weight": 1.0,
       "confidence_score": 1.0,
-      "source": "users_keape_library_mobile_documents_com_apple_clouddocs_app_sviluppate_e_html_garden_calendar_ios_gardencalendar_models_attivita_swift",
+      "source": "gardencalendar_models_attivita_swift",
       "target": "models_attivita_codingkeys"
     },
     {
@@ -9407,11 +9407,11 @@
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
-      "source_file": "/Users/keape/Library/Mobile Documents/com~apple~CloudDocs/app sviluppate e html/garden-calendar-ios/GardenCalendar/Models/Attivita.swift",
+      "source_file": "GardenCalendar/Models/Attivita.swift",
       "source_location": "L68",
       "weight": 1.0,
       "confidence_score": 1.0,
-      "source": "users_keape_library_mobile_documents_com_apple_clouddocs_app_sviluppate_e_html_garden_calendar_ios_gardencalendar_models_attivita_swift",
+      "source": "gardencalendar_models_attivita_swift",
       "target": "models_attivita_create"
     },
     {
@@ -9487,11 +9487,11 @@
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
-      "source_file": "/Users/keape/Library/Mobile Documents/com~apple~CloudDocs/app sviluppate e html/garden-calendar-ios/GardenCalendar/Models/Attivita.swift",
+      "source_file": "GardenCalendar/Models/Attivita.swift",
       "source_location": "L96",
       "weight": 1.0,
       "confidence_score": 1.0,
-      "source": "users_keape_library_mobile_documents_com_apple_clouddocs_app_sviluppate_e_html_garden_calendar_ios_gardencalendar_models_attivita_swift",
+      "source": "gardencalendar_models_attivita_swift",
       "target": "models_attivita_update"
     },
     {
@@ -9500,9 +9500,9 @@
       "source_file": "/Users/keape/Library/Mobile Documents/com~apple~CloudDocs/app sviluppate e html/garden-calendar-ios/GardenCalendar/Models/PiantaColtivata.swift",
       "source_location": "L49",
       "weight": 1.0,
-      "confidence_score": 1.0,
       "source": "users_keape_library_mobile_documents_com_apple_clouddocs_app_sviluppate_e_html_garden_calendar_ios_gardencalendar_models_piantacoltivata_swift",
-      "target": "models_piantacoltivata_piantacoltivata"
+      "target": "models_piantacoltivata_piantacoltivata",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -9510,9 +9510,9 @@
       "source_file": "/Users/keape/Library/Mobile Documents/com~apple~CloudDocs/app sviluppate e html/garden-calendar-ios/GardenCalendar/Models/PiantaColtivata.swift",
       "source_location": "L91",
       "weight": 1.0,
-      "confidence_score": 1.0,
       "source": "users_keape_library_mobile_documents_com_apple_clouddocs_app_sviluppate_e_html_garden_calendar_ios_gardencalendar_models_piantacoltivata_swift",
-      "target": "models_piantacoltivata_codingkeys"
+      "target": "models_piantacoltivata_codingkeys",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -9520,9 +9520,9 @@
       "source_file": "/Users/keape/Library/Mobile Documents/com~apple~CloudDocs/app sviluppate e html/garden-calendar-ios/GardenCalendar/Models/PiantaColtivata.swift",
       "source_location": "L50",
       "weight": 1.0,
-      "confidence_score": 1.0,
       "source": "users_keape_library_mobile_documents_com_apple_clouddocs_app_sviluppate_e_html_garden_calendar_ios_gardencalendar_models_piantacoltivata_swift",
-      "target": "models_piantacoltivata_create"
+      "target": "models_piantacoltivata_create",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -9530,9 +9530,9 @@
       "source_file": "/Users/keape/Library/Mobile Documents/com~apple~CloudDocs/app sviluppate e html/garden-calendar-ios/GardenCalendar/Models/PiantaColtivata.swift",
       "source_location": "L70",
       "weight": 1.0,
-      "confidence_score": 1.0,
       "source": "users_keape_library_mobile_documents_com_apple_clouddocs_app_sviluppate_e_html_garden_calendar_ios_gardencalendar_models_piantacoltivata_swift",
-      "target": "models_piantacoltivata_update"
+      "target": "models_piantacoltivata_update",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -9540,9 +9540,9 @@
       "source_file": "/Users/keape/Library/Mobile Documents/com~apple~CloudDocs/app sviluppate e html/garden-calendar-ios/GardenCalendar/Models/PiantaColtivata.swift",
       "source_location": "L86",
       "weight": 1.0,
-      "confidence_score": 1.0,
       "source": "users_keape_library_mobile_documents_com_apple_clouddocs_app_sviluppate_e_html_garden_calendar_ios_gardencalendar_models_piantacoltivata_swift",
-      "target": "models_piantacoltivata_activityoverride"
+      "target": "models_piantacoltivata_activityoverride",
+      "confidence_score": 1.0
     },
     {
       "relation": "inherits",
@@ -9820,9 +9820,9 @@
       "source_file": "/Users/keape/Library/Mobile Documents/com~apple~CloudDocs/app sviluppate e html/garden-calendar-ios/GardenCalendar/Models/WikiNote.swift",
       "source_location": "L3",
       "weight": 1.0,
-      "confidence_score": 1.0,
       "source": "users_keape_library_mobile_documents_com_apple_clouddocs_app_sviluppate_e_html_garden_calendar_ios_gardencalendar_models_wikinote_swift",
-      "target": "models_wikinote_wikinote"
+      "target": "models_wikinote_wikinote",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -9830,9 +9830,9 @@
       "source_file": "/Users/keape/Library/Mobile Documents/com~apple~CloudDocs/app sviluppate e html/garden-calendar-ios/GardenCalendar/Models/WikiNote.swift",
       "source_location": "L11",
       "weight": 1.0,
-      "confidence_score": 1.0,
       "source": "users_keape_library_mobile_documents_com_apple_clouddocs_app_sviluppate_e_html_garden_calendar_ios_gardencalendar_models_wikinote_swift",
-      "target": "models_wikinote_codingkeys"
+      "target": "models_wikinote_codingkeys",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -9940,9 +9940,9 @@
       "source_file": "/Users/keape/Library/Mobile Documents/com~apple~CloudDocs/app sviluppate e html/garden-calendar-ios/GardenCalendar/Models/PlantKnowledge.swift",
       "source_location": "L35",
       "weight": 1.0,
-      "confidence_score": 1.0,
       "source": "users_keape_library_mobile_documents_com_apple_clouddocs_app_sviluppate_e_html_garden_calendar_ios_gardencalendar_models_plantknowledge_swift",
-      "target": "models_plantknowledge_plantknowledge"
+      "target": "models_plantknowledge_plantknowledge",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -9950,9 +9950,9 @@
       "source_file": "/Users/keape/Library/Mobile Documents/com~apple~CloudDocs/app sviluppate e html/garden-calendar-ios/GardenCalendar/Models/PlantKnowledge.swift",
       "source_location": "L42",
       "weight": 1.0,
-      "confidence_score": 1.0,
       "source": "users_keape_library_mobile_documents_com_apple_clouddocs_app_sviluppate_e_html_garden_calendar_ios_gardencalendar_models_plantknowledge_swift",
-      "target": "models_plantknowledge_codingkeys"
+      "target": "models_plantknowledge_codingkeys",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -9960,9 +9960,9 @@
       "source_file": "/Users/keape/Library/Mobile Documents/com~apple~CloudDocs/app sviluppate e html/garden-calendar-ios/GardenCalendar/Models/PlantKnowledge.swift",
       "source_location": "L36",
       "weight": 1.0,
-      "confidence_score": 1.0,
       "source": "users_keape_library_mobile_documents_com_apple_clouddocs_app_sviluppate_e_html_garden_calendar_ios_gardencalendar_models_plantknowledge_swift",
-      "target": "models_plantknowledge_attivitasuggerita"
+      "target": "models_plantknowledge_attivitasuggerita",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -10140,9 +10140,9 @@
       "source_file": "/Users/keape/Library/Mobile Documents/com~apple~CloudDocs/app sviluppate e html/garden-calendar-ios/GardenCalendar/Models/Orto.swift",
       "source_location": "L25",
       "weight": 1.0,
-      "confidence_score": 1.0,
       "source": "users_keape_library_mobile_documents_com_apple_clouddocs_app_sviluppate_e_html_garden_calendar_ios_gardencalendar_models_orto_swift",
-      "target": "models_orto_orto"
+      "target": "models_orto_orto",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -10150,9 +10150,9 @@
       "source_file": "/Users/keape/Library/Mobile Documents/com~apple~CloudDocs/app sviluppate e html/garden-calendar-ios/GardenCalendar/Models/Orto.swift",
       "source_location": "L13",
       "weight": 1.0,
-      "confidence_score": 1.0,
       "source": "users_keape_library_mobile_documents_com_apple_clouddocs_app_sviluppate_e_html_garden_calendar_ios_gardencalendar_models_orto_swift",
-      "target": "models_orto_codingkeys"
+      "target": "models_orto_codingkeys",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -10160,9 +10160,9 @@
       "source_file": "/Users/keape/Library/Mobile Documents/com~apple~CloudDocs/app sviluppate e html/garden-calendar-ios/GardenCalendar/Models/Orto.swift",
       "source_location": "L26",
       "weight": 1.0,
-      "confidence_score": 1.0,
       "source": "users_keape_library_mobile_documents_com_apple_clouddocs_app_sviluppate_e_html_garden_calendar_ios_gardencalendar_models_orto_swift",
-      "target": "models_orto_create"
+      "target": "models_orto_create",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -10170,9 +10170,9 @@
       "source_file": "/Users/keape/Library/Mobile Documents/com~apple~CloudDocs/app sviluppate e html/garden-calendar-ios/GardenCalendar/Models/Orto.swift",
       "source_location": "L33",
       "weight": 1.0,
-      "confidence_score": 1.0,
       "source": "users_keape_library_mobile_documents_com_apple_clouddocs_app_sviluppate_e_html_garden_calendar_ios_gardencalendar_models_orto_swift",
-      "target": "models_orto_update"
+      "target": "models_orto_update",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -10350,9 +10350,9 @@
       "source_file": "/Users/keape/Library/Mobile Documents/com~apple~CloudDocs/app sviluppate e html/garden-calendar-ios/GardenCalendar/Preview Content/Preview Assets.xcassets/Contents.json",
       "source_location": "L2",
       "weight": 1.0,
-      "confidence_score": 1.0,
       "source": "users_keape_library_mobile_documents_com_apple_clouddocs_app_sviluppate_e_html_garden_calendar_ios_gardencalendar_preview_content_preview_assets_xcassets_contents_json",
-      "target": "preview_assets_xcassets_contents_info"
+      "target": "preview_assets_xcassets_contents_info",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -10390,9 +10390,9 @@
       "source_file": "/Users/keape/Library/Mobile Documents/com~apple~CloudDocs/app sviluppate e html/garden-calendar-ios/GardenCalendar/Theme/AppTheme.swift",
       "source_location": "L7",
       "weight": 1.0,
-      "confidence_score": 1.0,
       "source": "users_keape_library_mobile_documents_com_apple_clouddocs_app_sviluppate_e_html_garden_calendar_ios_gardencalendar_theme_apptheme_swift",
-      "target": "theme_apptheme_apptheme"
+      "target": "theme_apptheme_apptheme",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -10400,9 +10400,9 @@
       "source_file": "/Users/keape/Library/Mobile Documents/com~apple~CloudDocs/app sviluppate e html/garden-calendar-ios/GardenCalendar/Theme/AppTheme.swift",
       "source_location": "L110",
       "weight": 1.0,
-      "confidence_score": 1.0,
       "source": "users_keape_library_mobile_documents_com_apple_clouddocs_app_sviluppate_e_html_garden_calendar_ios_gardencalendar_theme_apptheme_swift",
-      "target": "theme_apptheme_color"
+      "target": "theme_apptheme_color",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -10410,9 +10410,9 @@
       "source_file": "/Users/keape/Library/Mobile Documents/com~apple~CloudDocs/app sviluppate e html/garden-calendar-ios/GardenCalendar/Theme/AppTheme.swift",
       "source_location": "L153",
       "weight": 1.0,
-      "confidence_score": 1.0,
       "source": "users_keape_library_mobile_documents_com_apple_clouddocs_app_sviluppate_e_html_garden_calendar_ios_gardencalendar_theme_apptheme_swift",
-      "target": "theme_apptheme_font"
+      "target": "theme_apptheme_font",
+      "confidence_score": 1.0
     },
     {
       "relation": "method",
@@ -10430,9 +10430,9 @@
       "source_file": "/Users/keape/Library/Mobile Documents/com~apple~CloudDocs/app sviluppate e html/garden-calendar-ios/GardenCalendar/Views/Components/ActivityColorDot.swift",
       "source_location": "L18",
       "weight": 1.0,
-      "confidence_score": 1.0,
       "source": "users_keape_library_mobile_documents_com_apple_clouddocs_app_sviluppate_e_html_garden_calendar_ios_gardencalendar_views_components_activitycolordot_swift",
-      "target": "theme_apptheme_apptheme"
+      "target": "theme_apptheme_apptheme",
+      "confidence_score": 1.0
     },
     {
       "relation": "method",
@@ -10620,9 +10620,9 @@
       "source_file": "/Users/keape/Library/Mobile Documents/com~apple~CloudDocs/app sviluppate e html/garden-calendar-ios/GardenCalendar/Views/Journal/QuickJournalView.swift",
       "source_location": "L3",
       "weight": 1.0,
-      "confidence_score": 1.0,
       "source": "users_keape_library_mobile_documents_com_apple_clouddocs_app_sviluppate_e_html_garden_calendar_ios_gardencalendar_views_journal_quickjournalview_swift",
-      "target": "journal_quickjournalview_quickjournalview"
+      "target": "journal_quickjournalview_quickjournalview",
+      "confidence_score": 1.0
     },
     {
       "relation": "method",
@@ -10751,9 +10751,9 @@
       "source_file": "/Users/keape/Library/Mobile Documents/com~apple~CloudDocs/app sviluppate e html/garden-calendar-ios/GardenCalendar/Views/Calendario/DayDetailSheet.swift",
       "source_location": "L3",
       "weight": 1.0,
-      "confidence_score": 1.0,
       "source": "users_keape_library_mobile_documents_com_apple_clouddocs_app_sviluppate_e_html_garden_calendar_ios_gardencalendar_views_calendario_daydetailsheet_swift",
-      "target": "calendario_daydetailsheet_daydetailview"
+      "target": "calendario_daydetailsheet_daydetailview",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -10761,9 +10761,9 @@
       "source_file": "/Users/keape/Library/Mobile Documents/com~apple~CloudDocs/app sviluppate e html/garden-calendar-ios/GardenCalendar/Views/Calendario/DayDetailSheet.swift",
       "source_location": "L251",
       "weight": 1.0,
-      "confidence_score": 1.0,
       "source": "users_keape_library_mobile_documents_com_apple_clouddocs_app_sviluppate_e_html_garden_calendar_ios_gardencalendar_views_calendario_daydetailsheet_swift",
-      "target": "calendario_daydetailsheet_naturalistaactivityrow"
+      "target": "calendario_daydetailsheet_naturalistaactivityrow",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -10771,9 +10771,9 @@
       "source_file": "/Users/keape/Library/Mobile Documents/com~apple~CloudDocs/app sviluppate e html/garden-calendar-ios/GardenCalendar/Views/Calendario/DayDetailSheet.swift",
       "source_location": "L345",
       "weight": 1.0,
-      "confidence_score": 1.0,
       "source": "users_keape_library_mobile_documents_com_apple_clouddocs_app_sviluppate_e_html_garden_calendar_ios_gardencalendar_views_calendario_daydetailsheet_swift",
-      "target": "calendario_daydetailsheet_dayactivityrow"
+      "target": "calendario_daydetailsheet_dayactivityrow",
+      "confidence_score": 1.0
     },
     {
       "relation": "method",
@@ -10941,22 +10941,22 @@
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
-      "source_file": "GardenCalendar/Views/Calendario/CalendarView.swift",
+      "source_file": "/Users/keape/Library/Mobile Documents/com~apple~CloudDocs/app sviluppate e html/garden-calendar-ios/GardenCalendar/Views/Calendario/CalendarView.swift",
       "source_location": "L3",
       "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "gardencalendar_views_calendario_calendarview_swift",
-      "target": "calendario_calendarview_calendargridview"
+      "source": "users_keape_library_mobile_documents_com_apple_clouddocs_app_sviluppate_e_html_garden_calendar_ios_gardencalendar_views_calendario_calendarview_swift",
+      "target": "calendario_calendarview_calendargridview",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
-      "source_file": "GardenCalendar/Views/Calendario/CalendarView.swift",
-      "source_location": "L17",
+      "source_file": "/Users/keape/Library/Mobile Documents/com~apple~CloudDocs/app sviluppate e html/garden-calendar-ios/GardenCalendar/Views/Calendario/CalendarView.swift",
+      "source_location": "L40",
       "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "gardencalendar_views_calendario_calendarview_swift",
-      "target": "calendario_calendarview_viewmode"
+      "source": "users_keape_library_mobile_documents_com_apple_clouddocs_app_sviluppate_e_html_garden_calendar_ios_gardencalendar_views_calendario_calendarview_swift",
+      "target": "calendario_calendarview_viewmode",
+      "confidence_score": 1.0
     },
     {
       "relation": "method",
@@ -11041,11 +11041,11 @@
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
-      "source_file": "/Users/keape/Library/Mobile Documents/com~apple~CloudDocs/app sviluppate e html/garden-calendar-ios/GardenCalendar/Views/Calendario/CalendarView.swift",
+      "source_file": "GardenCalendar/Views/Calendario/CalendarView.swift",
       "source_location": "L3",
       "weight": 1.0,
       "confidence_score": 1.0,
-      "source": "users_keape_library_mobile_documents_com_apple_clouddocs_app_sviluppate_e_html_garden_calendar_ios_gardencalendar_views_calendario_calendarview_swift",
+      "source": "gardencalendar_views_calendario_calendarview_swift",
       "target": "calendario_calendarview_calendargridview"
     },
     {
@@ -11101,11 +11101,11 @@
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
-      "source_file": "/Users/keape/Library/Mobile Documents/com~apple~CloudDocs/app sviluppate e html/garden-calendar-ios/GardenCalendar/Views/Calendario/CalendarView.swift",
-      "source_location": "L40",
+      "source_file": "GardenCalendar/Views/Calendario/CalendarView.swift",
+      "source_location": "L17",
       "weight": 1.0,
       "confidence_score": 1.0,
-      "source": "users_keape_library_mobile_documents_com_apple_clouddocs_app_sviluppate_e_html_garden_calendar_ios_gardencalendar_views_calendario_calendarview_swift",
+      "source": "gardencalendar_views_calendario_calendarview_swift",
       "target": "calendario_calendarview_viewmode"
     },
     {
@@ -11157,9 +11157,9 @@
       "source_file": "/Users/keape/Library/Mobile Documents/com~apple~CloudDocs/app sviluppate e html/garden-calendar-ios/GardenCalendar/Views/Settings/SettingsView.swift",
       "source_location": "L5",
       "weight": 1.0,
-      "confidence_score": 1.0,
       "source": "users_keape_library_mobile_documents_com_apple_clouddocs_app_sviluppate_e_html_garden_calendar_ios_gardencalendar_views_settings_settingsview_swift",
-      "target": "settings_settingsview_settingsview"
+      "target": "settings_settingsview_settingsview",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -11167,9 +11167,9 @@
       "source_file": "/Users/keape/Library/Mobile Documents/com~apple~CloudDocs/app sviluppate e html/garden-calendar-ios/GardenCalendar/Views/Settings/SettingsView.swift",
       "source_location": "L225",
       "weight": 1.0,
-      "confidence_score": 1.0,
       "source": "users_keape_library_mobile_documents_com_apple_clouddocs_app_sviluppate_e_html_garden_calendar_ios_gardencalendar_views_settings_settingsview_swift",
-      "target": "settings_settingsview_thememode"
+      "target": "settings_settingsview_thememode",
+      "confidence_score": 1.0
     },
     {
       "relation": "method",
@@ -11267,9 +11267,9 @@
       "source_file": "/Users/keape/Library/Mobile Documents/com~apple~CloudDocs/app sviluppate e html/garden-calendar-ios/GardenCalendar/Views/Auth/LoginView.swift",
       "source_location": "L4",
       "weight": 1.0,
-      "confidence_score": 1.0,
       "source": "users_keape_library_mobile_documents_com_apple_clouddocs_app_sviluppate_e_html_garden_calendar_ios_gardencalendar_views_auth_loginview_swift",
-      "target": "auth_loginview_loginview"
+      "target": "auth_loginview_loginview",
+      "confidence_score": 1.0
     },
     {
       "relation": "method",
@@ -11327,9 +11327,9 @@
       "source_file": "/Users/keape/Library/Mobile Documents/com~apple~CloudDocs/app sviluppate e html/garden-calendar-ios/GardenCalendar/Views/Auth/SignUpView.swift",
       "source_location": "L4",
       "weight": 1.0,
-      "confidence_score": 1.0,
       "source": "users_keape_library_mobile_documents_com_apple_clouddocs_app_sviluppate_e_html_garden_calendar_ios_gardencalendar_views_auth_signupview_swift",
-      "target": "auth_signupview_signupview"
+      "target": "auth_signupview_signupview",
+      "confidence_score": 1.0
     },
     {
       "relation": "method",
@@ -11367,9 +11367,9 @@
       "source_file": "/Users/keape/Library/Mobile Documents/com~apple~CloudDocs/app sviluppate e html/garden-calendar-ios/GardenCalendar/Views/Orto/OrtoListView.swift",
       "source_location": "L4",
       "weight": 1.0,
-      "confidence_score": 1.0,
       "source": "users_keape_library_mobile_documents_com_apple_clouddocs_app_sviluppate_e_html_garden_calendar_ios_gardencalendar_views_orto_ortolistview_swift",
-      "target": "orto_ortolistview_ortolistview"
+      "target": "orto_ortolistview_ortolistview",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -11377,9 +11377,9 @@
       "source_file": "/Users/keape/Library/Mobile Documents/com~apple~CloudDocs/app sviluppate e html/garden-calendar-ios/GardenCalendar/Views/Orto/OrtoListView.swift",
       "source_location": "L247",
       "weight": 1.0,
-      "confidence_score": 1.0,
       "source": "users_keape_library_mobile_documents_com_apple_clouddocs_app_sviluppate_e_html_garden_calendar_ios_gardencalendar_views_orto_ortolistview_swift",
-      "target": "orto_ortolistview_ortocardrow"
+      "target": "orto_ortolistview_ortocardrow",
+      "confidence_score": 1.0
     },
     {
       "relation": "method",
@@ -11520,9 +11520,9 @@
       "source_file": "/Users/keape/Library/Mobile Documents/com~apple~CloudDocs/app sviluppate e html/garden-calendar-ios/GardenCalendar/Views/Orto/OrtoDetailView.swift",
       "source_location": "L4",
       "weight": 1.0,
-      "confidence_score": 1.0,
       "source": "users_keape_library_mobile_documents_com_apple_clouddocs_app_sviluppate_e_html_garden_calendar_ios_gardencalendar_views_orto_ortodetailview_swift",
-      "target": "orto_ortodetailview_ortodetailview"
+      "target": "orto_ortodetailview_ortodetailview",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -11530,9 +11530,9 @@
       "source_file": "/Users/keape/Library/Mobile Documents/com~apple~CloudDocs/app sviluppate e html/garden-calendar-ios/GardenCalendar/Views/Orto/OrtoDetailView.swift",
       "source_location": "L310",
       "weight": 1.0,
-      "confidence_score": 1.0,
       "source": "users_keape_library_mobile_documents_com_apple_clouddocs_app_sviluppate_e_html_garden_calendar_ios_gardencalendar_views_orto_ortodetailview_swift",
-      "target": "orto_ortodetailview_piantarowview"
+      "target": "orto_ortodetailview_piantarowview",
+      "confidence_score": 1.0
     },
     {
       "relation": "method",
@@ -11690,9 +11690,9 @@
       "source_file": "/Users/keape/Library/Mobile Documents/com~apple~CloudDocs/app sviluppate e html/garden-calendar-ios/GardenCalendar/Views/Piante/ModificaPiantaSheet.swift",
       "source_location": "L3",
       "weight": 1.0,
-      "confidence_score": 1.0,
       "source": "users_keape_library_mobile_documents_com_apple_clouddocs_app_sviluppate_e_html_garden_calendar_ios_gardencalendar_views_piante_modificapiantasheet_swift",
-      "target": "piante_modificapiantasheet_modificapiantasheet"
+      "target": "piante_modificapiantasheet_modificapiantasheet",
+      "confidence_score": 1.0
     },
     {
       "relation": "method",
@@ -11730,9 +11730,9 @@
       "source_file": "/Users/keape/Library/Mobile Documents/com~apple~CloudDocs/app sviluppate e html/garden-calendar-ios/GardenCalendar/Views/Piante/PiantaListView.swift",
       "source_location": "L3",
       "weight": 1.0,
-      "confidence_score": 1.0,
       "source": "users_keape_library_mobile_documents_com_apple_clouddocs_app_sviluppate_e_html_garden_calendar_ios_gardencalendar_views_piante_piantalistview_swift",
-      "target": "piante_piantalistview_piantalistview"
+      "target": "piante_piantalistview_piantalistview",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -11740,9 +11740,9 @@
       "source_file": "/Users/keape/Library/Mobile Documents/com~apple~CloudDocs/app sviluppate e html/garden-calendar-ios/GardenCalendar/Views/Piante/PiantaListView.swift",
       "source_location": "L103",
       "weight": 1.0,
-      "confidence_score": 1.0,
       "source": "users_keape_library_mobile_documents_com_apple_clouddocs_app_sviluppate_e_html_garden_calendar_ios_gardencalendar_views_piante_piantalistview_swift",
-      "target": "piante_piantalistview_piantacardview"
+      "target": "piante_piantalistview_piantacardview",
+      "confidence_score": 1.0
     },
     {
       "relation": "method",
@@ -11830,9 +11830,9 @@
       "source_file": "/Users/keape/Library/Mobile Documents/com~apple~CloudDocs/app sviluppate e html/garden-calendar-ios/GardenCalendar/Views/Piante/ModificaIntervalloSheet.swift",
       "source_location": "L3",
       "weight": 1.0,
-      "confidence_score": 1.0,
       "source": "users_keape_library_mobile_documents_com_apple_clouddocs_app_sviluppate_e_html_garden_calendar_ios_gardencalendar_views_piante_modificaintervallosheet_swift",
-      "target": "piante_modificaintervallosheet_modificaintervallosheet"
+      "target": "piante_modificaintervallosheet_modificaintervallosheet",
+      "confidence_score": 1.0
     },
     {
       "relation": "method",
@@ -11933,9 +11933,9 @@
       "source_file": "/Users/keape/Library/Mobile Documents/com~apple~CloudDocs/app sviluppate e html/garden-calendar-ios/GardenCalendar/Views/Piante/PiantaDetailView.swift",
       "source_location": "L3",
       "weight": 1.0,
-      "confidence_score": 1.0,
       "source": "users_keape_library_mobile_documents_com_apple_clouddocs_app_sviluppate_e_html_garden_calendar_ios_gardencalendar_views_piante_piantadetailview_swift",
-      "target": "piante_piantadetailview_piantadetailview"
+      "target": "piante_piantadetailview_piantadetailview",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -11943,9 +11943,9 @@
       "source_file": "/Users/keape/Library/Mobile Documents/com~apple~CloudDocs/app sviluppate e html/garden-calendar-ios/GardenCalendar/Views/Piante/PiantaDetailView.swift",
       "source_location": "L194",
       "weight": 1.0,
-      "confidence_score": 1.0,
       "source": "users_keape_library_mobile_documents_com_apple_clouddocs_app_sviluppate_e_html_garden_calendar_ios_gardencalendar_views_piante_piantadetailview_swift",
-      "target": "piante_piantadetailview_attivitarow"
+      "target": "piante_piantadetailview_attivitarow",
+      "confidence_score": 1.0
     },
     {
       "relation": "method",
@@ -12053,9 +12053,9 @@
       "source_file": "/Users/keape/Library/Mobile Documents/com~apple~CloudDocs/app sviluppate e html/garden-calendar-ios/GardenCalendar/Views/Piante/NuovaAttivitaSheet.swift",
       "source_location": "L3",
       "weight": 1.0,
-      "confidence_score": 1.0,
       "source": "users_keape_library_mobile_documents_com_apple_clouddocs_app_sviluppate_e_html_garden_calendar_ios_gardencalendar_views_piante_nuovaattivitasheet_swift",
-      "target": "piante_nuovaattivitasheet_nuovaattivitasheet"
+      "target": "piante_nuovaattivitasheet_nuovaattivitasheet",
+      "confidence_score": 1.0
     },
     {
       "relation": "method",
@@ -12083,9 +12083,9 @@
       "source_file": "/Users/keape/Library/Mobile Documents/com~apple~CloudDocs/app sviluppate e html/garden-calendar-ios/GardenCalendar/Views/Piante/AggiungiPiantaView.swift",
       "source_location": "L4",
       "weight": 1.0,
-      "confidence_score": 1.0,
       "source": "users_keape_library_mobile_documents_com_apple_clouddocs_app_sviluppate_e_html_garden_calendar_ios_gardencalendar_views_piante_aggiungipiantaview_swift",
-      "target": "piante_aggiungipiantaview_aggiungipiantaview"
+      "target": "piante_aggiungipiantaview_aggiungipiantaview",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -12093,9 +12093,9 @@
       "source_file": "/Users/keape/Library/Mobile Documents/com~apple~CloudDocs/app sviluppate e html/garden-calendar-ios/GardenCalendar/Views/Piante/AggiungiPiantaView.swift",
       "source_location": "L315",
       "weight": 1.0,
-      "confidence_score": 1.0,
       "source": "users_keape_library_mobile_documents_com_apple_clouddocs_app_sviluppate_e_html_garden_calendar_ios_gardencalendar_views_piante_aggiungipiantaview_swift",
-      "target": "piante_aggiungipiantaview_templateactivity"
+      "target": "piante_aggiungipiantaview_templateactivity",
+      "confidence_score": 1.0
     },
     {
       "relation": "method",
@@ -12206,9 +12206,9 @@
       "source_file": "/Users/keape/Library/Mobile Documents/com~apple~CloudDocs/app sviluppate e html/garden-calendar-ios/GardenCalendar/Views/Components/WeatherIcon.swift",
       "source_location": "L6",
       "weight": 1.0,
-      "confidence_score": 1.0,
       "source": "users_keape_library_mobile_documents_com_apple_clouddocs_app_sviluppate_e_html_garden_calendar_ios_gardencalendar_views_components_weathericon_swift",
-      "target": "components_weathericon_weathericon"
+      "target": "components_weathericon_weathericon",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -12236,9 +12236,9 @@
       "source_file": "/Users/keape/Library/Mobile Documents/com~apple~CloudDocs/app sviluppate e html/garden-calendar-ios/GardenCalendar/Views/Components/ActivityColorDot.swift",
       "source_location": "L5",
       "weight": 1.0,
-      "confidence_score": 1.0,
       "source": "users_keape_library_mobile_documents_com_apple_clouddocs_app_sviluppate_e_html_garden_calendar_ios_gardencalendar_views_components_activitycolordot_swift",
-      "target": "components_activitycolordot_activitycolordot"
+      "target": "components_activitycolordot_activitycolordot",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -12951,9 +12951,9 @@
       "source_file": "/Users/keape/Library/Mobile Documents/com~apple~CloudDocs/app sviluppate e html/garden-calendar-ios/GardenCalendar/Services/AuthManager.swift",
       "source_location": "L5",
       "weight": 1.0,
-      "confidence_score": 1.0,
       "source": "users_keape_library_mobile_documents_com_apple_clouddocs_app_sviluppate_e_html_garden_calendar_ios_gardencalendar_services_authmanager_swift",
-      "target": "services_authmanager_authmanager"
+      "target": "services_authmanager_authmanager",
+      "confidence_score": 1.0
     },
     {
       "relation": "method",
@@ -13048,92 +13048,92 @@
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
-      "source_file": "GardenCalendar/Services/RainAdjuster.swift",
+      "source_file": "/Users/keape/Library/Mobile Documents/com~apple~CloudDocs/app sviluppate e html/garden-calendar-ios/GardenCalendar/Services/RainAdjuster.swift",
       "source_location": "L5",
       "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "gardencalendar_services_rainadjuster_swift",
-      "target": "services_rainadjuster_openmeteoclient"
+      "source": "users_keape_library_mobile_documents_com_apple_clouddocs_app_sviluppate_e_html_garden_calendar_ios_gardencalendar_services_rainadjuster_swift",
+      "target": "services_rainadjuster_openmeteoclient",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
-      "source_file": "GardenCalendar/Services/RainAdjuster.swift",
-      "source_location": "L75",
+      "source_file": "/Users/keape/Library/Mobile Documents/com~apple~CloudDocs/app sviluppate e html/garden-calendar-ios/GardenCalendar/Services/RainAdjuster.swift",
+      "source_location": "L76",
       "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "gardencalendar_services_rainadjuster_swift",
-      "target": "services_rainadjuster_rainadjuster"
+      "source": "users_keape_library_mobile_documents_com_apple_clouddocs_app_sviluppate_e_html_garden_calendar_ios_gardencalendar_services_rainadjuster_swift",
+      "target": "services_rainadjuster_rainadjuster",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
-      "source_file": "GardenCalendar/Services/RainAdjuster.swift",
-      "source_location": "L152",
+      "source_file": "/Users/keape/Library/Mobile Documents/com~apple~CloudDocs/app sviluppate e html/garden-calendar-ios/GardenCalendar/Services/RainAdjuster.swift",
+      "source_location": "L153",
       "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "gardencalendar_services_rainadjuster_swift",
-      "target": "services_rainadjuster_rescheduleaction"
+      "source": "users_keape_library_mobile_documents_com_apple_clouddocs_app_sviluppate_e_html_garden_calendar_ios_gardencalendar_services_rainadjuster_swift",
+      "target": "services_rainadjuster_rescheduleaction",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
-      "source_file": "GardenCalendar/Services/RainAdjuster.swift",
-      "source_location": "L114",
+      "source_file": "/Users/keape/Library/Mobile Documents/com~apple~CloudDocs/app sviluppate e html/garden-calendar-ios/GardenCalendar/Services/RainAdjuster.swift",
+      "source_location": "L167",
       "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "gardencalendar_services_rainadjuster_swift",
-      "target": "services_rainadjuster_openmeteoresponse"
+      "source": "users_keape_library_mobile_documents_com_apple_clouddocs_app_sviluppate_e_html_garden_calendar_ios_gardencalendar_services_rainadjuster_swift",
+      "target": "services_rainadjuster_openmeteoresponse",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
-      "source_file": "GardenCalendar/Services/RainAdjuster.swift",
-      "source_location": "L117",
+      "source_file": "/Users/keape/Library/Mobile Documents/com~apple~CloudDocs/app sviluppate e html/garden-calendar-ios/GardenCalendar/Services/RainAdjuster.swift",
+      "source_location": "L170",
       "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "gardencalendar_services_rainadjuster_swift",
-      "target": "services_rainadjuster_daily"
+      "source": "users_keape_library_mobile_documents_com_apple_clouddocs_app_sviluppate_e_html_garden_calendar_ios_gardencalendar_services_rainadjuster_swift",
+      "target": "services_rainadjuster_daily",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
-      "source_file": "GardenCalendar/Services/RainAdjuster.swift",
-      "source_location": "L121",
+      "source_file": "/Users/keape/Library/Mobile Documents/com~apple~CloudDocs/app sviluppate e html/garden-calendar-ios/GardenCalendar/Services/RainAdjuster.swift",
+      "source_location": "L174",
       "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "gardencalendar_services_rainadjuster_swift",
-      "target": "services_rainadjuster_codingkeys"
+      "source": "users_keape_library_mobile_documents_com_apple_clouddocs_app_sviluppate_e_html_garden_calendar_ios_gardencalendar_services_rainadjuster_swift",
+      "target": "services_rainadjuster_codingkeys",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
-      "source_file": "GardenCalendar/Services/RainAdjuster.swift",
-      "source_location": "L128",
+      "source_file": "/Users/keape/Library/Mobile Documents/com~apple~CloudDocs/app sviluppate e html/garden-calendar-ios/GardenCalendar/Services/RainAdjuster.swift",
+      "source_location": "L181",
       "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "gardencalendar_services_rainadjuster_swift",
-      "target": "services_rainadjuster_cacheentry"
+      "source": "users_keape_library_mobile_documents_com_apple_clouddocs_app_sviluppate_e_html_garden_calendar_ios_gardencalendar_services_rainadjuster_swift",
+      "target": "services_rainadjuster_cacheentry",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
-      "source_file": "GardenCalendar/Services/RainAdjuster.swift",
-      "source_location": "L137",
+      "source_file": "/Users/keape/Library/Mobile Documents/com~apple~CloudDocs/app sviluppate e html/garden-calendar-ios/GardenCalendar/Services/RainAdjuster.swift",
+      "source_location": "L190",
       "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "gardencalendar_services_rainadjuster_swift",
-      "target": "services_rainadjuster_rainerror"
+      "source": "users_keape_library_mobile_documents_com_apple_clouddocs_app_sviluppate_e_html_garden_calendar_ios_gardencalendar_services_rainadjuster_swift",
+      "target": "services_rainadjuster_rainerror",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
-      "source_file": "GardenCalendar/Services/RainAdjuster.swift",
-      "source_location": "L151",
+      "source_file": "/Users/keape/Library/Mobile Documents/com~apple~CloudDocs/app sviluppate e html/garden-calendar-ios/GardenCalendar/Services/RainAdjuster.swift",
+      "source_location": "L204",
       "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "gardencalendar_services_rainadjuster_swift",
-      "target": "services_rainadjuster_date"
+      "source": "users_keape_library_mobile_documents_com_apple_clouddocs_app_sviluppate_e_html_garden_calendar_ios_gardencalendar_services_rainadjuster_swift",
+      "target": "services_rainadjuster_date",
+      "confidence_score": 1.0
     },
     {
       "relation": "method",
@@ -13158,11 +13158,11 @@
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
-      "source_file": "/Users/keape/Library/Mobile Documents/com~apple~CloudDocs/app sviluppate e html/garden-calendar-ios/GardenCalendar/Services/RainAdjuster.swift",
+      "source_file": "GardenCalendar/Services/RainAdjuster.swift",
       "source_location": "L5",
       "weight": 1.0,
       "confidence_score": 1.0,
-      "source": "users_keape_library_mobile_documents_com_apple_clouddocs_app_sviluppate_e_html_garden_calendar_ios_gardencalendar_services_rainadjuster_swift",
+      "source": "gardencalendar_services_rainadjuster_swift",
       "target": "services_rainadjuster_openmeteoclient"
     },
     {
@@ -13241,11 +13241,11 @@
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
-      "source_file": "/Users/keape/Library/Mobile Documents/com~apple~CloudDocs/app sviluppate e html/garden-calendar-ios/GardenCalendar/Services/RainAdjuster.swift",
-      "source_location": "L76",
+      "source_file": "GardenCalendar/Services/RainAdjuster.swift",
+      "source_location": "L75",
       "weight": 1.0,
       "confidence_score": 1.0,
-      "source": "users_keape_library_mobile_documents_com_apple_clouddocs_app_sviluppate_e_html_garden_calendar_ios_gardencalendar_services_rainadjuster_swift",
+      "source": "gardencalendar_services_rainadjuster_swift",
       "target": "services_rainadjuster_rainadjuster"
     },
     {
@@ -13337,31 +13337,31 @@
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
-      "source_file": "/Users/keape/Library/Mobile Documents/com~apple~CloudDocs/app sviluppate e html/garden-calendar-ios/GardenCalendar/Services/RainAdjuster.swift",
-      "source_location": "L153",
+      "source_file": "GardenCalendar/Services/RainAdjuster.swift",
+      "source_location": "L152",
       "weight": 1.0,
       "confidence_score": 1.0,
-      "source": "users_keape_library_mobile_documents_com_apple_clouddocs_app_sviluppate_e_html_garden_calendar_ios_gardencalendar_services_rainadjuster_swift",
+      "source": "gardencalendar_services_rainadjuster_swift",
       "target": "services_rainadjuster_rescheduleaction"
     },
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
-      "source_file": "/Users/keape/Library/Mobile Documents/com~apple~CloudDocs/app sviluppate e html/garden-calendar-ios/GardenCalendar/Services/RainAdjuster.swift",
-      "source_location": "L167",
+      "source_file": "GardenCalendar/Services/RainAdjuster.swift",
+      "source_location": "L114",
       "weight": 1.0,
       "confidence_score": 1.0,
-      "source": "users_keape_library_mobile_documents_com_apple_clouddocs_app_sviluppate_e_html_garden_calendar_ios_gardencalendar_services_rainadjuster_swift",
+      "source": "gardencalendar_services_rainadjuster_swift",
       "target": "services_rainadjuster_openmeteoresponse"
     },
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
-      "source_file": "/Users/keape/Library/Mobile Documents/com~apple~CloudDocs/app sviluppate e html/garden-calendar-ios/GardenCalendar/Services/RainAdjuster.swift",
-      "source_location": "L170",
+      "source_file": "GardenCalendar/Services/RainAdjuster.swift",
+      "source_location": "L117",
       "weight": 1.0,
       "confidence_score": 1.0,
-      "source": "users_keape_library_mobile_documents_com_apple_clouddocs_app_sviluppate_e_html_garden_calendar_ios_gardencalendar_services_rainadjuster_swift",
+      "source": "gardencalendar_services_rainadjuster_swift",
       "target": "services_rainadjuster_daily"
     },
     {
@@ -13387,11 +13387,11 @@
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
-      "source_file": "/Users/keape/Library/Mobile Documents/com~apple~CloudDocs/app sviluppate e html/garden-calendar-ios/GardenCalendar/Services/RainAdjuster.swift",
-      "source_location": "L174",
+      "source_file": "GardenCalendar/Services/RainAdjuster.swift",
+      "source_location": "L121",
       "weight": 1.0,
       "confidence_score": 1.0,
-      "source": "users_keape_library_mobile_documents_com_apple_clouddocs_app_sviluppate_e_html_garden_calendar_ios_gardencalendar_services_rainadjuster_swift",
+      "source": "gardencalendar_services_rainadjuster_swift",
       "target": "services_rainadjuster_codingkeys"
     },
     {
@@ -13407,11 +13407,11 @@
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
-      "source_file": "/Users/keape/Library/Mobile Documents/com~apple~CloudDocs/app sviluppate e html/garden-calendar-ios/GardenCalendar/Services/RainAdjuster.swift",
-      "source_location": "L181",
+      "source_file": "GardenCalendar/Services/RainAdjuster.swift",
+      "source_location": "L128",
       "weight": 1.0,
       "confidence_score": 1.0,
-      "source": "users_keape_library_mobile_documents_com_apple_clouddocs_app_sviluppate_e_html_garden_calendar_ios_gardencalendar_services_rainadjuster_swift",
+      "source": "gardencalendar_services_rainadjuster_swift",
       "target": "services_rainadjuster_cacheentry"
     },
     {
@@ -13437,21 +13437,21 @@
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
-      "source_file": "/Users/keape/Library/Mobile Documents/com~apple~CloudDocs/app sviluppate e html/garden-calendar-ios/GardenCalendar/Services/RainAdjuster.swift",
-      "source_location": "L190",
+      "source_file": "GardenCalendar/Services/RainAdjuster.swift",
+      "source_location": "L137",
       "weight": 1.0,
       "confidence_score": 1.0,
-      "source": "users_keape_library_mobile_documents_com_apple_clouddocs_app_sviluppate_e_html_garden_calendar_ios_gardencalendar_services_rainadjuster_swift",
+      "source": "gardencalendar_services_rainadjuster_swift",
       "target": "services_rainadjuster_rainerror"
     },
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
-      "source_file": "/Users/keape/Library/Mobile Documents/com~apple~CloudDocs/app sviluppate e html/garden-calendar-ios/GardenCalendar/Services/RainAdjuster.swift",
-      "source_location": "L204",
+      "source_file": "GardenCalendar/Services/RainAdjuster.swift",
+      "source_location": "L151",
       "weight": 1.0,
       "confidence_score": 1.0,
-      "source": "users_keape_library_mobile_documents_com_apple_clouddocs_app_sviluppate_e_html_garden_calendar_ios_gardencalendar_services_rainadjuster_swift",
+      "source": "gardencalendar_services_rainadjuster_swift",
       "target": "services_rainadjuster_date"
     },
     {
@@ -13482,9 +13482,9 @@
       "source_file": "/Users/keape/Library/Mobile Documents/com~apple~CloudDocs/app sviluppate e html/garden-calendar-ios/GardenCalendar/Services/LocationHelper.swift",
       "source_location": "L3",
       "weight": 1.0,
-      "confidence_score": 1.0,
       "source": "users_keape_library_mobile_documents_com_apple_clouddocs_app_sviluppate_e_html_garden_calendar_ios_gardencalendar_services_locationhelper_swift",
-      "target": "services_locationhelper_locationhelper"
+      "target": "services_locationhelper_locationhelper",
+      "confidence_score": 1.0
     },
     {
       "relation": "inherits",
@@ -13573,9 +13573,9 @@
       "source_file": "/Users/keape/Library/Mobile Documents/com~apple~CloudDocs/app sviluppate e html/garden-calendar-ios/appstore-prep.md",
       "source_location": "L1",
       "weight": 1.0,
-      "confidence_score": 1.0,
       "source": "users_keape_library_mobile_documents_com_apple_clouddocs_app_sviluppate_e_html_garden_calendar_ios_appstore_prep_md",
-      "target": "garden_calendar_ios_appstore_prep_garden_calendar_ios_app_store_connect_preparation"
+      "target": "garden_calendar_ios_appstore_prep_garden_calendar_ios_app_store_connect_preparation",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -13733,9 +13733,9 @@
       "source_file": "README.md",
       "source_location": "L1",
       "weight": 1.0,
-      "confidence_score": 1.0,
       "source": "readme_md",
-      "target": "practical_liskov_144414_readme_garden_calendar"
+      "target": "practical_liskov_144414_readme_garden_calendar",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -13743,9 +13743,9 @@
       "source_file": "README.md",
       "source_location": "L9",
       "weight": 1.0,
-      "confidence_score": 1.0,
       "source": "practical_liskov_144414_readme_garden_calendar",
-      "target": "practical_liskov_144414_readme_features"
+      "target": "practical_liskov_144414_readme_features",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -13753,9 +13753,9 @@
       "source_file": "README.md",
       "source_location": "L64",
       "weight": 1.0,
-      "confidence_score": 1.0,
       "source": "practical_liskov_144414_readme_garden_calendar",
-      "target": "practical_liskov_144414_readme_requirements"
+      "target": "practical_liskov_144414_readme_requirements",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -13763,9 +13763,9 @@
       "source_file": "README.md",
       "source_location": "L72",
       "weight": 1.0,
-      "confidence_score": 1.0,
       "source": "practical_liskov_144414_readme_garden_calendar",
-      "target": "practical_liskov_144414_readme_privacy"
+      "target": "practical_liskov_144414_readme_privacy",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -13773,9 +13773,9 @@
       "source_file": "README.md",
       "source_location": "L80",
       "weight": 1.0,
-      "confidence_score": 1.0,
       "source": "practical_liskov_144414_readme_garden_calendar",
-      "target": "practical_liskov_144414_readme_tech_stack"
+      "target": "practical_liskov_144414_readme_tech_stack",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -13783,9 +13783,9 @@
       "source_file": "README.md",
       "source_location": "L91",
       "weight": 1.0,
-      "confidence_score": 1.0,
       "source": "practical_liskov_144414_readme_garden_calendar",
-      "target": "practical_liskov_144414_readme_getting_started"
+      "target": "practical_liskov_144414_readme_getting_started",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -13793,9 +13793,9 @@
       "source_file": "README.md",
       "source_location": "L101",
       "weight": 1.0,
-      "confidence_score": 1.0,
       "source": "practical_liskov_144414_readme_garden_calendar",
-      "target": "practical_liskov_144414_readme_feedback_issues"
+      "target": "practical_liskov_144414_readme_feedback_issues",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -13803,9 +13803,9 @@
       "source_file": "README.md",
       "source_location": "L11",
       "weight": 1.0,
-      "confidence_score": 1.0,
       "source": "practical_liskov_144414_readme_features",
-      "target": "practical_liskov_144414_readme_multiple_garden_plots"
+      "target": "practical_liskov_144414_readme_multiple_garden_plots",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -13813,9 +13813,9 @@
       "source_file": "README.md",
       "source_location": "L14",
       "weight": 1.0,
-      "confidence_score": 1.0,
       "source": "practical_liskov_144414_readme_features",
-      "target": "practical_liskov_144414_readme_plant_tracking"
+      "target": "practical_liskov_144414_readme_plant_tracking",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -13823,9 +13823,9 @@
       "source_file": "README.md",
       "source_location": "L23",
       "weight": 1.0,
-      "confidence_score": 1.0,
       "source": "practical_liskov_144414_readme_features",
-      "target": "practical_liskov_144414_readme_smart_activity_calendar"
+      "target": "practical_liskov_144414_readme_smart_activity_calendar",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -13833,9 +13833,9 @@
       "source_file": "README.md",
       "source_location": "L37",
       "weight": 1.0,
-      "confidence_score": 1.0,
       "source": "practical_liskov_144414_readme_features",
-      "target": "practical_liskov_144414_readme_rain_aware_irrigation"
+      "target": "practical_liskov_144414_readme_rain_aware_irrigation",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -13843,9 +13843,9 @@
       "source_file": "README.md",
       "source_location": "L45",
       "weight": 1.0,
-      "confidence_score": 1.0,
       "source": "practical_liskov_144414_readme_features",
-      "target": "practical_liskov_144414_readme_suggested_activities"
+      "target": "practical_liskov_144414_readme_suggested_activities",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -13853,9 +13853,9 @@
       "source_file": "README.md",
       "source_location": "L48",
       "weight": 1.0,
-      "confidence_score": 1.0,
       "source": "practical_liskov_144414_readme_features",
-      "target": "practical_liskov_144414_readme_garden_journal"
+      "target": "practical_liskov_144414_readme_garden_journal",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -13863,9 +13863,9 @@
       "source_file": "README.md",
       "source_location": "L56",
       "weight": 1.0,
-      "confidence_score": 1.0,
       "source": "practical_liskov_144414_readme_features",
-      "target": "practical_liskov_144414_readme_filters"
+      "target": "practical_liskov_144414_readme_filters",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -13873,9 +13873,9 @@
       "source_file": "/Users/keape/Library/Mobile Documents/com~apple~CloudDocs/app sviluppate e html/garden-calendar-ios/TASKS.md",
       "source_location": "L1",
       "weight": 1.0,
-      "confidence_score": 1.0,
       "source": "users_keape_library_mobile_documents_com_apple_clouddocs_app_sviluppate_e_html_garden_calendar_ios_tasks_md",
-      "target": "garden_calendar_ios_tasks_tasks_garden_calendar_ios"
+      "target": "garden_calendar_ios_tasks_tasks_garden_calendar_ios",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -13923,9 +13923,9 @@
       "source_file": "/Users/keape/Library/Mobile Documents/com~apple~CloudDocs/app sviluppate e html/garden-calendar-ios/CLAUDE.md",
       "source_location": "L1",
       "weight": 1.0,
-      "confidence_score": 1.0,
       "source": "users_keape_library_mobile_documents_com_apple_clouddocs_app_sviluppate_e_html_garden_calendar_ios_claude_md",
-      "target": "garden_calendar_ios_claude_graphify"
+      "target": "garden_calendar_ios_claude_graphify",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -13943,9 +13943,9 @@
       "source_file": "/Users/keape/Library/Mobile Documents/com~apple~CloudDocs/app sviluppate e html/garden-calendar-ios/docs/superpowers/plans/2026-06-02-rain-reschedule.md",
       "source_location": "L1",
       "weight": 1.0,
-      "confidence_score": 1.0,
       "source": "users_keape_library_mobile_documents_com_apple_clouddocs_app_sviluppate_e_html_garden_calendar_ios_docs_superpowers_plans_2026_06_02_rain_reschedule_md",
-      "target": "plans_2026_06_02_rain_reschedule_rain_reschedule_implementation_plan"
+      "target": "plans_2026_06_02_rain_reschedule_rain_reschedule_implementation_plan",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -14093,9 +14093,9 @@
       "source_file": "/Users/keape/Library/Mobile Documents/com~apple~CloudDocs/app sviluppate e html/garden-calendar-ios/docs/superpowers/plans/2026-06-02-activity-interval-override.md",
       "source_location": "L1",
       "weight": 1.0,
-      "confidence_score": 1.0,
       "source": "users_keape_library_mobile_documents_com_apple_clouddocs_app_sviluppate_e_html_garden_calendar_ios_docs_superpowers_plans_2026_06_02_activity_interval_override_md",
-      "target": "plans_2026_06_02_activity_interval_override_activity_interval_override_implementation_plan"
+      "target": "plans_2026_06_02_activity_interval_override_activity_interval_override_implementation_plan",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -14303,9 +14303,9 @@
       "source_file": "/Users/keape/Library/Mobile Documents/com~apple~CloudDocs/app sviluppate e html/garden-calendar-ios/docs/superpowers/plans/2026-06-04-naturalista-ux-redesign.md",
       "source_location": "L1",
       "weight": 1.0,
-      "confidence_score": 1.0,
       "source": "users_keape_library_mobile_documents_com_apple_clouddocs_app_sviluppate_e_html_garden_calendar_ios_docs_superpowers_plans_2026_06_04_naturalista_ux_redesign_md",
-      "target": "plans_2026_06_04_naturalista_ux_redesign_naturalista_ux_redesign_implementation_plan"
+      "target": "plans_2026_06_04_naturalista_ux_redesign_naturalista_ux_redesign_implementation_plan",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -14863,9 +14863,9 @@
       "source_file": "/Users/keape/Library/Mobile Documents/com~apple~CloudDocs/app sviluppate e html/garden-calendar-ios/docs/superpowers/specs/2026-06-04-naturalista-ux-redesign.md",
       "source_location": "L1",
       "weight": 1.0,
-      "confidence_score": 1.0,
       "source": "users_keape_library_mobile_documents_com_apple_clouddocs_app_sviluppate_e_html_garden_calendar_ios_docs_superpowers_specs_2026_06_04_naturalista_ux_redesign_md",
-      "target": "specs_2026_06_04_naturalista_ux_redesign_naturalista_ux_redesign"
+      "target": "specs_2026_06_04_naturalista_ux_redesign_naturalista_ux_redesign",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -15173,9 +15173,9 @@
       "source_file": "/Users/keape/Library/Mobile Documents/com~apple~CloudDocs/app sviluppate e html/garden-calendar-ios/docs/superpowers/specs/2026-06-02-rain-reschedule-design.md",
       "source_location": "L1",
       "weight": 1.0,
-      "confidence_score": 1.0,
       "source": "users_keape_library_mobile_documents_com_apple_clouddocs_app_sviluppate_e_html_garden_calendar_ios_docs_superpowers_specs_2026_06_02_rain_reschedule_design_md",
-      "target": "specs_2026_06_02_rain_reschedule_design_rain_reschedule_design_spec"
+      "target": "specs_2026_06_02_rain_reschedule_design_rain_reschedule_design_spec",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -15343,9 +15343,9 @@
       "source_file": "/Users/keape/Library/Mobile Documents/com~apple~CloudDocs/app sviluppate e html/garden-calendar-ios/docs/superpowers/specs/2026-06-02-activity-interval-override-design.md",
       "source_location": "L1",
       "weight": 1.0,
-      "confidence_score": 1.0,
       "source": "users_keape_library_mobile_documents_com_apple_clouddocs_app_sviluppate_e_html_garden_calendar_ios_docs_superpowers_specs_2026_06_02_activity_interval_override_design_md",
-      "target": "specs_2026_06_02_activity_interval_override_design_design_override_periodicit\u00e0_attivit\u00e0_per_singola_pianta"
+      "target": "specs_2026_06_02_activity_interval_override_design_design_override_periodicit\u00e0_attivit\u00e0_per_singola_pianta",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -15493,9 +15493,9 @@
       "source_file": "/Users/keape/Library/Mobile Documents/com~apple~CloudDocs/app sviluppate e html/garden-calendar-ios/Obsidian-garden-calendar-ios/sessioni/2026-06-02-fix-supabase-schema-date.md",
       "source_location": "L1",
       "weight": 1.0,
-      "confidence_score": 1.0,
       "source": "users_keape_library_mobile_documents_com_apple_clouddocs_app_sviluppate_e_html_garden_calendar_ios_obsidian_garden_calendar_ios_sessioni_2026_06_02_fix_supabase_schema_date_md",
-      "target": "sessioni_2026_06_02_fix_supabase_schema_date_fix_errore_schema_cache_e_decodifica_date_supabase"
+      "target": "sessioni_2026_06_02_fix_supabase_schema_date_fix_errore_schema_cache_e_decodifica_date_supabase",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -15553,9 +15553,9 @@
       "source_file": "/Users/keape/Library/Mobile Documents/com~apple~CloudDocs/app sviluppate e html/garden-calendar-ios/Obsidian-garden-calendar-ios/sessioni/2026-06-02-orto-edit-geocoding-fix.md",
       "source_location": "L1",
       "weight": 1.0,
-      "confidence_score": 1.0,
       "source": "users_keape_library_mobile_documents_com_apple_clouddocs_app_sviluppate_e_html_garden_calendar_ios_obsidian_garden_calendar_ios_sessioni_2026_06_02_orto_edit_geocoding_fix_md",
-      "target": "sessioni_2026_06_02_orto_edit_geocoding_fix_fix_geocoding_citt\u00e0_modifica_orto"
+      "target": "sessioni_2026_06_02_orto_edit_geocoding_fix_fix_geocoding_citt\u00e0_modifica_orto",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -15613,9 +15613,9 @@
       "source_file": "/Users/keape/Library/Mobile Documents/com~apple~CloudDocs/app sviluppate e html/garden-calendar-ios/Obsidian-garden-calendar-ios/sessioni/2026-06-02-fix-chiudi-daydetail.md",
       "source_location": "L1",
       "weight": 1.0,
-      "confidence_score": 1.0,
       "source": "users_keape_library_mobile_documents_com_apple_clouddocs_app_sviluppate_e_html_garden_calendar_ios_obsidian_garden_calendar_ios_sessioni_2026_06_02_fix_chiudi_daydetail_md",
-      "target": "sessioni_2026_06_02_fix_chiudi_daydetail_fix_pulsante_chiudi_in_daydetailsheet"
+      "target": "sessioni_2026_06_02_fix_chiudi_daydetail_fix_pulsante_chiudi_in_daydetailsheet",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -15673,9 +15673,9 @@
       "source_file": "/Users/keape/Library/Mobile Documents/com~apple~CloudDocs/app sviluppate e html/garden-calendar-ios/Obsidian-garden-calendar-ios/sessioni/2026-06-04-naturalista-ux-redesign.md",
       "source_location": "L1",
       "weight": 1.0,
-      "confidence_score": 1.0,
       "source": "users_keape_library_mobile_documents_com_apple_clouddocs_app_sviluppate_e_html_garden_calendar_ios_obsidian_garden_calendar_ios_sessioni_2026_06_04_naturalista_ux_redesign_md",
-      "target": "sessioni_2026_06_04_naturalista_ux_redesign_naturalista_ux_redesign_implementazione_completa"
+      "target": "sessioni_2026_06_04_naturalista_ux_redesign_naturalista_ux_redesign_implementazione_completa",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -15733,9 +15733,9 @@
       "source_file": "/Users/keape/Library/Mobile Documents/com~apple~CloudDocs/app sviluppate e html/garden-calendar-ios/Obsidian-garden-calendar-ios/sessioni/2026-06-02-elimina-orto.md",
       "source_location": "L1",
       "weight": 1.0,
-      "confidence_score": 1.0,
       "source": "users_keape_library_mobile_documents_com_apple_clouddocs_app_sviluppate_e_html_garden_calendar_ios_obsidian_garden_calendar_ios_sessioni_2026_06_02_elimina_orto_md",
-      "target": "sessioni_2026_06_02_elimina_orto_aggiunta_eliminazione_orto_dalla_vista_modifica"
+      "target": "sessioni_2026_06_02_elimina_orto_aggiunta_eliminazione_orto_dalla_vista_modifica",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -15803,9 +15803,9 @@
       "source_file": "/Users/keape/Library/Mobile Documents/com~apple~CloudDocs/app sviluppate e html/garden-calendar-ios/Obsidian-garden-calendar-ios/sessioni/2026-06-02-calendario-filtri-orto-pianta.md",
       "source_location": "L1",
       "weight": 1.0,
-      "confidence_score": 1.0,
       "source": "users_keape_library_mobile_documents_com_apple_clouddocs_app_sviluppate_e_html_garden_calendar_ios_obsidian_garden_calendar_ios_sessioni_2026_06_02_calendario_filtri_orto_pianta_md",
-      "target": "sessioni_2026_06_02_calendario_filtri_orto_pianta_filtri_calendario_per_orto_tipologia_e_pianta"
+      "target": "sessioni_2026_06_02_calendario_filtri_orto_pianta_filtri_calendario_per_orto_tipologia_e_pianta",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -15863,9 +15863,9 @@
       "source_file": "/Users/keape/Library/Mobile Documents/com~apple~CloudDocs/app sviluppate e html/garden-calendar-ios/Obsidian-garden-calendar-ios/sessioni/2026-06-04-pioggia-icona-mm.md",
       "source_location": "L1",
       "weight": 1.0,
-      "confidence_score": 1.0,
       "source": "users_keape_library_mobile_documents_com_apple_clouddocs_app_sviluppate_e_html_garden_calendar_ios_obsidian_garden_calendar_ios_sessioni_2026_06_04_pioggia_icona_mm_md",
-      "target": "sessioni_2026_06_04_pioggia_icona_mm_icona_pioggia_visibilit\u00e0_mm_reali_nel_calendario"
+      "target": "sessioni_2026_06_04_pioggia_icona_mm_icona_pioggia_visibilit\u00e0_mm_reali_nel_calendario",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -15923,9 +15923,9 @@
       "source_file": "/Users/keape/Library/Mobile Documents/com~apple~CloudDocs/app sviluppate e html/garden-calendar-ios/Obsidian-garden-calendar-ios/sessioni/2026-06-02-journal-entry-refresh.md",
       "source_location": "L1",
       "weight": 1.0,
-      "confidence_score": 1.0,
       "source": "users_keape_library_mobile_documents_com_apple_clouddocs_app_sviluppate_e_html_garden_calendar_ios_obsidian_garden_calendar_ios_sessioni_2026_06_02_journal_entry_refresh_md",
-      "target": "sessioni_2026_06_02_journal_entry_refresh_fix_journal_entry_non_visibile_dopo_salvataggio"
+      "target": "sessioni_2026_06_02_journal_entry_refresh_fix_journal_entry_non_visibile_dopo_salvataggio",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -15983,9 +15983,9 @@
       "source_file": "/Users/keape/Library/Mobile Documents/com~apple~CloudDocs/app sviluppate e html/garden-calendar-ios/Obsidian-garden-calendar-ios/sessioni/2026-06-02-calendario-ux-miglioramenti.md",
       "source_location": "L1",
       "weight": 1.0,
-      "confidence_score": 1.0,
       "source": "users_keape_library_mobile_documents_com_apple_clouddocs_app_sviluppate_e_html_garden_calendar_ios_obsidian_garden_calendar_ios_sessioni_2026_06_02_calendario_ux_miglioramenti_md",
-      "target": "sessioni_2026_06_02_calendario_ux_miglioramenti_miglioramenti_ux_vista_calendario"
+      "target": "sessioni_2026_06_02_calendario_ux_miglioramenti_miglioramenti_ux_vista_calendario",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -16043,9 +16043,9 @@
       "source_file": "/Users/keape/Library/Mobile Documents/com~apple~CloudDocs/app sviluppate e html/garden-calendar-ios/Obsidian-garden-calendar-ios/sessioni/2026-06-02-orto-location-gps.md",
       "source_location": "L1",
       "weight": 1.0,
-      "confidence_score": 1.0,
       "source": "users_keape_library_mobile_documents_com_apple_clouddocs_app_sviluppate_e_html_garden_calendar_ios_obsidian_garden_calendar_ios_sessioni_2026_06_02_orto_location_gps_md",
-      "target": "sessioni_2026_06_02_orto_location_gps_creazione_orto_con_gps_e_geocoding"
+      "target": "sessioni_2026_06_02_orto_location_gps_creazione_orto_con_gps_e_geocoding",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -16103,9 +16103,9 @@
       "source_file": "/Users/keape/Library/Mobile Documents/com~apple~CloudDocs/app sviluppate e html/garden-calendar-ios/Obsidian-garden-calendar-ios/sessioni/2026-05-29-simulator-lexar-setup.md",
       "source_location": "L1",
       "weight": 1.0,
-      "confidence_score": 1.0,
       "source": "users_keape_library_mobile_documents_com_apple_clouddocs_app_sviluppate_e_html_garden_calendar_ios_obsidian_garden_calendar_ios_sessioni_2026_05_29_simulator_lexar_setup_md",
-      "target": "sessioni_2026_05_29_simulator_lexar_setup_fix_simulator_su_volume_lexar_esterno"
+      "target": "sessioni_2026_05_29_simulator_lexar_setup_fix_simulator_su_volume_lexar_esterno",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -16173,9 +16173,9 @@
       "source_file": "/Users/keape/Library/Mobile Documents/com~apple~CloudDocs/app sviluppate e html/garden-calendar-ios/Obsidian-garden-calendar-ios/sessioni/2026-06-04-pioggia-irrigazione-reschedule.md",
       "source_location": "L1",
       "weight": 1.0,
-      "confidence_score": 1.0,
       "source": "users_keape_library_mobile_documents_com_apple_clouddocs_app_sviluppate_e_html_garden_calendar_ios_obsidian_garden_calendar_ios_sessioni_2026_06_04_pioggia_irrigazione_reschedule_md",
-      "target": "sessioni_2026_06_04_pioggia_irrigazione_reschedule_rain_aware_irrigation_rescheduling_weather_icon_fix"
+      "target": "sessioni_2026_06_04_pioggia_irrigazione_reschedule_rain_aware_irrigation_rescheduling_weather_icon_fix",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -16233,9 +16233,9 @@
       "source_file": "/Users/keape/Library/Mobile Documents/com~apple~CloudDocs/app sviluppate e html/garden-calendar-ios/Obsidian-garden-calendar-ios/sessioni/2026-06-02-suggerimenti-ai-pianta.md",
       "source_location": "L1",
       "weight": 1.0,
-      "confidence_score": 1.0,
       "source": "users_keape_library_mobile_documents_com_apple_clouddocs_app_sviluppate_e_html_garden_calendar_ios_obsidian_garden_calendar_ios_sessioni_2026_06_02_suggerimenti_ai_pianta_md",
-      "target": "sessioni_2026_06_02_suggerimenti_ai_pianta_fix_suggerimenti_ai_nome_pianta_e_contraddizione_semina_trapianto"
+      "target": "sessioni_2026_06_02_suggerimenti_ai_pianta_fix_suggerimenti_ai_nome_pianta_e_contraddizione_semina_trapianto",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -16303,9 +16303,9 @@
       "source_file": "/Users/keape/Library/Mobile Documents/com~apple~CloudDocs/app sviluppate e html/garden-calendar-ios/Obsidian-garden-calendar-ios/sessioni/2026-05-29-simulator-setup-lexar.md",
       "source_location": "L1",
       "weight": 1.0,
-      "confidence_score": 1.0,
       "source": "users_keape_library_mobile_documents_com_apple_clouddocs_app_sviluppate_e_html_garden_calendar_ios_obsidian_garden_calendar_ios_sessioni_2026_05_29_simulator_setup_lexar_md",
-      "target": "sessioni_2026_05_29_simulator_setup_lexar_debug_simulatore_ios_su_disco_esterno_lexar"
+      "target": "sessioni_2026_05_29_simulator_setup_lexar_debug_simulatore_ios_su_disco_esterno_lexar",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -16353,9 +16353,9 @@
       "source_file": "/Users/keape/Library/Mobile Documents/com~apple~CloudDocs/app sviluppate e html/garden-calendar-ios/Obsidian-garden-calendar-ios/sessioni/2026-06-04-simulator-test-nuova-attivita.md",
       "source_location": "L1",
       "weight": 1.0,
-      "confidence_score": 1.0,
       "source": "users_keape_library_mobile_documents_com_apple_clouddocs_app_sviluppate_e_html_garden_calendar_ios_obsidian_garden_calendar_ios_sessioni_2026_06_04_simulator_test_nuova_attivita_md",
-      "target": "sessioni_2026_06_04_simulator_test_nuova_attivita_test_simulator_nuovaattivitasheet_e_modificapiantasheet"
+      "target": "sessioni_2026_06_04_simulator_test_nuova_attivita_test_simulator_nuovaattivitasheet_e_modificapiantasheet",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -16413,9 +16413,9 @@
       "source_file": "/Users/keape/Library/Mobile Documents/com~apple~CloudDocs/app sviluppate e html/garden-calendar-ios/Obsidian-garden-calendar-ios/sessioni/2026-06-04-simulator-build-cleanup.md",
       "source_location": "L1",
       "weight": 1.0,
-      "confidence_score": 1.0,
       "source": "users_keape_library_mobile_documents_com_apple_clouddocs_app_sviluppate_e_html_garden_calendar_ios_obsidian_garden_calendar_ios_sessioni_2026_06_04_simulator_build_cleanup_md",
-      "target": "sessioni_2026_06_04_simulator_build_cleanup_build_su_simulator_e_pulizia_device_coresimulator"
+      "target": "sessioni_2026_06_04_simulator_build_cleanup_build_su_simulator_e_pulizia_device_coresimulator",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",

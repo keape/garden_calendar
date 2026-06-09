@@ -1,7 +1,7 @@
 # Graph Report - practical-liskov-144414  (2026-06-09)
 
 ## Corpus Check
-- 73 files · ~35,007 words
+- 73 files · ~34,941 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
@@ -112,8 +112,8 @@
   admin-dashboard.html → /Users/keape/Library/Mobile Documents/com~apple~CloudDocs/app sviluppate e html/garden-calendar-ios/GardenCalendar/Services/AuthManager.swift
 - `AppTheme (ActivityColorDot local copy)` --semantically_similar_to--> `AppTheme`  [INFERRED] [semantically similar]
   GardenCalendar/Views/Components/ActivityColorDot.swift → /Users/keape/Library/Mobile Documents/com~apple~CloudDocs/app sviluppate e html/garden-calendar-ios/GardenCalendar/Theme/AppTheme.swift
-- `Forward Scheduling Logic` --references--> `Attivita Table (Calendar Activities)`  [INFERRED]
-  supabase/functions/schedule-activities/index.ts → supabase-schema.sql
+- `RainAdjuster` --references--> `OpenMeteoClient`  [INFERRED]
+  /Users/keape/Library/Mobile Documents/com~apple~CloudDocs/app sviluppate e html/garden-calendar-ios/GardenCalendar/Services/RainAdjuster.swift → GardenCalendar/Services/RainAdjuster.swift
 
 ## Hyperedges (group relationships)
 - **Wiki Note → LLM Extraction → Plant Knowledge Pipeline** — supabase_schema_wiki_notes, functions_extract_plant_care_index, openrouter_deepseek, supabase_schema_plant_knowledge [EXTRACTED 1.00]

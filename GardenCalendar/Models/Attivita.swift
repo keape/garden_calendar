@@ -44,7 +44,7 @@ struct Attivita: Codable, Identifiable {
             return .green
         case "orange", "arancione":
             return .orange
-        case "blue", "blu", "blue":
+        case "blue", "blu":
             return .blue
         case "red", "rosso":
             return .red

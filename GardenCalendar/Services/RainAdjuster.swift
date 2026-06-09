@@ -19,9 +19,12 @@ actor OpenMeteoClient {
         let clampedTo = min(to, Calendar.current.date(byAdding: .day, value: 16, to: Date()) ?? to)
         let key = "\(latitude),\(longitude),\(from.iso8601),\(clampedTo.iso8601),\(threshold)"
 
-        // Check cache
+        // Check cache (valid 6 hours)
         if let cached = cache.object(forKey: key as NSString) {
-            return cached.days
+            if Date().timeIntervalSince(cached.timestamp) < 6 * 3600 {
+                return cached.days
+            }
+            cache.removeObject(forKey: key as NSString)
         }
 
         // Dedup in-flight requests
@@ -59,7 +62,6 @@ actor OpenMeteoClient {
                 }
             }
 
-            // Cache for 6 hours
             let entry = CacheEntry(days: days, timestamp: Date())
             cache.setObject(entry, forKey: key as NSString)
 

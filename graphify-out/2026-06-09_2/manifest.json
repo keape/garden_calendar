@@ -500,8 +500,8 @@
     "semantic_hash": ""
   },
   "/Users/keape/Library/Mobile Documents/com~apple~CloudDocs/app sviluppate e html/garden-calendar-ios/.claude/worktrees/practical-liskov-144414/GardenCalendar/Models/Attivita.swift": {
-    "mtime": 1781039932.552344,
-    "ast_hash": "057922557a7a773a9488d2d1f76be455",
+    "mtime": 1781038955.8137436,
+    "ast_hash": "c07898c8713465cb201431afc17a6456",
     "semantic_hash": ""
   },
   "/Users/keape/Library/Mobile Documents/com~apple~CloudDocs/app sviluppate e html/garden-calendar-ios/.claude/worktrees/practical-liskov-144414/GardenCalendar/Models/PiantaColtivata.swift": {
@@ -545,8 +545,8 @@
     "semantic_hash": ""
   },
   "/Users/keape/Library/Mobile Documents/com~apple~CloudDocs/app sviluppate e html/garden-calendar-ios/.claude/worktrees/practical-liskov-144414/GardenCalendar/Views/Calendario/CalendarView.swift": {
-    "mtime": 1781039931.3740296,
-    "ast_hash": "a64c291ab3f92daa7081e5798777c76b",
+    "mtime": 1781038965.3624508,
+    "ast_hash": "6242ea212701e98526f5107e4721f6df",
     "semantic_hash": ""
   },
   "/Users/keape/Library/Mobile Documents/com~apple~CloudDocs/app sviluppate e html/garden-calendar-ios/.claude/worktrees/practical-liskov-144414/GardenCalendar/Views/Settings/SettingsView.swift": {
@@ -615,8 +615,8 @@
     "semantic_hash": ""
   },
   "/Users/keape/Library/Mobile Documents/com~apple~CloudDocs/app sviluppate e html/garden-calendar-ios/.claude/worktrees/practical-liskov-144414/GardenCalendar/Services/SupabaseRepository.swift": {
-    "mtime": 1781039899.9743657,
-    "ast_hash": "9f7a645275fa44a193bd5ab584cdc5c9",
+    "mtime": 1781039898.9816809,
+    "ast_hash": "39bf44026609f0eb1e83a85ea1fe0d81",
     "semantic_hash": ""
   },
   "/Users/keape/Library/Mobile Documents/com~apple~CloudDocs/app sviluppate e html/garden-calendar-ios/.claude/worktrees/practical-liskov-144414/GardenCalendar/Services/AuthManager.swift": {
@@ -625,8 +625,8 @@
     "semantic_hash": ""
   },
   "/Users/keape/Library/Mobile Documents/com~apple~CloudDocs/app sviluppate e html/garden-calendar-ios/.claude/worktrees/practical-liskov-144414/GardenCalendar/Services/RainAdjuster.swift": {
-    "mtime": 1781039908.7138853,
-    "ast_hash": "2c38ab91146575aa032f9909beea847a",
+    "mtime": 1781038959.2696745,
+    "ast_hash": "608ede00bcb75f23cd983de588efa9f7",
     "semantic_hash": ""
   },
   "/Users/keape/Library/Mobile Documents/com~apple~CloudDocs/app sviluppate e html/garden-calendar-ios/.claude/worktrees/practical-liskov-144414/GardenCalendar/Services/LocationHelper.swift": {

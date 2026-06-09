@@ -24,6 +24,7 @@ struct CalendarGridView: View {
     @State private var rainDays: [String: Double] = [:]
     @State private var rainRescheduledCount = 0
     @State private var showRainToast = false
+    @State private var loadError: String?
 
     private let calendar = Calendar.current
     private let weekDays = ["L", "M", "M", "G", "V", "S", "D"]
@@ -83,6 +84,25 @@ struct CalendarGridView: View {
                 .padding(.bottom, 4)
 
                 filterBar
+
+                if let loadError {
+                    HStack(spacing: 8) {
+                        Image(systemName: "wifi.exclamationmark")
+                            .foregroundStyle(.orange)
+                        Text(loadError)
+                            .font(.dmSans(12, weight: .medium))
+                            .foregroundStyle(AppTheme.textSecondary)
+                        Spacer()
+                        Button("Riprova") {
+                            Task { await loadMonth() }
+                        }
+                        .font(.dmSans(12, weight: .semibold))
+                        .foregroundStyle(AppTheme.primaryGreen)
+                    }
+                    .padding(.horizontal)
+                    .padding(.vertical, 8)
+                    .background(Color.orange.opacity(0.08))
+                }
 
                 if viewMode == .calendar {
                     calendarContent
@@ -280,8 +300,8 @@ struct CalendarGridView: View {
 
     private var weekDayHeader: some View {
         LazyVGrid(columns: columns, spacing: 0) {
-            ForEach(weekDays, id: \.self) { day in
-                Text(day)
+            ForEach(weekDays.indices, id: \.self) { index in
+                Text(weekDays[index])
                     .font(.caption)
                     .fontWeight(.medium)
                     .foregroundColor(.secondary)
@@ -537,7 +557,12 @@ struct CalendarGridView: View {
     private func loadMonth() async {
         isLoading = true
         if orti.isEmpty { await loadFiltersData() }
-        activities = (try? await repository.fetchAttivita(date: currentMonth)) ?? []
+        do {
+            activities = try await repository.fetchAttivita(date: currentMonth)
+            loadError = nil
+        } catch {
+            loadError = "Impossibile caricare le attività. Controlla la connessione."
+        }
         await applyRainRescheduling()
         isLoading = false
     }

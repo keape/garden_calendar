@@ -74,12 +74,14 @@ final class SupabaseRepository {
 
     func fetchAllPiante(userId: UUID) async throws -> [PiantaColtivata] {
         let orti = try await fetchOrti(userId: userId)
-        var result: [PiantaColtivata] = []
-        for orto in orti {
-            let piante = try await fetchPiante(ortoId: orto.id)
-            result.append(contentsOf: piante)
-        }
-        return result
+        guard !orti.isEmpty else { return [] }
+        return try await client
+            .from("piante_coltivate")
+            .select()
+            .in("orto_id", values: orti.map(\.id))
+            .order("created_at", ascending: true)
+            .execute()
+            .value
     }
 
     func createPianta(pianta: PiantaColtivata.Create) async throws -> PiantaColtivata {
@@ -339,9 +341,11 @@ final class SupabaseRepository {
             ))
         }
 
-        for att in toInsert {
-            _ = try await createAttivita(attivita: att)
-        }
+        guard !toInsert.isEmpty else { return }
+        try await client
+            .from("attivita")
+            .insert(toInsert, returning: .minimal)
+            .execute()
     }
 
     // MARK: - Forward Scheduling (Edge Function)
