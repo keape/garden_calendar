@@ -1,0 +1,772 @@
+{
+  "/Users/keape/Library/Mobile Documents/com~apple~CloudDocs/app sviluppate e html/garden-calendar-ios/supabase-schema.sql": {
+    "mtime": 1779658990.0,
+    "ast_hash": "6c1432c4d2f4098b713d5824b451d542",
+    "semantic_hash": "6c1432c4d2f4098b713d5824b451d542"
+  },
+  "/Users/keape/Library/Mobile Documents/com~apple~CloudDocs/app sviluppate e html/garden-calendar-ios/build.sh": {
+    "mtime": 1779658807.0,
+    "ast_hash": "425f509d363495db8e99f84f099638bb",
+    "semantic_hash": "425f509d363495db8e99f84f099638bb"
+  },
+  "/Users/keape/Library/Mobile Documents/com~apple~CloudDocs/app sviluppate e html/garden-calendar-ios/Package.swift": {
+    "mtime": 1779658847.0,
+    "ast_hash": "70663000528cf7a19edc6ce28b0a6e21",
+    "semantic_hash": "70663000528cf7a19edc6ce28b0a6e21"
+  },
+  "/Users/keape/Library/Mobile Documents/com~apple~CloudDocs/app sviluppate e html/garden-calendar-ios/supabase/migrations/20260524000001_initial_schema.sql": {
+    "mtime": 1779659204.0,
+    "ast_hash": "6c1432c4d2f4098b713d5824b451d542",
+    "semantic_hash": "6c1432c4d2f4098b713d5824b451d542"
+  },
+  "/Users/keape/Library/Mobile Documents/com~apple~CloudDocs/app sviluppate e html/garden-calendar-ios/supabase/.temp/linked-project.json": {
+    "mtime": 1779662230.762843,
+    "ast_hash": "0b170ef34c84ce1ea16974434d21144d",
+    "semantic_hash": "0b170ef34c84ce1ea16974434d21144d"
+  },
+  "/Users/keape/Library/Mobile Documents/com~apple~CloudDocs/app sviluppate e html/garden-calendar-ios/supabase/functions/admin-dashboard/deno.json": {
+    "mtime": 1779660142.0,
+    "ast_hash": "af84e44d5c8e2c89ab58060848ce672d",
+    "semantic_hash": "af84e44d5c8e2c89ab58060848ce672d"
+  },
+  "/Users/keape/Library/Mobile Documents/com~apple~CloudDocs/app sviluppate e html/garden-calendar-ios/supabase/functions/admin-dashboard/index.ts": {
+    "mtime": 1779661962.0,
+    "ast_hash": "cc8c1d6cab3d3b62df933bf697ed5897",
+    "semantic_hash": "cc8c1d6cab3d3b62df933bf697ed5897"
+  },
+  "/Users/keape/Library/Mobile Documents/com~apple~CloudDocs/app sviluppate e html/garden-calendar-ios/supabase/functions/extract-plant-care/deno.json": {
+    "mtime": 1779659980.0,
+    "ast_hash": "451896c0afd13dc61b5724c9e683cf79",
+    "semantic_hash": "451896c0afd13dc61b5724c9e683cf79"
+  },
+  "/Users/keape/Library/Mobile Documents/com~apple~CloudDocs/app sviluppate e html/garden-calendar-ios/supabase/functions/extract-plant-care/index.ts": {
+    "mtime": 1779660101.0,
+    "ast_hash": "f291fe0346bd46d50e1ebe6cfd850015",
+    "semantic_hash": "f291fe0346bd46d50e1ebe6cfd850015"
+  },
+  "/Users/keape/Library/Mobile Documents/com~apple~CloudDocs/app sviluppate e html/garden-calendar-ios/supabase/functions/schedule-activities/deno.json": {
+    "mtime": 1779659515.0,
+    "ast_hash": "451896c0afd13dc61b5724c9e683cf79",
+    "semantic_hash": "451896c0afd13dc61b5724c9e683cf79"
+  },
+  "/Users/keape/Library/Mobile Documents/com~apple~CloudDocs/app sviluppate e html/garden-calendar-ios/supabase/functions/schedule-activities/index.ts": {
+    "mtime": 1779659502.0,
+    "ast_hash": "a58c187cc5aacac8bd8fe1101e0d8572",
+    "semantic_hash": "a58c187cc5aacac8bd8fe1101e0d8572"
+  },
+  "/Users/keape/Library/Mobile Documents/com~apple~CloudDocs/app sviluppate e html/garden-calendar-ios/.vscode/settings.json": {
+    "mtime": 1779659484.0,
+    "ast_hash": "e6ec93578e8d896fa199e2a16ba22a65",
+    "semantic_hash": "e6ec93578e8d896fa199e2a16ba22a65"
+  },
+  "/Users/keape/Library/Mobile Documents/com~apple~CloudDocs/app sviluppate e html/garden-calendar-ios/.vscode/extensions.json": {
+    "mtime": 1779659484.0,
+    "ast_hash": "9056b8e896427ed2c2be9330fdfe97b3",
+    "semantic_hash": "9056b8e896427ed2c2be9330fdfe97b3"
+  },
+  "/Users/keape/Library/Mobile Documents/com~apple~CloudDocs/app sviluppate e html/garden-calendar-ios/GardenCalendar/GardenCalendarApp.swift": {
+    "mtime": 1780048550.87601,
+    "ast_hash": "f51d4ef809b4844317ee6a532e69cdf3",
+    "semantic_hash": ""
+  },
+  "/Users/keape/Library/Mobile Documents/com~apple~CloudDocs/app sviluppate e html/garden-calendar-ios/GardenCalendar/ContentView.swift": {
+    "mtime": 1779658928.0,
+    "ast_hash": "86d220db9ea9e71270b32bb973ab5779",
+    "semantic_hash": "86d220db9ea9e71270b32bb973ab5779"
+  },
+  "/Users/keape/Library/Mobile Documents/com~apple~CloudDocs/app sviluppate e html/garden-calendar-ios/GardenCalendar/SupabaseConfig.swift": {
+    "mtime": 1780435377.4740784,
+    "ast_hash": "b5b7748a5406f6e7eb6b5b04a1e58272",
+    "semantic_hash": ""
+  },
+  "/Users/keape/Library/Mobile Documents/com~apple~CloudDocs/app sviluppate e html/garden-calendar-ios/GardenCalendar/Assets.xcassets/Contents.json": {
+    "mtime": 1779658807.0,
+    "ast_hash": "9deb2ada1cc834bbebf8bbad9c8978a1",
+    "semantic_hash": "9deb2ada1cc834bbebf8bbad9c8978a1"
+  },
+  "/Users/keape/Library/Mobile Documents/com~apple~CloudDocs/app sviluppate e html/garden-calendar-ios/GardenCalendar/Assets.xcassets/AppIcon.appiconset/Contents.json": {
+    "mtime": 1779658807.0,
+    "ast_hash": "656e426612a7126f2dc91453413e7c4a",
+    "semantic_hash": "656e426612a7126f2dc91453413e7c4a"
+  },
+  "/Users/keape/Library/Mobile Documents/com~apple~CloudDocs/app sviluppate e html/garden-calendar-ios/GardenCalendar/Models/Attivita.swift": {
+    "mtime": 1779658807.0,
+    "ast_hash": "c07898c8713465cb201431afc17a6456",
+    "semantic_hash": "c07898c8713465cb201431afc17a6456"
+  },
+  "/Users/keape/Library/Mobile Documents/com~apple~CloudDocs/app sviluppate e html/garden-calendar-ios/GardenCalendar/Models/PiantaColtivata.swift": {
+    "mtime": 1780436117.144602,
+    "ast_hash": "8cc48f68daf88359c0d708c7507c9a78",
+    "semantic_hash": ""
+  },
+  "/Users/keape/Library/Mobile Documents/com~apple~CloudDocs/app sviluppate e html/garden-calendar-ios/GardenCalendar/Models/WikiNote.swift": {
+    "mtime": 1779658807.0,
+    "ast_hash": "deffa142f3879822bef898b03c015767",
+    "semantic_hash": "deffa142f3879822bef898b03c015767"
+  },
+  "/Users/keape/Library/Mobile Documents/com~apple~CloudDocs/app sviluppate e html/garden-calendar-ios/GardenCalendar/Models/PlantKnowledge.swift": {
+    "mtime": 1779658807.0,
+    "ast_hash": "d85fa424aee97b15efd5107a05ec25d7",
+    "semantic_hash": "d85fa424aee97b15efd5107a05ec25d7"
+  },
+  "/Users/keape/Library/Mobile Documents/com~apple~CloudDocs/app sviluppate e html/garden-calendar-ios/GardenCalendar/Models/Orto.swift": {
+    "mtime": 1780416643.17237,
+    "ast_hash": "478303ba8cab882187e200d7637fb963",
+    "semantic_hash": ""
+  },
+  "/Users/keape/Library/Mobile Documents/com~apple~CloudDocs/app sviluppate e html/garden-calendar-ios/GardenCalendar/Preview Content/Preview Assets.xcassets/Contents.json": {
+    "mtime": 1779658807.0,
+    "ast_hash": "9deb2ada1cc834bbebf8bbad9c8978a1",
+    "semantic_hash": "9deb2ada1cc834bbebf8bbad9c8978a1"
+  },
+  "/Users/keape/Library/Mobile Documents/com~apple~CloudDocs/app sviluppate e html/garden-calendar-ios/GardenCalendar/Theme/AppTheme.swift": {
+    "mtime": 1780587148.5429506,
+    "ast_hash": "affba8d59e68860f8945a388b9af3039",
+    "semantic_hash": ""
+  },
+  "/Users/keape/Library/Mobile Documents/com~apple~CloudDocs/app sviluppate e html/garden-calendar-ios/GardenCalendar/Views/Journal/QuickJournalView.swift": {
+    "mtime": 1780588227.0819266,
+    "ast_hash": "ed9c634c08f9287d62c704ccfdf3d974",
+    "semantic_hash": ""
+  },
+  "/Users/keape/Library/Mobile Documents/com~apple~CloudDocs/app sviluppate e html/garden-calendar-ios/GardenCalendar/Views/Calendario/DayDetailSheet.swift": {
+    "mtime": 1780604302.7058308,
+    "ast_hash": "71a28c5f825fcd737047786b0971c186",
+    "semantic_hash": ""
+  },
+  "/Users/keape/Library/Mobile Documents/com~apple~CloudDocs/app sviluppate e html/garden-calendar-ios/GardenCalendar/Views/Calendario/CalendarView.swift": {
+    "mtime": 1780587869.404149,
+    "ast_hash": "6242ea212701e98526f5107e4721f6df",
+    "semantic_hash": ""
+  },
+  "/Users/keape/Library/Mobile Documents/com~apple~CloudDocs/app sviluppate e html/garden-calendar-ios/GardenCalendar/Views/Settings/SettingsView.swift": {
+    "mtime": 1780589645.238895,
+    "ast_hash": "7163da3c57580108052222ea5182311a",
+    "semantic_hash": ""
+  },
+  "/Users/keape/Library/Mobile Documents/com~apple~CloudDocs/app sviluppate e html/garden-calendar-ios/GardenCalendar/Views/Auth/LoginView.swift": {
+    "mtime": 1780601990.057349,
+    "ast_hash": "4643394f677ed78fca1f01a21eaafa55",
+    "semantic_hash": ""
+  },
+  "/Users/keape/Library/Mobile Documents/com~apple~CloudDocs/app sviluppate e html/garden-calendar-ios/GardenCalendar/Views/Auth/SignUpView.swift": {
+    "mtime": 1780601812.621761,
+    "ast_hash": "8c0b660b39ffdd41c8231c309880fc7c",
+    "semantic_hash": ""
+  },
+  "/Users/keape/Library/Mobile Documents/com~apple~CloudDocs/app sviluppate e html/garden-calendar-ios/GardenCalendar/Views/Orto/OrtoListView.swift": {
+    "mtime": 1780588874.7516024,
+    "ast_hash": "f30c8c07eaf54265b455d31bb3f78d90",
+    "semantic_hash": ""
+  },
+  "/Users/keape/Library/Mobile Documents/com~apple~CloudDocs/app sviluppate e html/garden-calendar-ios/GardenCalendar/Views/Orto/OrtoDetailView.swift": {
+    "mtime": 1780589263.2864761,
+    "ast_hash": "f7f2b7585ef469309769ec4b46b847df",
+    "semantic_hash": ""
+  },
+  "/Users/keape/Library/Mobile Documents/com~apple~CloudDocs/app sviluppate e html/garden-calendar-ios/GardenCalendar/Views/Piante/PiantaListView.swift": {
+    "mtime": 1780589407.435464,
+    "ast_hash": "2355da637bdf22f5c49963e67a7658de",
+    "semantic_hash": ""
+  },
+  "/Users/keape/Library/Mobile Documents/com~apple~CloudDocs/app sviluppate e html/garden-calendar-ios/GardenCalendar/Views/Piante/PiantaDetailView.swift": {
+    "mtime": 1780589454.5178444,
+    "ast_hash": "bcc9f52ee9df6266dd6bf9a0f3e6dbe9",
+    "semantic_hash": ""
+  },
+  "/Users/keape/Library/Mobile Documents/com~apple~CloudDocs/app sviluppate e html/garden-calendar-ios/GardenCalendar/Views/Piante/AggiungiPiantaView.swift": {
+    "mtime": 1780065765.2145207,
+    "ast_hash": "222995a7601ad7ccfa43a3a9c2663441",
+    "semantic_hash": ""
+  },
+  "/Users/keape/Library/Mobile Documents/com~apple~CloudDocs/app sviluppate e html/garden-calendar-ios/GardenCalendar/Views/Components/WeatherIcon.swift": {
+    "mtime": 1780562494.7957432,
+    "ast_hash": "5b8fba1e0cb282ddb6b61cdc193c75f8",
+    "semantic_hash": ""
+  },
+  "/Users/keape/Library/Mobile Documents/com~apple~CloudDocs/app sviluppate e html/garden-calendar-ios/GardenCalendar/Views/Components/ActivityColorDot.swift": {
+    "mtime": 1780047608.595542,
+    "ast_hash": "f18dfd9a408f43538eb26f56e8e38220",
+    "semantic_hash": ""
+  },
+  "/Users/keape/Library/Mobile Documents/com~apple~CloudDocs/app sviluppate e html/garden-calendar-ios/GardenCalendar/Services/SupabaseRepository.swift": {
+    "mtime": 1780435735.3721306,
+    "ast_hash": "b06dbd531f4d7ce8b5e0b9bb7a26b820",
+    "semantic_hash": ""
+  },
+  "/Users/keape/Library/Mobile Documents/com~apple~CloudDocs/app sviluppate e html/garden-calendar-ios/GardenCalendar/Services/AuthManager.swift": {
+    "mtime": 1779658807.0,
+    "ast_hash": "438e2458b1380190fa7f50e0d3ca806d",
+    "semantic_hash": "438e2458b1380190fa7f50e0d3ca806d"
+  },
+  "/Users/keape/Library/Mobile Documents/com~apple~CloudDocs/app sviluppate e html/garden-calendar-ios/GardenCalendar/Services/RainAdjuster.swift": {
+    "mtime": 1780562174.961052,
+    "ast_hash": "608ede00bcb75f23cd983de588efa9f7",
+    "semantic_hash": ""
+  },
+  "/Users/keape/Library/Mobile Documents/com~apple~CloudDocs/app sviluppate e html/garden-calendar-ios/appstore-prep.md": {
+    "mtime": 1779660272.0,
+    "ast_hash": "81917ce3fd86140111d0bcdbfd27a3ff",
+    "semantic_hash": "81917ce3fd86140111d0bcdbfd27a3ff"
+  },
+  "/Users/keape/Library/Mobile Documents/com~apple~CloudDocs/app sviluppate e html/garden-calendar-ios/admin-dashboard.html": {
+    "mtime": 1779661992.0,
+    "ast_hash": "9368f5ab0bcf4b8241b6ac6374410711",
+    "semantic_hash": "9368f5ab0bcf4b8241b6ac6374410711"
+  },
+  "/Users/keape/Library/Mobile Documents/com~apple~CloudDocs/app sviluppate e html/garden-calendar-ios/.claude/settings.json": {
+    "mtime": 1779978882.157666,
+    "ast_hash": "4293c0b90def7904670dcb81d8c97dbd",
+    "semantic_hash": ""
+  },
+  "/Users/keape/Library/Mobile Documents/com~apple~CloudDocs/app sviluppate e html/garden-calendar-ios/TASKS.md": {
+    "mtime": 1780416259.112747,
+    "ast_hash": "b594732f7fb136ca4508b81ab1326d80",
+    "semantic_hash": ""
+  },
+  "/Users/keape/Library/Mobile Documents/com~apple~CloudDocs/app sviluppate e html/garden-calendar-ios/CLAUDE.md": {
+    "mtime": 1779956983.6113148,
+    "ast_hash": "82efb97a359f5c7290bf2513d14686be",
+    "semantic_hash": ""
+  },
+  "/Users/keape/Library/Mobile Documents/com~apple~CloudDocs/app sviluppate e html/garden-calendar-ios/Obsidian-garden-calendar-ios/sessioni/2026-05-29-simulator-lexar-setup.md": {
+    "mtime": 1780065427.8091872,
+    "ast_hash": "68dbdccdd6a4f9d833918efa71b0d299",
+    "semantic_hash": ""
+  },
+  "/Users/keape/Library/Mobile Documents/com~apple~CloudDocs/app sviluppate e html/garden-calendar-ios/Obsidian-garden-calendar-ios/sessioni/2026-05-29-simulator-setup-lexar.md": {
+    "mtime": 1780063268.5098126,
+    "ast_hash": "5689bc02b0d88ee14b8c33eb7403a76e",
+    "semantic_hash": ""
+  },
+  "/Users/keape/Library/Mobile Documents/com~apple~CloudDocs/app sviluppate e html/garden-calendar-ios/Obsidian-garden-calendar-ios/sessioni/2026-06-02-fix-supabase-schema-date.md": {
+    "mtime": 1780414722.518046,
+    "ast_hash": "e93569c5d942a050dd92ff0ab713a443",
+    "semantic_hash": ""
+  },
+  "/Users/keape/Library/Mobile Documents/com~apple~CloudDocs/app sviluppate e html/garden-calendar-ios/GardenCalendar/Services/LocationHelper.swift": {
+    "mtime": 1780415520.3656795,
+    "ast_hash": "75da1a58001b7b68f10a4fdbea216a4a",
+    "semantic_hash": ""
+  },
+  "/Users/keape/Library/Mobile Documents/com~apple~CloudDocs/app sviluppate e html/garden-calendar-ios/Obsidian-garden-calendar-ios/sessioni/2026-06-02-orto-location-gps.md": {
+    "mtime": 1780416294.0708792,
+    "ast_hash": "03df57073c0f481d5ff7e321302887ab",
+    "semantic_hash": ""
+  },
+  "/Users/keape/Library/Mobile Documents/com~apple~CloudDocs/app sviluppate e html/garden-calendar-ios/Obsidian-garden-calendar-ios/sessioni/2026-06-02-calendario-ux-miglioramenti.md": {
+    "mtime": 1780416761.1522038,
+    "ast_hash": "77fedd137b119b5c853cfa1f6ffb9d95",
+    "semantic_hash": ""
+  },
+  "/Users/keape/Library/Mobile Documents/com~apple~CloudDocs/app sviluppate e html/garden-calendar-ios/Obsidian-garden-calendar-ios/sessioni/2026-06-02-orto-edit-geocoding-fix.md": {
+    "mtime": 1780417142.0303183,
+    "ast_hash": "43d8bfc09e8f9b55d5dd4d0e17be0e3c",
+    "semantic_hash": ""
+  },
+  "/Users/keape/Library/Mobile Documents/com~apple~CloudDocs/app sviluppate e html/garden-calendar-ios/Obsidian-garden-calendar-ios/sessioni/2026-06-02-journal-entry-refresh.md": {
+    "mtime": 1780417192.7685623,
+    "ast_hash": "4efd59098f52fd5cf16b0cc8c5ff373a",
+    "semantic_hash": ""
+  },
+  "/Users/keape/Library/Mobile Documents/com~apple~CloudDocs/app sviluppate e html/garden-calendar-ios/Obsidian-garden-calendar-ios/sessioni/2026-06-02-elimina-orto.md": {
+    "mtime": 1780418586.437973,
+    "ast_hash": "fe092c7500bf3fc633129fa9c72cca00",
+    "semantic_hash": ""
+  },
+  "/Users/keape/Library/Mobile Documents/com~apple~CloudDocs/app sviluppate e html/garden-calendar-ios/Obsidian-garden-calendar-ios/sessioni/2026-06-02-calendario-filtri-orto-pianta.md": {
+    "mtime": 1780418879.637365,
+    "ast_hash": "dae076e0f15610c943f6ca9196940ae9",
+    "semantic_hash": ""
+  },
+  "/Users/keape/Library/Mobile Documents/com~apple~CloudDocs/app sviluppate e html/garden-calendar-ios/docs/superpowers/plans/2026-06-02-rain-reschedule.md": {
+    "mtime": 1780434947.8849945,
+    "ast_hash": "399366bcf016bb94703ee36b4511cb2a",
+    "semantic_hash": ""
+  },
+  "/Users/keape/Library/Mobile Documents/com~apple~CloudDocs/app sviluppate e html/garden-calendar-ios/docs/superpowers/specs/2026-06-02-rain-reschedule-design.md": {
+    "mtime": 1780434720.0098214,
+    "ast_hash": "3549e05ff3fef264e43b64256b9abeba",
+    "semantic_hash": ""
+  },
+  "/Users/keape/Library/Mobile Documents/com~apple~CloudDocs/app sviluppate e html/garden-calendar-ios/docs/superpowers/specs/2026-06-02-activity-interval-override-design.md": {
+    "mtime": 1780434753.3013456,
+    "ast_hash": "48bc2d4e0e54d34efe3c1b0708b9cb00",
+    "semantic_hash": ""
+  },
+  "/Users/keape/Library/Mobile Documents/com~apple~CloudDocs/app sviluppate e html/garden-calendar-ios/Obsidian-garden-calendar-ios/sessioni/2026-06-02-fix-chiudi-daydetail.md": {
+    "mtime": 1780428923.8266466,
+    "ast_hash": "9df89f58a89311f63385136c5604e2e9",
+    "semantic_hash": ""
+  },
+  "/Users/keape/Library/Mobile Documents/com~apple~CloudDocs/app sviluppate e html/garden-calendar-ios/Obsidian-garden-calendar-ios/sessioni/2026-06-02-suggerimenti-ai-pianta.md": {
+    "mtime": 1780429012.2836053,
+    "ast_hash": "6956066c8e929393a7ec8244f44cc402",
+    "semantic_hash": ""
+  },
+  "/Users/keape/Library/Mobile Documents/com~apple~CloudDocs/app sviluppate e html/garden-calendar-ios/docs/superpowers/plans/2026-06-02-activity-interval-override.md": {
+    "mtime": 1780435186.8884017,
+    "ast_hash": "01bb0a74e7ff8812aaaa5ac0286babe6",
+    "semantic_hash": ""
+  },
+  "/Users/keape/Library/Mobile Documents/com~apple~CloudDocs/app sviluppate e html/garden-calendar-ios/GardenCalendar/Views/Piante/ModificaIntervalloSheet.swift": {
+    "mtime": 1780435813.4091527,
+    "ast_hash": "28ce66fe6128016e1a1e50327964f8d8",
+    "semantic_hash": ""
+  },
+  "/Users/keape/Library/Mobile Documents/com~apple~CloudDocs/app sviluppate e html/garden-calendar-ios/supabase/migrations/20260602000001_activity_overrides.sql": {
+    "mtime": 1780436100.0503213,
+    "ast_hash": "e444647e3a3120ac0e938de35871c1d4",
+    "semantic_hash": ""
+  },
+  "/Users/keape/Library/Mobile Documents/com~apple~CloudDocs/app sviluppate e html/garden-calendar-ios/Obsidian-garden-calendar-ios/sessioni/2026-06-04-simulator-build-cleanup.md": {
+    "mtime": 1780559801.3194015,
+    "ast_hash": "807687f25a0de025262b335d6f88cbb6",
+    "semantic_hash": ""
+  },
+  "/Users/keape/Library/Mobile Documents/com~apple~CloudDocs/app sviluppate e html/garden-calendar-ios/Obsidian-garden-calendar-ios/sessioni/2026-06-04-pioggia-irrigazione-reschedule.md": {
+    "mtime": 1780561796.6455026,
+    "ast_hash": "55405971a4829b7c983f1232bb94d610",
+    "semantic_hash": ""
+  },
+  "/Users/keape/Library/Mobile Documents/com~apple~CloudDocs/app sviluppate e html/garden-calendar-ios/GardenCalendar/Views/Piante/NuovaAttivitaSheet.swift": {
+    "mtime": 1780562194.2409673,
+    "ast_hash": "28d1fa4e81a7ac7e12361bee7e37e0f9",
+    "semantic_hash": ""
+  },
+  "/Users/keape/Library/Mobile Documents/com~apple~CloudDocs/app sviluppate e html/garden-calendar-ios/GardenCalendar/Views/Piante/ModificaPiantaSheet.swift": {
+    "mtime": 1780566569.0796533,
+    "ast_hash": "65aa0867556c9add9970a47e7cb4afa8",
+    "semantic_hash": ""
+  },
+  "/Users/keape/Library/Mobile Documents/com~apple~CloudDocs/app sviluppate e html/garden-calendar-ios/Obsidian-garden-calendar-ios/sessioni/2026-06-04-pioggia-icona-mm.md": {
+    "mtime": 1780563761.7770767,
+    "ast_hash": "e5e7a742d3484309284b50506a0b356c",
+    "semantic_hash": ""
+  },
+  "/Users/keape/Library/Mobile Documents/com~apple~CloudDocs/app sviluppate e html/garden-calendar-ios/docs/superpowers/plans/2026-06-04-naturalista-ux-redesign.md": {
+    "mtime": 1780586359.7576587,
+    "ast_hash": "251a7fe084add612f4bf3fe1d2b77b33",
+    "semantic_hash": ""
+  },
+  "/Users/keape/Library/Mobile Documents/com~apple~CloudDocs/app sviluppate e html/garden-calendar-ios/docs/superpowers/specs/2026-06-04-naturalista-ux-redesign.md": {
+    "mtime": 1780585980.7998405,
+    "ast_hash": "c1053686efcd0db5112582d7ef702069",
+    "semantic_hash": ""
+  },
+  "/Users/keape/Library/Mobile Documents/com~apple~CloudDocs/app sviluppate e html/garden-calendar-ios/.superpowers/brainstorm/53582-1780583724/content/design-screens.html": {
+    "mtime": 1780585830.2451494,
+    "ast_hash": "e0b27e11a90edbdcf9b1ab215edaeec7",
+    "semantic_hash": ""
+  },
+  "/Users/keape/Library/Mobile Documents/com~apple~CloudDocs/app sviluppate e html/garden-calendar-ios/.superpowers/brainstorm/53582-1780583724/content/daydetail-nav.html": {
+    "mtime": 1780584302.0894275,
+    "ast_hash": "bd369b96391b3cfbdb48b4033d7fb12a",
+    "semantic_hash": ""
+  },
+  "/Users/keape/Library/Mobile Documents/com~apple~CloudDocs/app sviluppate e html/garden-calendar-ios/.superpowers/brainstorm/53582-1780583724/content/design-colors-type.html": {
+    "mtime": 1780585219.4708097,
+    "ast_hash": "93648aaffbbc81e8b67aec458cd73788",
+    "semantic_hash": ""
+  },
+  "/Users/keape/Library/Mobile Documents/com~apple~CloudDocs/app sviluppate e html/garden-calendar-ios/.superpowers/brainstorm/53582-1780583724/content/design-navigation.html": {
+    "mtime": 1780585645.524306,
+    "ast_hash": "3ba03e8176dedeef4a8629a4a204afef",
+    "semantic_hash": ""
+  },
+  "/Users/keape/Library/Mobile Documents/com~apple~CloudDocs/app sviluppate e html/garden-calendar-ios/.superpowers/brainstorm/53582-1780583724/content/waiting.html": {
+    "mtime": 1780584406.6472054,
+    "ast_hash": "3577d44609e6f14838493c08efbb58bb",
+    "semantic_hash": ""
+  },
+  "/Users/keape/Library/Mobile Documents/com~apple~CloudDocs/app sviluppate e html/garden-calendar-ios/.superpowers/brainstorm/53582-1780583724/content/approach.html": {
+    "mtime": 1780583763.674705,
+    "ast_hash": "043a82bc34fb5b767993c55687fdd81e",
+    "semantic_hash": ""
+  },
+  "/Users/keape/Library/Mobile Documents/com~apple~CloudDocs/app sviluppate e html/garden-calendar-ios/.superpowers/brainstorm/53582-1780583724/content/tabbar.html": {
+    "mtime": 1780583949.8298526,
+    "ast_hash": "8e073b21f36e5117976ef90920cda684",
+    "semantic_hash": ""
+  },
+  "/Users/keape/Library/Mobile Documents/com~apple~CloudDocs/app sviluppate e html/garden-calendar-ios/Obsidian-garden-calendar-ios/sessioni/2026-06-04-simulator-test-nuova-attivita.md": {
+    "mtime": 1780587756.435754,
+    "ast_hash": "4ed91eecaf577f579571537e20f54d80",
+    "semantic_hash": ""
+  },
+  "/Users/keape/Library/Mobile Documents/com~apple~CloudDocs/app sviluppate e html/garden-calendar-ios/Obsidian-garden-calendar-ios/sessioni/2026-06-04-naturalista-ux-redesign.md": {
+    "mtime": 1780602525.7664607,
+    "ast_hash": "3f66114cefcef6cbb5c8e78cd0a4bc3e",
+    "semantic_hash": ""
+  },
+  "/Users/keape/Library/Mobile Documents/com~apple~CloudDocs/app sviluppate e html/garden-calendar-ios/.claude/worktrees/practical-liskov-144414/supabase-schema.sql": {
+    "mtime": 1781039570.9981942,
+    "ast_hash": "6c1432c4d2f4098b713d5824b451d542",
+    "semantic_hash": ""
+  },
+  "/Users/keape/Library/Mobile Documents/com~apple~CloudDocs/app sviluppate e html/garden-calendar-ios/.claude/worktrees/practical-liskov-144414/build.sh": {
+    "mtime": 1781038990.9555824,
+    "ast_hash": "425f509d363495db8e99f84f099638bb",
+    "semantic_hash": ""
+  },
+  "/Users/keape/Library/Mobile Documents/com~apple~CloudDocs/app sviluppate e html/garden-calendar-ios/.claude/worktrees/practical-liskov-144414/Package.swift": {
+    "mtime": 1781038985.5941088,
+    "ast_hash": "70663000528cf7a19edc6ce28b0a6e21",
+    "semantic_hash": ""
+  },
+  "/Users/keape/Library/Mobile Documents/com~apple~CloudDocs/app sviluppate e html/garden-calendar-ios/.claude/worktrees/practical-liskov-144414/.claude/settings.json": {
+    "mtime": 1781038658.9134874,
+    "ast_hash": "4293c0b90def7904670dcb81d8c97dbd",
+    "semantic_hash": ""
+  },
+  "/Users/keape/Library/Mobile Documents/com~apple~CloudDocs/app sviluppate e html/garden-calendar-ios/.claude/worktrees/practical-liskov-144414/supabase/migrations/20260524000001_initial_schema.sql": {
+    "mtime": 1781039590.919702,
+    "ast_hash": "6c1432c4d2f4098b713d5824b451d542",
+    "semantic_hash": ""
+  },
+  "/Users/keape/Library/Mobile Documents/com~apple~CloudDocs/app sviluppate e html/garden-calendar-ios/.claude/worktrees/practical-liskov-144414/supabase/migrations/20260602000001_activity_overrides.sql": {
+    "mtime": 1781039592.285934,
+    "ast_hash": "e444647e3a3120ac0e938de35871c1d4",
+    "semantic_hash": ""
+  },
+  "/Users/keape/Library/Mobile Documents/com~apple~CloudDocs/app sviluppate e html/garden-calendar-ios/.claude/worktrees/practical-liskov-144414/supabase/.temp/linked-project.json": {
+    "mtime": 1781039574.8476813,
+    "ast_hash": "0b170ef34c84ce1ea16974434d21144d",
+    "semantic_hash": ""
+  },
+  "/Users/keape/Library/Mobile Documents/com~apple~CloudDocs/app sviluppate e html/garden-calendar-ios/.claude/worktrees/practical-liskov-144414/supabase/functions/admin-dashboard/deno.json": {
+    "mtime": 1781039585.7890444,
+    "ast_hash": "af84e44d5c8e2c89ab58060848ce672d",
+    "semantic_hash": ""
+  },
+  "/Users/keape/Library/Mobile Documents/com~apple~CloudDocs/app sviluppate e html/garden-calendar-ios/.claude/worktrees/practical-liskov-144414/supabase/functions/admin-dashboard/index.ts": {
+    "mtime": 1781039586.9210157,
+    "ast_hash": "cc8c1d6cab3d3b62df933bf697ed5897",
+    "semantic_hash": ""
+  },
+  "/Users/keape/Library/Mobile Documents/com~apple~CloudDocs/app sviluppate e html/garden-calendar-ios/.claude/worktrees/practical-liskov-144414/supabase/functions/extract-plant-care/deno.json": {
+    "mtime": 1781039588.21847,
+    "ast_hash": "451896c0afd13dc61b5724c9e683cf79",
+    "semantic_hash": ""
+  },
+  "/Users/keape/Library/Mobile Documents/com~apple~CloudDocs/app sviluppate e html/garden-calendar-ios/.claude/worktrees/practical-liskov-144414/supabase/functions/extract-plant-care/index.ts": {
+    "mtime": 1781039589.673842,
+    "ast_hash": "f291fe0346bd46d50e1ebe6cfd850015",
+    "semantic_hash": ""
+  },
+  "/Users/keape/Library/Mobile Documents/com~apple~CloudDocs/app sviluppate e html/garden-calendar-ios/.claude/worktrees/practical-liskov-144414/supabase/functions/schedule-activities/deno.json": {
+    "mtime": 1781039589.6746907,
+    "ast_hash": "451896c0afd13dc61b5724c9e683cf79",
+    "semantic_hash": ""
+  },
+  "/Users/keape/Library/Mobile Documents/com~apple~CloudDocs/app sviluppate e html/garden-calendar-ios/.claude/worktrees/practical-liskov-144414/supabase/functions/schedule-activities/index.ts": {
+    "mtime": 1781039590.9177873,
+    "ast_hash": "a58c187cc5aacac8bd8fe1101e0d8572",
+    "semantic_hash": ""
+  },
+  "/Users/keape/Library/Mobile Documents/com~apple~CloudDocs/app sviluppate e html/garden-calendar-ios/.claude/worktrees/practical-liskov-144414/.vscode/settings.json": {
+    "mtime": 1781038949.8676307,
+    "ast_hash": "e6ec93578e8d896fa199e2a16ba22a65",
+    "semantic_hash": ""
+  },
+  "/Users/keape/Library/Mobile Documents/com~apple~CloudDocs/app sviluppate e html/garden-calendar-ios/.claude/worktrees/practical-liskov-144414/.vscode/extensions.json": {
+    "mtime": 1781038948.6170444,
+    "ast_hash": "9056b8e896427ed2c2be9330fdfe97b3",
+    "semantic_hash": ""
+  },
+  "/Users/keape/Library/Mobile Documents/com~apple~CloudDocs/app sviluppate e html/garden-calendar-ios/.claude/worktrees/practical-liskov-144414/GardenCalendar/GardenCalendarApp.swift": {
+    "mtime": 1781038953.8651524,
+    "ast_hash": "f51d4ef809b4844317ee6a532e69cdf3",
+    "semantic_hash": ""
+  },
+  "/Users/keape/Library/Mobile Documents/com~apple~CloudDocs/app sviluppate e html/garden-calendar-ios/.claude/worktrees/practical-liskov-144414/GardenCalendar/ContentView.swift": {
+    "mtime": 1781038952.2222817,
+    "ast_hash": "86d220db9ea9e71270b32bb973ab5779",
+    "semantic_hash": ""
+  },
+  "/Users/keape/Library/Mobile Documents/com~apple~CloudDocs/app sviluppate e html/garden-calendar-ios/.claude/worktrees/practical-liskov-144414/GardenCalendar/SupabaseConfig.swift": {
+    "mtime": 1781038961.3491786,
+    "ast_hash": "b5b7748a5406f6e7eb6b5b04a1e58272",
+    "semantic_hash": ""
+  },
+  "/Users/keape/Library/Mobile Documents/com~apple~CloudDocs/app sviluppate e html/garden-calendar-ios/.claude/worktrees/practical-liskov-144414/GardenCalendar/Assets.xcassets/Contents.json": {
+    "mtime": 1781038952.22111,
+    "ast_hash": "9deb2ada1cc834bbebf8bbad9c8978a1",
+    "semantic_hash": ""
+  },
+  "/Users/keape/Library/Mobile Documents/com~apple~CloudDocs/app sviluppate e html/garden-calendar-ios/.claude/worktrees/practical-liskov-144414/GardenCalendar/Assets.xcassets/AppIcon.appiconset/Contents.json": {
+    "mtime": 1781038950.9943967,
+    "ast_hash": "656e426612a7126f2dc91453413e7c4a",
+    "semantic_hash": ""
+  },
+  "/Users/keape/Library/Mobile Documents/com~apple~CloudDocs/app sviluppate e html/garden-calendar-ios/.claude/worktrees/practical-liskov-144414/GardenCalendar/Models/Attivita.swift": {
+    "mtime": 1781038955.8137436,
+    "ast_hash": "c07898c8713465cb201431afc17a6456",
+    "semantic_hash": ""
+  },
+  "/Users/keape/Library/Mobile Documents/com~apple~CloudDocs/app sviluppate e html/garden-calendar-ios/.claude/worktrees/practical-liskov-144414/GardenCalendar/Models/PiantaColtivata.swift": {
+    "mtime": 1781038956.4501395,
+    "ast_hash": "8cc48f68daf88359c0d708c7507c9a78",
+    "semantic_hash": ""
+  },
+  "/Users/keape/Library/Mobile Documents/com~apple~CloudDocs/app sviluppate e html/garden-calendar-ios/.claude/worktrees/practical-liskov-144414/GardenCalendar/Models/WikiNote.swift": {
+    "mtime": 1781038957.5612507,
+    "ast_hash": "deffa142f3879822bef898b03c015767",
+    "semantic_hash": ""
+  },
+  "/Users/keape/Library/Mobile Documents/com~apple~CloudDocs/app sviluppate e html/garden-calendar-ios/.claude/worktrees/practical-liskov-144414/GardenCalendar/Models/PlantKnowledge.swift": {
+    "mtime": 1781038956.4507146,
+    "ast_hash": "d85fa424aee97b15efd5107a05ec25d7",
+    "semantic_hash": ""
+  },
+  "/Users/keape/Library/Mobile Documents/com~apple~CloudDocs/app sviluppate e html/garden-calendar-ios/.claude/worktrees/practical-liskov-144414/GardenCalendar/Models/Orto.swift": {
+    "mtime": 1781038956.4492986,
+    "ast_hash": "478303ba8cab882187e200d7637fb963",
+    "semantic_hash": ""
+  },
+  "/Users/keape/Library/Mobile Documents/com~apple~CloudDocs/app sviluppate e html/garden-calendar-ios/.claude/worktrees/practical-liskov-144414/GardenCalendar/Preview Content/Preview Assets.xcassets/Contents.json": {
+    "mtime": 1781038957.5617354,
+    "ast_hash": "9deb2ada1cc834bbebf8bbad9c8978a1",
+    "semantic_hash": ""
+  },
+  "/Users/keape/Library/Mobile Documents/com~apple~CloudDocs/app sviluppate e html/garden-calendar-ios/.claude/worktrees/practical-liskov-144414/GardenCalendar/Theme/AppTheme.swift": {
+    "mtime": 1781038962.476367,
+    "ast_hash": "affba8d59e68860f8945a388b9af3039",
+    "semantic_hash": ""
+  },
+  "/Users/keape/Library/Mobile Documents/com~apple~CloudDocs/app sviluppate e html/garden-calendar-ios/.claude/worktrees/practical-liskov-144414/GardenCalendar/Views/Journal/QuickJournalView.swift": {
+    "mtime": 1781038969.081471,
+    "ast_hash": "ed9c634c08f9287d62c704ccfdf3d974",
+    "semantic_hash": ""
+  },
+  "/Users/keape/Library/Mobile Documents/com~apple~CloudDocs/app sviluppate e html/garden-calendar-ios/.claude/worktrees/practical-liskov-144414/GardenCalendar/Views/Calendario/DayDetailSheet.swift": {
+    "mtime": 1781038965.3633645,
+    "ast_hash": "71a28c5f825fcd737047786b0971c186",
+    "semantic_hash": ""
+  },
+  "/Users/keape/Library/Mobile Documents/com~apple~CloudDocs/app sviluppate e html/garden-calendar-ios/.claude/worktrees/practical-liskov-144414/GardenCalendar/Views/Calendario/CalendarView.swift": {
+    "mtime": 1781038965.3624508,
+    "ast_hash": "6242ea212701e98526f5107e4721f6df",
+    "semantic_hash": ""
+  },
+  "/Users/keape/Library/Mobile Documents/com~apple~CloudDocs/app sviluppate e html/garden-calendar-ios/.claude/worktrees/practical-liskov-144414/GardenCalendar/Views/Settings/SettingsView.swift": {
+    "mtime": 1781038976.0892565,
+    "ast_hash": "7163da3c57580108052222ea5182311a",
+    "semantic_hash": ""
+  },
+  "/Users/keape/Library/Mobile Documents/com~apple~CloudDocs/app sviluppate e html/garden-calendar-ios/.claude/worktrees/practical-liskov-144414/GardenCalendar/Views/Auth/LoginView.swift": {
+    "mtime": 1781038963.5930896,
+    "ast_hash": "4643394f677ed78fca1f01a21eaafa55",
+    "semantic_hash": ""
+  },
+  "/Users/keape/Library/Mobile Documents/com~apple~CloudDocs/app sviluppate e html/garden-calendar-ios/.claude/worktrees/practical-liskov-144414/GardenCalendar/Views/Auth/SignUpView.swift": {
+    "mtime": 1781038964.653533,
+    "ast_hash": "8c0b660b39ffdd41c8231c309880fc7c",
+    "semantic_hash": ""
+  },
+  "/Users/keape/Library/Mobile Documents/com~apple~CloudDocs/app sviluppate e html/garden-calendar-ios/.claude/worktrees/practical-liskov-144414/GardenCalendar/Views/Orto/OrtoListView.swift": {
+    "mtime": 1781038970.8627913,
+    "ast_hash": "f30c8c07eaf54265b455d31bb3f78d90",
+    "semantic_hash": ""
+  },
+  "/Users/keape/Library/Mobile Documents/com~apple~CloudDocs/app sviluppate e html/garden-calendar-ios/.claude/worktrees/practical-liskov-144414/GardenCalendar/Views/Orto/OrtoDetailView.swift": {
+    "mtime": 1781038969.7118864,
+    "ast_hash": "f7f2b7585ef469309769ec4b46b847df",
+    "semantic_hash": ""
+  },
+  "/Users/keape/Library/Mobile Documents/com~apple~CloudDocs/app sviluppate e html/garden-calendar-ios/.claude/worktrees/practical-liskov-144414/GardenCalendar/Views/Piante/ModificaPiantaSheet.swift": {
+    "mtime": 1781038973.0007768,
+    "ast_hash": "65aa0867556c9add9970a47e7cb4afa8",
+    "semantic_hash": ""
+  },
+  "/Users/keape/Library/Mobile Documents/com~apple~CloudDocs/app sviluppate e html/garden-calendar-ios/.claude/worktrees/practical-liskov-144414/GardenCalendar/Views/Piante/PiantaListView.swift": {
+    "mtime": 1781038976.088465,
+    "ast_hash": "2355da637bdf22f5c49963e67a7658de",
+    "semantic_hash": ""
+  },
+  "/Users/keape/Library/Mobile Documents/com~apple~CloudDocs/app sviluppate e html/garden-calendar-ios/.claude/worktrees/practical-liskov-144414/GardenCalendar/Views/Piante/ModificaIntervalloSheet.swift": {
+    "mtime": 1781038971.542068,
+    "ast_hash": "28ce66fe6128016e1a1e50327964f8d8",
+    "semantic_hash": ""
+  },
+  "/Users/keape/Library/Mobile Documents/com~apple~CloudDocs/app sviluppate e html/garden-calendar-ios/.claude/worktrees/practical-liskov-144414/GardenCalendar/Views/Piante/PiantaDetailView.swift": {
+    "mtime": 1781038974.9579632,
+    "ast_hash": "bcc9f52ee9df6266dd6bf9a0f3e6dbe9",
+    "semantic_hash": ""
+  },
+  "/Users/keape/Library/Mobile Documents/com~apple~CloudDocs/app sviluppate e html/garden-calendar-ios/.claude/worktrees/practical-liskov-144414/GardenCalendar/Views/Piante/NuovaAttivitaSheet.swift": {
+    "mtime": 1781038973.9712212,
+    "ast_hash": "28d1fa4e81a7ac7e12361bee7e37e0f9",
+    "semantic_hash": ""
+  },
+  "/Users/keape/Library/Mobile Documents/com~apple~CloudDocs/app sviluppate e html/garden-calendar-ios/.claude/worktrees/practical-liskov-144414/GardenCalendar/Views/Piante/AggiungiPiantaView.swift": {
+    "mtime": 1781038971.541561,
+    "ast_hash": "222995a7601ad7ccfa43a3a9c2663441",
+    "semantic_hash": ""
+  },
+  "/Users/keape/Library/Mobile Documents/com~apple~CloudDocs/app sviluppate e html/garden-calendar-ios/.claude/worktrees/practical-liskov-144414/GardenCalendar/Views/Components/WeatherIcon.swift": {
+    "mtime": 1781038967.3510964,
+    "ast_hash": "5b8fba1e0cb282ddb6b61cdc193c75f8",
+    "semantic_hash": ""
+  },
+  "/Users/keape/Library/Mobile Documents/com~apple~CloudDocs/app sviluppate e html/garden-calendar-ios/.claude/worktrees/practical-liskov-144414/GardenCalendar/Views/Components/ActivityColorDot.swift": {
+    "mtime": 1781038966.169352,
+    "ast_hash": "f18dfd9a408f43538eb26f56e8e38220",
+    "semantic_hash": ""
+  },
+  "/Users/keape/Library/Mobile Documents/com~apple~CloudDocs/app sviluppate e html/garden-calendar-ios/.claude/worktrees/practical-liskov-144414/GardenCalendar/Services/SupabaseRepository.swift": {
+    "mtime": 1781039898.9816809,
+    "ast_hash": "39bf44026609f0eb1e83a85ea1fe0d81",
+    "semantic_hash": ""
+  },
+  "/Users/keape/Library/Mobile Documents/com~apple~CloudDocs/app sviluppate e html/garden-calendar-ios/.claude/worktrees/practical-liskov-144414/GardenCalendar/Services/AuthManager.swift": {
+    "mtime": 1781038959.2688003,
+    "ast_hash": "438e2458b1380190fa7f50e0d3ca806d",
+    "semantic_hash": ""
+  },
+  "/Users/keape/Library/Mobile Documents/com~apple~CloudDocs/app sviluppate e html/garden-calendar-ios/.claude/worktrees/practical-liskov-144414/GardenCalendar/Services/RainAdjuster.swift": {
+    "mtime": 1781038959.2696745,
+    "ast_hash": "608ede00bcb75f23cd983de588efa9f7",
+    "semantic_hash": ""
+  },
+  "/Users/keape/Library/Mobile Documents/com~apple~CloudDocs/app sviluppate e html/garden-calendar-ios/.claude/worktrees/practical-liskov-144414/GardenCalendar/Services/LocationHelper.swift": {
+    "mtime": 1781038959.2691374,
+    "ast_hash": "75da1a58001b7b68f10a4fdbea216a4a",
+    "semantic_hash": ""
+  },
+  "/Users/keape/Library/Mobile Documents/com~apple~CloudDocs/app sviluppate e html/garden-calendar-ios/.claude/worktrees/practical-liskov-144414/appstore-prep.md": {
+    "mtime": 1781038989.9192626,
+    "ast_hash": "81917ce3fd86140111d0bcdbfd27a3ff",
+    "semantic_hash": ""
+  },
+  "/Users/keape/Library/Mobile Documents/com~apple~CloudDocs/app sviluppate e html/garden-calendar-ios/.claude/worktrees/practical-liskov-144414/admin-dashboard.html": {
+    "mtime": 1781038988.0266962,
+    "ast_hash": "9368f5ab0bcf4b8241b6ac6374410711",
+    "semantic_hash": ""
+  },
+  "/Users/keape/Library/Mobile Documents/com~apple~CloudDocs/app sviluppate e html/garden-calendar-ios/.claude/worktrees/practical-liskov-144414/README.md": {
+    "mtime": 1781038986.625197,
+    "ast_hash": "827ca3a5c5703eef047c78b425cd6211",
+    "semantic_hash": ""
+  },
+  "/Users/keape/Library/Mobile Documents/com~apple~CloudDocs/app sviluppate e html/garden-calendar-ios/.claude/worktrees/practical-liskov-144414/TASKS.md": {
+    "mtime": 1781038986.62587,
+    "ast_hash": "b594732f7fb136ca4508b81ab1326d80",
+    "semantic_hash": ""
+  },
+  "/Users/keape/Library/Mobile Documents/com~apple~CloudDocs/app sviluppate e html/garden-calendar-ios/.claude/worktrees/practical-liskov-144414/CLAUDE.md": {
+    "mtime": 1781038949.8685017,
+    "ast_hash": "82efb97a359f5c7290bf2513d14686be",
+    "semantic_hash": ""
+  },
+  "/Users/keape/Library/Mobile Documents/com~apple~CloudDocs/app sviluppate e html/garden-calendar-ios/.claude/worktrees/practical-liskov-144414/docs/superpowers/plans/2026-06-02-rain-reschedule.md": {
+    "mtime": 1781038992.0636337,
+    "ast_hash": "399366bcf016bb94703ee36b4511cb2a",
+    "semantic_hash": ""
+  },
+  "/Users/keape/Library/Mobile Documents/com~apple~CloudDocs/app sviluppate e html/garden-calendar-ios/.claude/worktrees/practical-liskov-144414/docs/superpowers/plans/2026-06-02-activity-interval-override.md": {
+    "mtime": 1781038992.062967,
+    "ast_hash": "01bb0a74e7ff8812aaaa5ac0286babe6",
+    "semantic_hash": ""
+  },
+  "/Users/keape/Library/Mobile Documents/com~apple~CloudDocs/app sviluppate e html/garden-calendar-ios/.claude/worktrees/practical-liskov-144414/docs/superpowers/plans/2026-06-04-naturalista-ux-redesign.md": {
+    "mtime": 1781038993.2418242,
+    "ast_hash": "251a7fe084add612f4bf3fe1d2b77b33",
+    "semantic_hash": ""
+  },
+  "/Users/keape/Library/Mobile Documents/com~apple~CloudDocs/app sviluppate e html/garden-calendar-ios/.claude/worktrees/practical-liskov-144414/docs/superpowers/specs/2026-06-04-naturalista-ux-redesign.md": {
+    "mtime": 1781038996.9848447,
+    "ast_hash": "c1053686efcd0db5112582d7ef702069",
+    "semantic_hash": ""
+  },
+  "/Users/keape/Library/Mobile Documents/com~apple~CloudDocs/app sviluppate e html/garden-calendar-ios/.claude/worktrees/practical-liskov-144414/docs/superpowers/specs/2026-06-02-rain-reschedule-design.md": {
+    "mtime": 1781038995.8777122,
+    "ast_hash": "3549e05ff3fef264e43b64256b9abeba",
+    "semantic_hash": ""
+  },
+  "/Users/keape/Library/Mobile Documents/com~apple~CloudDocs/app sviluppate e html/garden-calendar-ios/.claude/worktrees/practical-liskov-144414/docs/superpowers/specs/2026-06-02-activity-interval-override-design.md": {
+    "mtime": 1781038994.2055833,
+    "ast_hash": "48bc2d4e0e54d34efe3c1b0708b9cb00",
+    "semantic_hash": ""
+  },
+  "/Users/keape/Library/Mobile Documents/com~apple~CloudDocs/app sviluppate e html/garden-calendar-ios/.claude/worktrees/practical-liskov-144414/Obsidian-garden-calendar-ios/sessioni/2026-06-02-fix-supabase-schema-date.md": {
+    "mtime": 1781038981.8059466,
+    "ast_hash": "e93569c5d942a050dd92ff0ab713a443",
+    "semantic_hash": ""
+  },
+  "/Users/keape/Library/Mobile Documents/com~apple~CloudDocs/app sviluppate e html/garden-calendar-ios/.claude/worktrees/practical-liskov-144414/Obsidian-garden-calendar-ios/sessioni/2026-06-02-orto-edit-geocoding-fix.md": {
+    "mtime": 1781038981.8067198,
+    "ast_hash": "43d8bfc09e8f9b55d5dd4d0e17be0e3c",
+    "semantic_hash": ""
+  },
+  "/Users/keape/Library/Mobile Documents/com~apple~CloudDocs/app sviluppate e html/garden-calendar-ios/.claude/worktrees/practical-liskov-144414/Obsidian-garden-calendar-ios/sessioni/2026-06-02-fix-chiudi-daydetail.md": {
+    "mtime": 1781038981.8053257,
+    "ast_hash": "9df89f58a89311f63385136c5604e2e9",
+    "semantic_hash": ""
+  },
+  "/Users/keape/Library/Mobile Documents/com~apple~CloudDocs/app sviluppate e html/garden-calendar-ios/.claude/worktrees/practical-liskov-144414/Obsidian-garden-calendar-ios/sessioni/2026-06-04-naturalista-ux-redesign.md": {
+    "mtime": 1781038982.8057244,
+    "ast_hash": "3f66114cefcef6cbb5c8e78cd0a4bc3e",
+    "semantic_hash": ""
+  },
+  "/Users/keape/Library/Mobile Documents/com~apple~CloudDocs/app sviluppate e html/garden-calendar-ios/.claude/worktrees/practical-liskov-144414/Obsidian-garden-calendar-ios/sessioni/2026-06-02-elimina-orto.md": {
+    "mtime": 1781038981.2680125,
+    "ast_hash": "fe092c7500bf3fc633129fa9c72cca00",
+    "semantic_hash": ""
+  },
+  "/Users/keape/Library/Mobile Documents/com~apple~CloudDocs/app sviluppate e html/garden-calendar-ios/.claude/worktrees/practical-liskov-144414/Obsidian-garden-calendar-ios/sessioni/2026-06-02-calendario-filtri-orto-pianta.md": {
+    "mtime": 1781038979.341435,
+    "ast_hash": "dae076e0f15610c943f6ca9196940ae9",
+    "semantic_hash": ""
+  },
+  "/Users/keape/Library/Mobile Documents/com~apple~CloudDocs/app sviluppate e html/garden-calendar-ios/.claude/worktrees/practical-liskov-144414/Obsidian-garden-calendar-ios/sessioni/2026-06-04-pioggia-icona-mm.md": {
+    "mtime": 1781038984.1534648,
+    "ast_hash": "e5e7a742d3484309284b50506a0b356c",
+    "semantic_hash": ""
+  },
+  "/Users/keape/Library/Mobile Documents/com~apple~CloudDocs/app sviluppate e html/garden-calendar-ios/.claude/worktrees/practical-liskov-144414/Obsidian-garden-calendar-ios/sessioni/2026-06-02-journal-entry-refresh.md": {
+    "mtime": 1781038981.8063858,
+    "ast_hash": "4efd59098f52fd5cf16b0cc8c5ff373a",
+    "semantic_hash": ""
+  },
+  "/Users/keape/Library/Mobile Documents/com~apple~CloudDocs/app sviluppate e html/garden-calendar-ios/.claude/worktrees/practical-liskov-144414/Obsidian-garden-calendar-ios/sessioni/2026-06-02-calendario-ux-miglioramenti.md": {
+    "mtime": 1781038980.3472798,
+    "ast_hash": "77fedd137b119b5c853cfa1f6ffb9d95",
+    "semantic_hash": ""
+  },
+  "/Users/keape/Library/Mobile Documents/com~apple~CloudDocs/app sviluppate e html/garden-calendar-ios/.claude/worktrees/practical-liskov-144414/Obsidian-garden-calendar-ios/sessioni/2026-06-02-orto-location-gps.md": {
+    "mtime": 1781038981.8070922,
+    "ast_hash": "03df57073c0f481d5ff7e321302887ab",
+    "semantic_hash": ""
+  },
+  "/Users/keape/Library/Mobile Documents/com~apple~CloudDocs/app sviluppate e html/garden-calendar-ios/.claude/worktrees/practical-liskov-144414/Obsidian-garden-calendar-ios/sessioni/2026-05-29-simulator-lexar-setup.md": {
+    "mtime": 1781038976.762216,
+    "ast_hash": "68dbdccdd6a4f9d833918efa71b0d299",
+    "semantic_hash": ""
+  },
+  "/Users/keape/Library/Mobile Documents/com~apple~CloudDocs/app sviluppate e html/garden-calendar-ios/.claude/worktrees/practical-liskov-144414/Obsidian-garden-calendar-ios/sessioni/2026-06-04-pioggia-irrigazione-reschedule.md": {
+    "mtime": 1781038984.1539865,
+    "ast_hash": "55405971a4829b7c983f1232bb94d610",
+    "semantic_hash": ""
+  },
+  "/Users/keape/Library/Mobile Documents/com~apple~CloudDocs/app sviluppate e html/garden-calendar-ios/.claude/worktrees/practical-liskov-144414/Obsidian-garden-calendar-ios/sessioni/2026-06-02-suggerimenti-ai-pianta.md": {
+    "mtime": 1781038981.8079379,
+    "ast_hash": "6956066c8e929393a7ec8244f44cc402",
+    "semantic_hash": ""
+  },
+  "/Users/keape/Library/Mobile Documents/com~apple~CloudDocs/app sviluppate e html/garden-calendar-ios/.claude/worktrees/practical-liskov-144414/Obsidian-garden-calendar-ios/sessioni/2026-05-29-simulator-setup-lexar.md": {
+    "mtime": 1781038978.34108,
+    "ast_hash": "5689bc02b0d88ee14b8c33eb7403a76e",
+    "semantic_hash": ""
+  },
+  "/Users/keape/Library/Mobile Documents/com~apple~CloudDocs/app sviluppate e html/garden-calendar-ios/.claude/worktrees/practical-liskov-144414/Obsidian-garden-calendar-ios/sessioni/2026-06-04-simulator-test-nuova-attivita.md": {
+    "mtime": 1781038985.5932488,
+    "ast_hash": "4ed91eecaf577f579571537e20f54d80",
+    "semantic_hash": ""
+  },
+  "/Users/keape/Library/Mobile Documents/com~apple~CloudDocs/app sviluppate e html/garden-calendar-ios/.claude/worktrees/practical-liskov-144414/Obsidian-garden-calendar-ios/sessioni/2026-06-04-simulator-build-cleanup.md": {
+    "mtime": 1781038985.0249808,
+    "ast_hash": "807687f25a0de025262b335d6f88cbb6",
+    "semantic_hash": ""
+  }
+}

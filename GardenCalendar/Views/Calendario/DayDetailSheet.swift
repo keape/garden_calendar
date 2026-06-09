@@ -4,6 +4,7 @@ struct DayDetailView: View {
     let selectedDate: Date
     @State private var activities: [Attivita]
     @State private var rainMm: Double = 0
+    @State private var frostTemp: Double?
     @State private var showAddActivity = false
     @State private var editingActivity: Attivita?
     @State private var showReschedulePicker = false
@@ -66,14 +67,28 @@ struct DayDetailView: View {
             .padding(.top, 8)
             .padding(.bottom, 4)
 
-            if rainMm > 0 {
-                HStack(spacing: 4) {
-                    Image(systemName: "cloud.rain.fill")
-                        .font(.system(size: 12))
-                        .foregroundStyle(AppTheme.rainBlue)
-                    Text(String(format: "%.0f mm di pioggia", rainMm))
-                        .font(.dmSans(12, weight: .medium))
-                        .foregroundStyle(AppTheme.rainBlue)
+            if rainMm > 0 || frostTemp != nil {
+                HStack(spacing: 12) {
+                    if rainMm > 0 {
+                        HStack(spacing: 4) {
+                            Image(systemName: "cloud.rain.fill")
+                                .font(.system(size: 12))
+                                .foregroundStyle(AppTheme.rainBlue)
+                            Text(String(format: "%.0f mm di pioggia", rainMm))
+                                .font(.dmSans(12, weight: .medium))
+                                .foregroundStyle(AppTheme.rainBlue)
+                        }
+                    }
+                    if let tMin = frostTemp {
+                        HStack(spacing: 4) {
+                            Image(systemName: "snowflake")
+                                .font(.system(size: 12))
+                                .foregroundStyle(.cyan)
+                            Text(String(format: "Rischio gelata: min %.0f°C", tMin))
+                                .font(.dmSans(12, weight: .medium))
+                                .foregroundStyle(.cyan)
+                        }
+                    }
                 }
                 .frame(maxWidth: .infinity, alignment: .leading)
                 .padding(.horizontal, 20)
@@ -206,12 +221,19 @@ struct DayDetailView: View {
     }
 
     private func loadActivities() async {
-        let all = (try? await repository.fetchAttivita(date: selectedDate)) ?? []
+        let all: [Attivita]
+        if let fetched = try? await repository.fetchAttivita(date: selectedDate) {
+            all = fetched
+        } else {
+            all = LocalCache.load([Attivita].self, key: LocalCache.monthKey(for: selectedDate)) ?? []
+        }
         activities = all.filter { calendar.isDate($0.data, inSameDayAs: selectedDate) }
 
         if let userId = AuthManager.shared.user?.id {
-            let piante = (try? await repository.fetchAllPiante(userId: userId)) ?? []
-            let orti = (try? await repository.fetchOrti(userId: userId)) ?? []
+            let piante = (try? await repository.fetchAllPiante(userId: userId))
+                ?? LocalCache.load([PiantaColtivata].self, key: LocalCache.pianteKey) ?? []
+            let orti = (try? await repository.fetchOrti(userId: userId))
+                ?? LocalCache.load([Orto].self, key: LocalCache.ortiKey) ?? []
             pianteLookup = Dictionary(uniqueKeysWithValues: piante.map { ($0.id, $0.nomePersonalizzato) })
 
             var map: [UUID: String] = [:]
@@ -233,16 +255,21 @@ struct DayDetailView: View {
         let f = ISO8601DateFormatter(); f.formatOptions = [.withFullDate]
         let dateStr = f.string(from: selectedDate)
 
+        var mmFound: Double = 0
+        var frostFound: Double?
         for orto in orti {
             guard let lat = orto.latitudine, let lon = orto.longitudine else { continue }
-            let days = (try? await OpenMeteoClient.shared.fetchRainDays(
-                latitude: lat, longitude: lon, from: from, to: to)) ?? [:]
-            if let mm = days[dateStr], mm > 0 {
-                rainMm = mm
-                return
+            let weather = (try? await OpenMeteoClient.shared.fetchDaily(
+                latitude: lat, longitude: lon, from: from, to: to)) ?? DailyWeather()
+            if let mm = weather.rainDays[dateStr] {
+                mmFound = max(mmFound, mm)
+            }
+            if let tMin = weather.frostDays[dateStr] {
+                frostFound = min(frostFound ?? tMin, tMin)
             }
         }
-        rainMm = 0
+        rainMm = mmFound
+        frostTemp = frostFound
     }
 }
 

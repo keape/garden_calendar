@@ -74,12 +74,14 @@ final class SupabaseRepository {
 
     func fetchAllPiante(userId: UUID) async throws -> [PiantaColtivata] {
         let orti = try await fetchOrti(userId: userId)
-        var result: [PiantaColtivata] = []
-        for orto in orti {
-            let piante = try await fetchPiante(ortoId: orto.id)
-            result.append(contentsOf: piante)
-        }
-        return result
+        guard !orti.isEmpty else { return [] }
+        return try await client
+            .from("piante_coltivate")
+            .select()
+            .in("orto_id", values: orti.map(\.id))
+            .order("created_at", ascending: true)
+            .execute()
+            .value
     }
 
     func createPianta(pianta: PiantaColtivata.Create) async throws -> PiantaColtivata {
@@ -183,6 +185,36 @@ final class SupabaseRepository {
         try await client
             .from("attivita")
             .update(DateUpdate(data: date), returning: .minimal)
+            .eq("id", value: id)
+            .execute()
+    }
+
+    // MARK: - Raccolti
+
+    func fetchRaccolti(piantaId: UUID) async throws -> [Raccolto] {
+        try await client
+            .from("raccolti")
+            .select()
+            .eq("pianta_id", value: piantaId)
+            .order("data", ascending: false)
+            .execute()
+            .value
+    }
+
+    func createRaccolto(_ raccolto: RaccoltoCreate) async throws -> Raccolto {
+        try await client
+            .from("raccolti")
+            .insert(raccolto, returning: .representation)
+            .select()
+            .single()
+            .execute()
+            .value
+    }
+
+    func deleteRaccolto(id: UUID) async throws {
+        try await client
+            .from("raccolti")
+            .delete()
             .eq("id", value: id)
             .execute()
     }
@@ -339,9 +371,11 @@ final class SupabaseRepository {
             ))
         }
 
-        for att in toInsert {
-            _ = try await createAttivita(attivita: att)
-        }
+        guard !toInsert.isEmpty else { return }
+        try await client
+            .from("attivita")
+            .insert(toInsert, returning: .minimal)
+            .execute()
     }
 
     // MARK: - Forward Scheduling (Edge Function)

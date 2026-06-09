@@ -17,6 +17,11 @@ struct SettingsView: View {
     @State private var weatherLocation = ""
     @State private var rainThreshold: Double = 5.0
 
+    // Notifiche
+    @State private var notificationsEnabled = NotificationManager.shared.isEnabled
+    @State private var notificationHour = NotificationManager.shared.notificationHour
+    @State private var showNotificationsDenied = false
+
     // Aspetto
     @State private var selectedTheme: ThemeMode = .automatic
 
@@ -109,6 +114,49 @@ struct SettingsView: View {
                     .listRowBackground(AppTheme.cardBackground)
                 }
 
+                // MARK: - Notifiche
+                Section(
+                    header: sectionHeader("Notifiche"),
+                    footer: Text("Ricevi ogni mattina un promemoria con le attività del giorno.")
+                        .font(.dmSans(12))
+                        .foregroundStyle(AppTheme.textSecondary)
+                ) {
+                    Toggle(isOn: $notificationsEnabled) {
+                        Label("Promemoria giornaliero", systemImage: "bell.badge")
+                            .font(.dmSans(15))
+                    }
+                    .listRowBackground(AppTheme.cardBackground)
+                    .onChange(of: notificationsEnabled) { _, newValue in
+                        NotificationManager.shared.isEnabled = newValue
+                        Task {
+                            if newValue {
+                                let granted = await NotificationManager.shared.requestAuthorization()
+                                if !granted {
+                                    notificationsEnabled = false
+                                    NotificationManager.shared.isEnabled = false
+                                    showNotificationsDenied = true
+                                }
+                            } else {
+                                NotificationManager.shared.cancelAll()
+                            }
+                        }
+                    }
+
+                    if notificationsEnabled {
+                        Picker("Ora del promemoria", selection: $notificationHour) {
+                            ForEach(5..<13, id: \.self) { h in
+                                Text(String(format: "%02d:00", h)).tag(h)
+                            }
+                        }
+                        .pickerStyle(.menu)
+                        .font(.dmSans(15))
+                        .listRowBackground(AppTheme.cardBackground)
+                        .onChange(of: notificationHour) { _, newValue in
+                            NotificationManager.shared.notificationHour = newValue
+                        }
+                    }
+                }
+
                 // MARK: - Aspetto
                 Section(header: sectionHeader("Aspetto")) {
                     Picker("Tema", selection: $selectedTheme) {
@@ -191,6 +239,11 @@ struct SettingsView: View {
                 Button("Annulla", role: .cancel) {}
             } message: {
                 Text("Questa azione è irreversibile. Tutti i tuoi dati verranno cancellati permanentemente.")
+            }
+            .alert("Notifiche disattivate", isPresented: $showNotificationsDenied) {
+                Button("OK", role: .cancel) {}
+            } message: {
+                Text("Abilita le notifiche per Garden Calendar in Impostazioni di iOS per ricevere i promemoria.")
             }
             .alert("Account eliminato", isPresented: $showDeleted) {
                 Button("OK", role: .cancel) {}

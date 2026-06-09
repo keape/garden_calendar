@@ -2,26 +2,37 @@ import Foundation
 
 // MARK: - Open-Meteo API
 
+/// Meteo giornaliero per una località: pioggia (mm, solo giorni >= soglia) e gelate (°C min, solo giorni <= soglia).
+struct DailyWeather {
+    var rainDays: [String: Double] = [:]
+    var frostDays: [String: Double] = [:]
+}
+
 actor OpenMeteoClient {
     static let shared = OpenMeteoClient()
+    /// Sotto questa temperatura minima (°C) un giorno è considerato a rischio gelata.
+    static let frostThreshold = 2.0
+
     private let cache: NSCache<NSString, CacheEntry> = {
         let c = NSCache<NSString, CacheEntry>()
         c.countLimit = 50
         return c
     }()
-    private var inFlight: [String: Task<[String: Double], Error>] = [:]
+    private var inFlight: [String: Task<DailyWeather, Error>] = [:]
 
     private init() {}
 
-    /// Fetch rain days for a location and date range.
-    /// Returns a Set of "YYYY-MM-DD" date strings where precipitation >= threshold mm.
-    func fetchRainDays(latitude: Double, longitude: Double, from: Date, to: Date, threshold: Double = 2.0) async throws -> [String: Double] {
+    /// Fetch daily weather (rain + min temperature) for a location and date range.
+    func fetchDaily(latitude: Double, longitude: Double, from: Date, to: Date, rainThreshold: Double = 2.0) async throws -> DailyWeather {
         let clampedTo = min(to, Calendar.current.date(byAdding: .day, value: 16, to: Date()) ?? to)
-        let key = "\(latitude),\(longitude),\(from.iso8601),\(clampedTo.iso8601),\(threshold)"
+        let key = "\(latitude),\(longitude),\(from.iso8601),\(clampedTo.iso8601),\(rainThreshold)"
 
-        // Check cache
+        // Check cache (valid 6 hours)
         if let cached = cache.object(forKey: key as NSString) {
-            return cached.days
+            if Date().timeIntervalSince(cached.timestamp) < 6 * 3600 {
+                return cached.weather
+            }
+            cache.removeObject(forKey: key as NSString)
         }
 
         // Dedup in-flight requests
@@ -29,7 +40,7 @@ actor OpenMeteoClient {
             return try await existing.value
         }
 
-        let task = Task<[String: Double], Error> {
+        let task = Task<DailyWeather, Error> {
             defer { inFlight.removeValue(forKey: key) }
 
             let formatter = ISO8601DateFormatter()
@@ -37,7 +48,7 @@ actor OpenMeteoClient {
             let fromStr = formatter.string(from: from)
             let toStr = formatter.string(from: clampedTo)
 
-            let urlStr = "https://api.open-meteo.com/v1/forecast?latitude=\(latitude)&longitude=\(longitude)&daily=precipitation_sum&timezone=auto&start_date=\(fromStr)&end_date=\(toStr)"
+            let urlStr = "https://api.open-meteo.com/v1/forecast?latitude=\(latitude)&longitude=\(longitude)&daily=precipitation_sum,temperature_2m_min&timezone=auto&start_date=\(fromStr)&end_date=\(toStr)"
 
             guard let url = URL(string: urlStr) else {
                 throw RainError.invalidURL
@@ -51,23 +62,33 @@ actor OpenMeteoClient {
             let decoder = JSONDecoder()
             let result = try decoder.decode(OpenMeteoResponse.self, from: data)
 
-            var days: [String: Double] = [:]
+            var weather = DailyWeather()
             for (index, dateStr) in result.daily.time.enumerated() {
                 let precip = index < result.daily.precipitationSum.count ? result.daily.precipitationSum[index] : 0
-                if precip >= threshold {
-                    days[dateStr] = precip
+                if precip >= rainThreshold {
+                    weather.rainDays[dateStr] = precip
+                }
+                if let tMins = result.daily.temperatureMin,
+                   index < tMins.count,
+                   let tMin = tMins[index],
+                   tMin <= Self.frostThreshold {
+                    weather.frostDays[dateStr] = tMin
                 }
             }
 
-            // Cache for 6 hours
-            let entry = CacheEntry(days: days, timestamp: Date())
+            let entry = CacheEntry(weather: weather, timestamp: Date())
             cache.setObject(entry, forKey: key as NSString)
 
-            return days
+            return weather
         }
 
         inFlight[key] = task
         return try await task.value
+    }
+
+    /// Compat: solo i giorni di pioggia.
+    func fetchRainDays(latitude: Double, longitude: Double, from: Date, to: Date, threshold: Double = 2.0) async throws -> [String: Double] {
+        try await fetchDaily(latitude: latitude, longitude: longitude, from: from, to: to, rainThreshold: threshold).rainDays
     }
 }
 
@@ -170,19 +191,21 @@ private struct OpenMeteoResponse: Decodable {
     struct Daily: Decodable {
         let time: [String]
         let precipitationSum: [Double]
+        let temperatureMin: [Double?]?
 
         enum CodingKeys: String, CodingKey {
             case time
             case precipitationSum = "precipitation_sum"
+            case temperatureMin = "temperature_2m_min"
         }
     }
 }
 
 private class CacheEntry {
-    let days: [String: Double]
+    let weather: DailyWeather
     let timestamp: Date
-    init(days: [String: Double], timestamp: Date) {
-        self.days = days
+    init(weather: DailyWeather, timestamp: Date) {
+        self.weather = weather
         self.timestamp = timestamp
     }
 }

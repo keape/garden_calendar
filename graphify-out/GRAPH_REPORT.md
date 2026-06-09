@@ -1,16 +1,16 @@
-# Graph Report - garden-calendar-ios  (2026-06-04)
+# Graph Report - practical-liskov-144414  (2026-06-09)
 
 ## Corpus Check
-- 72 files · ~37,679 words
+- 81 files · ~37,640 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 727 nodes · 837 edges · 80 communities (67 shown, 13 thin omitted)
-- Extraction: 96% EXTRACTED · 4% INFERRED · 0% AMBIGUOUS · INFERRED: 34 edges (avg confidence: 0.84)
+- 864 nodes · 1045 edges · 87 communities (71 shown, 16 thin omitted)
+- Extraction: 96% EXTRACTED · 4% INFERRED · 0% AMBIGUOUS · INFERRED: 46 edges (avg confidence: 0.83)
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `3c21ac2e`
+- Built from commit: `e35a4b54`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -18,7 +18,7 @@
 - [[_COMMUNITY_Orto Data Model|Orto Data Model]]
 - [[_COMMUNITY_Calendar UI Views|Calendar UI Views]]
 - [[_COMMUNITY_Day Detail & Activity|Day Detail & Activity]]
-- [[_COMMUNITY_UI Theme & Color System|UI Theme & Color System]]
+- [[_COMMUNITY_Community 3|Community 3]]
 - [[_COMMUNITY_Admin Dashboard Functions|Admin Dashboard Functions]]
 - [[_COMMUNITY_Core Data Models|Core Data Models]]
 - [[_COMMUNITY_Wiki & Knowledge Pipeline|Wiki & Knowledge Pipeline]]
@@ -77,12 +77,9 @@
 - [[_COMMUNITY_Community 61|Community 61]]
 - [[_COMMUNITY_Community 62|Community 62]]
 - [[_COMMUNITY_Community 63|Community 63]]
-- [[_COMMUNITY_Community 64|Community 64]]
-- [[_COMMUNITY_Community 65|Community 65]]
 - [[_COMMUNITY_Community 66|Community 66]]
 - [[_COMMUNITY_Community 67|Community 67]]
 - [[_COMMUNITY_Community 68|Community 68]]
-- [[_COMMUNITY_Community 69|Community 69]]
 - [[_COMMUNITY_Community 70|Community 70]]
 - [[_COMMUNITY_Community 71|Community 71]]
 - [[_COMMUNITY_Community 72|Community 72]]
@@ -91,32 +88,39 @@
 - [[_COMMUNITY_Community 75|Community 75]]
 - [[_COMMUNITY_Community 76|Community 76]]
 - [[_COMMUNITY_Community 77|Community 77]]
-- [[_COMMUNITY_Community 78|Community 78]]
-- [[_COMMUNITY_Community 79|Community 79]]
+- [[_COMMUNITY_Community 81|Community 81]]
+- [[_COMMUNITY_Community 83|Community 83]]
+- [[_COMMUNITY_Community 84|Community 84]]
+- [[_COMMUNITY_Community 85|Community 85]]
+- [[_COMMUNITY_Community 88|Community 88]]
+- [[_COMMUNITY_Community 89|Community 89]]
+- [[_COMMUNITY_Community 92|Community 92]]
+- [[_COMMUNITY_Community 93|Community 93]]
+- [[_COMMUNITY_Community 94|Community 94]]
 
 ## God Nodes (most connected - your core abstractions)
-1. `SupabaseRepository` - 47 edges
-2. `CodingKeys` - 18 edges
-3. `CodingKeys` - 16 edges
-4. `AppTheme` - 15 edges
-5. `CodingKeys` - 14 edges
-6. `OrtoDetailView` - 14 edges
-7. `QuickJournalView` - 13 edges
-8. `CalendarGridView` - 13 edges
-9. `PiantaDetailView` - 13 edges
-10. `DayDetailSheet` - 13 edges
+1. `SupabaseRepository` - 50 edges
+2. `CodingKeys` - 19 edges
+3. `CodingKeys` - 17 edges
+4. `AppTheme` - 17 edges
+5. `CodingKeys` - 15 edges
+6. `OrtoDetailView` - 15 edges
+7. `PiantaDetailView` - 15 edges
+8. `Date` - 15 edges
+9. `QuickJournalView` - 14 edges
+10. `CalendarGridView` - 14 edges
 
 ## Surprising Connections (you probably didn't know these)
 - `Admin Dashboard (HTML)` --references--> `SupabaseRepository`  [INFERRED]
   admin-dashboard.html → GardenCalendar/Services/SupabaseRepository.swift
 - `Admin Dashboard (HTML)` --references--> `AuthManager`  [INFERRED]
-  admin-dashboard.html → GardenCalendar/Services/AuthManager.swift
-- `Forward Scheduling Logic` --references--> `Attivita Table (Calendar Activities)`  [INFERRED]
-  supabase/functions/schedule-activities/index.ts → supabase-schema.sql
-- `App Store Connect Preparation` --references--> `AuthManager.signInWithApple(idToken:)`  [EXTRACTED]
-  appstore-prep.md → GardenCalendar/Services/AuthManager.swift
-- `SupabaseConfig` --references--> `Linked Supabase Project (kusprtmfxrsnjycyzlgs)`  [INFERRED]
-  GardenCalendar/SupabaseConfig.swift → supabase/.temp/linked-project.json
+  admin-dashboard.html → /Users/keape/Library/Mobile Documents/com~apple~CloudDocs/app sviluppate e html/garden-calendar-ios/GardenCalendar/Services/AuthManager.swift
+- `Orto` --semantically_similar_to--> `Orto`  [INFERRED] [semantically similar]
+  GardenCalendar/Views/Orto/OrtoListView.swift → /Users/keape/Library/Mobile Documents/com~apple~CloudDocs/app sviluppate e html/garden-calendar-ios/GardenCalendar/Models/Orto.swift
+- `AppTheme (ActivityColorDot local copy)` --semantically_similar_to--> `AppTheme`  [INFERRED] [semantically similar]
+  GardenCalendar/Views/Components/ActivityColorDot.swift → /Users/keape/Library/Mobile Documents/com~apple~CloudDocs/app sviluppate e html/garden-calendar-ios/GardenCalendar/Theme/AppTheme.swift
+- `PlantKnowledge` --conceptually_related_to--> `Wiki Note to Knowledge Base LLM Pipeline`  [INFERRED]
+  /Users/keape/Library/Mobile Documents/com~apple~CloudDocs/app sviluppate e html/garden-calendar-ios/GardenCalendar/Models/PlantKnowledge.swift → supabase/functions/extract-plant-care/index.ts
 
 ## Hyperedges (group relationships)
 - **Wiki Note → LLM Extraction → Plant Knowledge Pipeline** — supabase_schema_wiki_notes, functions_extract_plant_care_index, openrouter_deepseek, supabase_schema_plant_knowledge [EXTRACTED 1.00]
@@ -126,70 +130,70 @@
 - **Activity Color Rendering: AppTheme, ActivityColorDot, DayActivityRow** — theme_apptheme_apptheme, components_activitycolordot_activitycolordot, calendario_daydetailsheet_dayactivityrow [INFERRED 0.95]
 - **Plant Lifecycle: PiantaListView, OrtoDetailView, AggiungiPiantaView** — piante_piantalistview_piantalistview, orto_ortodetailview_ortodetailview, piante_aggiungipianta_aggiungipianta_view [INFERRED 0.85]
 
-## Communities (80 total, 13 thin omitted)
+## Communities (87 total, 16 thin omitted)
 
 ### Community 0 - "Orto Data Model"
 Cohesion: 0.06
 Nodes (30): 1. Obiettivo, 2. Decisioni chiave, 3.1 Palette — nuovi token AppTheme, 3.2 Tipografia, 3. Sistema di design, 4. Struttura navigazione, 5.10 LoginView.swift / SignUpView.swift, 5.11 ContentView.swift (+22 more)
 
 ### Community 1 - "Calendar UI Views"
-Cohesion: 0.18
-Nodes (3): DayActivityRow, DayDetailView, NaturalistaActivityRow
+Cohesion: 0.17
+Nodes (12): CodingKey, CodingKeys, createdAt, data, id, note, piantaId, quantita (+4 more)
 
 ### Community 2 - "Day Detail & Activity"
 Cohesion: 0.06
-Nodes (4): DayDetailSheet.rescheduleActivity(_:), payload, OrtoDetailView.deletePiante(at:), SupabaseRepository
+Nodes (3): DayDetailSheet.rescheduleActivity(_:), OrtoDetailView.deletePiante(at:), SupabaseRepository
 
-### Community 3 - "UI Theme & Color System"
-Cohesion: 0.05
-Nodes (20): ActivityColorDot, Plant Catalog with Activity Templates, OrtoDetailView, PiantaRowView, OrtoCardRow, OrtoListView, OrtoRow, AggiungiPiantaView (+12 more)
+### Community 3 - "Community 3"
+Cohesion: 0.18
+Nodes (10): ActivitiesEntry, ActivitiesProvider, GardenCalendarWidget, GardenCalendarWidgetBundle, GardenCalendarWidgetView, Date, TimelineEntry, TimelineProvider (+2 more)
 
 ### Community 4 - "Admin Dashboard Functions"
 Cohesion: 0.17
 Nodes (22): Activity Color Coding Convention, Admin Role Pattern (JWT is_admin metadata), Admin Dashboard Edge Function, Extract Plant Care Edge Function, resolveColor() (extract-plant-care), LLM Agronomist System Prompt, addDays() Helper, Schedule Activities Edge Function (+14 more)
 
 ### Community 5 - "Core Data Models"
-Cohesion: 0.29
+Cohesion: 0.25
 Nodes (3): CLLocationManagerDelegate, NSObject, LocationHelper
 
 ### Community 6 - "Wiki & Knowledge Pipeline"
-Cohesion: 0.17
-Nodes (12): CodingKeys, attivitaSuggerite, color, createdAt, growthDays, id, nome, offsetDays (+4 more)
+Cohesion: 0.12
+Nodes (16): CodingKeys, activityOverrides, createdAt, dataRaccoltaPrevista, dataSemina, fotoUrl, growthDays, id (+8 more)
 
 ### Community 7 - "Community 7"
-Cohesion: 0.14
-Nodes (14): CodingKeys, color, createdAt, data, done, id, nome, note (+6 more)
+Cohesion: 0.05
+Nodes (30): CodingKeys, color, createdAt, data, done, id, nome, note (+22 more)
 
 ### Community 8 - "Repository & Error Handling"
 Cohesion: 0.12
 Nodes (15): App Description (Italian), App Information, App Store Connect, App Store Icon Requirements, Apple Sign-In, Bundle ID, Garden Calendar iOS — App Store Connect Preparation, Going Live Checklist (+7 more)
 
 ### Community 9 - "Community 9"
-Cohesion: 0.17
-Nodes (10): LocalizedError, RainError, apiError, invalidURL, RepositoryError, invalidDate, SupabaseRepository.scheduleActivities(...), ScheduledTemplateActivity (+2 more)
+Cohesion: 0.11
+Nodes (4): Admin Dashboard (HTML), LoginView, SignUpView, AuthManager
 
 ### Community 10 - "Community 10"
-Cohesion: 0.29
+Cohesion: 0.25
 Nodes (6): Aggiunta eliminazione orto dalla vista modifica, code:swift (private func deleteOrto() {), Contesto tecnico rilevante, Cosa abbiamo fatto, Decisioni prese, Prossimi passi
 
 ### Community 11 - "Attività CodingKeys"
-Cohesion: 0.40
+Cohesion: 0.33
 Nodes (4): Backlog, Done, In Progress, TASKS — Garden Calendar iOS
 
 ### Community 12 - "LLM Plant Care Extraction"
-Cohesion: 0.18
-Nodes (9): activitiesWithColors, authHeader, corsHeaders, ExtractRequest, LLMResponse, openRouterKey, supabaseAdmin, token (+1 more)
+Cohesion: 0.13
+Nodes (14): Features, Feedback & Issues, Filters, 🌱 Garden Calendar, Garden Journal, Getting Started, Multiple Garden Plots, Plant Tracking (+6 more)
 
 ### Community 13 - "Settings & Theme Mode"
-Cohesion: 0.11
-Nodes (10): CalendarGridView, ViewMode, agenda, calendar, CaseIterable, SettingsView, ThemeMode, automatic (+2 more)
+Cohesion: 0.18
+Nodes (6): CalendarGridView, ViewMode, agenda, calendar, CaseIterable, String
 
 ### Community 14 - "App Entry & Navigation"
 Cohesion: 0.22
 Nodes (9): code:bash (mkdir -p "/Users/keape/Library/Mobile Documents/com~apple~Cl), code:bash (# Uses old User-Agent to force TTF download instead of woff2), code:bash (FONTS_DIR="/Users/keape/Library/Mobile Documents/com~apple~C), code:bash (ls -lh "/Users/keape/Library/Mobile Documents/com~apple~Clou), code:bash (gem install xcodeproj 2>/dev/null || true), code:bash (PLIST="/Users/keape/Library/Mobile Documents/com~apple~Cloud), code:bash (cd "/Users/keape/Library/Mobile Documents/com~apple~CloudDoc), code:bash (cd "/Users/keape/Library/Mobile Documents/com~apple~CloudDoc) (+1 more)
 
 ### Community 16 - "VSCode Deno Config"
-Cohesion: 0.33
+Cohesion: 0.43
 Nodes (5): deno.enablePaths, deno.lint, deno.unstable, [typescript], editor.defaultFormatter
 
 ### Community 17 - "App Icon Assets"
@@ -197,23 +201,23 @@ Cohesion: 0.40
 Nodes (4): images, info, author, version
 
 ### Community 18 - "Supabase Project Config"
-Cohesion: 0.40
+Cohesion: 0.53
 Nodes (4): name, organization_id, organization_slug, ref
 
 ### Community 19 - "Asset Catalog Metadata"
-Cohesion: 0.50
+Cohesion: 0.40
 Nodes (3): info, author, version
 
 ### Community 20 - "Extract Plant Imports"
-Cohesion: 0.50
+Cohesion: 0.40
 Nodes (3): imports, @supabase/functions-js, @supabase/supabase-js
 
 ### Community 21 - "Preview Asset Metadata"
-Cohesion: 0.50
+Cohesion: 0.40
 Nodes (3): info, author, version
 
 ### Community 22 - "Schedule Activities Imports"
-Cohesion: 0.50
+Cohesion: 0.40
 Nodes (3): imports, @supabase/functions-js, @supabase/supabase-js
 
 ### Community 26 - "Build & Package Config"
@@ -221,120 +225,100 @@ Cohesion: 0.67
 Nodes (3): GardenCalendar Build Script, GardenCalendar Swift Package, supabase-swift Dependency
 
 ### Community 36 - "Community 36"
-Cohesion: 0.50
+Cohesion: 0.40
 Nodes (3): hooks, PostToolUse, PreToolUse
 
 ### Community 38 - "Community 38"
-Cohesion: 0.33
+Cohesion: 0.29
 Nodes (5): Contesto tecnico rilevante, Cosa abbiamo fatto, Decisioni prese, Prossimi passi, Test Simulator: NuovaAttivitaSheet e ModificaPiantaSheet
 
 ### Community 39 - "Community 39"
-Cohesion: 0.29
+Cohesion: 0.25
 Nodes (6): code:block1 (Volume: SimDevices  UUID: 62CB4BB8-A9C7-4185-9181-40D4B13E4E), Contesto tecnico rilevante, Cosa abbiamo fatto, Decisioni prese, Fix Simulator su Volume Lexar Esterno, Prossimi passi
 
 ### Community 40 - "Community 40"
-Cohesion: 0.40
+Cohesion: 0.33
 Nodes (4): Cosa abbiamo fatto, Debug simulatore iOS su disco esterno Lexar, Decisioni prese, Prossimi passi
 
 ### Community 41 - "Community 41"
-Cohesion: 0.33
+Cohesion: 0.29
 Nodes (5): Contesto tecnico rilevante, Cosa abbiamo fatto, Decisioni prese, Filtri calendario per orto, tipologia e pianta, Prossimi passi
 
 ### Community 42 - "Community 42"
-Cohesion: 0.33
+Cohesion: 0.29
 Nodes (5): Contesto tecnico rilevante, Cosa abbiamo fatto, Decisioni prese, Fix errore schema cache e decodifica date Supabase, Prossimi passi
 
 ### Community 43 - "Community 43"
-Cohesion: 0.12
+Cohesion: 0.11
 Nodes (16): Architettura, Casi limite, code:block1 (fetchAttivita(month)), code:swift (struct RescheduleAction {), code:swift (fetchNextIrrigation(piantaId: UUID, nome: String, after: Dat), Comportamento atteso, `computeRescheduling()` — filtri di ingresso, File modificati (+8 more)
 
 ### Community 44 - "Community 44"
-Cohesion: 0.33
+Cohesion: 0.29
 Nodes (5): Contesto tecnico rilevante, Cosa abbiamo fatto, Decisioni prese, Fix: Journal Entry non visibile dopo salvataggio, Prossimi passi
 
 ### Community 45 - "Community 45"
-Cohesion: 0.33
+Cohesion: 0.29
 Nodes (5): Contesto tecnico rilevante, Cosa abbiamo fatto, Decisioni prese, Miglioramenti UX vista Calendario, Prossimi passi
 
 ### Community 46 - "Community 46"
-Cohesion: 0.33
+Cohesion: 0.29
 Nodes (5): Contesto tecnico rilevante, Cosa abbiamo fatto, Decisioni prese, Fix geocoding città + modifica orto, Prossimi passi
 
 ### Community 47 - "Community 47"
-Cohesion: 0.13
+Cohesion: 0.12
 Nodes (13): code:swift (struct RescheduleAction {), code:bash (git add "GardenCalendar/Views/Calendario/CalendarView.swift"), code:bash (git add "GardenCalendar/Services/RainAdjuster.swift"), code:swift (func fetchNextIrrigation(piantaId: UUID, nome: String, after), code:swift (func markRainAbsorbed(id: UUID) async throws {), code:swift (func rescheduleWithRain(id: UUID, newDate: Date) async throw), code:bash (git add "GardenCalendar/Services/SupabaseRepository.swift"), code:swift (private func applyRainRescheduling() async {) (+5 more)
 
 ### Community 48 - "Community 48"
-Cohesion: 0.33
+Cohesion: 0.29
 Nodes (5): Contesto tecnico rilevante, Cosa abbiamo fatto, Creazione Orto con GPS e Geocoding, Decisioni prese, Prossimi passi
 
 ### Community 49 - "Community 49"
-Cohesion: 0.20
-Nodes (10): CodingKey, CodingKeys, createdAt, id, markdownContent, processed, slug, updatedAt (+2 more)
+Cohesion: 0.06
+Nodes (18): ActivityColorDot, Plant Catalog with Activity Templates, OrtoDetailView, PiantaRowView, AggiungiPiantaView, AggiungiPiantaView.generateTemplateActivities(for:), TemplateActivity, ModificaPiantaSheet (+10 more)
 
 ### Community 50 - "Community 50"
-Cohesion: 0.13
+Cohesion: 0.12
 Nodes (14): 1. Database, 2. Swift Models & Repository, 3. Edge Function `schedule-activities`, 4. UI — `ModificaIntervalloSheet`, code:sql (alter table piante_coltivate), code:json ([), code:swift (let activityOverrides: [ActivityOverride]?), code:typescript (interface ScheduleRequest {) (+6 more)
 
 ### Community 51 - "Community 51"
-Cohesion: 0.10
+Cohesion: 0.09
 Nodes (19): Activity Interval Override Implementation Plan, code:sql (-- Migration: aggiunge colonna activity_overrides a piante_c), code:bash (git add "GardenCalendar/Views/Piante/ModificaIntervalloSheet), code:swift (import SwiftUI), code:bash (git add "GardenCalendar/Views/Piante/PiantaDetailView.swift"), code:bash (git add supabase/migrations/20260602000001_activity_override), code:swift (import Foundation), code:bash (git add GardenCalendar/Models/PiantaColtivata.swift) (+11 more)
 
 ### Community 52 - "Community 52"
-Cohesion: 0.12
-Nodes (12): authHeader, baseDate, color, corsHeaders, endDate, plantLifespan, scheduledActivities, ScheduleRequest (+4 more)
+Cohesion: 0.31
+Nodes (5): Rain-based Irrigation Adjustment, RainAdjuster.computeOverrides(activities:rainDays:), OpenMeteoClient.fetchRainDays(...), OpenMeteoClient, RainAdjuster
 
 ### Community 53 - "Community 53"
-Cohesion: 0.33
+Cohesion: 0.29
 Nodes (5): Build su Simulator e pulizia device CoreSimulator, Contesto tecnico rilevante, Cosa abbiamo fatto, Decisioni prese, Prossimi passi
 
-### Community 54 - "Community 54"
-Cohesion: 0.22
-Nodes (7): Decodable, CacheEntry, precipitationSum, Daily, OpenMeteoClient, OpenMeteoResponse, RescheduleAction
-
 ### Community 55 - "Community 55"
-Cohesion: 0.29
+Cohesion: 0.25
 Nodes (7): GardenCalendarApp (@main entry point), AuthManager (referenced in ContentView), CalendarGridView, ContentView, LoginView, OrtoListView, SettingsView
 
 ### Community 56 - "Community 56"
-Cohesion: 0.29
+Cohesion: 0.25
 Nodes (5): Contesto tecnico rilevante, Cosa abbiamo fatto, Decisioni prese, Fix suggerimenti AI: nome pianta e contraddizione semina/trapianto, Prossimi passi
 
 ### Community 57 - "Community 57"
-Cohesion: 0.33
+Cohesion: 0.29
 Nodes (5): Contesto tecnico rilevante, Cosa abbiamo fatto, Decisioni prese, Fix pulsante Chiudi in DayDetailSheet, Prossimi passi
 
 ### Community 58 - "Community 58"
-Cohesion: 0.12
-Nodes (16): CodingKeys, activityOverrides, createdAt, dataRaccoltaPrevista, dataSemina, fotoUrl, growthDays, id (+8 more)
-
-### Community 59 - "Community 59"
-Cohesion: 0.22
-Nodes (9): CodingKeys, createdAt, id, latitudine, longitudine, luogo, nome, updatedAt (+1 more)
+Cohesion: 0.08
+Nodes (20): CodingKeys, createdAt, id, latitudine, longitudine, luogo, nome, updatedAt (+12 more)
 
 ### Community 60 - "Community 60"
-Cohesion: 0.33
+Cohesion: 0.29
 Nodes (5): Contesto tecnico rilevante, Cosa abbiamo fatto, Decisioni prese, Prossimi passi, Rain-aware irrigation rescheduling + weather icon fix
 
-### Community 61 - "Community 61"
-Cohesion: 0.31
-Nodes (7): Codable, Wiki Note to Knowledge Base LLM Pipeline, Identifiable, AttivitaSuggerita, PlantKnowledge, WikiNote, Attivita
-
 ### Community 62 - "Community 62"
-Cohesion: 0.33
+Cohesion: 0.29
 Nodes (5): Contesto tecnico rilevante, Cosa abbiamo fatto, Decisioni prese, Icona pioggia visibilità + mm reali nel calendario, Prossimi passi
 
 ### Community 63 - "Community 63"
 Cohesion: 0.05
-Nodes (14): Admin Dashboard (HTML), LoginView, SignUpView, DayDetailSheet, AppTheme, AppTheme (ActivityColorDot local copy), WeatherIcon, Activity Color System (+6 more)
-
-### Community 64 - "Community 64"
-Cohesion: 0.27
-Nodes (7): Rain-based Irrigation Adjustment, RainAdjuster.computeOverrides(activities:rainDays:), Date, OpenMeteoClient.fetchRainDays(...), OpenMeteoClient, RainAdjuster, String
-
-### Community 65 - "Community 65"
-Cohesion: 0.22
-Nodes (9): CodingKeys, activities, color, dataSemina, growthDays, nome, offsetDays, piantaId (+1 more)
+Nodes (13): DayActivityRow, DayDetailSheet, DayDetailView, NaturalistaActivityRow, AppTheme, AppTheme (ActivityColorDot local copy), WeatherIcon, Activity Color System (+5 more)
 
 ### Community 66 - "Community 66"
 Cohesion: 0.25
@@ -348,10 +332,6 @@ Nodes (7): code:swift (// MARK: Surfaces), code:swift (// MARK: - Font Helpers),
 Cohesion: 0.50
 Nodes (4): code:bash (cd "/Users/keape/Library/Mobile Documents/com~apple~CloudDoc), code:bash (cd "/Users/keape/Library/Mobile Documents/com~apple~CloudDoc), code:bash (git add -A), Task 10: Final integration verification
 
-### Community 69 - "Community 69"
-Cohesion: 0.29
-Nodes (7): Hashable, ActivityOverride, Create, PiantaColtivata, PiantaColtivata.Create DTO, PiantaColtivata.Update DTO, Update
-
 ### Community 70 - "Community 70"
 Cohesion: 0.40
 Nodes (5): code:swift (import SwiftUI), code:bash (cd "/Users/keape/Library/Mobile Documents/com~apple~CloudDoc), code:bash (grep -r "DayDetailSheet" "/Users/keape/Library/Mobile Docume), code:bash (git add GardenCalendar/Views/Calendario/DayDetailSheet.swift), Task 4: DayDetailView — rename, restructure as push view
@@ -361,7 +341,7 @@ Cohesion: 0.40
 Nodes (5): code:swift (var body: some View {), code:swift (struct OrtoCardRow: View {), code:bash (cd "/Users/keape/Library/Mobile Documents/com~apple~CloudDoc), code:bash (git add GardenCalendar/Views/Orto/OrtoListView.swift), Task 5: OrtoListView restyling
 
 ### Community 72 - "Community 72"
-Cohesion: 0.33
+Cohesion: 0.29
 Nodes (5): code:swift (.listStyle(.insetGrouped)), code:swift (Text(pianta.nomePersonalizzato)), code:bash (cd "/Users/keape/Library/Mobile Documents/com~apple~CloudDoc), Naturalista UX Redesign — Implementation Plan, Task 6: OrtoDetailView restyling
 
 ### Community 73 - "Community 73"
@@ -377,36 +357,64 @@ Cohesion: 0.50
 Nodes (4): code:bash (cat "/Users/keape/Library/Mobile Documents/com~apple~CloudDo), code:bash (cd "/Users/keape/Library/Mobile Documents/com~apple~CloudDoc), code:bash (git add GardenCalendar/Views/Auth/LoginView.swift GardenCale), Task 9: LoginView + SignUpView restyling
 
 ### Community 76 - "Community 76"
-Cohesion: 0.38
-Nodes (5): Encodable, Create, Update, Create, Update
+Cohesion: 0.17
+Nodes (12): CodingKeys, attivitaSuggerite, color, createdAt, growthDays, id, nome, offsetDays (+4 more)
 
 ### Community 77 - "Community 77"
-Cohesion: 0.33
+Cohesion: 0.29
 Nodes (5): Contesto tecnico rilevante, Cosa abbiamo fatto, Decisioni prese, Naturalista UX Redesign — implementazione completa, Prossimi passi
 
-### Community 78 - "Community 78"
-Cohesion: 0.40
-Nodes (5): Orto, Orto.Create, Orto.Update, SupabaseRepository.createOrto(userId:orto:), SupabaseRepository.fetchOrti(userId:)
+### Community 81 - "Community 81"
+Cohesion: 0.28
+Nodes (5): SettingsView, ThemeMode, automatic, dark, light
+
+### Community 84 - "Community 84"
+Cohesion: 0.20
+Nodes (11): Decodable, CacheEntry, precipitationSum, Daily, DailyWeather, OpenMeteoClient, OpenMeteoResponse, RainError (+3 more)
+
+### Community 85 - "Community 85"
+Cohesion: 0.18
+Nodes (9): activitiesWithColors, authHeader, corsHeaders, ExtractRequest, LLMResponse, openRouterKey, supabaseAdmin, token (+1 more)
+
+### Community 88 - "Community 88"
+Cohesion: 0.20
+Nodes (9): Wiki Note to Knowledge Base LLM Pipeline, CodingKeys, createdAt, id, markdownContent, processed, slug, updatedAt (+1 more)
+
+### Community 89 - "Community 89"
+Cohesion: 0.10
+Nodes (18): Encodable, LocalizedError, RaccoltoCreate, CodingKeys, activities, color, dataSemina, growthDays (+10 more)
+
+### Community 92 - "Community 92"
+Cohesion: 0.70
+Nodes (3): Codable, AttivitaSuggerita, PlantKnowledge
+
+### Community 93 - "Community 93"
+Cohesion: 0.33
+Nodes (7): Hashable, ActivityOverride, Create, PiantaColtivata, PiantaColtivata.Create DTO, PiantaColtivata.Update DTO, Update
+
+### Community 94 - "Community 94"
+Cohesion: 0.28
+Nodes (5): Identifiable, Raccolto, WidgetActivity, WidgetActivity, WidgetDataExporter
 
 ## Knowledge Gaps
-- **326 isolated node(s):** `build.sh script`, `PostToolUse`, `PreToolUse`, `ref`, `name` (+321 more)
+- **333 isolated node(s):** `PostToolUse`, `PreToolUse`, `allow`, `corsHeaders`, `@supabase/functions-js` (+328 more)
   These have ≤1 connection - possible missing edges or undocumented components.
-- **13 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
+- **16 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
 ## Suggested Questions
 _Questions this graph is uniquely positioned to answer:_
 
-- **Why does `SupabaseRepository` connect `Day Detail & Activity` to `UI Theme & Color System`, `Community 9`, `Settings & Theme Mode`, `Community 78`, `Community 63`?**
-  _High betweenness centrality (0.116) - this node is a cross-community bridge._
-- **Why does `Orto` connect `Community 78` to `Day Detail & Activity`, `Community 69`, `Community 76`, `Community 79`, `Community 61`?**
-  _High betweenness centrality (0.037) - this node is a cross-community bridge._
-- **Why does `CalendarGridView` connect `Settings & Theme Mode` to `Day Detail & Activity`, `UI Theme & Color System`, `Community 63`?**
-  _High betweenness centrality (0.032) - this node is a cross-community bridge._
+- **Why does `SupabaseRepository` connect `Day Detail & Activity` to `Community 64`, `Community 65`, `Community 9`, `Settings & Theme Mode`, `Community 81`, `Community 49`, `Community 89`, `Community 58`, `Community 59`, `Community 63`?**
+  _High betweenness centrality (0.106) - this node is a cross-community bridge._
+- **Why does `CalendarGridView` connect `Settings & Theme Mode` to `Community 49`, `Day Detail & Activity`, `Community 63`?**
+  _High betweenness centrality (0.034) - this node is a cross-community bridge._
+- **Why does `Orto` connect `Community 58` to `Day Detail & Activity`, `Community 92`, `Community 93`, `Community 94`?**
+  _High betweenness centrality (0.033) - this node is a cross-community bridge._
 - **Are the 10 inferred relationships involving `SupabaseRepository` (e.g. with `DayActivityRow.toggleDone()` and `DayDetailSheet.rescheduleActivity(_:)`) actually correct?**
   _`SupabaseRepository` has 10 INFERRED edges - model-reasoned connections that need verification._
-- **What connects `build.sh script`, `PostToolUse`, `PreToolUse` to the rest of the system?**
-  _327 weakly-connected nodes found - possible documentation gaps or missing edges._
+- **What connects `PostToolUse`, `PreToolUse`, `allow` to the rest of the system?**
+  _334 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `Orto Data Model` be split into smaller, more focused modules?**
-  _Cohesion score 0.06451612903225806 - nodes in this community are weakly interconnected._
+  _Cohesion score 0.0625 - nodes in this community are weakly interconnected._
 - **Should `Day Detail & Activity` be split into smaller, more focused modules?**
-  _Cohesion score 0.06190476190476191 - nodes in this community are weakly interconnected._
+  _Cohesion score 0.06451612903225806 - nodes in this community are weakly interconnected._
