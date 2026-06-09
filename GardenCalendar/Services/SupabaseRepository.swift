@@ -189,6 +189,36 @@ final class SupabaseRepository {
             .execute()
     }
 
+    // MARK: - Raccolti
+
+    func fetchRaccolti(piantaId: UUID) async throws -> [Raccolto] {
+        try await client
+            .from("raccolti")
+            .select()
+            .eq("pianta_id", value: piantaId)
+            .order("data", ascending: false)
+            .execute()
+            .value
+    }
+
+    func createRaccolto(_ raccolto: RaccoltoCreate) async throws -> Raccolto {
+        try await client
+            .from("raccolti")
+            .insert(raccolto, returning: .representation)
+            .select()
+            .single()
+            .execute()
+            .value
+    }
+
+    func deleteRaccolto(id: UUID) async throws {
+        try await client
+            .from("raccolti")
+            .delete()
+            .eq("id", value: id)
+            .execute()
+    }
+
     func fetchNextIrrigation(piantaId: UUID, nome: String, after: Date) async throws -> Attivita? {
         let results: [Attivita] = try await client
             .from("attivita")

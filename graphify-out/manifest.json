@@ -540,18 +540,18 @@
     "semantic_hash": ""
   },
   "/Users/keape/Library/Mobile Documents/com~apple~CloudDocs/app sviluppate e html/garden-calendar-ios/.claude/worktrees/practical-liskov-144414/GardenCalendar/Views/Calendario/DayDetailSheet.swift": {
-    "mtime": 1781038965.3633645,
-    "ast_hash": "71a28c5f825fcd737047786b0971c186",
+    "mtime": 1781040552.3924613,
+    "ast_hash": "4ce92efe3e9443d06fcde56b63b9a484",
     "semantic_hash": ""
   },
   "/Users/keape/Library/Mobile Documents/com~apple~CloudDocs/app sviluppate e html/garden-calendar-ios/.claude/worktrees/practical-liskov-144414/GardenCalendar/Views/Calendario/CalendarView.swift": {
-    "mtime": 1781039931.3740296,
-    "ast_hash": "a64c291ab3f92daa7081e5798777c76b",
+    "mtime": 1781040582.413649,
+    "ast_hash": "f1b3b351a2665b6ac4f4085b3703d154",
     "semantic_hash": ""
   },
   "/Users/keape/Library/Mobile Documents/com~apple~CloudDocs/app sviluppate e html/garden-calendar-ios/.claude/worktrees/practical-liskov-144414/GardenCalendar/Views/Settings/SettingsView.swift": {
-    "mtime": 1781038976.0892565,
-    "ast_hash": "7163da3c57580108052222ea5182311a",
+    "mtime": 1781040594.8903282,
+    "ast_hash": "329b44155558a52d9a838ef40c9fe9b9",
     "semantic_hash": ""
   },
   "/Users/keape/Library/Mobile Documents/com~apple~CloudDocs/app sviluppate e html/garden-calendar-ios/.claude/worktrees/practical-liskov-144414/GardenCalendar/Views/Auth/LoginView.swift": {
@@ -590,8 +590,8 @@
     "semantic_hash": ""
   },
   "/Users/keape/Library/Mobile Documents/com~apple~CloudDocs/app sviluppate e html/garden-calendar-ios/.claude/worktrees/practical-liskov-144414/GardenCalendar/Views/Piante/PiantaDetailView.swift": {
-    "mtime": 1781038974.9579632,
-    "ast_hash": "bcc9f52ee9df6266dd6bf9a0f3e6dbe9",
+    "mtime": 1781040980.3523233,
+    "ast_hash": "46c42157c0322f6d26b43b34d0d00b2f",
     "semantic_hash": ""
   },
   "/Users/keape/Library/Mobile Documents/com~apple~CloudDocs/app sviluppate e html/garden-calendar-ios/.claude/worktrees/practical-liskov-144414/GardenCalendar/Views/Piante/NuovaAttivitaSheet.swift": {
@@ -615,8 +615,8 @@
     "semantic_hash": ""
   },
   "/Users/keape/Library/Mobile Documents/com~apple~CloudDocs/app sviluppate e html/garden-calendar-ios/.claude/worktrees/practical-liskov-144414/GardenCalendar/Services/SupabaseRepository.swift": {
-    "mtime": 1781039899.9743657,
-    "ast_hash": "9f7a645275fa44a193bd5ab584cdc5c9",
+    "mtime": 1781040916.7480242,
+    "ast_hash": "4a5f59b8f8499a5a286730009b7059c4",
     "semantic_hash": ""
   },
   "/Users/keape/Library/Mobile Documents/com~apple~CloudDocs/app sviluppate e html/garden-calendar-ios/.claude/worktrees/practical-liskov-144414/GardenCalendar/Services/AuthManager.swift": {
@@ -625,8 +625,8 @@
     "semantic_hash": ""
   },
   "/Users/keape/Library/Mobile Documents/com~apple~CloudDocs/app sviluppate e html/garden-calendar-ios/.claude/worktrees/practical-liskov-144414/GardenCalendar/Services/RainAdjuster.swift": {
-    "mtime": 1781039908.7138853,
-    "ast_hash": "2c38ab91146575aa032f9909beea847a",
+    "mtime": 1781040440.6299105,
+    "ast_hash": "f225c975fad84ff4e24f9080d5887c0b",
     "semantic_hash": ""
   },
   "/Users/keape/Library/Mobile Documents/com~apple~CloudDocs/app sviluppate e html/garden-calendar-ios/.claude/worktrees/practical-liskov-144414/GardenCalendar/Services/LocationHelper.swift": {
@@ -767,6 +767,46 @@
   "/Users/keape/Library/Mobile Documents/com~apple~CloudDocs/app sviluppate e html/garden-calendar-ios/.claude/worktrees/practical-liskov-144414/Obsidian-garden-calendar-ios/sessioni/2026-06-04-simulator-build-cleanup.md": {
     "mtime": 1781038985.0249808,
     "ast_hash": "807687f25a0de025262b335d6f88cbb6",
+    "semantic_hash": ""
+  },
+  "/Users/keape/Library/Mobile Documents/com~apple~CloudDocs/app sviluppate e html/garden-calendar-ios/.claude/worktrees/practical-liskov-144414/GardenCalendar/Services/LocalCache.swift": {
+    "mtime": 1781040505.7860436,
+    "ast_hash": "d82547e71317b1f77e890e1a9ca90b36",
+    "semantic_hash": ""
+  },
+  "/Users/keape/Library/Mobile Documents/com~apple~CloudDocs/app sviluppate e html/garden-calendar-ios/.claude/worktrees/practical-liskov-144414/GardenCalendar/Services/NotificationManager.swift": {
+    "mtime": 1781040573.6608613,
+    "ast_hash": "51eae4b1513f0417cc7cc5e82759f26e",
+    "semantic_hash": ""
+  },
+  "/Users/keape/Library/Mobile Documents/com~apple~CloudDocs/app sviluppate e html/garden-calendar-ios/.claude/worktrees/practical-liskov-144414/GardenCalendar/Services/WidgetDataExporter.swift": {
+    "mtime": 1781041024.7739768,
+    "ast_hash": "92f6824690ad257e9061488819919fa0",
+    "semantic_hash": ""
+  },
+  "/Users/keape/Library/Mobile Documents/com~apple~CloudDocs/app sviluppate e html/garden-calendar-ios/.claude/worktrees/practical-liskov-144414/.claude/settings.local.json": {
+    "mtime": 1781040879.8858836,
+    "ast_hash": "90ef41bfbf651bb070f56970a45c35d4",
+    "semantic_hash": ""
+  },
+  "/Users/keape/Library/Mobile Documents/com~apple~CloudDocs/app sviluppate e html/garden-calendar-ios/.claude/worktrees/practical-liskov-144414/supabase/migrations/20260609000001_raccolti.sql": {
+    "mtime": 1781040728.9934692,
+    "ast_hash": "198f039fdc4bdc5df145c3a804545329",
+    "semantic_hash": ""
+  },
+  "/Users/keape/Library/Mobile Documents/com~apple~CloudDocs/app sviluppate e html/garden-calendar-ios/.claude/worktrees/practical-liskov-144414/GardenCalendar/Models/Raccolto.swift": {
+    "mtime": 1781040891.7389646,
+    "ast_hash": "8316f7567b09464a03e65694c6aee105",
+    "semantic_hash": ""
+  },
+  "/Users/keape/Library/Mobile Documents/com~apple~CloudDocs/app sviluppate e html/garden-calendar-ios/.claude/worktrees/practical-liskov-144414/GardenCalendar/Services/WidgetActivity.swift": {
+    "mtime": 1781041026.655044,
+    "ast_hash": "296abcde9c1db4d5b199052e10f22c87",
+    "semantic_hash": ""
+  },
+  "/Users/keape/Library/Mobile Documents/com~apple~CloudDocs/app sviluppate e html/garden-calendar-ios/.claude/worktrees/practical-liskov-144414/GardenCalendarWidget/GardenCalendarWidget.swift": {
+    "mtime": 1781041046.804126,
+    "ast_hash": "a0e84fafa47bdf951a75e2c1f7579d9c",
     "semantic_hash": ""
   }
 }

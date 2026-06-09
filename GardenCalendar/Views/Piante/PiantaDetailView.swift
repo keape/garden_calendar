@@ -7,6 +7,8 @@ struct PiantaDetailView: View {
     @State private var attivitaSelezionata: Attivita?
     @State private var showNuovaAttivita = false
     @State private var showModificaAttivita = false
+    @State private var raccolti: [Raccolto] = []
+    @State private var showNuovoRaccolto = false
 
     init(pianta: PiantaColtivata) {
         _pianta = State(initialValue: pianta)
@@ -22,6 +24,9 @@ struct PiantaDetailView: View {
                     .padding(.horizontal)
 
                 activitiesSection
+                    .padding(.horizontal)
+
+                raccoltiSection
                     .padding(.horizontal)
             }
             .padding(.vertical)
@@ -46,6 +51,10 @@ struct PiantaDetailView: View {
         }
         .sheet(isPresented: $showModificaAttivita, onDismiss: { Task { await loadData() } }) {
             ModificaPiantaSheet(pianta: pianta, attivita: attivita)
+                .environment(repository)
+        }
+        .sheet(isPresented: $showNuovoRaccolto, onDismiss: { Task { await loadData() } }) {
+            NuovoRaccoltoSheet(pianta: pianta)
                 .environment(repository)
         }
     }
@@ -169,16 +178,85 @@ struct PiantaDetailView: View {
         .shadow(color: .black.opacity(0.03), radius: 4, y: 2)
     }
 
+    // MARK: - Raccolti Section
+
+    private var raccoltiSection: some View {
+        VStack(alignment: .leading, spacing: 12) {
+            HStack {
+                Text("🧺 Raccolti")
+                    .font(.dmSans(15, weight: .semibold))
+                    .foregroundStyle(AppTheme.textPrimary)
+                Spacer()
+                Button { showNuovoRaccolto = true } label: {
+                    Image(systemName: "plus")
+                }
+            }
+
+            if raccolti.isEmpty {
+                Text("Nessun raccolto registrato. Tocca + per annotare il primo!")
+                    .font(.dmSans(15))
+                    .foregroundStyle(AppTheme.textSecondary)
+                    .padding(.vertical, 8)
+            } else {
+                ForEach(totaliPerAnno, id: \.anno) { totale in
+                    HStack {
+                        Text(String(totale.anno))
+                            .font(.dmSans(12, weight: .semibold))
+                            .foregroundStyle(AppTheme.primaryGreen)
+                        Spacer()
+                        Text(totale.descrizione)
+                            .font(.dmSans(12, weight: .semibold))
+                            .foregroundStyle(AppTheme.textSecondary)
+                    }
+                }
+
+                Divider()
+
+                ForEach(raccolti) { raccolto in
+                    RaccoltoRow(raccolto: raccolto, onDelete: { deleteRaccolto(raccolto) })
+                }
+            }
+        }
+        .padding()
+        .background(AppTheme.cardBackground)
+        .clipShape(RoundedRectangle(cornerRadius: 16))
+        .shadow(color: .black.opacity(0.03), radius: 4, y: 2)
+    }
+
+    /// Totali per anno (per confrontare le stagioni), raggruppati per unità.
+    private var totaliPerAnno: [(anno: Int, descrizione: String)] {
+        let calendar = Calendar.current
+        let perAnno = Dictionary(grouping: raccolti) { calendar.component(.year, from: $0.data) }
+        return perAnno
+            .map { anno, items in
+                let perUnita = Dictionary(grouping: items, by: \.unita)
+                    .map { unita, list in
+                        let totale = list.reduce(0) { $0 + $1.quantita }
+                        return "\(totale.formatted(.number.precision(.fractionLength(0...1)))) \(unita)"
+                    }
+                    .sorted()
+                return (anno: anno, descrizione: perUnita.joined(separator: " · "))
+            }
+            .sorted { $0.anno > $1.anno }
+    }
+
     // MARK: - Helpers
 
     private func loadData() async {
         do {
             async let attivitaFetch = repository.fetchAttivita(piantaId: pianta.id)
             async let piantaFetch = repository.fetchPianta(id: pianta.id)
-            let (fetchedAttivita, fetchedPianta) = try await (attivitaFetch, piantaFetch)
+            async let raccoltiFetch = repository.fetchRaccolti(piantaId: pianta.id)
+            let (fetchedAttivita, fetchedPianta, fetchedRaccolti) = try await (attivitaFetch, piantaFetch, raccoltiFetch)
             attivita = fetchedAttivita
             pianta = fetchedPianta
+            raccolti = fetchedRaccolti
         } catch {}
+    }
+
+    private func deleteRaccolto(_ raccolto: Raccolto) {
+        raccolti.removeAll { $0.id == raccolto.id }
+        Task { try? await repository.deleteRaccolto(id: raccolto.id) }
     }
 
     private func toggleDone(_ att: Attivita) {
@@ -234,6 +312,130 @@ struct AttivitaRow: View {
             .buttonStyle(.plain)
         }
         .padding(.vertical, 4)
+    }
+}
+
+// MARK: - Raccolto Row
+
+struct RaccoltoRow: View {
+    let raccolto: Raccolto
+    let onDelete: () -> Void
+
+    var body: some View {
+        HStack(spacing: 12) {
+            Image(systemName: "basket.fill")
+                .foregroundStyle(AppTheme.accentAmbra)
+                .font(.body)
+
+            VStack(alignment: .leading, spacing: 2) {
+                Text("\(raccolto.quantita.formatted(.number.precision(.fractionLength(0...1)))) \(raccolto.unita)")
+                    .font(.dmSans(15, weight: .medium))
+                    .foregroundStyle(AppTheme.textPrimary)
+
+                Text(raccolto.data, style: .date)
+                    .font(.dmSans(12))
+                    .foregroundStyle(AppTheme.textSecondary)
+
+                if let note = raccolto.note, !note.isEmpty {
+                    Text(note)
+                        .font(.dmSans(12))
+                        .foregroundStyle(AppTheme.textSecondary)
+                }
+            }
+
+            Spacer()
+
+            Button(action: onDelete) {
+                Image(systemName: "trash")
+                    .foregroundStyle(.secondary)
+                    .font(.body)
+            }
+            .buttonStyle(.plain)
+        }
+        .padding(.vertical, 4)
+    }
+}
+
+// MARK: - Nuovo Raccolto Sheet
+
+struct NuovoRaccoltoSheet: View {
+    let pianta: PiantaColtivata
+    @Environment(SupabaseRepository.self) private var repository
+    @Environment(\.dismiss) private var dismiss
+
+    @State private var data = Date()
+    @State private var quantita: Double = 1
+    @State private var unita = "kg"
+    @State private var note = ""
+    @State private var isSaving = false
+    @State private var saveFailed = false
+
+    private let unitaOptions = ["kg", "g", "pezzi", "mazzi", "cesti"]
+
+    var body: some View {
+        NavigationStack {
+            Form {
+                Section {
+                    DatePicker("Data", selection: $data, in: ...Date(), displayedComponents: .date)
+                        .font(.dmSans(15))
+
+                    HStack {
+                        Text("Quantità")
+                            .font(.dmSans(15))
+                        Spacer()
+                        TextField("Quantità", value: $quantita, format: .number.precision(.fractionLength(0...2)))
+                            .keyboardType(.decimalPad)
+                            .multilineTextAlignment(.trailing)
+                            .frame(width: 80)
+                            .font(.dmSans(15))
+                    }
+
+                    Picker("Unità", selection: $unita) {
+                        ForEach(unitaOptions, id: \.self) { Text($0) }
+                    }
+                    .font(.dmSans(15))
+
+                    TextField("Note (facoltative)", text: $note, axis: .vertical)
+                        .font(.dmSans(15))
+                } footer: {
+                    if saveFailed {
+                        Text("Salvataggio non riuscito. Controlla la connessione e riprova.")
+                            .foregroundStyle(.red)
+                    }
+                }
+            }
+            .navigationTitle("Nuovo raccolto")
+            .navigationBarTitleDisplayMode(.inline)
+            .toolbar {
+                ToolbarItem(placement: .cancellationAction) {
+                    Button("Annulla") { dismiss() }
+                }
+                ToolbarItem(placement: .confirmationAction) {
+                    Button("Salva") { save() }
+                        .disabled(quantita <= 0 || isSaving)
+                }
+            }
+        }
+    }
+
+    private func save() {
+        isSaving = true
+        saveFailed = false
+        Task {
+            do {
+                _ = try await repository.createRaccolto(RaccoltoCreate(
+                    piantaId: pianta.id,
+                    data: data,
+                    quantita: quantita,
+                    unita: unita,
+                    note: note.isEmpty ? nil : note
+                ))
+                dismiss()
+            } catch {
+                saveFailed = true
+                isSaving = false
+            }
+        }
     }
 }
 

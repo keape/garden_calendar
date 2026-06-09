@@ -22,9 +22,11 @@ struct CalendarGridView: View {
 
     // Meteo
     @State private var rainDays: [String: Double] = [:]
+    @State private var frostDays: [String: Double] = [:]
     @State private var rainRescheduledCount = 0
     @State private var showRainToast = false
     @State private var loadError: String?
+    @State private var isOffline = false
 
     private let calendar = Calendar.current
     private let weekDays = ["L", "M", "M", "G", "V", "S", "D"]
@@ -85,7 +87,24 @@ struct CalendarGridView: View {
 
                 filterBar
 
-                if let loadError {
+                if isOffline {
+                    HStack(spacing: 8) {
+                        Image(systemName: "icloud.slash")
+                            .foregroundStyle(AppTheme.textSecondary)
+                        Text("Sei offline: dati salvati sul dispositivo")
+                            .font(.dmSans(12, weight: .medium))
+                            .foregroundStyle(AppTheme.textSecondary)
+                        Spacer()
+                        Button("Riprova") {
+                            Task { await loadMonth() }
+                        }
+                        .font(.dmSans(12, weight: .semibold))
+                        .foregroundStyle(AppTheme.primaryGreen)
+                    }
+                    .padding(.horizontal)
+                    .padding(.vertical, 8)
+                    .background(AppTheme.cardSecondaryWarm)
+                } else if let loadError {
                     HStack(spacing: 8) {
                         Image(systemName: "wifi.exclamationmark")
                             .foregroundStyle(.orange)
@@ -377,16 +396,28 @@ struct CalendarGridView: View {
                     }
                 }
 
-                if hasRain {
-                    VStack(spacing: 0) {
-                        Image(systemName: "cloud.rain.fill")
-                            .font(.system(size: 9))
-                            .symbolRenderingMode(.monochrome)
-                            .foregroundStyle(AppTheme.rainBlue)
-                        if let mm = rainDays[dateStr] {
-                            Text(String(format: "%.0fmm", mm))
-                                .font(.system(size: 6))
+                HStack(spacing: 3) {
+                    if hasRain {
+                        VStack(spacing: 0) {
+                            Image(systemName: "cloud.rain.fill")
+                                .font(.system(size: 9))
+                                .symbolRenderingMode(.monochrome)
                                 .foregroundStyle(AppTheme.rainBlue)
+                            if let mm = rainDays[dateStr] {
+                                Text(String(format: "%.0fmm", mm))
+                                    .font(.system(size: 6))
+                                    .foregroundStyle(AppTheme.rainBlue)
+                            }
+                        }
+                    }
+                    if let tMin = frostDays[dateStr] {
+                        VStack(spacing: 0) {
+                            Image(systemName: "snowflake")
+                                .font(.system(size: 9))
+                                .foregroundStyle(.cyan)
+                            Text(String(format: "%.0f°", tMin))
+                                .font(.system(size: 6))
+                                .foregroundStyle(.cyan)
                         }
                     }
                 }
@@ -503,13 +534,16 @@ struct CalendarGridView: View {
               let from = cal.date(byAdding: .day, value: -7, to: monthStart) else { return }
 
         var fetched: [String: Double] = [:]
+        var frost: [String: Double] = [:]
         for orto in orti {
             guard let lat = orto.latitudine, let lon = orto.longitudine else { continue }
-            let days = (try? await OpenMeteoClient.shared.fetchRainDays(
-                latitude: lat, longitude: lon, from: from, to: to)) ?? [:]
-            for (k, v) in days { fetched[k] = max(fetched[k] ?? 0, v) }
+            let weather = (try? await OpenMeteoClient.shared.fetchDaily(
+                latitude: lat, longitude: lon, from: from, to: to)) ?? DailyWeather()
+            for (k, v) in weather.rainDays { fetched[k] = max(fetched[k] ?? 0, v) }
+            for (k, v) in weather.frostDays { frost[k] = min(frost[k] ?? v, v) }
         }
         rainDays = fetched
+        frostDays = frost
 
         let actions = RainAdjuster.computeRescheduling(activities: activities, rainDays: fetched)
         guard !actions.isEmpty else { return }
@@ -536,7 +570,10 @@ struct CalendarGridView: View {
             }
         }
 
-        activities = (try? await repository.fetchAttivita(date: currentMonth)) ?? []
+        if let refreshed = try? await repository.fetchAttivita(date: currentMonth) {
+            activities = refreshed
+            LocalCache.save(refreshed, key: LocalCache.monthKey(for: currentMonth))
+        }
 
         if successCount > 0 {
             rainRescheduledCount = successCount
@@ -550,21 +587,47 @@ struct CalendarGridView: View {
 
     private func loadFiltersData() async {
         guard let userId = authManager.user?.id else { return }
-        orti = (try? await repository.fetchOrti(userId: userId)) ?? []
-        piante = (try? await repository.fetchAllPiante(userId: userId)) ?? []
+        if let fetchedOrti = try? await repository.fetchOrti(userId: userId) {
+            orti = fetchedOrti
+            LocalCache.save(fetchedOrti, key: LocalCache.ortiKey)
+        } else {
+            orti = LocalCache.load([Orto].self, key: LocalCache.ortiKey) ?? []
+        }
+        if let fetchedPiante = try? await repository.fetchAllPiante(userId: userId) {
+            piante = fetchedPiante
+            LocalCache.save(fetchedPiante, key: LocalCache.pianteKey)
+        } else {
+            piante = LocalCache.load([PiantaColtivata].self, key: LocalCache.pianteKey) ?? []
+        }
     }
 
     private func loadMonth() async {
         isLoading = true
         if orti.isEmpty { await loadFiltersData() }
+        let cacheKey = LocalCache.monthKey(for: currentMonth)
         do {
             activities = try await repository.fetchAttivita(date: currentMonth)
+            LocalCache.save(activities, key: cacheKey)
             loadError = nil
+            isOffline = false
         } catch {
-            loadError = "Impossibile caricare le attività. Controlla la connessione."
+            if let cached = LocalCache.load([Attivita].self, key: cacheKey) {
+                activities = cached
+                isOffline = true
+                loadError = nil
+            } else {
+                loadError = "Impossibile caricare le attività. Controlla la connessione."
+                isOffline = false
+            }
         }
         await applyRainRescheduling()
         isLoading = false
+
+        // Aggiorna promemoria e dati widget solo quando guardiamo il mese corrente
+        if calendar.isDate(currentMonth, equalTo: Date(), toGranularity: .month) {
+            await NotificationManager.shared.reschedule(activities: activities)
+            WidgetDataExporter.export(activities: activities, piante: piante)
+        }
     }
 }
 
