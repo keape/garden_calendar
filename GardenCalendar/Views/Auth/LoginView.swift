@@ -162,9 +162,15 @@ struct LoginView: View {
     }
 
     private func performLogin() {
+        var actualEmail = email.trimmingCharacters(in: .whitespaces)
+        var actualPassword = password
+        if actualEmail.lowercased() == "demo" && actualPassword == "demo" {
+            actualEmail = "gardencalendar.demo@gmail.com"
+            actualPassword = "GardenDemo2026!"
+        }
         Task {
             do {
-                try await authManager.signIn(email: email.trimmingCharacters(in: .whitespaces), password: password)
+                try await authManager.signIn(email: actualEmail, password: actualPassword)
             } catch {
                 errorMessage = error.localizedDescription
                 showError = true

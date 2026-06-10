@@ -138,7 +138,7 @@ struct SignUpView: View {
         .alert("Registrazione completata", isPresented: $showSuccess) {
             Button("OK", role: .cancel) { dismiss() }
         } message: {
-            Text("Controlla la tua email per confermare l'account.")
+            Text("Account creato con successo. Benvenuto!")
         }
     }
 

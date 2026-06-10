@@ -15,6 +15,11 @@ struct GardenCalendarApp: App {
                         await authManager.checkSession()
                     }
                 }
+                .onOpenURL { url in
+                    Task {
+                        await authManager.handleDeepLink(url: url)
+                    }
+                }
         }
     }
 }

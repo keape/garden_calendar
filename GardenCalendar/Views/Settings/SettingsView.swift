@@ -4,9 +4,10 @@ import SwiftUI
 /// Impostazioni complete: profilo, orto preferito, meteo, aspetto, info app, eliminazione account.
 struct SettingsView: View {
     @Environment(SupabaseRepository.self) private var repository
+    @Environment(AuthManager.self) private var authManager
 
     // Profilo
-    @State private var email = "utente@esempio.com"
+    @State private var email = ""
     @State private var showLogoutConfirm = false
 
     // Orto preferito
@@ -224,7 +225,7 @@ struct SettingsView: View {
             .navigationTitle("Impostazioni")
             .alert("Esci dall'account", isPresented: $showLogoutConfirm) {
                 Button("Esci", role: .destructive) {
-                    // authManager.signOut()
+                    Task { await authManager.signOut() }
                 }
                 Button("Annulla", role: .cancel) {}
             } message: {
@@ -264,6 +265,7 @@ struct SettingsView: View {
     }
 
     private func loadSettings() {
+        email = authManager.user?.email ?? ""
         if let version = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String {
             appVersion = version
         }
