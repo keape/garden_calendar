@@ -4,6 +4,7 @@ struct QuickJournalView: View {
     @Environment(SupabaseRepository.self) private var repository
     @Environment(AuthManager.self) private var authManager
     @Environment(\.dismiss) private var dismiss
+    @Environment(LanguageManager.self) private var lang
 
     @State private var step = 1
 
@@ -22,6 +23,7 @@ struct QuickJournalView: View {
     @State private var showAlert = false
     @State private var alertMessage = ""
     @State private var isSaving = false
+    @State private var alertIsSuccess = false
 
     init(preselectedDate: Date = Date()) {
         self._eventDate = State(initialValue: preselectedDate)
@@ -72,7 +74,7 @@ struct QuickJournalView: View {
                 .animation(.easeInOut, value: step)
             }
             .background(Color(.systemGroupedBackground))
-            .navigationTitle("Nuovo Journal Entry")
+            .navigationTitle(lang.journal.navTitle)
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 ToolbarItem(placement: .topBarLeading) {
@@ -82,12 +84,12 @@ struct QuickJournalView: View {
                                 .foregroundStyle(AppTheme.primaryGreen)
                         }
                     } else {
-                        Button("Annulla") { dismiss() }
+                        Button(lang.common.cancel) { dismiss() }
                     }
                 }
                 ToolbarItem(placement: .topBarTrailing) {
                     if step < 3 {
-                        Button("Avanti") {
+                        Button(lang.journal.nextButton) {
                             withAnimation { step += 1 }
                         }
                         .disabled(step == 1 && selectedPlant == nil)
@@ -97,10 +99,10 @@ struct QuickJournalView: View {
             }
             .alert(isPresented: $showAlert) {
                 Alert(
-                    title: Text(alertMessage.contains("salvato") ? "Salvato" : "Errore"),
+                    title: Text(alertIsSuccess ? lang.plants.savedTitle : lang.common.error),
                     message: Text(alertMessage),
-                    dismissButton: .default(Text("OK")) {
-                        if alertMessage.contains("salvato") { dismiss() }
+                    dismissButton: .default(Text(lang.common.ok)) {
+                        if alertIsSuccess { dismiss() }
                     }
                 )
             }
@@ -114,9 +116,9 @@ struct QuickJournalView: View {
 
     private func stepTitle(_ number: Int) -> String {
         switch number {
-        case 1: return "Pianta"
-        case 2: return "Azione"
-        case 3: return "Dettagli"
+        case 1: return LanguageManager.shared.journal.stepPlant
+        case 2: return LanguageManager.shared.journal.stepAction
+        case 3: return LanguageManager.shared.journal.stepDetails
         default: return ""
         }
     }
@@ -155,9 +157,9 @@ struct QuickJournalView: View {
             VStack(spacing: 12) {
                 if piante.isEmpty {
                     ContentUnavailableView(
-                        "Nessuna pianta",
+                        lang.journal.noPlantsTitle,
                         systemImage: "leaf",
-                        description: Text("Aggiungi prima una pianta per poter registrare eventi.")
+                        description: Text(lang.journal.noPlantsDesc)
                     )
                 } else {
                     ForEach(piante) { pianta in
@@ -236,14 +238,14 @@ struct QuickJournalView: View {
 
     private var detailsStep: some View {
         Form {
-            Section("Pianta") {
+            Section(lang.journal.sectionPlant) {
                 HStack {
                     Image(systemName: "leaf.fill").foregroundStyle(AppTheme.primaryGreen)
                     Text(selectedPlant?.nomePersonalizzato ?? "N/D")
                 }
             }
 
-            Section("Azione") {
+            Section(lang.journal.sectionAction) {
                 HStack {
                     Image(systemName: actions.first(where: { $0.name == selectedAction })?.icon ?? "leaf.fill")
                         .foregroundStyle(AppTheme.color(for: selectedAction))
@@ -251,12 +253,12 @@ struct QuickJournalView: View {
                 }
             }
 
-            Section("Data") {
-                DatePicker("Data evento", selection: $eventDate, displayedComponents: .date)
+            Section(lang.journal.sectionDate) {
+                DatePicker(lang.journal.dateEventLabel, selection: $eventDate, displayedComponents: .date)
                     .datePickerStyle(.graphical)
             }
 
-            Section("Nota (opzionale)") {
+            Section(lang.journal.sectionNote) {
                 TextEditor(text: $note)
                     .frame(minHeight: 80)
             }
@@ -267,7 +269,7 @@ struct QuickJournalView: View {
                         if isSaving {
                             ProgressView().tint(.white)
                         } else {
-                            Text("Salva Journal Entry").fontWeight(.semibold)
+                            Text(lang.journal.saveEntryButton).fontWeight(.semibold)
                         }
                     }
                     .frame(maxWidth: .infinity)
@@ -302,9 +304,11 @@ struct QuickJournalView: View {
                     color: colorForAction(selectedAction),
                     recurrenceDays: nil
                 ))
-                alertMessage = "Evento salvato con successo! ✅"
+                alertIsSuccess = true
+                alertMessage = LanguageManager.shared.journal.savedSuccess
                 showAlert = true
             } catch {
+                alertIsSuccess = false
                 alertMessage = error.localizedDescription
                 showAlert = true
             }
@@ -332,4 +336,5 @@ struct QuickJournalView: View {
     QuickJournalView()
         .environment(SupabaseRepository.shared)
         .environment(AuthManager.shared)
+        .environment(LanguageManager.shared)
 }

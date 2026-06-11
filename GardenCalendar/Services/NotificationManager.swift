@@ -65,12 +65,14 @@ final class NotificationManager {
             guard let fireDate = calendar.date(from: fireComponents), fireDate > Date() else { continue }
 
             let content = UNMutableNotificationContent()
-            content.title = "🌱 Attività di oggi nell'orto"
+            let notifLang = LanguageManager.shared
+            content.title = notifLang.notifications.dailyTitle
             let names = dayActivities.map { $0.nome.capitalized }
             let unique = Array(NSOrderedSet(array: names)) as? [String] ?? names
             let summary = unique.prefix(3).joined(separator: ", ")
-            let extra = dayActivities.count > 3 ? " e altre" : ""
-            content.body = "\(dayActivities.count) attività: \(summary)\(extra)"
+            let extra = dayActivities.count > 3 ? notifLang.notifications.andMore : ""
+            content.body = String(format: notifLang.notifications.activitiesCountFormat,
+                                  dayActivities.count, summary, extra)
             content.sound = .default
 
             let trigger = UNCalendarNotificationTrigger(
