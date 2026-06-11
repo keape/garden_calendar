@@ -3,6 +3,7 @@ import SwiftUI
 struct CalendarGridView: View {
     @Environment(SupabaseRepository.self) private var repository
     @Environment(AuthManager.self) private var authManager
+    @Environment(LanguageManager.self) private var lang
 
     @State private var currentMonth = Date()
     @State private var selectedDate: Date?
@@ -29,20 +30,22 @@ struct CalendarGridView: View {
     @State private var isOffline = false
 
     private let calendar = Calendar.current
-    private let weekDays = ["L", "M", "M", "G", "V", "S", "D"]
+    private var weekDays: [String] { lang.calendar.weekDays }
     private let columns = Array(repeating: GridItem(.flexible(), spacing: 0), count: 7)
-    private let tipologie: [(color: String, label: String)] = [
-        ("green",  "Semina / Trapianto"),
-        ("orange", "Raccolta"),
-        ("blue",   "Irrigazione"),
-        ("red",    "Trattamento"),
-        ("gray",   "Potatura / Sarchiatura"),
-        ("purple", "Promemoria"),
-    ]
+    private var tipologie: [(color: String, label: String)] {
+        [
+            ("green",  lang.calendar.legendSeedTransplant),
+            ("orange", lang.calendar.legendHarvest),
+            ("blue",   lang.calendar.legendWatering),
+            ("red",    lang.calendar.legendTreatment),
+            ("gray",   lang.calendar.legendPruning),
+            ("purple", lang.calendar.legendReminder),
+        ]
+    }
 
     enum ViewMode: String, CaseIterable {
-        case calendar = "Calendario"
-        case agenda = "Agenda"
+        case calendar = "calendar"
+        case agenda = "agenda"
     }
 
     // MARK: - Computed
@@ -91,11 +94,11 @@ struct CalendarGridView: View {
                     HStack(spacing: 8) {
                         Image(systemName: "icloud.slash")
                             .foregroundStyle(AppTheme.textSecondary)
-                        Text("Sei offline: dati salvati sul dispositivo")
+                        Text(lang.calendar.offlineBanner)
                             .font(.dmSans(12, weight: .medium))
                             .foregroundStyle(AppTheme.textSecondary)
                         Spacer()
-                        Button("Riprova") {
+                        Button(lang.common.retry) {
                             Task { await loadMonth() }
                         }
                         .font(.dmSans(12, weight: .semibold))
@@ -112,7 +115,7 @@ struct CalendarGridView: View {
                             .font(.dmSans(12, weight: .medium))
                             .foregroundStyle(AppTheme.textSecondary)
                         Spacer()
-                        Button("Riprova") {
+                        Button(lang.common.retry) {
                             Task { await loadMonth() }
                         }
                         .font(.dmSans(12, weight: .semibold))
@@ -130,11 +133,11 @@ struct CalendarGridView: View {
                 }
             }
             .background(AppTheme.backgroundCream)
-            .navigationTitle("Calendario")
+            .navigationTitle(lang.calendar.navTitle)
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {
-                    Button("Oggi") {
+                    Button(lang.calendar.todayButton) {
                         withAnimation {
                             currentMonth = Date()
                             selectedDate = Date()
@@ -171,7 +174,9 @@ struct CalendarGridView: View {
                 HStack(spacing: 8) {
                     Image(systemName: "cloud.rain.fill")
                         .foregroundStyle(AppTheme.rainBlue)
-                    Text("\(rainRescheduledCount) irrigazion\(rainRescheduledCount == 1 ? "e" : "i") spostat\(rainRescheduledCount == 1 ? "a" : "e") per pioggia")
+                    Text(rainRescheduledCount == 1
+                        ? lang.calendar.rainToastSingular
+                        : String(format: lang.calendar.rainToastPlural, rainRescheduledCount))
                         .font(.dmSans(14, weight: .medium))
                 }
                 .padding(.horizontal, 16)
@@ -192,7 +197,7 @@ struct CalendarGridView: View {
         Button {
             withAnimation(.easeInOut(duration: 0.2)) { viewMode = mode }
         } label: {
-            Text(mode.rawValue)
+            Text(mode == .calendar ? lang.calendar.viewCalendar : lang.calendar.viewAgenda)
                 .font(.dmSans(14, weight: isSelected ? .semibold : .regular))
                 .foregroundStyle(isSelected ? AppTheme.textPrimary : AppTheme.textSecondary)
                 .frame(maxWidth: .infinity)
@@ -208,7 +213,7 @@ struct CalendarGridView: View {
         ScrollView(.horizontal, showsIndicators: false) {
             HStack(spacing: 8) {
                 Menu {
-                    Button("Tutti gli orti") {
+                    Button(lang.calendar.filterAllGardens) {
                         filterOrtoId = nil
                         filterPiantaId = nil
                     }
@@ -220,31 +225,31 @@ struct CalendarGridView: View {
                     }
                 } label: {
                     filterChip(
-                        label: orti.first(where: { $0.id == filterOrtoId })?.nome ?? "Orto",
+                        label: orti.first(where: { $0.id == filterOrtoId })?.nome ?? lang.calendar.filterGardenDefault,
                         isActive: filterOrtoId != nil
                     )
                 }
 
                 Menu {
-                    Button("Tutte le tipologie") { filterTipologia = nil }
+                    Button(lang.calendar.filterAllTypes) { filterTipologia = nil }
                     ForEach(tipologie, id: \.color) { tipo in
                         Button(tipo.label) { filterTipologia = tipo.color }
                     }
                 } label: {
                     filterChip(
-                        label: tipologie.first(where: { $0.color == filterTipologia })?.label ?? "Tipologia",
+                        label: tipologie.first(where: { $0.color == filterTipologia })?.label ?? lang.calendar.filterTypeDefault,
                         isActive: filterTipologia != nil
                     )
                 }
 
                 Menu {
-                    Button("Tutte le piante") { filterPiantaId = nil }
+                    Button(lang.calendar.filterAllPlants) { filterPiantaId = nil }
                     ForEach(visiblePiante) { pianta in
                         Button(pianta.nomePersonalizzato) { filterPiantaId = pianta.id }
                     }
                 } label: {
                     filterChip(
-                        label: piante.first(where: { $0.id == filterPiantaId })?.nomePersonalizzato ?? "Pianta",
+                        label: piante.first(where: { $0.id == filterPiantaId })?.nomePersonalizzato ?? lang.calendar.filterPlantDefault,
                         isActive: filterPiantaId != nil
                     )
                 }
@@ -437,12 +442,12 @@ struct CalendarGridView: View {
 
     private var legendView: some View {
         let items: [(Color, String)] = [
-            (AppTheme.activityGreen,  "Semina / Trapianto"),
-            (AppTheme.activityOrange, "Raccolta"),
-            (AppTheme.activityBlue,   "Irrigazione"),
-            (AppTheme.activityRed,    "Trattamento"),
-            (AppTheme.activityGray,   "Potatura / Sarchiatura"),
-            (AppTheme.activityPurple, "Promemoria"),
+            (AppTheme.activityGreen,  lang.calendar.legendSeedTransplant),
+            (AppTheme.activityOrange, lang.calendar.legendHarvest),
+            (AppTheme.activityBlue,   lang.calendar.legendWatering),
+            (AppTheme.activityRed,    lang.calendar.legendTreatment),
+            (AppTheme.activityGray,   lang.calendar.legendPruning),
+            (AppTheme.activityPurple, lang.calendar.legendReminder),
         ]
         return LazyVGrid(columns: [GridItem(.flexible()), GridItem(.flexible())], spacing: 4) {
             ForEach(items, id: \.1) { color, label in
@@ -478,7 +483,7 @@ struct CalendarGridView: View {
                     Image(systemName: "checkmark.circle")
                         .font(.system(size: 48))
                         .foregroundColor(.secondary)
-                    Text("Nessuna attività in programma")
+                    Text(lang.calendar.noActivitiesAgenda)
                         .font(.subheadline)
                         .foregroundColor(.secondary)
                     Spacer()
@@ -505,7 +510,7 @@ struct CalendarGridView: View {
         formatter.locale = Locale(identifier: "it_IT")
         formatter.dateFormat = "EEEE d MMMM"
         let label: String
-        if isToday { label = "Oggi" }
+        if isToday { label = lang.calendar.todayLabel }
         else if isTomorrow { label = "Domani" }
         else { label = formatter.string(from: date).capitalized }
 
@@ -635,4 +640,5 @@ struct CalendarGridView: View {
     CalendarGridView()
         .environment(SupabaseRepository.shared)
         .environment(AuthManager.shared)
+        .environment(LanguageManager.shared)
 }
