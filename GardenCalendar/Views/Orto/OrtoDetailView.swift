@@ -17,6 +17,7 @@ struct OrtoDetailView: View {
     @State private var errorMessage: String?
     @State private var showDeleteOrtoConfirm = false
     @Environment(\.dismiss) private var dismiss
+    @Environment(LanguageManager.self) private var lang
 
     init(orto: Orto) {
         _orto = State(initialValue: orto)
@@ -64,7 +65,7 @@ struct OrtoDetailView: View {
                 }
             } header: {
                 HStack {
-                    Text("Piante")
+                    Text(lang.garden.plantsSection)
                         .font(.dmSans(12, weight: .semibold))
                         .foregroundStyle(AppTheme.textSecondary)
                     Spacer()
@@ -82,7 +83,7 @@ struct OrtoDetailView: View {
         .navigationBarTitleDisplayMode(.inline)
         .toolbar {
             ToolbarItem(placement: .topBarTrailing) {
-                Button("Modifica") {
+                Button(lang.garden.editButton) {
                     editNome = orto.nome
                     editLuogo = orto.luogo ?? ""
                     resolvedLatitude = orto.latitudine
@@ -104,11 +105,11 @@ struct OrtoDetailView: View {
         }
         .task { await loadPiante() }
         .refreshable { await loadPiante() }
-        .alert("Errore", isPresented: Binding(
+        .alert(lang.common.error, isPresented: Binding(
             get: { errorMessage != nil },
             set: { if !$0 { errorMessage = nil } }
         )) {
-            Button("OK", role: .cancel) {}
+            Button(lang.common.ok, role: .cancel) {}
         } message: {
             Text(errorMessage ?? "")
         }
@@ -119,14 +120,14 @@ struct OrtoDetailView: View {
     private var editOrtoSheet: some View {
         NavigationStack {
             Form {
-                Section("Dettagli orto") {
-                    TextField("Nome orto", text: $editNome)
+                Section(lang.garden.gardenDetailsSection) {
+                    TextField(lang.garden.gardenNamePlaceholder, text: $editNome)
                         .autocorrectionDisabled()
                 }
 
-                Section("Posizione") {
+                Section(lang.garden.locationSection) {
                     HStack {
-                        TextField("Cerca città...", text: $editLuogo)
+                        TextField(lang.garden.citySearchPlaceholder, text: $editLuogo)
                             .autocorrectionDisabled()
                             .onSubmit { Task { await geocodeCityName() } }
                         if isGeocoding {
@@ -138,7 +139,7 @@ struct OrtoDetailView: View {
                         locationHelper.requestLocation()
                     } label: {
                         Label(
-                            locationHelper.isLocating ? "Rilevamento GPS..." : "Usa posizione attuale",
+                            locationHelper.isLocating ? lang.garden.detectingGPS : lang.garden.useCurrentLocation,
                             systemImage: "location.fill"
                         )
                     }
@@ -153,7 +154,7 @@ struct OrtoDetailView: View {
 
                 Section {
                     Button(action: saveEdit) {
-                        Text("Salva")
+                        Text(lang.common.save)
                             .frame(maxWidth: .infinity)
                             .fontWeight(.semibold)
                     }
@@ -166,26 +167,26 @@ struct OrtoDetailView: View {
                     Button(role: .destructive) {
                         showDeleteOrtoConfirm = true
                     } label: {
-                        Text("Elimina orto")
+                        Text(lang.garden.deleteOrtoButton)
                             .frame(maxWidth: .infinity)
                     }
                 }
             }
-            .navigationTitle("Modifica orto")
+            .navigationTitle(lang.garden.editNavTitle)
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 ToolbarItem(placement: .topBarLeading) {
-                    Button("Annulla") { showEditOrto = false }
+                    Button(lang.common.cancel) { showEditOrto = false }
                 }
             }
-            .alert("Elimina orto", isPresented: $showDeleteOrtoConfirm) {
-                Button("Elimina", role: .destructive) {
+            .alert(lang.garden.deleteTitle, isPresented: $showDeleteOrtoConfirm) {
+                Button(lang.garden.deleteButton, role: .destructive) {
                     showEditOrto = false
                     deleteOrto()
                 }
-                Button("Annulla", role: .cancel) {}
+                Button(lang.common.cancel, role: .cancel) {}
             } message: {
-                Text("Eliminare l'orto \"\(orto.nome)\"? Le piante collegate non verranno eliminate.")
+                Text(String(format: lang.garden.deleteConfirmMsgFormat, orto.nome))
             }
             .onChange(of: locationHelper.location) { _, location in
                 guard let location else { return }
@@ -203,12 +204,12 @@ struct OrtoDetailView: View {
                 .font(.system(size: 36))
                 .foregroundStyle(.secondary.opacity(0.5))
 
-            Text("Aggiungi la tua prima pianta")
+            Text(lang.garden.emptyFirstPlant)
                 .font(.dmSans(16, weight: .semibold))
                 .foregroundStyle(AppTheme.textSecondary)
 
             Button(action: { showAddPianta = true }) {
-                Label("Aggiungi pianta", systemImage: "plus")
+                Label(lang.garden.addPlantButton, systemImage: "plus")
             }
             .buttonStyle(.borderedProminent)
             .tint(AppTheme.primaryGreen)
@@ -309,6 +310,7 @@ struct OrtoDetailView: View {
 
 struct PiantaRowView: View {
     let pianta: PiantaColtivata
+    @Environment(LanguageManager.self) private var lang
 
     var body: some View {
         HStack(spacing: 12) {
@@ -323,7 +325,7 @@ struct PiantaRowView: View {
                     .foregroundStyle(AppTheme.textPrimary)
 
                 HStack(spacing: 8) {
-                    Text("\(pianta.growthDays) giorni")
+                    Text(String(format: lang.plants.totalDaysFormat, pianta.growthDays))
                         .font(.dmSans(12))
                         .foregroundStyle(AppTheme.textSecondary)
 
@@ -355,5 +357,6 @@ struct PiantaRowView: View {
             latitudine: nil, longitudine: nil, createdAt: Date(), updatedAt: Date()
         ))
         .environment(SupabaseRepository.shared)
+        .environment(LanguageManager.shared)
     }
 }

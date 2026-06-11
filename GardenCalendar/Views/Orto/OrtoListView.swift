@@ -4,6 +4,7 @@ import CoreLocation
 struct OrtoListView: View {
     @Environment(SupabaseRepository.self) private var repository
     @Environment(AuthManager.self) private var authManager
+    @Environment(LanguageManager.self) private var lang
 
     @State private var orti: [Orto] = []
     @State private var showNewOrto = false
@@ -35,7 +36,7 @@ struct OrtoListView: View {
                                         ortoToDelete = orto
                                         showDeleteConfirm = true
                                     } label: {
-                                        Label("Elimina", systemImage: "trash")
+                                        Label(lang.common.delete, systemImage: "trash")
                                     }
                                 }
                             }
@@ -46,7 +47,7 @@ struct OrtoListView: View {
                 }
             }
             .background(AppTheme.backgroundCream)
-            .navigationTitle("I miei orti")
+            .navigationTitle(lang.garden.navTitle)
             .toolbar {
                 ToolbarItem(placement: .topBarTrailing) {
                     Button(action: { showNewOrto = true }) {
@@ -60,21 +61,21 @@ struct OrtoListView: View {
             .sheet(isPresented: $showNewOrto) {
                 newOrtoSheet
             }
-            .alert("Elimina orto", isPresented: $showDeleteConfirm, presenting: ortoToDelete) { orto in
-                Button("Elimina", role: .destructive) {
+            .alert(lang.garden.deleteTitle, isPresented: $showDeleteConfirm, presenting: ortoToDelete) { orto in
+                Button(lang.garden.deleteButton, role: .destructive) {
                     deleteOrto(orto)
                 }
-                Button("Annulla", role: .cancel) {}
+                Button(lang.common.cancel, role: .cancel) {}
             } message: { orto in
-                Text("Eliminare l'orto \"\(orto.nome)\"? Le piante collegate non verranno eliminate.")
+                Text(String(format: lang.garden.deleteConfirmMsgFormat, orto.nome))
             }
             .task { await loadOrti() }
             .refreshable { await loadOrti() }
-            .alert("Errore", isPresented: Binding(
+            .alert(lang.common.error, isPresented: Binding(
                 get: { errorMessage != nil },
                 set: { if !$0 { errorMessage = nil } }
             )) {
-                Button("OK", role: .cancel) {}
+                Button(lang.common.ok, role: .cancel) {}
             } message: {
                 Text(errorMessage ?? "")
             }
@@ -85,12 +86,12 @@ struct OrtoListView: View {
 
     private var emptyState: some View {
         ContentUnavailableView {
-            Label("Crea il tuo primo orto", systemImage: "figure.gardening")
+            Label(lang.garden.emptyTitle, systemImage: "figure.gardening")
         } description: {
-            Text("Organizza le tue piante in orti e giardini per tenerle sotto controllo.")
+            Text(lang.garden.emptyDesc)
         } actions: {
             Button(action: { showNewOrto = true }) {
-                Label("Nuovo orto", systemImage: "plus")
+                Label(lang.garden.newGardenButton, systemImage: "plus")
                     .fontWeight(.semibold)
             }
             .buttonStyle(.borderedProminent)
@@ -103,14 +104,14 @@ struct OrtoListView: View {
     private var newOrtoSheet: some View {
         NavigationStack {
             Form {
-                Section("Dettagli orto") {
-                    TextField("Nome orto", text: $newNome)
+                Section(lang.garden.gardenDetailsSection) {
+                    TextField(lang.garden.gardenNamePlaceholder, text: $newNome)
                         .autocorrectionDisabled()
                 }
 
-                Section("Posizione") {
+                Section(lang.garden.locationSection) {
                     HStack {
-                        TextField("Cerca città...", text: $newLuogo)
+                        TextField(lang.garden.citySearchPlaceholder, text: $newLuogo)
                             .autocorrectionDisabled()
                             .onSubmit { Task { await geocodeCityName() } }
                         if isGeocoding {
@@ -122,7 +123,7 @@ struct OrtoListView: View {
                         locationHelper.requestLocation()
                     } label: {
                         Label(
-                            locationHelper.isLocating ? "Rilevamento GPS..." : "Usa posizione attuale",
+                            locationHelper.isLocating ? lang.garden.detectingGPS : lang.garden.useCurrentLocation,
                             systemImage: "location.fill"
                         )
                     }
@@ -137,7 +138,7 @@ struct OrtoListView: View {
 
                 Section {
                     Button(action: saveNewOrto) {
-                        Text("Salva")
+                        Text(lang.common.save)
                             .frame(maxWidth: .infinity)
                             .fontWeight(.semibold)
                     }
@@ -146,11 +147,11 @@ struct OrtoListView: View {
                     .disabled(newNome.trimmingCharacters(in: .whitespaces).isEmpty)
                 }
             }
-            .navigationTitle("Nuovo orto")
+            .navigationTitle(lang.garden.newOrtoNavTitle)
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 ToolbarItem(placement: .topBarLeading) {
-                    Button("Annulla") { showNewOrto = false }
+                    Button(lang.common.cancel) { showNewOrto = false }
                 }
             }
             .onChange(of: locationHelper.location) { _, location in
@@ -288,4 +289,5 @@ struct OrtoCardRow: View {
     OrtoListView()
         .environment(SupabaseRepository.shared)
         .environment(AuthManager.shared)
+        .environment(LanguageManager.shared)
 }
