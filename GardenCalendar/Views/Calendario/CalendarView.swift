@@ -511,7 +511,7 @@ struct CalendarGridView: View {
         formatter.dateFormat = "EEEE d MMMM"
         let label: String
         if isToday { label = lang.calendar.todayLabel }
-        else if isTomorrow { label = "Domani" }
+        else if isTomorrow { label = lang.calendar.tomorrowLabel }
         else { label = formatter.string(from: date).capitalized }
 
         return HStack {
@@ -621,7 +621,7 @@ struct CalendarGridView: View {
                 isOffline = true
                 loadError = nil
             } else {
-                loadError = "Impossibile caricare le attività. Controlla la connessione."
+                loadError = lang.calendar.loadErrorMsg
                 isOffline = false
             }
         }
