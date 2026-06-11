@@ -6,6 +6,7 @@ struct ModificaPiantaSheet: View {
 
     @Environment(SupabaseRepository.self) private var repository
     @Environment(\.dismiss) private var dismiss
+    @Environment(LanguageManager.self) private var lang
 
     @State private var valori: [String: Int]
     @State private var isLoading = false
@@ -41,7 +42,7 @@ struct ModificaPiantaSheet: View {
             Form {
                 if attivitaUniche.isEmpty {
                     Section {
-                        Text("Nessuna attività programmata.")
+                        Text(lang.plants.noScheduledActivities)
                             .foregroundStyle(.secondary)
                     }
                 } else {
@@ -52,32 +53,32 @@ struct ModificaPiantaSheet: View {
                                 set: { valori[att.nome] = $0 }
                             )
                             if att.recurrenceDays != nil {
-                                Stepper("Ogni \(valori[att.nome] ?? 1) giorni", value: binding, in: 1...365)
+                                Stepper(String(format: lang.plants.everyNDaysFormat, valori[att.nome] ?? 1), value: binding, in: 1...365)
                             } else {
-                                Stepper("Dopo \(valori[att.nome] ?? 0) giorni dalla semina", value: binding, in: 0...730)
+                                Stepper(String(format: lang.plants.afterNDaysFormat, valori[att.nome] ?? 0), value: binding, in: 0...730)
                             }
                         }
                     }
                 }
             }
-            .navigationTitle("Modifica attività")
+            .navigationTitle(lang.plants.editActivitiesNavTitle)
             .navigationBarTitleDisplayMode(.inline)
             .disabled(isLoading)
             .toolbar {
                 ToolbarItem(placement: .topBarLeading) {
-                    Button("Annulla") { dismiss() }
+                    Button(lang.common.cancel) { dismiss() }
                 }
                 ToolbarItem(placement: .topBarTrailing) {
                     if isLoading {
                         ProgressView()
                     } else {
-                        Button("Salva") { Task { await salva() } }
+                        Button(lang.common.save) { Task { await salva() } }
                             .fontWeight(.semibold)
                     }
                 }
             }
-            .alert("Errore", isPresented: $showError) {
-                Button("OK", role: .cancel) {}
+            .alert(lang.common.error, isPresented: $showError) {
+                Button(lang.common.ok, role: .cancel) {}
             } message: {
                 Text(errorMessage)
             }

@@ -5,6 +5,7 @@ struct NuovaAttivitaSheet: View {
 
     @Environment(SupabaseRepository.self) private var repository
     @Environment(\.dismiss) private var dismiss
+    @Environment(LanguageManager.self) private var lang
 
     @State private var nome = ""
     @State private var isRicorrente = true
@@ -16,39 +17,39 @@ struct NuovaAttivitaSheet: View {
     var body: some View {
         NavigationStack {
             Form {
-                Section("Dettagli attività") {
-                    TextField("Es. irrigazione, concimazione…", text: $nome)
+                Section(lang.plants.activityDetailsSection) {
+                    TextField(lang.plants.activityNamePlaceholder, text: $nome)
                         .autocorrectionDisabled()
                         .autocapitalization(.none)
 
-                    Picker("Tipo", selection: $isRicorrente) {
-                        Text("Ricorrente").tag(true)
-                        Text("Una tantum").tag(false)
+                    Picker(lang.plants.activityTypePicker, selection: $isRicorrente) {
+                        Text(lang.plants.recurringType).tag(true)
+                        Text(lang.plants.oneOffType).tag(false)
                     }
                 }
 
                 Section {
                     if isRicorrente {
-                        Stepper("Ogni \(valore) giorni", value: $valore, in: 1...365)
+                        Stepper(String(format: lang.plants.everyNDaysFormat, valore), value: $valore, in: 1...365)
                     } else {
-                        Stepper("Dopo \(valore) giorni dalla semina", value: $valore, in: 0...730)
+                        Stepper(String(format: lang.plants.afterNDaysFormat, valore), value: $valore, in: 0...730)
                     }
                 } header: {
-                    Text("Intervallo")
+                    Text(lang.plants.intervalSection)
                 }
             }
-            .navigationTitle("Nuova attività")
+            .navigationTitle(lang.plants.newActivityNavTitle)
             .navigationBarTitleDisplayMode(.inline)
             .disabled(isLoading)
             .toolbar {
                 ToolbarItem(placement: .topBarLeading) {
-                    Button("Annulla") { dismiss() }
+                    Button(lang.common.cancel) { dismiss() }
                 }
                 ToolbarItem(placement: .topBarTrailing) {
                     if isLoading {
                         ProgressView()
                     } else {
-                        Button("Aggiungi") {
+                        Button(lang.plants.addButton) {
                             Task { await aggiungi() }
                         }
                         .fontWeight(.semibold)
@@ -56,8 +57,8 @@ struct NuovaAttivitaSheet: View {
                     }
                 }
             }
-            .alert("Errore", isPresented: $showError) {
-                Button("OK", role: .cancel) {}
+            .alert(lang.common.error, isPresented: $showError) {
+                Button(lang.common.ok, role: .cancel) {}
             } message: {
                 Text(errorMessage)
             }

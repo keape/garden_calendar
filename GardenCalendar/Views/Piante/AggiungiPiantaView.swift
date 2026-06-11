@@ -4,6 +4,7 @@ import SwiftUI
 struct AggiungiPiantaView: View {
     @Environment(SupabaseRepository.self) private var repository
     @Environment(\.dismiss) private var dismiss
+    @Environment(LanguageManager.self) private var lang
 
     let ortoId: UUID?
 
@@ -19,6 +20,7 @@ struct AggiungiPiantaView: View {
 
     @State private var showAlert = false
     @State private var alertMessage = ""
+    @State private var alertIsSuccess = false
     @State private var isSaving = false
 
     init(ortoId: UUID? = nil) {
@@ -44,7 +46,7 @@ struct AggiungiPiantaView: View {
                 HStack {
                     Image(systemName: "magnifyingglass")
                         .foregroundStyle(.secondary)
-                    TextField("Cerca nel catalogo...", text: $searchText)
+                    TextField(lang.plants.catalogSearchPlaceholder, text: $searchText)
                         .autocorrectionDisabled()
                         .onChange(of: searchText) { _, newValue in
                             if !newValue.isEmpty {
@@ -65,13 +67,13 @@ struct AggiungiPiantaView: View {
                 .padding()
 
                 if isSearching {
-                    ProgressView("Ricerca in corso...")
+                    ProgressView(lang.plants.searchingLabel)
                         .padding()
                 }
 
                 if !filteredCatalog.isEmpty {
                     VStack(alignment: .leading, spacing: 4) {
-                        Text("Dal catalogo")
+                        Text(lang.plants.catalogSection)
                             .font(.subheadline.bold())
                             .foregroundStyle(.secondary)
                             .padding(.horizontal)
@@ -114,19 +116,19 @@ struct AggiungiPiantaView: View {
                         .padding(.vertical, 8)
 
                     VStack(alignment: .leading, spacing: 12) {
-                        Text("Pianta personalizzata")
+                        Text(lang.plants.customPlantSection)
                             .font(.subheadline.bold())
                             .foregroundStyle(.secondary)
                             .padding(.horizontal)
 
                         VStack(spacing: 0) {
                             Form {
-                                TextField("Nome pianta", text: $customName)
+                                TextField(lang.plants.plantNamePlaceholder, text: $customName)
                                     .autocorrectionDisabled()
 
-                                Stepper("Ciclo crescita: \(customGrowthDays) giorni", value: $customGrowthDays, in: 1...730)
+                                Stepper(String(format: lang.plants.growthCycleFormat, customGrowthDays), value: $customGrowthDays, in: 1...730)
 
-                                DatePicker("Data semina", selection: $customSeminaDate, displayedComponents: .date)
+                                DatePicker(lang.plants.seedingDateLabel, selection: $customSeminaDate, displayedComponents: .date)
                             }
                             .scrollDisabled(true)
                             .frame(height: 200)
@@ -142,7 +144,7 @@ struct AggiungiPiantaView: View {
                         .padding(.vertical, 8)
 
                     VStack(alignment: .leading, spacing: 8) {
-                        Text("Attività importate dal catalogo")
+                        Text(lang.plants.importedActivitiesSection)
                             .font(.subheadline.bold())
                             .foregroundStyle(.secondary)
                             .padding(.horizontal)
@@ -170,17 +172,17 @@ struct AggiungiPiantaView: View {
                 }
             }
             .background(Color(.systemGroupedBackground))
-            .navigationTitle("Aggiungi pianta")
+            .navigationTitle(lang.plants.addPlantNavTitle)
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 ToolbarItem(placement: .topBarLeading) {
-                    Button("Annulla") { dismiss() }
+                    Button(lang.common.cancel) { dismiss() }
                 }
                 ToolbarItem(placement: .topBarTrailing) {
                     if isSaving {
                         ProgressView()
                     } else {
-                        Button("Salva", action: savePianta)
+                        Button(lang.common.save, action: savePianta)
                             .fontWeight(.semibold)
                             .disabled(!canSave)
                     }
@@ -188,12 +190,10 @@ struct AggiungiPiantaView: View {
             }
             .alert(isPresented: $showAlert) {
                 Alert(
-                    title: Text(alertMessage.contains("successo") ? "Salvato" : "Errore"),
+                    title: Text(alertIsSuccess ? lang.plants.savedTitle : lang.common.error),
                     message: Text(alertMessage),
-                    dismissButton: .default(Text("OK")) {
-                        if alertMessage.contains("successo") {
-                            dismiss()
-                        }
+                    dismissButton: .default(Text(lang.common.ok)) {
+                        if alertIsSuccess { dismiss() }
                     }
                 )
             }
@@ -240,7 +240,8 @@ struct AggiungiPiantaView: View {
 
     private func savePianta() {
         guard let ortoId else {
-            alertMessage = "Impossibile salvare: apri questa schermata da un orto specifico."
+            alertIsSuccess = false
+            alertMessage = lang.plants.cannotSaveNoOrto
             showAlert = true
             return
         }
@@ -253,7 +254,8 @@ struct AggiungiPiantaView: View {
         }
 
         guard !nome.isEmpty else {
-            alertMessage = "Inserisci un nome per la pianta."
+            alertIsSuccess = false
+            alertMessage = lang.plants.enterPlantName
             showAlert = true
             return
         }
@@ -290,9 +292,11 @@ struct AggiungiPiantaView: View {
                     )
                 }
 
-                alertMessage = "\(nome) aggiunta con successo!"
+                alertIsSuccess = true
+                alertMessage = String(format: lang.plants.addedSuccessFormat, nome)
                 showAlert = true
             } catch {
+                alertIsSuccess = false
                 alertMessage = error.localizedDescription
                 showAlert = true
             }
@@ -321,4 +325,5 @@ struct TemplateActivity {
 #Preview {
     AggiungiPiantaView()
         .environment(SupabaseRepository.shared)
+        .environment(LanguageManager.shared)
 }

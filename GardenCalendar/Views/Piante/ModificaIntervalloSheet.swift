@@ -7,6 +7,7 @@ struct ModificaIntervalloSheet: View {
 
     @Environment(SupabaseRepository.self) private var repository
     @Environment(\.dismiss) private var dismiss
+    @Environment(LanguageManager.self) private var lang
 
     @State private var valore: Int
     @State private var isLoading = false
@@ -39,41 +40,41 @@ struct ModificaIntervalloSheet: View {
             Form {
                 Section {
                     if isRicorrente {
-                        Stepper("Ogni \(valore) giorni", value: $valore, in: 1...365)
+                        Stepper(String(format: lang.plants.everyNDaysFormat, valore), value: $valore, in: 1...365)
                     } else {
-                        Stepper("Dopo \(valore) giorni dalla semina", value: $valore, in: 0...730)
+                        Stepper(String(format: lang.plants.afterNDaysFormat, valore), value: $valore, in: 0...730)
                     }
                 } header: {
                     Text(attivita.nome.capitalized)
                 }
 
                 Section {
-                    Button("Ripristina default", role: .destructive) {
+                    Button(lang.plants.restoreDefault, role: .destructive) {
                         Task { await ripristinaDefault() }
                     }
                     .disabled(pianta.specieId == nil)
                 }
             }
-            .navigationTitle("Modifica intervallo")
+            .navigationTitle(lang.plants.editIntervalNavTitle)
             .navigationBarTitleDisplayMode(.inline)
             .disabled(isLoading)
             .toolbar {
                 ToolbarItem(placement: .topBarLeading) {
-                    Button("Annulla") { dismiss() }
+                    Button(lang.common.cancel) { dismiss() }
                 }
                 ToolbarItem(placement: .topBarTrailing) {
                     if isLoading {
                         ProgressView()
                     } else {
-                        Button("Salva") {
+                        Button(lang.common.save) {
                             Task { await salva() }
                         }
                         .fontWeight(.semibold)
                     }
                 }
             }
-            .alert("Errore", isPresented: $showError) {
-                Button("OK", role: .cancel) {}
+            .alert(lang.common.error, isPresented: $showError) {
+                Button(lang.common.ok, role: .cancel) {}
             } message: {
                 Text(errorMessage)
             }
