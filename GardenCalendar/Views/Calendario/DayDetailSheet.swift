@@ -13,6 +13,7 @@ struct DayDetailView: View {
     @State private var ortoLookup: [UUID: String] = [:]
 
     @Environment(SupabaseRepository.self) private var repository
+    @Environment(LanguageManager.self) private var lang
 
     init(selectedDate: Date, activities: [Attivita] = []) {
         self.selectedDate = selectedDate
@@ -39,7 +40,7 @@ struct DayDetailView: View {
                 .padding(.horizontal, 20)
                 .padding(.top, 4)
 
-            Text("Attività del giorno")
+            Text(lang.dayDetail.activitiesTitle)
                 .font(.lora(22))
                 .foregroundStyle(AppTheme.textPrimary)
                 .frame(maxWidth: .infinity, alignment: .leading)
@@ -74,7 +75,7 @@ struct DayDetailView: View {
                             Image(systemName: "cloud.rain.fill")
                                 .font(.system(size: 12))
                                 .foregroundStyle(AppTheme.rainBlue)
-                            Text(String(format: "%.0f mm di pioggia", rainMm))
+                            Text(String(format: lang.dayDetail.rainMmFormat, rainMm))
                                 .font(.dmSans(12, weight: .medium))
                                 .foregroundStyle(AppTheme.rainBlue)
                         }
@@ -84,7 +85,7 @@ struct DayDetailView: View {
                             Image(systemName: "snowflake")
                                 .font(.system(size: 12))
                                 .foregroundStyle(.cyan)
-                            Text(String(format: "Rischio gelata: min %.0f°C", tMin))
+                            Text(String(format: lang.dayDetail.frostFormat, tMin))
                                 .font(.dmSans(12, weight: .medium))
                                 .foregroundStyle(.cyan)
                         }
@@ -101,7 +102,7 @@ struct DayDetailView: View {
                     Image(systemName: "calendar.day.timeline.left")
                         .font(.system(size: 40))
                         .foregroundStyle(AppTheme.textSecondary.opacity(0.4))
-                    Text("Nessuna attività per questo giorno")
+                    Text(lang.dayDetail.noActivitiesDay)
                         .font(.dmSans(15, weight: .medium))
                         .foregroundStyle(AppTheme.textSecondary)
                 }
@@ -118,13 +119,13 @@ struct DayDetailView: View {
                             )
                             .swipeActions(edge: .trailing) {
                                 Button { rescheduleActivity(activity) } label: {
-                                    Label("Sposta", systemImage: "arrow.right")
+                                    Label(lang.dayDetail.swipeForward, systemImage: "arrow.right")
                                 }
                                 .tint(.blue)
                             }
                             .swipeActions(edge: .leading) {
                                 Button { moveActivityBack(activity) } label: {
-                                    Label("Indietro", systemImage: "arrow.left")
+                                    Label(lang.dayDetail.swipeBack, systemImage: "arrow.left")
                                 }
                                 .tint(.orange)
                             }
@@ -140,7 +141,7 @@ struct DayDetailView: View {
             } label: {
                 HStack {
                     Image(systemName: "plus")
-                    Text("Aggiungi attività")
+                    Text(lang.dayDetail.addActivity)
                         .font(.dmSans(15, weight: .semibold))
                 }
                 .foregroundStyle(.white)
@@ -166,23 +167,23 @@ struct DayDetailView: View {
     private var rescheduleSheet: some View {
         NavigationStack {
             Form {
-                Section("Sposta attività") {
-                    DatePicker("Nuova data", selection: $rescheduleDate, displayedComponents: .date)
+                Section(lang.dayDetail.rescheduleSection) {
+                    DatePicker(lang.dayDetail.newDateLabel, selection: $rescheduleDate, displayedComponents: .date)
                 }
                 Section {
                     Button(action: confirmReschedule) {
-                        Text("Conferma spostamento")
+                        Text(lang.dayDetail.rescheduleConfirm)
                             .frame(maxWidth: .infinity)
                             .fontWeight(.semibold)
                     }
                     .buttonStyle(.borderedProminent)
                 }
             }
-            .navigationTitle("Reschedule")
+            .navigationTitle(lang.dayDetail.rescheduleTitle)
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 ToolbarItem(placement: .topBarLeading) {
-                    Button("Annulla") { showReschedulePicker = false }
+                    Button(lang.common.cancel) { showReschedulePicker = false }
                 }
             }
         }
@@ -191,7 +192,7 @@ struct DayDetailView: View {
 
     private var dateHeaderString: String {
         let f = DateFormatter()
-        f.locale = Locale(identifier: "it_IT")
+        f.locale = Locale(identifier: lang.dayDetail.dateLocale)
         f.dateFormat = "EEE · d MMMM yyyy"
         return f.string(from: selectedDate).uppercased()
     }
@@ -453,5 +454,6 @@ struct DayActivityRow: View {
     NavigationStack {
         DayDetailView(selectedDate: Date(), activities: [])
             .environment(SupabaseRepository.shared)
+            .environment(LanguageManager.shared)
     }
 }
