@@ -5,6 +5,7 @@ import SwiftUI
 struct SettingsView: View {
     @Environment(SupabaseRepository.self) private var repository
     @Environment(AuthManager.self) private var authManager
+    @Environment(LanguageManager.self) private var lang
 
     // Profilo
     @State private var email = ""
@@ -39,7 +40,7 @@ struct SettingsView: View {
         NavigationStack {
             Form {
                 // MARK: - Profilo
-                Section(header: sectionHeader("Profilo")) {
+                Section(header: sectionHeader(lang.settings.profileSection)) {
                     HStack {
                         Image(systemName: "person.circle.fill")
                             .font(.title)
@@ -57,15 +58,15 @@ struct SettingsView: View {
                     .listRowBackground(AppTheme.cardBackground)
 
                     Button(role: .destructive, action: { showLogoutConfirm = true }) {
-                        Label("Esci", systemImage: "rectangle.portrait.and.arrow.right")
+                        Label(lang.settings.logoutButton, systemImage: "rectangle.portrait.and.arrow.right")
                             .font(.dmSans(15))
                     }
                     .listRowBackground(AppTheme.cardBackground)
                 }
 
                 // MARK: - Orto Preferito
-                Section(header: sectionHeader("Orto preferito")) {
-                    Picker("Orto predefinito", selection: $preferredGarden) {
+                Section(header: sectionHeader(lang.settings.preferredGardenSection)) {
+                    Picker(lang.settings.defaultGardenPicker, selection: $preferredGarden) {
                         ForEach(gardenOptions, id: \.self) { option in
                             Text(option).tag(option)
                         }
@@ -77,15 +78,15 @@ struct SettingsView: View {
 
                 // MARK: - Meteo
                 Section(
-                    header: sectionHeader("Meteo"),
-                    footer: Text("La soglia di pioggia determina quando mostrare l'icona della pioggia nel calendario.")
+                    header: sectionHeader(lang.settings.weatherSection),
+                    footer: Text(lang.settings.rainFooter)
                         .font(.dmSans(12))
                         .foregroundStyle(AppTheme.textSecondary)
                 ) {
                     HStack {
                         Image(systemName: "mappin")
                             .foregroundStyle(AppTheme.textSecondary)
-                        TextField("Luogo (es. Roma)", text: $weatherLocation)
+                        TextField(lang.settings.weatherPlaceholder, text: $weatherLocation)
                             .autocorrectionDisabled()
                             .font(.dmSans(15))
                     }
@@ -95,7 +96,7 @@ struct SettingsView: View {
                         HStack {
                             Image(systemName: "drop.fill")
                                 .foregroundStyle(AppTheme.rainBlue)
-                            Text("Soglia pioggia: \(rainThreshold, specifier: "%.0f") mm")
+                            Text(String(format: lang.settings.rainThresholdLabel, rainThreshold))
                                 .font(.dmSans(15))
                         }
 
@@ -117,13 +118,13 @@ struct SettingsView: View {
 
                 // MARK: - Notifiche
                 Section(
-                    header: sectionHeader("Notifiche"),
-                    footer: Text("Ricevi ogni mattina un promemoria con le attività del giorno.")
+                    header: sectionHeader(lang.settings.notificationsSection),
+                    footer: Text(lang.settings.notifFooter)
                         .font(.dmSans(12))
                         .foregroundStyle(AppTheme.textSecondary)
                 ) {
                     Toggle(isOn: $notificationsEnabled) {
-                        Label("Promemoria giornaliero", systemImage: "bell.badge")
+                        Label(lang.settings.dailyReminderToggle, systemImage: "bell.badge")
                             .font(.dmSans(15))
                     }
                     .listRowBackground(AppTheme.cardBackground)
@@ -144,7 +145,7 @@ struct SettingsView: View {
                     }
 
                     if notificationsEnabled {
-                        Picker("Ora del promemoria", selection: $notificationHour) {
+                        Picker(lang.settings.reminderHourPicker, selection: $notificationHour) {
                             ForEach(5..<13, id: \.self) { h in
                                 Text(String(format: "%02d:00", h)).tag(h)
                             }
@@ -158,12 +159,27 @@ struct SettingsView: View {
                     }
                 }
 
+                // MARK: - Lingua
+                Section(header: sectionHeader(lang.settings.languageSection)) {
+                    Picker(lang.settings.languagePickerLabel, selection: Binding(
+                        get: { LanguageManager.shared.language },
+                        set: { LanguageManager.shared.language = $0 }
+                    )) {
+                        ForEach(AppLanguage.allCases, id: \.self) { l in
+                            Text(l.displayName).tag(l)
+                        }
+                    }
+                    .pickerStyle(.menu)
+                    .font(.dmSans(15))
+                    .listRowBackground(AppTheme.cardBackground)
+                }
+
                 // MARK: - Aspetto
-                Section(header: sectionHeader("Aspetto")) {
-                    Picker("Tema", selection: $selectedTheme) {
-                        Text("🌞 Chiaro").tag(ThemeMode.light)
-                        Text("🌙 Scuro").tag(ThemeMode.dark)
-                        Text("🔄 Automatico").tag(ThemeMode.automatic)
+                Section(header: sectionHeader(lang.settings.appearanceSection)) {
+                    Picker(lang.settings.themePicker, selection: $selectedTheme) {
+                        Text(lang.settings.themeLight).tag(ThemeMode.light)
+                        Text(lang.settings.themeDark).tag(ThemeMode.dark)
+                        Text(lang.settings.themeAuto).tag(ThemeMode.automatic)
                     }
                     .pickerStyle(.menu)
                     .font(.dmSans(15))
@@ -171,9 +187,9 @@ struct SettingsView: View {
                 }
 
                 // MARK: - Info App
-                Section(header: sectionHeader("Info")) {
+                Section(header: sectionHeader(lang.settings.infoSection)) {
                     HStack {
-                        Text("Versione")
+                        Text(lang.settings.versionLabel)
                             .font(.dmSans(15))
                             .foregroundStyle(AppTheme.textPrimary)
                         Spacer()
@@ -195,7 +211,7 @@ struct SettingsView: View {
                     .listRowBackground(AppTheme.cardBackground)
 
                     HStack {
-                        Text("Sviluppata con")
+                        Text(lang.settings.builtWithLabel)
                             .font(.dmSans(15))
                             .foregroundStyle(AppTheme.textPrimary)
                         Spacer()
@@ -209,47 +225,47 @@ struct SettingsView: View {
                 // MARK: - Elimina account
                 Section {
                     Button(role: .destructive, action: { showDeleteConfirm = true }) {
-                        Label("Elimina account", systemImage: "trash")
+                        Label(lang.settings.deleteAccountButton, systemImage: "trash")
                             .font(.dmSans(15))
                             .frame(maxWidth: .infinity)
                     }
                     .listRowBackground(AppTheme.cardBackground)
                 } footer: {
-                    Text("L'eliminazione dell'account cancellerà tutti i tuoi dati. Questa azione è irreversibile.")
+                    Text(lang.settings.deleteAccountFooter)
                         .font(.dmSans(12))
                         .foregroundStyle(AppTheme.textSecondary)
                 }
             }
             .scrollContentBackground(.hidden)
             .background(AppTheme.backgroundCream)
-            .navigationTitle("Impostazioni")
-            .alert("Esci dall'account", isPresented: $showLogoutConfirm) {
-                Button("Esci", role: .destructive) {
+            .navigationTitle(lang.settings.navTitle)
+            .alert(lang.settings.logoutConfirmTitle, isPresented: $showLogoutConfirm) {
+                Button(lang.settings.logoutButton, role: .destructive) {
                     Task { await authManager.signOut() }
                 }
-                Button("Annulla", role: .cancel) {}
+                Button(lang.common.cancel, role: .cancel) {}
             } message: {
-                Text("Sei sicuro di voler uscire? Dovrai accedere nuovamente per usare l'app.")
+                Text(lang.settings.logoutConfirmMsg)
             }
-            .alert("Elimina account", isPresented: $showDeleteConfirm) {
-                TextField("Scrivi 'ELIMINA' per confermare", text: $deleteConfirmText)
-                Button("Elimina definitivamente", role: .destructive) {
+            .alert(lang.settings.deleteConfirmTitle, isPresented: $showDeleteConfirm) {
+                TextField(lang.settings.deleteConfirmPlaceholder, text: $deleteConfirmText)
+                Button(lang.settings.deleteConfirmButton, role: .destructive) {
                     showDeleted = true
                 }
-                .disabled(deleteConfirmText != "ELIMINA")
-                Button("Annulla", role: .cancel) {}
+                .disabled(deleteConfirmText != lang.settings.deleteConfirmKeyword)
+                Button(lang.common.cancel, role: .cancel) {}
             } message: {
-                Text("Questa azione è irreversibile. Tutti i tuoi dati verranno cancellati permanentemente.")
+                Text(lang.settings.deleteConfirmMsg)
             }
-            .alert("Notifiche disattivate", isPresented: $showNotificationsDenied) {
-                Button("OK", role: .cancel) {}
+            .alert(lang.settings.notifDeniedTitle, isPresented: $showNotificationsDenied) {
+                Button(lang.common.ok, role: .cancel) {}
             } message: {
-                Text("Abilita le notifiche per Garden Calendar in Impostazioni di iOS per ricevere i promemoria.")
+                Text(lang.settings.notifDeniedMsg)
             }
-            .alert("Account eliminato", isPresented: $showDeleted) {
-                Button("OK", role: .cancel) {}
+            .alert(lang.settings.deletedTitle, isPresented: $showDeleted) {
+                Button(lang.common.ok, role: .cancel) {}
             } message: {
-                Text("Il tuo account e tutti i dati associati sono stati eliminati.")
+                Text(lang.settings.deletedMsg)
             }
             .onAppear {
                 loadSettings()
@@ -294,4 +310,6 @@ enum ThemeMode: String, CaseIterable {
 #Preview {
     SettingsView()
         .environment(SupabaseRepository.shared)
+        .environment(AuthManager.shared)
+        .environment(LanguageManager.shared)
 }
