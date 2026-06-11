@@ -41,7 +41,7 @@ struct OrtoDetailView: View {
                             .foregroundStyle(AppTheme.textSecondary)
                     }
 
-                    Label("\(piante.count) piante", systemImage: "leaf")
+                    Label(String(format: lang.garden.plantsCountFormat, piante.count), systemImage: "leaf")
                         .font(.dmSans(12))
                         .foregroundStyle(AppTheme.textSecondary)
                         .padding(.top, 4)

@@ -25,7 +25,7 @@ enum AppLanguage: String, CaseIterable {
 
 struct Strings {
     struct Common {
-        let cancel, save, confirm, delete, edit, add, error, ok, next, retry: String
+        let cancel, save, confirm, delete, edit, add, error, ok, next, retry, loading: String
     }
 
     struct Auth {
@@ -212,6 +212,7 @@ struct Strings {
         let addPlantButton: String
         let editButton: String
         let newOrtoNavTitle: String
+        let plantsCountFormat: String
     }
 
     struct JournalStrings {
@@ -262,7 +263,8 @@ extension Strings {
         common: Common(
             cancel: "Annulla", save: "Salva", confirm: "Conferma",
             delete: "Elimina", edit: "Modifica", add: "Aggiungi",
-            error: "Errore", ok: "OK", next: "Avanti", retry: "Riprova"
+            error: "Errore", ok: "OK", next: "Avanti", retry: "Riprova",
+            loading: "Caricamento…"
         ),
         auth: Auth(
             appSubtitle: "Il tuo diario di giardinaggio intelligente",
@@ -442,7 +444,8 @@ extension Strings {
             emptyFirstPlant: "Aggiungi la tua prima pianta",
             addPlantButton: "Aggiungi pianta",
             editButton: "Modifica",
-            newOrtoNavTitle: "Nuovo orto"
+            newOrtoNavTitle: "Nuovo orto",
+            plantsCountFormat: "%d piante"
         ),
         journal: JournalStrings(
             navTitle: "Nuovo Journal Entry",
@@ -480,7 +483,8 @@ extension Strings {
         common: Common(
             cancel: "Cancel", save: "Save", confirm: "Confirm",
             delete: "Delete", edit: "Edit", add: "Add",
-            error: "Error", ok: "OK", next: "Next", retry: "Retry"
+            error: "Error", ok: "OK", next: "Next", retry: "Retry",
+            loading: "Loading…"
         ),
         auth: Auth(
             appSubtitle: "Your smart gardening journal",
@@ -660,7 +664,8 @@ extension Strings {
             emptyFirstPlant: "Add your first plant",
             addPlantButton: "Add plant",
             editButton: "Edit",
-            newOrtoNavTitle: "New garden"
+            newOrtoNavTitle: "New garden",
+            plantsCountFormat: "%d plants"
         ),
         journal: JournalStrings(
             navTitle: "New Journal Entry",

@@ -7,7 +7,7 @@ struct ContentView: View {
     var body: some View {
         Group {
             if authManager.isLoading {
-                ProgressView("Caricamento…")
+                ProgressView(lang.common.loading)
                     .progressViewStyle(.circular)
             } else if !authManager.isAuthenticated {
                 LoginView()
