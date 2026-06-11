@@ -2,6 +2,7 @@ import SwiftUI
 
 struct ContentView: View {
     @Environment(AuthManager.self) private var authManager
+    @Environment(LanguageManager.self) private var lang
 
     var body: some View {
         Group {
@@ -24,17 +25,17 @@ struct ContentView: View {
         TabView {
             CalendarGridView()
                 .tabItem {
-                    Label("Calendario", systemImage: "calendar")
+                    Label(lang.tabs.calendar, systemImage: "calendar")
                 }
 
             OrtoListView()
                 .tabItem {
-                    Label("Orti", systemImage: "leaf")
+                    Label(lang.tabs.gardens, systemImage: "leaf")
                 }
 
             SettingsView()
                 .tabItem {
-                    Label("Impostazioni", systemImage: "gearshape")
+                    Label(lang.tabs.settings, systemImage: "gearshape")
                 }
         }
         .tint(AppTheme.primaryGreen)

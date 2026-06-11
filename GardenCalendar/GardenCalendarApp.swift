@@ -4,12 +4,14 @@ import SwiftUI
 struct GardenCalendarApp: App {
     @State private var authManager = AuthManager.shared
     @State private var repository = SupabaseRepository.shared
+    @State private var langManager = LanguageManager.shared
 
     var body: some Scene {
         WindowGroup {
             ContentView()
                 .environment(authManager)
                 .environment(repository)
+                .environment(langManager)
                 .onAppear {
                     Task {
                         await authManager.checkSession()
