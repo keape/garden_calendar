@@ -3,6 +3,7 @@ import SwiftUI
 /// Schermata di registrazione con validazione email, password match e conferma.
 struct SignUpView: View {
     @Environment(AuthManager.self) private var authManager
+    @Environment(LanguageManager.self) private var lang
     @Environment(\.dismiss) private var dismiss
 
     @State private var email = ""
@@ -42,7 +43,7 @@ struct SignUpView: View {
                         .font(.system(size: 56))
                         .foregroundStyle(AppTheme.primaryGreen)
 
-                    Text("Crea il tuo account")
+                    Text(lang.auth.signUpTitle)
                         .font(.lora(28))
                         .foregroundStyle(AppTheme.textPrimary)
 
@@ -59,7 +60,7 @@ struct SignUpView: View {
                                 .overlay(RoundedRectangle(cornerRadius: 12).stroke(AppTheme.cardSecondaryWarm, lineWidth: 1))
 
                             if !email.isEmpty && !isValidEmail {
-                                Text("Inserisci un indirizzo email valido")
+                                Text(lang.auth.emailInvalidError)
                                     .font(.caption)
                                     .foregroundStyle(.red)
                                     .padding(.leading, 4)
@@ -75,7 +76,7 @@ struct SignUpView: View {
                                 .overlay(RoundedRectangle(cornerRadius: 12).stroke(AppTheme.cardSecondaryWarm, lineWidth: 1))
 
                             if !password.isEmpty && !passwordValid {
-                                Text("Minimo 6 caratteri")
+                                Text(lang.auth.passwordMinError)
                                     .font(.caption)
                                     .foregroundStyle(.red)
                                     .padding(.leading, 4)
@@ -83,7 +84,7 @@ struct SignUpView: View {
                         }
 
                         VStack(alignment: .leading, spacing: 4) {
-                            SecureField("Conferma password", text: $confirmPassword)
+                            SecureField(lang.auth.confirmPasswordPlaceholder, text: $confirmPassword)
                                 .textContentType(.newPassword)
                                 .padding()
                                 .background(AppTheme.cardBackground)
@@ -91,7 +92,7 @@ struct SignUpView: View {
                                 .overlay(RoundedRectangle(cornerRadius: 12).stroke(AppTheme.cardSecondaryWarm, lineWidth: 1))
 
                             if !confirmPassword.isEmpty && !passwordsMatch {
-                                Text("Le password non coincidono")
+                                Text(lang.auth.passwordMatchError)
                                     .font(.caption)
                                     .foregroundStyle(.red)
                                     .padding(.leading, 4)
@@ -105,7 +106,7 @@ struct SignUpView: View {
                                 ProgressView()
                                     .tint(.white)
                             } else {
-                                Text("Registrati")
+                                Text(lang.auth.signUpButton)
                                     .fontWeight(.semibold)
                             }
                         }
@@ -118,7 +119,7 @@ struct SignUpView: View {
                     .disabled(!canSubmit)
 
                     Button(action: { dismiss() }) {
-                        Text("Hai già un account? **Accedi**")
+                        Text(.init(lang.auth.loginLink))
                             .font(.dmSans(14))
                             .foregroundStyle(AppTheme.primaryGreen)
                     }
@@ -128,17 +129,17 @@ struct SignUpView: View {
                 .padding(.horizontal, 24)
             }
         }
-        .navigationTitle("Registrazione")
+        .navigationTitle(lang.auth.signUpNavTitle)
         .navigationBarTitleDisplayMode(.inline)
-        .alert("Errore", isPresented: $showError) {
-            Button("OK", role: .cancel) {}
+        .alert(lang.auth.errorTitle, isPresented: $showError) {
+            Button(lang.common.ok, role: .cancel) {}
         } message: {
-            Text(errorMessage ?? "Si è verificato un errore.")
+            Text(errorMessage ?? lang.auth.errorUnknown)
         }
-        .alert("Registrazione completata", isPresented: $showSuccess) {
-            Button("OK", role: .cancel) { dismiss() }
+        .alert(lang.auth.registrationSuccessTitle, isPresented: $showSuccess) {
+            Button(lang.common.ok, role: .cancel) { dismiss() }
         } message: {
-            Text("Account creato con successo. Benvenuto!")
+            Text(lang.auth.registrationSuccessMessage)
         }
     }
 
@@ -159,5 +160,6 @@ struct SignUpView: View {
     NavigationStack {
         SignUpView()
             .environment(AuthManager.shared)
+            .environment(LanguageManager.shared)
     }
 }

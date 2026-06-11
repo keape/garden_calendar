@@ -3,6 +3,7 @@ import SwiftUI
 /// Schermata di login con email/password, link registrazione, reset password e Apple Sign-In.
 struct LoginView: View {
     @Environment(AuthManager.self) private var authManager
+    @Environment(LanguageManager.self) private var lang
     @State private var email = ""
     @State private var password = ""
     @State private var showSignUp = false
@@ -31,7 +32,7 @@ struct LoginView: View {
                             .font(.lora(28))
                             .foregroundStyle(AppTheme.textPrimary)
 
-                        Text("Il tuo diario di giardinaggio intelligente")
+                        Text(lang.auth.appSubtitle)
                             .font(.dmSans(14))
                             .foregroundStyle(AppTheme.textSecondary)
 
@@ -39,7 +40,7 @@ struct LoginView: View {
 
                         // Card login
                         VStack(spacing: 16) {
-                            Text("Accedi")
+                            Text(lang.auth.loginCardTitle)
                                 .font(.dmSans(18, weight: .semibold))
                                 .foregroundStyle(AppTheme.textPrimary)
                                 .frame(maxWidth: .infinity, alignment: .leading)
@@ -70,7 +71,7 @@ struct LoginView: View {
                                         ProgressView()
                                             .tint(.white)
                                     } else {
-                                        Text("Accedi")
+                                        Text(lang.auth.loginButton)
                                             .fontWeight(.semibold)
                                     }
                                 }
@@ -84,14 +85,14 @@ struct LoginView: View {
 
                             // Link registrati
                             Button(action: { showSignUp = true }) {
-                                Text("Non hai un account? **Registrati**")
+                                Text(.init(lang.auth.signUpLink))
                                     .font(.dmSans(14))
                                     .foregroundStyle(AppTheme.primaryGreen)
                             }
 
                             // Link password dimenticata
                             Button(action: { showResetPassword = true }) {
-                                Text("Password dimenticata?")
+                                Text(lang.auth.forgotPassword)
                                     .font(.dmSans(14))
                                     .foregroundStyle(AppTheme.textSecondary)
                             }
@@ -105,14 +106,14 @@ struct LoginView: View {
                         // Separatore
                         HStack {
                             Rectangle().frame(height: 1).foregroundStyle(.secondary.opacity(0.3))
-                            Text("oppure").font(.caption).foregroundStyle(.secondary)
+                            Text(lang.auth.orSeparator).font(.caption).foregroundStyle(.secondary)
                             Rectangle().frame(height: 1).foregroundStyle(.secondary.opacity(0.3))
                         }
                         .padding(.horizontal, 40)
 
                         // Apple Sign-In button
                         Button(action: performAppleSignIn) {
-                            Label("Accedi con Apple", systemImage: "applelogo")
+                            Label(lang.auth.appleSignIn, systemImage: "applelogo")
                                 .fontWeight(.semibold)
                                 .frame(maxWidth: .infinity)
                                 .padding(.vertical, 14)
@@ -129,11 +130,11 @@ struct LoginView: View {
             .navigationDestination(isPresented: $showSignUp) {
                 SignUpView()
             }
-            .alert("Password dimenticata", isPresented: $showResetPassword) {
-                TextField("Inserisci la tua email", text: $resetEmail)
+            .alert(lang.auth.resetTitle, isPresented: $showResetPassword) {
+                TextField(lang.auth.resetEmailPlaceholder, text: $resetEmail)
                     .keyboardType(.emailAddress)
                     .autocapitalization(.none)
-                Button("Invia") {
+                Button(lang.auth.resetButton) {
                     Task {
                         do {
                             try await authManager.resetPassword(email: resetEmail)
@@ -144,19 +145,19 @@ struct LoginView: View {
                         }
                     }
                 }
-                Button("Annulla", role: .cancel) {}
+                Button(lang.common.cancel, role: .cancel) {}
             } message: {
-                Text("Riceverai un'email per reimpostare la password.")
+                Text(lang.auth.resetMessage)
             }
-            .alert("Errore", isPresented: $showError) {
-                Button("OK", role: .cancel) {}
+            .alert(lang.auth.errorTitle, isPresented: $showError) {
+                Button(lang.common.ok, role: .cancel) {}
             } message: {
-                Text(errorMessage ?? "Si è verificato un errore sconosciuto.")
+                Text(errorMessage ?? lang.auth.errorUnknown)
             }
-            .alert("Email inviata", isPresented: $resetSent) {
-                Button("OK", role: .cancel) {}
+            .alert(lang.auth.resetSentTitle, isPresented: $resetSent) {
+                Button(lang.common.ok, role: .cancel) {}
             } message: {
-                Text("Controlla la tua casella di posta per reimpostare la password.")
+                Text(lang.auth.resetSentMessage)
             }
         }
     }
@@ -181,7 +182,7 @@ struct LoginView: View {
     private func performAppleSignIn() {
         // Apple Sign-In would be integrated via AuthenticationServices
         // For now, this is a placeholder
-        errorMessage = "Apple Sign-In sarà disponibile a breve."
+        errorMessage = lang.auth.appleSignInComingSoon
         showError = true
     }
 }
@@ -189,4 +190,5 @@ struct LoginView: View {
 #Preview {
     LoginView()
         .environment(AuthManager.shared)
+        .environment(LanguageManager.shared)
 }
