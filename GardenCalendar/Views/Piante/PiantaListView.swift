@@ -3,6 +3,7 @@ import SwiftUI
 struct PiantaListView: View {
     @Environment(SupabaseRepository.self) private var repository
     @Environment(AuthManager.self) private var authManager
+    @Environment(LanguageManager.self) private var lang
 
     @State private var piante: [PiantaColtivata] = []
     @State private var searchText = ""
@@ -23,7 +24,7 @@ struct PiantaListView: View {
                 HStack {
                     Image(systemName: "magnifyingglass")
                         .foregroundStyle(.secondary)
-                    TextField("Cerca piante...", text: $searchText)
+                    TextField(lang.plants.searchPlaceholder, text: $searchText)
                         .autocorrectionDisabled()
                     if !searchText.isEmpty {
                         Button(action: { searchText = "" }) {
@@ -57,7 +58,7 @@ struct PiantaListView: View {
                 }
             }
             .background(AppTheme.backgroundCream)
-            .navigationTitle("Piante")
+            .navigationTitle(lang.plants.navTitle)
             .navigationDestination(for: PiantaColtivata.self) { pianta in
                 PiantaDetailView(pianta: pianta)
             }
@@ -77,12 +78,12 @@ struct PiantaListView: View {
 
     private var emptyState: some View {
         ContentUnavailableView {
-            Label("Nessuna pianta trovata", systemImage: "leaf")
+            Label(lang.plants.emptyTitle, systemImage: "leaf")
         } description: {
-            Text("Aggiungi la tua prima pianta per iniziare a tracciarla.")
+            Text(lang.plants.emptyDesc)
         } actions: {
             NavigationLink(destination: AggiungiPiantaView()) {
-                Label("Aggiungi pianta", systemImage: "plus")
+                Label(lang.plants.addPlantButton, systemImage: "plus")
                     .fontWeight(.semibold)
             }
             .buttonStyle(.borderedProminent)
@@ -102,6 +103,7 @@ struct PiantaListView: View {
 
 struct PiantaCardView: View {
     let pianta: PiantaColtivata
+    @Environment(LanguageManager.self) private var lang
 
     var body: some View {
         VStack(spacing: 12) {
@@ -127,7 +129,7 @@ struct PiantaCardView: View {
                     .foregroundStyle(AppTheme.textPrimary)
                     .lineLimit(1)
 
-                Text("\(pianta.growthDays) giorni totali")
+                Text(String(format: lang.plants.totalDaysFormat, pianta.growthDays))
                     .font(.dmSans(12))
                     .foregroundStyle(AppTheme.textSecondary)
 
@@ -151,4 +153,5 @@ struct PiantaCardView: View {
     PiantaListView()
         .environment(SupabaseRepository.shared)
         .environment(AuthManager.shared)
+        .environment(LanguageManager.shared)
 }

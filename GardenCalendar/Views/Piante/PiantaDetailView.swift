@@ -3,6 +3,7 @@ import SwiftUI
 struct PiantaDetailView: View {
     @State private var pianta: PiantaColtivata
     @Environment(SupabaseRepository.self) private var repository
+    @Environment(LanguageManager.self) private var lang
     @State private var attivita: [Attivita] = []
     @State private var attivitaSelezionata: Attivita?
     @State private var showNuovaAttivita = false
@@ -36,7 +37,7 @@ struct PiantaDetailView: View {
         .navigationBarTitleDisplayMode(.large)
         .toolbar {
             ToolbarItem(placement: .topBarTrailing) {
-                Button("Modifica") { showModificaAttivita = true }
+                Button(lang.plants.editButton) { showModificaAttivita = true }
             }
         }
         .task { await loadData() }
@@ -84,7 +85,7 @@ struct PiantaDetailView: View {
                     .font(.dmSans(15, weight: .medium))
                     .foregroundStyle(AppTheme.textSecondary)
 
-                Label("\(attivita.count) attività", systemImage: "checklist")
+                Label(String(format: lang.plants.activitiesCountFormat, attivita.count), systemImage: "checklist")
                     .font(.dmSans(15, weight: .medium))
                     .foregroundStyle(AppTheme.textSecondary)
             }
@@ -104,7 +105,7 @@ struct PiantaDetailView: View {
                     .font(.dmSans(12))
                     .foregroundStyle(AppTheme.textSecondary)
                 Spacer()
-                Text(pianta.progressoCiclo >= 1.0 ? "Completato! 🎉" : "\(Int(pianta.progressoCiclo * 100))%")
+                Text(pianta.progressoCiclo >= 1.0 ? lang.plants.completedLabel : "\(Int(pianta.progressoCiclo * 100))%")
                     .font(.dmSans(12, weight: .semibold))
                     .foregroundStyle(AppTheme.primaryGreen)
                 Spacer()
@@ -124,7 +125,7 @@ struct PiantaDetailView: View {
     private var activitiesSection: some View {
         VStack(alignment: .leading, spacing: 12) {
             HStack {
-                Text("📋 Attività")
+                Text(lang.plants.activitiesSectionTitle)
                     .font(.dmSans(15, weight: .semibold))
                     .foregroundStyle(AppTheme.textPrimary)
                 Spacer()
@@ -134,7 +135,7 @@ struct PiantaDetailView: View {
             }
 
             if attivita.isEmpty {
-                Text("Nessuna attività registrata per questa pianta.")
+                Text(lang.plants.noActivitiesPlant)
                     .font(.dmSans(15))
                     .foregroundStyle(AppTheme.textSecondary)
                     .padding(.vertical, 8)
@@ -145,7 +146,7 @@ struct PiantaDetailView: View {
             let past = attivita.filter { $0.done || $0.data < today }
 
             if !future.isEmpty {
-                Text("In programma")
+                Text(lang.plants.scheduledSection)
                     .font(.dmSans(12, weight: .semibold))
                     .foregroundStyle(AppTheme.primaryGreen)
 
@@ -159,7 +160,7 @@ struct PiantaDetailView: View {
             }
 
             if !past.isEmpty {
-                Text("Completate / Passate")
+                Text(lang.plants.pastSection)
                     .font(.dmSans(12, weight: .semibold))
                     .foregroundStyle(AppTheme.textSecondary)
 
@@ -183,7 +184,7 @@ struct PiantaDetailView: View {
     private var raccoltiSection: some View {
         VStack(alignment: .leading, spacing: 12) {
             HStack {
-                Text("🧺 Raccolti")
+                Text(lang.plants.harvestSectionTitle)
                     .font(.dmSans(15, weight: .semibold))
                     .foregroundStyle(AppTheme.textPrimary)
                 Spacer()
@@ -193,7 +194,7 @@ struct PiantaDetailView: View {
             }
 
             if raccolti.isEmpty {
-                Text("Nessun raccolto registrato. Tocca + per annotare il primo!")
+                Text(lang.plants.noHarvests)
                     .font(.dmSans(15))
                     .foregroundStyle(AppTheme.textSecondary)
                     .padding(.vertical, 8)
@@ -273,6 +274,7 @@ struct AttivitaRow: View {
     let attivita: Attivita
     let onToggle: () -> Void
     let onInfo: () -> Void
+    @Environment(LanguageManager.self) private var lang
 
     var body: some View {
         HStack(spacing: 12) {
@@ -296,7 +298,7 @@ struct AttivitaRow: View {
                     .foregroundStyle(AppTheme.textSecondary)
 
                 if attivita.recurrenceDays != nil {
-                    Label("Ricorrente", systemImage: "repeat")
+                    Label(lang.plants.recurringLabel, systemImage: "repeat")
                         .font(.dmSans(12))
                         .foregroundStyle(AppTheme.textSecondary)
                 }
@@ -362,6 +364,7 @@ struct NuovoRaccoltoSheet: View {
     let pianta: PiantaColtivata
     @Environment(SupabaseRepository.self) private var repository
     @Environment(\.dismiss) private var dismiss
+    @Environment(LanguageManager.self) private var lang
 
     @State private var data = Date()
     @State private var quantita: Double = 1
@@ -376,42 +379,42 @@ struct NuovoRaccoltoSheet: View {
         NavigationStack {
             Form {
                 Section {
-                    DatePicker("Data", selection: $data, in: ...Date(), displayedComponents: .date)
+                    DatePicker(lang.plants.datePicker, selection: $data, in: ...Date(), displayedComponents: .date)
                         .font(.dmSans(15))
 
                     HStack {
-                        Text("Quantità")
+                        Text(lang.plants.quantityLabel)
                             .font(.dmSans(15))
                         Spacer()
-                        TextField("Quantità", value: $quantita, format: .number.precision(.fractionLength(0...2)))
+                        TextField(lang.plants.quantityPlaceholder, value: $quantita, format: .number.precision(.fractionLength(0...2)))
                             .keyboardType(.decimalPad)
                             .multilineTextAlignment(.trailing)
                             .frame(width: 80)
                             .font(.dmSans(15))
                     }
 
-                    Picker("Unità", selection: $unita) {
+                    Picker(lang.plants.unitPicker, selection: $unita) {
                         ForEach(unitaOptions, id: \.self) { Text($0) }
                     }
                     .font(.dmSans(15))
 
-                    TextField("Note (facoltative)", text: $note, axis: .vertical)
+                    TextField(lang.plants.optionalNotesPlaceholder, text: $note, axis: .vertical)
                         .font(.dmSans(15))
                 } footer: {
                     if saveFailed {
-                        Text("Salvataggio non riuscito. Controlla la connessione e riprova.")
+                        Text(lang.plants.saveFailedMsg)
                             .foregroundStyle(.red)
                     }
                 }
             }
-            .navigationTitle("Nuovo raccolto")
+            .navigationTitle(lang.plants.newHarvestNavTitle)
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 ToolbarItem(placement: .cancellationAction) {
-                    Button("Annulla") { dismiss() }
+                    Button(lang.common.cancel) { dismiss() }
                 }
                 ToolbarItem(placement: .confirmationAction) {
-                    Button("Salva") { save() }
+                    Button(lang.common.save) { save() }
                         .disabled(quantita <= 0 || isSaving)
                 }
             }
@@ -455,5 +458,6 @@ struct NuovoRaccoltoSheet: View {
             updatedAt: Date()
         ))
         .environment(SupabaseRepository.shared)
+        .environment(LanguageManager.shared)
     }
 }
