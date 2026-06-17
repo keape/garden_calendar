@@ -1,106 +1,114 @@
 import SwiftUI
+import UIKit
 
 // MARK: - App Theme
 
-/// Centralized color palette for Garden Calendar.
-/// All colors are defined once here and accessed via `AppTheme.*` or the `Color` extension.
 enum AppTheme {
+
+    // MARK: - Helper
+
+    /// Wraps two RGB triples into a UIColor-backed adaptive Color.
+    private static func adaptive(
+        _ lr: CGFloat, _ lg: CGFloat, _ lb: CGFloat,
+        dark dr: CGFloat, _ dg: CGFloat, _ db: CGFloat
+    ) -> Color {
+        Color(UIColor { tc in
+            tc.userInterfaceStyle == .dark
+                ? UIColor(red: dr, green: dg, blue: db, alpha: 1)
+                : UIColor(red: lr, green: lg, blue: lb, alpha: 1)
+        })
+    }
+
     // MARK: Brand
 
-    /// Primary green — used for navigation, buttons, selected tabs.
-    static let primaryGreen = Color(red: 0.18, green: 0.55, blue: 0.28)
+    static let primaryGreen = adaptive(
+        0.18, 0.55, 0.28,
+        dark: 0.24, 0.70, 0.41
+    )
 
-    /// Warm amber accent — used for journal entries, highlights.
     static let accentAmbra = Color(red: 1.0, green: 0.76, blue: 0.03)
 
-    // MARK: Activity Colors
+    // MARK: Activity Colors (fixed – coloured indicators, not text-on-bg)
 
-    /// Green — piantare / seminare.
-    static let activityGreen = Color(red: 0.18, green: 0.62, blue: 0.30)
-
-    /// Orange — raccogliere / trapiantare.
-    static let activityOrange = Color(red: 1.0, green: 0.55, blue: 0.15)
-
-    /// Blue — irrigazione / manutenzione.
-    static let activityBlue = Color(red: 0.12, green: 0.51, blue: 0.84)
-
-    /// Red — emergenze / fitosanitario.
-    static let activityRed = Color(red: 0.82, green: 0.18, blue: 0.18)
-
-    /// Gray — attività completate / neutrali.
-    static let activityGray = Color(red: 0.55, green: 0.55, blue: 0.58)
-
-    /// Purple — promemoria / note personali.
+    static let activityGreen  = Color(red: 0.18, green: 0.62, blue: 0.30)
+    static let activityOrange = Color(red: 1.00, green: 0.55, blue: 0.15)
+    static let activityBlue   = Color(red: 0.12, green: 0.51, blue: 0.84)
+    static let activityRed    = Color(red: 0.82, green: 0.18, blue: 0.18)
+    static let activityGray   = Color(red: 0.55, green: 0.55, blue: 0.58)
     static let activityPurple = Color(red: 0.55, green: 0.30, blue: 0.80)
 
     // MARK: Weather & Nature
 
-    /// Rain blue — pioggia / irrigazione.
     static let rainBlue = Color(red: 0.20, green: 0.47, blue: 0.73)
 
     // MARK: Surfaces
 
-    /// Card and input background.
-    static let cardBackground = Color.white
+    /// Card / input background.
+    static let cardBackground = adaptive(
+        1.000, 1.000, 1.000,
+        dark: 0.118, 0.129, 0.098
+    )
 
-    /// Secondary card / login screen background.
+    /// Secondary card – already system-adaptive.
     static let cardSecondary = Color(.systemGray5)
 
-    // MARK: Naturalista Surfaces
+    /// Main app background.
+    static let backgroundCream = adaptive(
+        0.973, 0.949, 0.910,          // warm cream  #F8F2E8
+        dark: 0.102, 0.110, 0.086     // dark olive  #1A1C16
+    )
 
-    /// Warm cream background — main app background.
-    static let backgroundCream = Color(red: 0.973, green: 0.949, blue: 0.910)
+    /// Calendar area / segmented bg.
+    static let cardSecondaryWarm = adaptive(
+        0.933, 0.910, 0.863,          // #EDE8DC
+        dark: 0.133, 0.145, 0.110     // #22251C
+    )
 
-    /// Warm secondary surface — calendar area, segmented bg.
-    static let cardSecondaryWarm = Color(red: 0.933, green: 0.910, blue: 0.863)
+    // MARK: Text
+    //
+    // Light contrast targets (on backgroundCream):
+    //   textPrimary   ~10:1  ✓
+    //   textSecondary  ~7.5:1 ✓  (was 4.5:1)
+    //
+    // Dark contrast targets (on dark backgroundCream):
+    //   textPrimary   ~11:1  ✓
+    //   textSecondary  ~5.8:1 ✓
 
-    // MARK: Naturalista Text
+    static let textPrimary = adaptive(
+        0.102, 0.227, 0.102,           // deep botanical green
+        dark: 0.780, 0.878, 0.686      // light sage
+    )
 
-    /// Deep botanical green — primary text.
-    static let textPrimary = Color(red: 0.102, green: 0.227, blue: 0.102)
+    static let textSecondary = adaptive(
+        0.280, 0.320, 0.180,           // dark olive (was 0.420, 0.420, 0.290)
+        dark: 0.561, 0.659, 0.439      // medium sage
+    )
 
-    /// Warm olive — secondary text.
-    static let textSecondary = Color(red: 0.420, green: 0.420, blue: 0.290)
+    // MARK: CTA
 
-    // MARK: Naturalista CTA
-
-    /// Dark forest green — full-width CTA pill.
-    static let ctaDarkGreen = Color(red: 0.180, green: 0.239, blue: 0.180)
+    /// Dark forest green – full-width CTA pill. Always white text on top.
+    static let ctaDarkGreen = adaptive(
+        0.180, 0.239, 0.180,           // #2E3D2E  white text ~12:1
+        dark: 0.227, 0.431, 0.271      // #3A6E45  white text  ~6:1
+    )
 
     // MARK: Activity Color Map
 
-    /// Returns an activity color for a given category string (case-insensitive).
-    /// Falls back to `activityGray` for unknown categories.
     static func colorForActivity(_ category: String) -> Color {
         switch category.lowercased() {
-        // Nomi colore (usati nella legenda)
-        case "verde", "green":
-            return activityGreen
-        case "arancione", "orange":
-            return activityOrange
-        case "blu", "blue":
-            return activityBlue
-        case "rosso", "red":
-            return activityRed
-        case "grigio", "gray":
-            return activityGray
-        case "viola", "purple":
-            return activityPurple
-        // Nomi attività
-        case "piantare", "seminare", "semina", "piantagione":
-            return activityGreen
-        case "raccogliere", "raccolta", "trapiantare", "trapianto":
-            return activityOrange
-        case "irrigazione", "acqua", "bagnare", "manutenzione":
-            return activityBlue
-        case "emergenza", "fitosanitario", "malattia", "parassiti":
-            return activityRed
-        case "completato", "fatto", "neutro":
-            return activityGray
-        case "promemoria", "nota", "personale":
-            return activityPurple
-        default:
-            return activityGray
+        case "verde", "green":                                       return activityGreen
+        case "arancione", "orange":                                  return activityOrange
+        case "blu", "blue":                                          return activityBlue
+        case "rosso", "red":                                         return activityRed
+        case "grigio", "gray":                                       return activityGray
+        case "viola", "purple":                                      return activityPurple
+        case "piantare", "seminare", "semina", "piantagione":        return activityGreen
+        case "raccogliere", "raccolta", "trapiantare", "trapianto":  return activityOrange
+        case "irrigazione", "acqua", "bagnare", "manutenzione":      return activityBlue
+        case "emergenza", "fitosanitario", "malattia", "parassiti":  return activityRed
+        case "completato", "fatto", "neutro":                        return activityGray
+        case "promemoria", "nota", "personale":                      return activityPurple
+        default:                                                     return activityGray
         }
     }
 }
@@ -108,39 +116,17 @@ enum AppTheme {
 // MARK: - Color Extension
 
 extension Color {
-    /// Primary brand green.
-    static let primaryGreen = AppTheme.primaryGreen
-
-    /// Warm amber accent.
-    static let accentAmbra = AppTheme.accentAmbra
-
-    /// Activity green (planting / sowing).
-    static let activityGreen = AppTheme.activityGreen
-
-    /// Activity orange (harvest / transplant).
-    static let activityOrange = AppTheme.activityOrange
-
-    /// Activity blue (watering / maintenance).
-    static let activityBlue = AppTheme.activityBlue
-
-    /// Activity red (emergencies / phytosanitary).
-    static let activityRed = AppTheme.activityRed
-
-    /// Activity gray (completed / neutral).
-    static let activityGray = AppTheme.activityGray
-
-    /// Activity purple (reminders / personal notes).
-    static let activityPurple = AppTheme.activityPurple
-
-    /// Rain / watering blue.
-    static let rainBlue = AppTheme.rainBlue
-
-    /// Card / input background.
-    static let cardBackground = AppTheme.cardBackground
-
-    /// Secondary card / login background.
-    static let cardSecondary = AppTheme.cardSecondary
-
+    static let primaryGreen      = AppTheme.primaryGreen
+    static let accentAmbra       = AppTheme.accentAmbra
+    static let activityGreen     = AppTheme.activityGreen
+    static let activityOrange    = AppTheme.activityOrange
+    static let activityBlue      = AppTheme.activityBlue
+    static let activityRed       = AppTheme.activityRed
+    static let activityGray      = AppTheme.activityGray
+    static let activityPurple    = AppTheme.activityPurple
+    static let rainBlue          = AppTheme.rainBlue
+    static let cardBackground    = AppTheme.cardBackground
+    static let cardSecondary     = AppTheme.cardSecondary
     static let backgroundCream   = AppTheme.backgroundCream
     static let cardSecondaryWarm = AppTheme.cardSecondaryWarm
     static let textPrimary       = AppTheme.textPrimary

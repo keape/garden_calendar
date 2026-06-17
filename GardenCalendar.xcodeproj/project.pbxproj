@@ -47,6 +47,7 @@
 		D10003 /* WidgetDataExporter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D20003 /* WidgetDataExporter.swift */; };
 		D10004 /* WidgetActivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = D20004 /* WidgetActivity.swift */; };
 		D10005 /* Raccolto.swift in Sources */ = {isa = PBXBuildFile; fileRef = D20005 /* Raccolto.swift */; };
+		F10001 /* Strings.swift in Sources */ = {isa = PBXBuildFile; fileRef = F20001 /* Strings.swift */; };
 		E10001 /* GardenCalendarWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = E20001 /* GardenCalendarWidget.swift */; };
 		E10002 /* LocalCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = D20001 /* LocalCache.swift */; };
 		E10003 /* WidgetActivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = D20004 /* WidgetActivity.swift */; };
@@ -96,6 +97,7 @@
 		D20003 /* WidgetDataExporter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetDataExporter.swift; sourceTree = "<group>"; };
 		D20004 /* WidgetActivity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetActivity.swift; sourceTree = "<group>"; };
 		D20005 /* Raccolto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Raccolto.swift; sourceTree = "<group>"; };
+		F20001 /* Strings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Strings.swift; sourceTree = "<group>"; };
 		D20006 /* GardenCalendar.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = GardenCalendar.entitlements; sourceTree = "<group>"; };
 		E20001 /* GardenCalendarWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GardenCalendarWidget.swift; sourceTree = "<group>"; };
 		E20002 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -180,6 +182,7 @@
 				B40004 /* Models */,
 				B40005 /* Services */,
 				B40006 /* Theme */,
+				F40001 /* Localization */,
 				B40007 /* Views */,
 				A20014 /* Assets.xcassets */,
 				A20015 /* LaunchScreen.storyboard */,
@@ -233,6 +236,14 @@
 				B20011 /* AppTheme.swift */,
 			);
 			path = Theme;
+			sourceTree = "<group>";
+		};
+		F40001 /* Localization */ = {
+			isa = PBXGroup;
+			children = (
+				F20001 /* Strings.swift */,
+			);
+			path = Localization;
 			sourceTree = "<group>";
 		};
 		B40007 /* Views */ = {
@@ -481,6 +492,7 @@
 				D10003 /* WidgetDataExporter.swift in Sources */,
 				D10004 /* WidgetActivity.swift in Sources */,
 				D10005 /* Raccolto.swift in Sources */,
+				F10001 /* Strings.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -622,9 +634,11 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = GardenCalendar/GardenCalendar.entitlements;
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_STYLE = Manual;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "Apple Distribution: Alessandro Capobianco (4A5H2U7Q42)";
 				DEVELOPMENT_TEAM = 4A5H2U7Q42;
-				CURRENT_PROJECT_VERSION = 1;
+				PROVISIONING_PROFILE_SPECIFIER = "GardenCalendar AppStore";
+				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_ASSET_PATHS = "\"GardenCalendar/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -639,7 +653,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.gardencalendar.app;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
@@ -656,9 +670,11 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = GardenCalendar/GardenCalendar.entitlements;
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_STYLE = Manual;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "Apple Distribution: Alessandro Capobianco (4A5H2U7Q42)";
 				DEVELOPMENT_TEAM = 4A5H2U7Q42;
-				CURRENT_PROJECT_VERSION = 1;
+				PROVISIONING_PROFILE_SPECIFIER = "GardenCalendar AppStore";
+				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_ASSET_PATHS = "\"GardenCalendar/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -673,7 +689,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.gardencalendar.app;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
@@ -689,10 +705,12 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
-				CODE_SIGNING_REQUIRED = NO;
 				CODE_SIGN_ENTITLEMENTS = GardenCalendarWidget/GardenCalendarWidget.entitlements;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CODE_SIGN_STYLE = Manual;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "Apple Distribution: Alessandro Capobianco (4A5H2U7Q42)";
+				DEVELOPMENT_TEAM = 4A5H2U7Q42;
+				PROVISIONING_PROFILE_SPECIFIER = "GardenCalendarWidget AppStore";
+				CURRENT_PROJECT_VERSION = 3;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = GardenCalendarWidget/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "Garden Calendar";
@@ -702,7 +720,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.gardencalendar.app.widget;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -719,10 +737,12 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
-				CODE_SIGNING_REQUIRED = NO;
 				CODE_SIGN_ENTITLEMENTS = GardenCalendarWidget/GardenCalendarWidget.entitlements;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CODE_SIGN_STYLE = Manual;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "Apple Distribution: Alessandro Capobianco (4A5H2U7Q42)";
+				DEVELOPMENT_TEAM = 4A5H2U7Q42;
+				PROVISIONING_PROFILE_SPECIFIER = "GardenCalendarWidget AppStore";
+				CURRENT_PROJECT_VERSION = 3;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = GardenCalendarWidget/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "Garden Calendar";
@@ -732,7 +752,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.gardencalendar.app.widget;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
