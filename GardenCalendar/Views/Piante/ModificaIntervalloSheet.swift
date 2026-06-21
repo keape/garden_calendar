@@ -141,7 +141,7 @@ struct ModificaIntervalloSheet: View {
             try await repository.updateActivityOverrides(piantaId: pianta.id, overrides: overrides)
 
             let knowledge = try await repository.fetchPlantKnowledge(id: specieId)
-            if let def = knowledge.attivitaSuggeriteDecodificate.first(where: { $0.nome == attivita.nome }) {
+            if let def = knowledge.attivitaSuggerite.first(where: { $0.nome == attivita.nome }) {
                 let activity = buildActivity(recurrenceDays: def.recurrenceDays, offsetDays: def.offsetDays)
                 try await repository.rescheduleActivity(
                     piantaId: pianta.id,
