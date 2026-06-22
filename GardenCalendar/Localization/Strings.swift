@@ -200,6 +200,8 @@ struct Strings {
         let wateringLabel: String
         let exposureLabel: String
         let harvestMonthsLabel: String
+        let everyNDaysShortFormat: String
+        let afterNDaysShortFormat: String
         let addPhotoButton: String
         let changePhotoButton: String
         let removePhotoButton: String
@@ -451,6 +453,8 @@ extension Strings {
             wateringLabel: "Annaffiatura",
             exposureLabel: "Esposizione",
             harvestMonthsLabel: "Mesi raccolta",
+            everyNDaysShortFormat: "ogni %dgg",
+            afterNDaysShortFormat: "dopo %dgg",
             addPhotoButton: "Aggiungi foto",
             changePhotoButton: "Cambia foto",
             removePhotoButton: "Rimuovi foto"
@@ -688,6 +692,8 @@ extension Strings {
             wateringLabel: "Watering",
             exposureLabel: "Exposure",
             harvestMonthsLabel: "Harvest months",
+            everyNDaysShortFormat: "every %dd",
+            afterNDaysShortFormat: "after %dd",
             addPhotoButton: "Add photo",
             changePhotoButton: "Change photo",
             removePhotoButton: "Remove photo"

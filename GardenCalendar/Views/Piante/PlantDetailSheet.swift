@@ -7,11 +7,11 @@ struct PlantDetailSheet: View {
     let knowledge: PlantKnowledge
     let onAdd: ((PlantKnowledge) -> Void)?
 
-    private let monthAbbrs: [String] = {
+    private var monthAbbrs: [String] {
         let fmt = DateFormatter()
-        fmt.locale = Locale(identifier: "it_IT")
+        fmt.locale = Locale(identifier: lang.dayDetail.dateLocale)
         return fmt.veryShortStandaloneMonthSymbols
-    }()
+    }
 
     var body: some View {
         NavigationStack {
@@ -202,11 +202,11 @@ struct PlantDetailSheet: View {
                 .font(.dmSans(12, weight: .semibold))
                 .foregroundStyle(color)
             if let r = att.recurrenceDays {
-                Text("ogni \(r)gg")
+                Text(String(format: lang.plants.everyNDaysShortFormat, r))
                     .font(.dmSans(10))
                     .foregroundStyle(AppTheme.textSecondary)
             } else if att.offsetDays > 0 {
-                Text("dopo \(att.offsetDays)gg")
+                Text(String(format: lang.plants.afterNDaysShortFormat, att.offsetDays))
                     .font(.dmSans(10))
                     .foregroundStyle(AppTheme.textSecondary)
             }
