@@ -30,6 +30,8 @@
 		B10015 /* DayDetailSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = B20015 /* DayDetailSheet.swift */; };
 		B10016 /* ActivityColorDot.swift in Sources */ = {isa = PBXBuildFile; fileRef = B20016 /* ActivityColorDot.swift */; };
 		B10017 /* WeatherIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = B20017 /* WeatherIcon.swift */; };
+		B10029 /* PlantEmoji.swift in Sources */ = {isa = PBXBuildFile; fileRef = B20029 /* PlantEmoji.swift */; };
+		B10030 /* SuggerimentiSeminaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B20030 /* SuggerimentiSeminaView.swift */; };
 		B10018 /* QuickJournalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B20018 /* QuickJournalView.swift */; };
 		B10019 /* OrtoDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B20019 /* OrtoDetailView.swift */; };
 		B10020 /* OrtoListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B20020 /* OrtoListView.swift */; };
@@ -45,7 +47,11 @@
 		D10001 /* LocalCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = D20001 /* LocalCache.swift */; };
 		D10002 /* NotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D20002 /* NotificationManager.swift */; };
 		D10003 /* WidgetDataExporter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D20003 /* WidgetDataExporter.swift */; };
+		D110006 /* PlantCatalogService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D220007 /* PlantCatalogService.swift */; };
+		D110008 /* PerenualAPIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = D220008 /* PerenualAPIClient.swift */; };
 		D10004 /* WidgetActivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = D20004 /* WidgetActivity.swift */; };
+		D220007 /* PlantCatalogService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlantCatalogService.swift; sourceTree = "<group>"; };
+		D220008 /* PerenualAPIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PerenualAPIClient.swift; sourceTree = "<group>"; };
 		D10005 /* Raccolto.swift in Sources */ = {isa = PBXBuildFile; fileRef = D20005 /* Raccolto.swift */; };
 		F10001 /* Strings.swift in Sources */ = {isa = PBXBuildFile; fileRef = F20001 /* Strings.swift */; };
 		E10001 /* GardenCalendarWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = E20001 /* GardenCalendarWidget.swift */; };
@@ -77,6 +83,8 @@
 		B20015 /* DayDetailSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayDetailSheet.swift; sourceTree = "<group>"; };
 		B20016 /* ActivityColorDot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityColorDot.swift; sourceTree = "<group>"; };
 		B20017 /* WeatherIcon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherIcon.swift; sourceTree = "<group>"; };
+		B20029 /* PlantEmoji.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlantEmoji.swift; sourceTree = "<group>"; };
+		B20030 /* SuggerimentiSeminaView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuggerimentiSeminaView.swift; sourceTree = "<group>"; };
 		B20018 /* QuickJournalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuickJournalView.swift; sourceTree = "<group>"; };
 		B20019 /* OrtoDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrtoDetailView.swift; sourceTree = "<group>"; };
 		B20020 /* OrtoListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrtoListView.swift; sourceTree = "<group>"; };
@@ -222,6 +230,8 @@
 				D20001 /* LocalCache.swift */,
 				B20025 /* LocationHelper.swift */,
 				D20002 /* NotificationManager.swift */,
+				D220008 /* PerenualAPIClient.swift */,
+				D220007 /* PlantCatalogService.swift */,
 				B20009 /* RainAdjuster.swift */,
 				B20010 /* SupabaseRepository.swift */,
 				D20004 /* WidgetActivity.swift */,
@@ -283,6 +293,8 @@
 			children = (
 				B20016 /* ActivityColorDot.swift */,
 				B20017 /* WeatherIcon.swift */,
+				B20029 /* PlantEmoji.swift */,
+				B20030 /* SuggerimentiSeminaView.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -476,6 +488,8 @@
 				B10015 /* DayDetailSheet.swift in Sources */,
 				B10016 /* ActivityColorDot.swift in Sources */,
 				B10017 /* WeatherIcon.swift in Sources */,
+				B10029 /* PlantEmoji.swift in Sources */,
+				B10030 /* SuggerimentiSeminaView.swift in Sources */,
 				B10018 /* QuickJournalView.swift in Sources */,
 				B10019 /* OrtoDetailView.swift in Sources */,
 				B10020 /* OrtoListView.swift in Sources */,
@@ -492,6 +506,8 @@
 				D10003 /* WidgetDataExporter.swift in Sources */,
 				D10004 /* WidgetActivity.swift in Sources */,
 				D10005 /* Raccolto.swift in Sources */,
+				D110006 /* PlantCatalogService.swift in Sources */,
+				D110008 /* PerenualAPIClient.swift in Sources */,
 				F10001 /* Strings.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

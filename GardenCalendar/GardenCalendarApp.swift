@@ -5,6 +5,7 @@ struct GardenCalendarApp: App {
     @State private var authManager = AuthManager.shared
     @State private var repository = SupabaseRepository.shared
     @State private var langManager = LanguageManager.shared
+    @State private var catalogService = PlantCatalogService.shared
 
     var body: some Scene {
         WindowGroup {
@@ -12,10 +13,9 @@ struct GardenCalendarApp: App {
                 .environment(authManager)
                 .environment(repository)
                 .environment(langManager)
+                .environment(catalogService)
                 .onAppear {
-                    Task {
-                        await authManager.checkSession()
-                    }
+                    authManager.startObserving()
                 }
                 .onOpenURL { url in
                     Task {
