@@ -5,6 +5,9 @@ enum SupabaseConfig {
     static let supabaseURL = URL(string: "https://kusprtmfxrsnjycyzlgs.supabase.co")!
     static let supabaseAnonKey = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imt1c3BydG1meHJzbmp5Y3l6bGdzIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Nzk2NTE2OTUsImV4cCI6MjA5NTIyNzY5NX0.Xy9otBRvHYRjOFG7WJmYv-pla6lzIxbL7fF9xXFNZBY"
 
+    // Registrarsi su perenual.com per ottenere la chiave gratuita (100 req/day)
+    static let perenualApiKey = "INSERIRE_QUI_API_KEY_PERENUAL"
+
     static let client: SupabaseClient = {
         let decoder = JSONDecoder()
         decoder.dateDecodingStrategy = .custom { decoder in
@@ -32,7 +35,11 @@ enum SupabaseConfig {
         }
 
         let encoder = JSONEncoder()
-        encoder.dateEncodingStrategy = .iso8601
+        let encDF = DateFormatter()
+        encDF.dateFormat = "yyyy-MM-dd"
+        encDF.locale = Locale(identifier: "en_US_POSIX")
+        encDF.timeZone = Calendar.current.timeZone
+        encoder.dateEncodingStrategy = .formatted(encDF)
 
         return SupabaseClient(
             supabaseURL: supabaseURL,

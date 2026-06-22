@@ -68,6 +68,27 @@ struct PlantKnowledge: Codable, Identifiable, Sendable {
         case pianteIncompatibili = "piante_incompatibili"
     }
 
+    init(
+        id: UUID, slug: String, specieNome: String, growthDays: Int,
+        attivitaSuggerite: [AttivitaSuggerita], seminaMesiEsterno: [Int],
+        seminaMesiInterno: [Int], createdAt: Date, updatedAt: Date,
+        specieNomeScentifico: String? = nil, descrizione: String? = nil,
+        annaffiatura: String? = nil, esposizione: String? = nil,
+        tipo: PlantType? = nil, difficolta: String? = nil,
+        imageUrl: String? = nil, mesiRaccolta: [Int]? = nil,
+        pianteCompagne: [String]? = nil, pianteIncompatibili: [String]? = nil
+    ) {
+        self.id = id; self.slug = slug; self.specieNome = specieNome
+        self.growthDays = growthDays; self.attivitaSuggerite = attivitaSuggerite
+        self.seminaMesiEsterno = seminaMesiEsterno; self.seminaMesiInterno = seminaMesiInterno
+        self.createdAt = createdAt; self.updatedAt = updatedAt
+        self.specieNomeScentifico = specieNomeScentifico; self.descrizione = descrizione
+        self.annaffiatura = annaffiatura; self.esposizione = esposizione
+        self.tipo = tipo; self.difficolta = difficolta; self.imageUrl = imageUrl
+        self.mesiRaccolta = mesiRaccolta; self.pianteCompagne = pianteCompagne
+        self.pianteIncompatibili = pianteIncompatibili
+    }
+
     init(from decoder: Decoder) throws {
         let c = try decoder.container(keyedBy: CodingKeys.self)
         id = try c.decode(UUID.self, forKey: .id)
