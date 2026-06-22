@@ -1,21 +1,19 @@
 import SwiftUI
 
-
 struct AggiungiPiantaView: View {
     @Environment(SupabaseRepository.self) private var repository
+    @Environment(PlantCatalogService.self) private var catalogService
     @Environment(\.dismiss) private var dismiss
     @Environment(LanguageManager.self) private var lang
 
     let ortoId: UUID?
 
     @State private var searchText = ""
-    @State private var selectedFromCatalog: String? = nil
-    @State private var isSearching = false
+    @State private var detailKnowledge: PlantKnowledge? = nil
 
     @State private var customName = ""
     @State private var customGrowthDays = 90
     @State private var customSeminaDate = Date()
-
     @State private var importedActivities: [TemplateActivity] = []
 
     @State private var showAlert = false
@@ -27,148 +25,37 @@ struct AggiungiPiantaView: View {
         self.ortoId = ortoId
     }
 
-    private let catalogSuggestions = [
-        "Pomodoro", "Basilico", "Lattuga", "Zucchina", "Melanzana",
-        "Peperone", "Rosmarino", "Menta", "Prezzemolo", "Salvia",
-        "Fragola", "Carota", "Cipolla", "Aglio", "Spinacio",
-        "Rucola", "Cetriolo", "Fagiolo", "Pisello", "Girasole"
-    ]
-
-    private var filteredCatalog: [String] {
-        if searchText.isEmpty { return Array(catalogSuggestions.prefix(10)) }
-        return catalogSuggestions.filter { $0.localizedCaseInsensitiveContains(searchText) }
-    }
-
     var body: some View {
         NavigationStack {
-            VStack(spacing: 0) {
-                // Search bar
-                HStack {
-                    Image(systemName: "magnifyingglass")
-                        .foregroundStyle(.secondary)
-                    TextField(lang.plants.catalogSearchPlaceholder, text: $searchText)
-                        .autocorrectionDisabled()
-                        .onChange(of: searchText) { _, newValue in
-                            if !newValue.isEmpty {
-                                selectedFromCatalog = nil
-                                importedActivities = []
-                            }
-                        }
-                    if !searchText.isEmpty {
-                        Button(action: { searchText = "" }) {
-                            Image(systemName: "xmark.circle.fill")
-                                .foregroundStyle(.secondary)
-                        }
-                    }
-                }
-                .padding(12)
-                .background(AppTheme.cardSecondary)
-                .clipShape(RoundedRectangle(cornerRadius: 12))
-                .padding()
-
-                if isSearching {
-                    ProgressView(lang.plants.searchingLabel)
+            ScrollView {
+                VStack(spacing: 0) {
+                    searchBar
                         .padding()
-                }
 
-                if !filteredCatalog.isEmpty {
-                    VStack(alignment: .leading, spacing: 4) {
-                        Text(lang.plants.catalogSection)
-                            .font(.subheadline.bold())
-                            .foregroundStyle(.secondary)
-                            .padding(.horizontal)
-
-                        ScrollView {
-                            LazyVStack(spacing: 0) {
-                                ForEach(filteredCatalog, id: \.self) { nome in
-                                    Button(action: {
-                                        selectFromCatalog(nome)
-                                    }) {
-                                        HStack {
-                                            Image(systemName: "leaf.fill")
-                                                .foregroundStyle(AppTheme.primaryGreen)
-                                            Text(nome)
-                                                .foregroundStyle(.primary)
-                                            Spacer()
-                                            if selectedFromCatalog == nome {
-                                                Image(systemName: "checkmark.circle.fill")
-                                                    .foregroundStyle(AppTheme.primaryGreen)
-                                            }
-                                        }
-                                        .padding(.horizontal)
-                                        .padding(.vertical, 10)
-                                    }
-
-                                    if nome != filteredCatalog.last {
-                                        Divider().padding(.leading)
-                                    }
-                                }
-                            }
-                        }
-                        .background(AppTheme.cardBackground)
-                        .clipShape(RoundedRectangle(cornerRadius: 12))
-                        .padding(.horizontal)
+                    if catalogService.isSearchingExternal {
+                        ProgressView(lang.plants.searchingLabel)
+                            .padding()
                     }
-                }
 
-                if selectedFromCatalog == nil {
-                    Divider()
-                        .padding(.vertical, 8)
-
-                    VStack(alignment: .leading, spacing: 12) {
-                        Text(lang.plants.customPlantSection)
-                            .font(.subheadline.bold())
-                            .foregroundStyle(.secondary)
-                            .padding(.horizontal)
-
-                        VStack(spacing: 0) {
-                            Form {
-                                TextField(lang.plants.plantNamePlaceholder, text: $customName)
-                                    .autocorrectionDisabled()
-
-                                Stepper(String(format: lang.plants.growthCycleFormat, customGrowthDays), value: $customGrowthDays, in: 1...730)
-
-                                DatePicker(lang.plants.seedingDateLabel, selection: $customSeminaDate, displayedComponents: .date)
-                            }
-                            .scrollDisabled(true)
-                            .frame(height: 200)
-                        }
-                        .background(AppTheme.cardBackground)
-                        .clipShape(RoundedRectangle(cornerRadius: 12))
-                        .padding(.horizontal)
+                    if !catalogService.localResults.isEmpty {
+                        catalogSection(
+                            title: lang.plants.catalogSection,
+                            results: catalogService.localResults,
+                            isExternal: false
+                        )
                     }
-                }
 
-                if !importedActivities.isEmpty {
-                    Divider()
-                        .padding(.vertical, 8)
-
-                    VStack(alignment: .leading, spacing: 8) {
-                        Text(lang.plants.importedActivitiesSection)
-                            .font(.subheadline.bold())
-                            .foregroundStyle(.secondary)
-                            .padding(.horizontal)
-
-                        ForEach(importedActivities, id: \.name) { activity in
-                            HStack {
-                                ActivityColorDot(activityName: activity.name, size: 8)
-                                Text(activity.name)
-                                    .font(.subheadline)
-                                Spacer()
-                                Text("g\(activity.offsetDays)")
-                                    .font(.caption)
-                                    .foregroundStyle(.secondary)
-                                if let rec = activity.recurrenceDays {
-                                    Text("ogni \(rec)g")
-                                        .font(.caption)
-                                        .foregroundStyle(.secondary)
-                                }
-                            }
-                            .padding(.horizontal)
-                            .padding(.vertical, 4)
-                        }
+                    if !catalogService.externalResults.isEmpty {
+                        catalogSection(
+                            title: lang.plants.onlineCatalogSection,
+                            results: catalogService.externalResults,
+                            isExternal: true
+                        )
                     }
-                    .padding(.bottom, 8)
+
+                    Divider().padding(.vertical, 8)
+
+                    manualSection
                 }
             }
             .background(Color(.systemGroupedBackground))
@@ -197,45 +84,167 @@ struct AggiungiPiantaView: View {
                     }
                 )
             }
+            .sheet(item: $detailKnowledge) { knowledge in
+                PlantDetailSheet(knowledge: knowledge, onAdd: { k in
+                    addFromKnowledge(k)
+                })
+                .environment(lang)
+            }
+            .task(id: searchText) {
+                let trimmed = searchText.trimmingCharacters(in: .whitespaces)
+                guard !trimmed.isEmpty else { return }
+                try? await Task.sleep(for: .milliseconds(300))
+                guard !Task.isCancelled else { return }
+                await catalogService.search(query: trimmed, in: repository)
+            }
         }
     }
+
+    // MARK: - Search Bar
+
+    private var searchBar: some View {
+        HStack {
+            Image(systemName: "magnifyingglass")
+                .foregroundStyle(.secondary)
+            TextField(lang.plants.catalogSearchPlaceholder, text: $searchText)
+                .autocorrectionDisabled()
+            if !searchText.isEmpty {
+                Button(action: { searchText = "" }) {
+                    Image(systemName: "xmark.circle.fill")
+                        .foregroundStyle(.secondary)
+                }
+            }
+        }
+        .padding(12)
+        .background(AppTheme.cardSecondary)
+        .clipShape(RoundedRectangle(cornerRadius: 12))
+    }
+
+    // MARK: - Catalog Section
+
+    private func catalogSection(title: String, results: [PlantKnowledge], isExternal: Bool) -> some View {
+        VStack(alignment: .leading, spacing: 4) {
+            HStack(spacing: 6) {
+                Text(title)
+                    .font(.subheadline.bold())
+                    .foregroundStyle(.secondary)
+                if isExternal {
+                    Text(lang.plants.partialDataBadge)
+                        .font(.dmSans(10, weight: .semibold))
+                        .foregroundStyle(AppTheme.activityOrange)
+                        .padding(.horizontal, 6)
+                        .padding(.vertical, 2)
+                        .background(AppTheme.activityOrange.opacity(0.12))
+                        .clipShape(Capsule())
+                }
+            }
+            .padding(.horizontal)
+
+            LazyVStack(spacing: 0) {
+                ForEach(results) { knowledge in
+                    Button {
+                        detailKnowledge = knowledge
+                    } label: {
+                        HStack {
+                            Text(emojiForPlant(knowledge.specieNome))
+                            VStack(alignment: .leading, spacing: 2) {
+                                Text(knowledge.specieNome)
+                                    .foregroundStyle(.primary)
+                                if let sci = knowledge.specieNomeScentifico {
+                                    Text(sci)
+                                        .font(.caption)
+                                        .foregroundStyle(.secondary)
+                                        .italic()
+                                }
+                            }
+                            Spacer()
+                            Image(systemName: "chevron.right")
+                                .font(.caption)
+                                .foregroundStyle(.secondary)
+                        }
+                        .padding(.horizontal)
+                        .padding(.vertical, 10)
+                    }
+                    if knowledge.id != results.last?.id {
+                        Divider().padding(.leading)
+                    }
+                }
+            }
+            .background(AppTheme.cardBackground)
+            .clipShape(RoundedRectangle(cornerRadius: 12))
+            .padding(.horizontal)
+            .padding(.bottom, 8)
+        }
+    }
+
+    // MARK: - Manual Section
+
+    private var manualSection: some View {
+        VStack(alignment: .leading, spacing: 12) {
+            Text(lang.plants.customPlantSection)
+                .font(.subheadline.bold())
+                .foregroundStyle(.secondary)
+                .padding(.horizontal)
+
+            VStack(spacing: 0) {
+                Form {
+                    TextField(lang.plants.plantNamePlaceholder, text: $customName)
+                        .autocorrectionDisabled()
+                    Stepper(String(format: lang.plants.growthCycleFormat, customGrowthDays), value: $customGrowthDays, in: 1...730)
+                    DatePicker(lang.plants.seedingDateLabel, selection: $customSeminaDate, displayedComponents: .date)
+                }
+                .scrollDisabled(true)
+                .frame(height: 200)
+            }
+            .background(AppTheme.cardBackground)
+            .clipShape(RoundedRectangle(cornerRadius: 12))
+            .padding(.horizontal)
+
+            if !importedActivities.isEmpty {
+                VStack(alignment: .leading, spacing: 8) {
+                    Text(lang.plants.importedActivitiesSection)
+                        .font(.subheadline.bold())
+                        .foregroundStyle(.secondary)
+                        .padding(.horizontal)
+
+                    ForEach(importedActivities, id: \.name) { activity in
+                        HStack {
+                            ActivityColorDot(activityName: activity.name, size: 8)
+                            Text(activity.name)
+                                .font(.subheadline)
+                            Spacer()
+                            if let rec = activity.recurrenceDays {
+                                Text(String(format: lang.plants.everyNDaysShortFormat, rec))
+                                    .font(.caption)
+                                    .foregroundStyle(.secondary)
+                            } else if activity.offsetDays > 0 {
+                                Text(String(format: lang.plants.afterNDaysShortFormat, activity.offsetDays))
+                                    .font(.caption)
+                                    .foregroundStyle(.secondary)
+                            }
+                        }
+                        .padding(.horizontal)
+                        .padding(.vertical, 4)
+                    }
+                }
+                .padding(.bottom, 8)
+            }
+        }
+    }
+
+    // MARK: - Actions
 
     private var canSave: Bool {
-        if let selected = selectedFromCatalog {
-            return !selected.isEmpty
-        }
-        return !customName.trimmingCharacters(in: .whitespaces).isEmpty
+        !customName.trimmingCharacters(in: .whitespaces).isEmpty
     }
 
-    private func selectFromCatalog(_ nome: String) {
-        selectedFromCatalog = nome
-        customName = nome
-        importedActivities = generateTemplateActivities(for: nome)
-    }
-
-    private func generateTemplateActivities(for plant: String) -> [TemplateActivity] {
-        switch plant.lowercased() {
-        case "pomodoro":
-            return [
-                TemplateActivity(name: "Semina", offsetDays: 0),
-                TemplateActivity(name: "Trapianto", offsetDays: 45),
-                TemplateActivity(name: "Irrigazione", offsetDays: 0, recurrenceDays: 3),
-                TemplateActivity(name: "Concimazione", offsetDays: 30, recurrenceDays: 20),
-                TemplateActivity(name: "Raccolta", offsetDays: 80),
-            ]
-        case "basilico":
-            return [
-                TemplateActivity(name: "Semina", offsetDays: 0),
-                TemplateActivity(name: "Irrigazione", offsetDays: 0, recurrenceDays: 2),
-                TemplateActivity(name: "Raccolta", offsetDays: 30),
-            ]
-        default:
-            return [
-                TemplateActivity(name: "Semina", offsetDays: 0),
-                TemplateActivity(name: "Irrigazione", offsetDays: 0, recurrenceDays: 3),
-                TemplateActivity(name: "Raccolta", offsetDays: customGrowthDays),
-            ]
+    private func addFromKnowledge(_ knowledge: PlantKnowledge) {
+        customName = knowledge.specieNome
+        customGrowthDays = knowledge.growthDays
+        importedActivities = knowledge.attivitaSuggerite.map {
+            TemplateActivity(name: $0.nome, offsetDays: $0.offsetDays, recurrenceDays: $0.recurrenceDays)
         }
+        savePianta()
     }
 
     private func savePianta() {
@@ -246,13 +255,7 @@ struct AggiungiPiantaView: View {
             return
         }
 
-        let nome: String
-        if let selected = selectedFromCatalog {
-            nome = selected
-        } else {
-            nome = customName.trimmingCharacters(in: .whitespaces)
-        }
-
+        let nome = customName.trimmingCharacters(in: .whitespaces)
         guard !nome.isEmpty else {
             alertIsSuccess = false
             alertMessage = lang.plants.enterPlantName
@@ -261,8 +264,8 @@ struct AggiungiPiantaView: View {
         }
 
         let seminaDate = Calendar.current.startOfDay(for: customSeminaDate)
-
         isSaving = true
+
         Task {
             do {
                 let nuovaPianta = try await repository.createPianta(pianta: PiantaColtivata.Create(
@@ -326,4 +329,5 @@ struct TemplateActivity {
     AggiungiPiantaView()
         .environment(SupabaseRepository.shared)
         .environment(LanguageManager.shared)
+        .environment(PlantCatalogService.shared)
 }

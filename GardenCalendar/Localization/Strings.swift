@@ -205,6 +205,8 @@ struct Strings {
         let addPhotoButton: String
         let changePhotoButton: String
         let removePhotoButton: String
+        let onlineCatalogSection: String
+        let partialDataBadge: String
     }
 
     struct GardenStrings {
@@ -457,7 +459,9 @@ extension Strings {
             afterNDaysShortFormat: "dopo %dgg",
             addPhotoButton: "Aggiungi foto",
             changePhotoButton: "Cambia foto",
-            removePhotoButton: "Rimuovi foto"
+            removePhotoButton: "Rimuovi foto",
+            onlineCatalogSection: "Cerca online",
+            partialDataBadge: "Dati parziali"
         ),
         garden: GardenStrings(
             navTitle: "I miei giardini",
@@ -696,7 +700,9 @@ extension Strings {
             afterNDaysShortFormat: "after %dd",
             addPhotoButton: "Add photo",
             changePhotoButton: "Change photo",
-            removePhotoButton: "Remove photo"
+            removePhotoButton: "Remove photo",
+            onlineCatalogSection: "Search online",
+            partialDataBadge: "Partial data"
         ),
         garden: GardenStrings(
             navTitle: "My gardens",
