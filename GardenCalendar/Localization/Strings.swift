@@ -121,6 +121,8 @@ struct Strings {
         let todayLabel: String
         let tomorrowLabel: String
         let loadErrorMsg: String
+        let seminaSectionTitleFormat: String
+        let seminaIndoorBadge: String
     }
 
     struct DayDetailStrings {
@@ -189,6 +191,18 @@ struct Strings {
         let unitPicker: String
         let optionalNotesPlaceholder: String
         let saveFailedMsg: String
+        let plantDetailTitle: String
+        let seedingSection: String
+        let careSection: String
+        let detailActivitiesSection: String
+        let companionsSection: String
+        let addToGardenButton: String
+        let wateringLabel: String
+        let exposureLabel: String
+        let harvestMonthsLabel: String
+        let addPhotoButton: String
+        let changePhotoButton: String
+        let removePhotoButton: String
     }
 
     struct GardenStrings {
@@ -213,6 +227,9 @@ struct Strings {
         let editButton: String
         let newOrtoNavTitle: String
         let plantsCountFormat: String
+        let indoorToggle: String
+        let indoorFooter: String
+        let photoSection: String
     }
 
     struct JournalStrings {
@@ -300,8 +317,8 @@ extension Strings {
             logoutButton: "Esci",
             logoutConfirmTitle: "Esci dall'account",
             logoutConfirmMsg: "Sei sicuro di voler uscire? Dovrai accedere nuovamente per usare l'app.",
-            preferredGardenSection: "Orto preferito",
-            defaultGardenPicker: "Orto predefinito",
+            preferredGardenSection: "Giardino preferito",
+            defaultGardenPicker: "Giardino predefinito",
             weatherSection: "Meteo",
             weatherPlaceholder: "Luogo (es. Roma)",
             rainThresholdLabel: "Soglia pioggia: %.0f mm",
@@ -338,10 +355,10 @@ extension Strings {
             viewCalendar: "Calendario",
             viewAgenda: "Agenda",
             weekDays: ["L", "M", "M", "G", "V", "S", "D"],
-            filterAllGardens: "Tutti gli orti",
+            filterAllGardens: "Tutti i giardini",
             filterAllTypes: "Tutte le tipologie",
             filterAllPlants: "Tutte le piante",
-            filterGardenDefault: "Orto",
+            filterGardenDefault: "Giardino",
             filterTypeDefault: "Tipologia",
             filterPlantDefault: "Pianta",
             offlineBanner: "Sei offline: dati salvati sul dispositivo",
@@ -356,7 +373,9 @@ extension Strings {
             legendReminder: "Promemoria",
             todayLabel: "Oggi",
             tomorrowLabel: "Domani",
-            loadErrorMsg: "Impossibile caricare le attività. Controlla la connessione."
+            loadErrorMsg: "Impossibile caricare le attività. Controlla la connessione.",
+            seminaSectionTitleFormat: "Da seminare a %@",
+            seminaIndoorBadge: "interno"
         ),
         dayDetail: DayDetailStrings(
             activitiesTitle: "Attività del giorno",
@@ -422,30 +441,45 @@ extension Strings {
             quantityPlaceholder: "Quantità",
             unitPicker: "Unità",
             optionalNotesPlaceholder: "Note (facoltative)",
-            saveFailedMsg: "Salvataggio non riuscito. Controlla la connessione e riprova."
+            saveFailedMsg: "Salvataggio non riuscito. Controlla la connessione e riprova.",
+            plantDetailTitle: "Scheda pianta",
+            seedingSection: "Quando seminare",
+            careSection: "Cure",
+            detailActivitiesSection: "Attività generate",
+            companionsSection: "Piante compagne",
+            addToGardenButton: "Aggiungi all'orto",
+            wateringLabel: "Annaffiatura",
+            exposureLabel: "Esposizione",
+            harvestMonthsLabel: "Mesi raccolta",
+            addPhotoButton: "Aggiungi foto",
+            changePhotoButton: "Cambia foto",
+            removePhotoButton: "Rimuovi foto"
         ),
         garden: GardenStrings(
-            navTitle: "I miei orti",
-            emptyTitle: "Crea il tuo primo orto",
-            emptyDesc: "Organizza le tue piante in orti e giardini per tenerle sotto controllo.",
-            newGardenButton: "Nuovo orto",
-            gardenDetailsSection: "Dettagli orto",
-            gardenNamePlaceholder: "Nome orto",
+            navTitle: "I miei giardini",
+            emptyTitle: "Crea il tuo primo giardino",
+            emptyDesc: "Organizza le tue piante in giardini per tenerle sotto controllo.",
+            newGardenButton: "Nuovo giardino",
+            gardenDetailsSection: "Dettagli giardino",
+            gardenNamePlaceholder: "Nome giardino",
             locationSection: "Posizione",
             citySearchPlaceholder: "Cerca città...",
             useCurrentLocation: "Usa posizione attuale",
             detectingGPS: "Rilevamento GPS...",
-            deleteConfirmMsgFormat: "Eliminare l'orto \"%@\"? Le piante collegate non verranno eliminate.",
-            deleteTitle: "Elimina orto",
+            deleteConfirmMsgFormat: "Eliminare il giardino \"%@\"? Le piante collegate non verranno eliminate.",
+            deleteTitle: "Elimina giardino",
             deleteButton: "Elimina",
-            editNavTitle: "Modifica orto",
-            deleteOrtoButton: "Elimina orto",
+            editNavTitle: "Modifica giardino",
+            deleteOrtoButton: "Elimina giardino",
             plantsSection: "Piante",
             emptyFirstPlant: "Aggiungi la tua prima pianta",
             addPlantButton: "Aggiungi pianta",
             editButton: "Modifica",
-            newOrtoNavTitle: "Nuovo orto",
-            plantsCountFormat: "%d piante"
+            newOrtoNavTitle: "Nuovo giardino",
+            plantsCountFormat: "%d piante",
+            indoorToggle: "Giardino interno",
+            indoorFooter: "Per i giardini interni la riprogrammazione automatica dell'irrigazione in base alla pioggia è disattivata.",
+            photoSection: "Foto del giardino"
         ),
         journal: JournalStrings(
             navTitle: "Nuovo Journal Entry",
@@ -464,13 +498,13 @@ extension Strings {
             savedSuccess: "Evento salvato con successo! ✅"
         ),
         notifications: NotificationsStrings(
-            dailyTitle: "🌱 Attività di oggi nell'orto",
+            dailyTitle: "🌱 Attività di oggi nel giardino",
             andMore: " e altre",
             activitiesCountFormat: "%d attività: %@%@"
         ),
         tabs: TabsStrings(
             calendar: "Calendario",
-            gardens: "Orti",
+            gardens: "Giardini",
             settings: "Impostazioni"
         )
     )
@@ -576,7 +610,9 @@ extension Strings {
             legendReminder: "Reminder",
             todayLabel: "Today",
             tomorrowLabel: "Tomorrow",
-            loadErrorMsg: "Unable to load activities. Check your connection."
+            loadErrorMsg: "Unable to load activities. Check your connection.",
+            seminaSectionTitleFormat: "Sow in %@",
+            seminaIndoorBadge: "indoor"
         ),
         dayDetail: DayDetailStrings(
             activitiesTitle: "Today's activities",
@@ -642,7 +678,19 @@ extension Strings {
             quantityPlaceholder: "Quantity",
             unitPicker: "Unit",
             optionalNotesPlaceholder: "Notes (optional)",
-            saveFailedMsg: "Save failed. Check your connection and try again."
+            saveFailedMsg: "Save failed. Check your connection and try again.",
+            plantDetailTitle: "Plant Info",
+            seedingSection: "Sowing Calendar",
+            careSection: "Care",
+            detailActivitiesSection: "Suggested Activities",
+            companionsSection: "Companion Plants",
+            addToGardenButton: "Add to Garden",
+            wateringLabel: "Watering",
+            exposureLabel: "Exposure",
+            harvestMonthsLabel: "Harvest months",
+            addPhotoButton: "Add photo",
+            changePhotoButton: "Change photo",
+            removePhotoButton: "Remove photo"
         ),
         garden: GardenStrings(
             navTitle: "My gardens",
@@ -665,7 +713,10 @@ extension Strings {
             addPlantButton: "Add plant",
             editButton: "Edit",
             newOrtoNavTitle: "New garden",
-            plantsCountFormat: "%d plants"
+            plantsCountFormat: "%d plants",
+            indoorToggle: "Indoor garden",
+            indoorFooter: "For indoor gardens, automatic rain-based irrigation rescheduling is disabled.",
+            photoSection: "Garden photo"
         ),
         journal: JournalStrings(
             navTitle: "New Journal Entry",
