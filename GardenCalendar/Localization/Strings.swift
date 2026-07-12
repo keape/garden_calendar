@@ -36,6 +36,7 @@ struct Strings {
         let forgotPassword: String
         let orSeparator: String
         let appleSignIn: String
+        let appleSignInComingSoon: String
         let googleSignIn: String
         let resetTitle: String
         let resetMessage: String
@@ -295,6 +296,7 @@ extension Strings {
             forgotPassword: "Password dimenticata?",
             orSeparator: "oppure",
             appleSignIn: "Accedi con Apple",
+            appleSignInComingSoon: "Apple Sign-In sarà disponibile a breve.",
             googleSignIn: "Accedi con Google",
             resetTitle: "Password dimenticata",
             resetMessage: "Riceverai un'email per reimpostare la password.",
@@ -536,6 +538,7 @@ extension Strings {
             forgotPassword: "Forgot password?",
             orSeparator: "or",
             appleSignIn: "Sign in with Apple",
+            appleSignInComingSoon: "Apple Sign-In coming soon.",
             googleSignIn: "Sign in with Google",
             resetTitle: "Forgot password",
             resetMessage: "You'll receive an email to reset your password.",
