@@ -99,6 +99,13 @@ final class AuthManager {
         isAdmin = result.user.userMetadata["is_admin"]?.boolValue ?? false
     }
 
+    func signInWithGoogle() async throws {
+        try await client.auth.signInWithOAuth(
+            provider: .google,
+            redirectTo: URL(string: "garden-calendar://auth-callback")
+        )
+    }
+
     func signOut() async {
         try? await client.auth.signOut()
         session = nil
