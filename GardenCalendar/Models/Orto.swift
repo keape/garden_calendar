@@ -7,6 +7,8 @@ struct Orto: Codable, Identifiable, Hashable {
     let luogo: String?
     let latitudine: Double?
     let longitudine: Double?
+    let interno: Bool
+    let fotoUrl: String?
     let createdAt: Date
     let updatedAt: Date
 
@@ -17,8 +19,26 @@ struct Orto: Codable, Identifiable, Hashable {
         case luogo
         case latitudine
         case longitudine
+        case interno
+        case fotoUrl = "foto_url"
         case createdAt = "created_at"
         case updatedAt = "updated_at"
+    }
+}
+
+extension Orto {
+    init(from decoder: Decoder) throws {
+        let c = try decoder.container(keyedBy: CodingKeys.self)
+        id = try c.decode(UUID.self, forKey: .id)
+        userId = try c.decode(UUID.self, forKey: .userId)
+        nome = try c.decode(String.self, forKey: .nome)
+        luogo = try c.decodeIfPresent(String.self, forKey: .luogo)
+        latitudine = try c.decodeIfPresent(Double.self, forKey: .latitudine)
+        longitudine = try c.decodeIfPresent(Double.self, forKey: .longitudine)
+        interno = try c.decodeIfPresent(Bool.self, forKey: .interno) ?? false
+        fotoUrl = try c.decodeIfPresent(String.self, forKey: .fotoUrl)
+        createdAt = try c.decode(Date.self, forKey: .createdAt)
+        updatedAt = try c.decode(Date.self, forKey: .updatedAt)
     }
 }
 
@@ -28,6 +48,7 @@ extension Orto {
         let luogo: String?
         let latitudine: Double?
         let longitudine: Double?
+        let interno: Bool
     }
 
     struct Update: Encodable {
@@ -35,5 +56,11 @@ extension Orto {
         let luogo: String?
         let latitudine: Double?
         let longitudine: Double?
+        let interno: Bool?
+        var fotoUrl: String? = nil
+        enum CodingKeys: String, CodingKey {
+            case nome; case luogo; case latitudine; case longitudine; case interno
+            case fotoUrl = "foto_url"
+        }
     }
 }

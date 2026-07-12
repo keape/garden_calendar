@@ -1,4 +1,5 @@
 import SwiftUI
+import PhotosUI
 
 struct PiantaDetailView: View {
     @State private var pianta: PiantaColtivata
@@ -10,6 +11,9 @@ struct PiantaDetailView: View {
     @State private var showModificaAttivita = false
     @State private var raccolti: [Raccolto] = []
     @State private var showNuovoRaccolto = false
+    @State private var selectedPhotoItem: PhotosPickerItem?
+    @State private var isUploadingPhoto = false
+    @State private var photoError: String?
 
     init(pianta: PiantaColtivata) {
         _pianta = State(initialValue: pianta)
@@ -58,6 +62,41 @@ struct PiantaDetailView: View {
             NuovoRaccoltoSheet(pianta: pianta)
                 .environment(repository)
         }
+        .onChange(of: selectedPhotoItem) { _, newItem in
+            guard let newItem else { return }
+            Task { await uploadPhoto(newItem) }
+        }
+        .alert(lang.common.error, isPresented: Binding(
+            get: { photoError != nil },
+            set: { if !$0 { photoError = nil } }
+        )) {
+            Button(lang.common.ok, role: .cancel) {}
+        } message: {
+            Text(photoError ?? "")
+        }
+    }
+
+    private func uploadPhoto(_ item: PhotosPickerItem) async {
+        isUploadingPhoto = true
+        defer { isUploadingPhoto = false }
+        do {
+            guard let data = try await item.loadTransferable(type: Data.self),
+                  let jpeg = UIImage(data: data)?.jpegData(compressionQuality: 0.7) else { return }
+            let url = try await repository.uploadPlantPhoto(piantaId: pianta.id, data: jpeg)
+            let updated = try await repository.updatePianta(
+                id: pianta.id,
+                pianta: PiantaColtivata.Update(
+                    nomePersonalizzato: nil,
+                    dataSemina: nil,
+                    growthDays: nil,
+                    note: nil,
+                    fotoUrl: url
+                )
+            )
+            pianta = updated
+        } catch {
+            photoError = error.localizedDescription
+        }
     }
 
     // MARK: - Header Section
@@ -75,9 +114,28 @@ struct PiantaDetailView: View {
                     )
                     .frame(height: 180)
 
-                Image(systemName: "leaf.fill")
-                    .font(.system(size: 72))
-                    .foregroundStyle(AppTheme.primaryGreen)
+                PlantIconView(pianta: pianta, size: 96)
+
+                PhotosPicker(
+                    selection: $selectedPhotoItem,
+                    matching: .images,
+                    photoLibrary: .shared()
+                ) {
+                    Image(systemName: "camera.fill")
+                        .font(.system(size: 14))
+                        .foregroundStyle(.white)
+                        .padding(8)
+                        .background(AppTheme.primaryGreen)
+                        .clipShape(Circle())
+                }
+                .offset(x: 60, y: 60)
+
+                if isUploadingPhoto {
+                    ProgressView()
+                        .padding(8)
+                        .background(.ultraThinMaterial)
+                        .clipShape(Circle())
+                }
             }
 
             HStack(spacing: 16) {
@@ -261,10 +319,17 @@ struct PiantaDetailView: View {
     }
 
     private func toggleDone(_ att: Attivita) {
+        let wasDone = att.done
         if let i = attivita.firstIndex(where: { $0.id == att.id }) {
             attivita[i].done.toggle()
         }
-        Task { try? await repository.setDone(id: att.id, done: !att.done) }
+        Task {
+            if wasDone {
+                try? await repository.setDone(id: att.id, done: false)
+            } else {
+                try? await repository.completeActivity(att)
+            }
+        }
     }
 }
 

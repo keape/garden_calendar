@@ -28,13 +28,14 @@ final class SupabaseRepository {
             let luogo: String?
             let latitudine: Double?
             let longitudine: Double?
+            let interno: Bool
             enum CodingKeys: String, CodingKey {
-                case userId = "user_id"; case nome; case luogo; case latitudine; case longitudine
+                case userId = "user_id"; case nome; case luogo; case latitudine; case longitudine; case interno
             }
         }
         return try await client
             .from("orti")
-            .insert(Body(userId: userId, nome: orto.nome, luogo: orto.luogo, latitudine: orto.latitudine, longitudine: orto.longitudine), returning: .representation)
+            .insert(Body(userId: userId, nome: orto.nome, luogo: orto.luogo, latitudine: orto.latitudine, longitudine: orto.longitudine, interno: orto.interno), returning: .representation)
             .select()
             .single()
             .execute()
@@ -58,6 +59,27 @@ final class SupabaseRepository {
             .delete()
             .eq("id", value: id)
             .execute()
+    }
+
+    /// Carica una foto del giardino su Storage (bucket `plant-photos`) e ritorna l'URL pubblico.
+    /// Path: `{userId}/orto-{ortoId}.jpg`, UUID minuscoli per coerenza con la policy RLS
+    /// che confronta la cartella con `auth.uid()::text` (lowercase). Vedi uploadPlantPhoto.
+    func uploadOrtoPhoto(ortoId: UUID, data: Data) async throws -> String {
+        guard let userId = client.auth.currentSession?.user.id else {
+            throw RepositoryError.notAuthenticated
+        }
+        let path = "\(userId.uuidString.lowercased())/orto-\(ortoId.uuidString.lowercased()).jpg"
+        try await client.storage
+            .from("plant-photos")
+            .upload(
+                path,
+                data: data,
+                options: FileOptions(contentType: "image/jpeg", upsert: true)
+            )
+        return try client.storage
+            .from("plant-photos")
+            .getPublicURL(path: path)
+            .absoluteString
     }
 
     // MARK: - Piante Coltivate
@@ -111,6 +133,28 @@ final class SupabaseRepository {
             .delete()
             .eq("id", value: id)
             .execute()
+    }
+
+    /// Carica una foto pianta su Storage (bucket `plant-photos`) e ritorna l'URL pubblico.
+    /// Path: `{userId}/{piantaId}.jpg` per coerenza con le policy RLS.
+    /// UUID minuscoli: la policy storage confronta con `auth.uid()::text` (lowercase),
+    /// mentre `UUID.uuidString` è maiuscolo → mismatch = RLS 42501.
+    func uploadPlantPhoto(piantaId: UUID, data: Data) async throws -> String {
+        guard let userId = client.auth.currentSession?.user.id else {
+            throw RepositoryError.notAuthenticated
+        }
+        let path = "\(userId.uuidString.lowercased())/\(piantaId.uuidString.lowercased()).jpg"
+        try await client.storage
+            .from("plant-photos")
+            .upload(
+                path,
+                data: data,
+                options: FileOptions(contentType: "image/jpeg", upsert: true)
+            )
+        return try client.storage
+            .from("plant-photos")
+            .getPublicURL(path: path)
+            .absoluteString
     }
 
     // MARK: - Attività
@@ -178,6 +222,20 @@ final class SupabaseRepository {
             .update(DoneUpdate(done: done), returning: .minimal)
             .eq("id", value: id)
             .execute()
+    }
+
+    /// Marca un'attività ricorrente come completata e riprogramma la prossima occorrenza
+    /// a partire da oggi (data reale di completamento) invece che dalla data originaria schedulata.
+    func completeActivity(_ activity: Attivita) async throws {
+        try await setDone(id: activity.id, done: true)
+
+        guard let recurrenceDays = activity.recurrenceDays, recurrenceDays > 0,
+              let newDate = Calendar.current.date(byAdding: .day, value: recurrenceDays, to: Calendar.current.startOfDay(for: Date()))
+        else { return }
+
+        if let next = try await fetchNextIrrigation(piantaId: activity.piantaId, nome: activity.nome, after: activity.data) {
+            try await rescheduleAttivita(id: next.id, date: newDate)
+        }
     }
 
     func rescheduleAttivita(id: UUID, date: Date) async throws {
@@ -442,11 +500,14 @@ final class SupabaseRepository {
 
 enum RepositoryError: LocalizedError {
     case invalidDate
+    case notAuthenticated
 
     var errorDescription: String? {
         switch self {
         case .invalidDate:
             return "Impossibile calcolare l'intervallo di date per il filtro mensile."
+        case .notAuthenticated:
+            return "Utente non autenticato."
         }
     }
 }

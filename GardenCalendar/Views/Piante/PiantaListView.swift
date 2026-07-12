@@ -118,9 +118,7 @@ struct PiantaCardView: View {
                     )
                     .frame(height: 100)
 
-                Image(systemName: "leaf.fill")
-                    .font(.system(size: 40))
-                    .foregroundStyle(AppTheme.primaryGreen)
+                PlantIconView(pianta: pianta, size: 56)
             }
 
             VStack(alignment: .leading, spacing: 4) {

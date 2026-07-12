@@ -16,6 +16,9 @@ struct CalendarGridView: View {
     @State private var orti: [Orto] = []
     @State private var piante: [PiantaColtivata] = []
 
+    // Catalogo specie (per i suggerimenti di semina)
+    @State private var catalogo: [PlantKnowledge] = []
+
     // Filtri attivi
     @State private var filterOrtoId: UUID? = nil
     @State private var filterTipologia: String? = nil
@@ -28,6 +31,11 @@ struct CalendarGridView: View {
     @State private var showRainToast = false
     @State private var loadError: String?
     @State private var isOffline = false
+
+    // Riprogrammazione data attività (agenda)
+    @State private var reschedulingActivity: Attivita?
+    @State private var showReschedulePicker = false
+    @State private var rescheduleDate = Date()
 
     private let calendar = Calendar.current
     private var weekDays: [String] { lang.calendar.weekDays }
@@ -152,16 +160,27 @@ struct CalendarGridView: View {
                 if let date = selectedDate {
                     DayDetailView(
                         selectedDate: date,
-                        activities: filteredActivities.filter { calendar.isDate($0.data, inSameDayAs: date) }
+                        activities: filteredActivities.filter { calendar.isDate($0.data, inSameDayAs: date) },
+                        filterPiantaIds: {
+                            let byOrto = filterOrtoId.map { ortoId in Set(piante.filter { $0.ortoId == ortoId }.map(\.id)) }
+                            let byPianta = filterPiantaId.map { Set([$0]) }
+                            if let a = byOrto, let b = byPianta { return a.intersection(b) }
+                            return byOrto ?? byPianta
+                        }(),
+                        filterTipologia: filterTipologia
                     )
                 }
             }
         }
         .task { await loadFiltersData() }
-        .task { await loadMonth() }
+        .task { viewMode == .agenda ? await loadAllActivities() : await loadMonth() }
         .onChange(of: currentMonth) { _, _ in Task { await loadMonth() } }
+        .onChange(of: viewMode) { _, mode in Task { mode == .agenda ? await loadAllActivities() : await loadMonth() } }
         .onChange(of: showDayDetail) { _, isShowing in
             if !isShowing { Task { await loadMonth() } }
+        }
+        .sheet(isPresented: $showReschedulePicker) {
+            agendaRescheduleSheet
         }
         .onChange(of: filterOrtoId) { _, _ in
             if let piantaId = filterPiantaId,
@@ -281,6 +300,7 @@ struct CalendarGridView: View {
 
     private var calendarContent: some View {
         VStack(spacing: 0) {
+            SuggerimentiSeminaView(catalogo: catalogo, orti: orti, filterOrtoId: filterOrtoId)
             VStack(spacing: 0) {
                 monthNavigator
                 weekDayHeader
@@ -468,9 +488,7 @@ struct CalendarGridView: View {
     // MARK: - Agenda Content
 
     private var agendaContent: some View {
-        let today = calendar.startOfDay(for: Date())
         let upcoming = filteredActivities
-            .filter { calendar.startOfDay(for: $0.data) >= today }
             .sorted { $0.data < $1.data }
 
         let grouped = Dictionary(grouping: upcoming) { calendar.startOfDay(for: $0.data) }
@@ -493,13 +511,79 @@ struct CalendarGridView: View {
                     ForEach(sortedDates, id: \.self) { date in
                         Section(header: agendaDateHeader(date)) {
                             ForEach(grouped[date] ?? []) { activity in
-                                DayActivityRow(activity: activity)
+                                DayActivityRow(
+                                    activity: activity,
+                                    piantaNome: piante.first(where: { $0.id == activity.piantaId })?.nomePersonalizzato,
+                                    onToggle: { toggleDoneLocally(activity.id) }
+                                )
+                                .swipeActions(edge: .trailing) {
+                                    Button {
+                                        reschedulingActivity = activity
+                                        rescheduleDate = activity.data
+                                        showReschedulePicker = true
+                                    } label: {
+                                        Label(lang.dayDetail.rescheduleTitle, systemImage: "calendar")
+                                    }
+                                    .tint(.blue)
+                                }
                             }
                         }
                     }
                 }
                 .listStyle(.plain)
             }
+        }
+    }
+
+    private var agendaRescheduleSheet: some View {
+        NavigationStack {
+            Form {
+                Section(lang.dayDetail.rescheduleSection) {
+                    DatePicker(lang.dayDetail.newDateLabel, selection: $rescheduleDate, displayedComponents: .date)
+                }
+                Section {
+                    Button(action: confirmAgendaReschedule) {
+                        Text(lang.dayDetail.rescheduleConfirm)
+                            .frame(maxWidth: .infinity)
+                            .fontWeight(.semibold)
+                    }
+                    .buttonStyle(.borderedProminent)
+                    .tint(AppTheme.primaryGreen)
+                }
+            }
+            .navigationTitle(lang.dayDetail.rescheduleTitle)
+            .navigationBarTitleDisplayMode(.inline)
+            .toolbar {
+                ToolbarItem(placement: .topBarLeading) {
+                    Button(lang.common.cancel) { showReschedulePicker = false }
+                }
+            }
+        }
+        .presentationDetents([.height(250)])
+    }
+
+    private func toggleDoneLocally(_ id: UUID) {
+        if let idx = activities.firstIndex(where: { $0.id == id }) {
+            activities[idx].done.toggle()
+        }
+    }
+
+    private func confirmAgendaReschedule() {
+        guard let activity = reschedulingActivity else { return }
+        let newDate = rescheduleDate
+        showReschedulePicker = false
+        reschedulingActivity = nil
+        if let idx = activities.firstIndex(where: { $0.id == activity.id }) {
+            activities[idx] = Attivita(
+                id: activity.id, piantaId: activity.piantaId, nome: activity.nome,
+                data: newDate, done: activity.done, rainAdjusted: activity.rainAdjusted,
+                rainRescheduled: activity.rainRescheduled, userEvent: activity.userEvent,
+                sourceAction: activity.sourceAction, note: activity.note, color: activity.color,
+                recurrenceDays: activity.recurrenceDays, createdAt: activity.createdAt
+            )
+        }
+        Task {
+            try? await repository.rescheduleAttivita(id: activity.id, date: newDate)
         }
     }
 
@@ -541,6 +625,8 @@ struct CalendarGridView: View {
         var fetched: [String: Double] = [:]
         var frost: [String: Double] = [:]
         for orto in orti {
+            // Giardini interni: nessuna riprogrammazione irrigazione in base alla pioggia
+            if orto.interno { continue }
             guard let lat = orto.latitudine, let lon = orto.longitudine else { continue }
             let weather = (try? await OpenMeteoClient.shared.fetchDaily(
                 latitude: lat, longitude: lon, from: from, to: to)) ?? DailyWeather()
@@ -590,6 +676,19 @@ struct CalendarGridView: View {
         }
     }
 
+    private func loadAllActivities() async {
+        isLoading = true
+        if orti.isEmpty { await loadFiltersData() }
+        do {
+            activities = try await repository.fetchAttivita()
+            loadError = nil
+            isOffline = false
+        } catch {
+            loadError = lang.calendar.loadErrorMsg
+        }
+        isLoading = false
+    }
+
     private func loadFiltersData() async {
         guard let userId = authManager.user?.id else { return }
         if let fetchedOrti = try? await repository.fetchOrti(userId: userId) {
@@ -603,6 +702,9 @@ struct CalendarGridView: View {
             LocalCache.save(fetchedPiante, key: LocalCache.pianteKey)
         } else {
             piante = LocalCache.load([PiantaColtivata].self, key: LocalCache.pianteKey) ?? []
+        }
+        if catalogo.isEmpty, let fetchedCatalogo = try? await repository.fetchCatalogo() {
+            catalogo = fetchedCatalogo
         }
     }
 

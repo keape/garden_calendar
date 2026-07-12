@@ -2,6 +2,8 @@ import SwiftUI
 
 struct DayDetailView: View {
     let selectedDate: Date
+    let filterPiantaIds: Set<UUID>?
+    let filterTipologia: String?
     @State private var activities: [Attivita]
     @State private var rainMm: Double = 0
     @State private var frostTemp: Double?
@@ -15,9 +17,11 @@ struct DayDetailView: View {
     @Environment(SupabaseRepository.self) private var repository
     @Environment(LanguageManager.self) private var lang
 
-    init(selectedDate: Date, activities: [Attivita] = []) {
+    init(selectedDate: Date, activities: [Attivita] = [], filterPiantaIds: Set<UUID>? = nil, filterTipologia: String? = nil) {
         self.selectedDate = selectedDate
         self._activities = State(initialValue: activities)
+        self.filterPiantaIds = filterPiantaIds
+        self.filterTipologia = filterTipologia
     }
 
     private let calendar = Calendar.current
@@ -228,7 +232,12 @@ struct DayDetailView: View {
         } else {
             all = LocalCache.load([Attivita].self, key: LocalCache.monthKey(for: selectedDate)) ?? []
         }
-        activities = all.filter { calendar.isDate($0.data, inSameDayAs: selectedDate) }
+        activities = all.filter { att in
+            guard calendar.isDate(att.data, inSameDayAs: selectedDate) else { return false }
+            if let ids = filterPiantaIds, !ids.contains(att.piantaId) { return false }
+            if let tipo = filterTipologia, att.color.lowercased() != tipo { return false }
+            return true
+        }
 
         if let userId = AuthManager.shared.user?.id {
             let piante = (try? await repository.fetchAllPiante(userId: userId))
@@ -347,7 +356,11 @@ struct NaturalistaActivityRow: View {
 
     private func toggleDone() {
         Task {
-            try? await repository.setDone(id: activity.id, done: !activity.done)
+            if activity.done {
+                try? await repository.setDone(id: activity.id, done: false)
+            } else {
+                try? await repository.completeActivity(activity)
+            }
             onToggle?()
         }
     }
@@ -373,6 +386,7 @@ struct NaturalistaActivityRow: View {
 struct DayActivityRow: View {
     let activity: Attivita
     var piantaNome: String? = nil
+    var onToggle: (() -> Void)?
     @Environment(SupabaseRepository.self) private var repository
 
     var body: some View {
@@ -431,7 +445,14 @@ struct DayActivityRow: View {
     }
 
     private func toggleDone() {
-        Task { try? await repository.setDone(id: activity.id, done: !activity.done) }
+        onToggle?()
+        Task {
+            if activity.done {
+                try? await repository.setDone(id: activity.id, done: false)
+            } else {
+                try? await repository.completeActivity(activity)
+            }
+        }
     }
 
     private func iconForActivity(_ name: String) -> String {

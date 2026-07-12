@@ -1,5 +1,6 @@
 import SwiftUI
 import CoreLocation
+import PhotosUI
 
 struct OrtoDetailView: View {
     @State private var orto: Orto
@@ -10,12 +11,15 @@ struct OrtoDetailView: View {
     @State private var showEditOrto = false
     @State private var editNome = ""
     @State private var editLuogo = ""
+    @State private var editInterno = false
     @State private var resolvedLatitude: Double?
     @State private var resolvedLongitude: Double?
     @State private var isGeocoding = false
     @State private var locationHelper = LocationHelper()
     @State private var errorMessage: String?
     @State private var showDeleteOrtoConfirm = false
+    @State private var selectedPhotoItem: PhotosPickerItem?
+    @State private var isUploadingPhoto = false
     @Environment(\.dismiss) private var dismiss
     @Environment(LanguageManager.self) private var lang
 
@@ -27,9 +31,21 @@ struct OrtoDetailView: View {
         List {
             Section {
                 VStack(spacing: 8) {
-                    Image(systemName: "tree.fill")
-                        .font(.system(size: 48))
-                        .foregroundStyle(AppTheme.primaryGreen)
+                    if let fotoUrl = orto.fotoUrl, let url = URL(string: fotoUrl) {
+                        AsyncImage(url: url) { image in
+                            image
+                                .resizable()
+                                .scaledToFill()
+                        } placeholder: {
+                            ProgressView()
+                        }
+                        .frame(width: 120, height: 120)
+                        .clipShape(Circle())
+                    } else {
+                        Image(systemName: "tree.fill")
+                            .font(.system(size: 48))
+                            .foregroundStyle(AppTheme.primaryGreen)
+                    }
 
                     Text(orto.nome)
                         .font(.lora(22))
@@ -86,6 +102,7 @@ struct OrtoDetailView: View {
                 Button(lang.garden.editButton) {
                     editNome = orto.nome
                     editLuogo = orto.luogo ?? ""
+                    editInterno = orto.interno
                     resolvedLatitude = orto.latitudine
                     resolvedLongitude = orto.longitudine
                     showEditOrto = true
@@ -120,11 +137,57 @@ struct OrtoDetailView: View {
     private var editOrtoSheet: some View {
         NavigationStack {
             Form {
-                Section(lang.garden.gardenDetailsSection) {
+                Section {
                     TextField(lang.garden.gardenNamePlaceholder, text: $editNome)
                         .autocorrectionDisabled()
+                    Toggle(lang.garden.indoorToggle, isOn: $editInterno)
+                        .tint(AppTheme.primaryGreen)
+                } header: {
+                    Text(lang.garden.gardenDetailsSection)
+                } footer: {
+                    if editInterno {
+                        Text(lang.garden.indoorFooter)
+                    }
                 }
 
+                Section {
+                    HStack(spacing: 12) {
+                        if let fotoUrl = orto.fotoUrl, let url = URL(string: fotoUrl) {
+                            AsyncImage(url: url) { image in
+                                image.resizable().scaledToFill()
+                            } placeholder: {
+                                ProgressView()
+                            }
+                            .frame(width: 56, height: 56)
+                            .clipShape(RoundedRectangle(cornerRadius: 10))
+                        } else {
+                            Image(systemName: "photo")
+                                .font(.system(size: 24))
+                                .foregroundStyle(.secondary)
+                                .frame(width: 56, height: 56)
+                        }
+
+                        PhotosPicker(
+                            selection: $selectedPhotoItem,
+                            matching: .images
+                        ) {
+                            Label(
+                                orto.fotoUrl == nil ? lang.plants.addPhotoButton : lang.plants.changePhotoButton,
+                                systemImage: "camera"
+                            )
+                        }
+                        .disabled(isUploadingPhoto)
+
+                        if isUploadingPhoto {
+                            Spacer()
+                            ProgressView()
+                        }
+                    }
+                } header: {
+                    Text(lang.garden.photoSection)
+                }
+
+                if !editInterno {
                 Section(lang.garden.locationSection) {
                     HStack {
                         TextField(lang.garden.citySearchPlaceholder, text: $editLuogo)
@@ -150,6 +213,7 @@ struct OrtoDetailView: View {
                             .font(.caption)
                             .foregroundStyle(.secondary)
                     }
+                }
                 }
 
                 Section {
@@ -191,6 +255,10 @@ struct OrtoDetailView: View {
             .onChange(of: locationHelper.location) { _, location in
                 guard let location else { return }
                 Task { await reverseGeocode(location) }
+            }
+            .onChange(of: selectedPhotoItem) { _, newItem in
+                guard let newItem else { return }
+                Task { await uploadPhoto(newItem) }
             }
         }
         .presentationDetents([.medium, .large])
@@ -251,12 +319,14 @@ struct OrtoDetailView: View {
         let nome = editNome.trimmingCharacters(in: .whitespaces)
         let luogo = editLuogo.trimmingCharacters(in: .whitespaces)
         guard !nome.isEmpty else { return }
-        var lat = resolvedLatitude
-        var lon = resolvedLongitude
+        let interno = editInterno
+        var lat = interno ? nil : resolvedLatitude
+        var lon = interno ? nil : resolvedLongitude
+        let luogoFinal = interno ? "" : luogo
         showEditOrto = false
         Task {
-            if lat == nil && !luogo.isEmpty {
-                let placemarks = try? await CLGeocoder().geocodeAddressString(luogo)
+            if !interno && lat == nil && !luogoFinal.isEmpty {
+                let placemarks = try? await CLGeocoder().geocodeAddressString(luogoFinal)
                 if let loc = placemarks?.first?.location {
                     lat = loc.coordinate.latitude
                     lon = loc.coordinate.longitude
@@ -267,15 +337,40 @@ struct OrtoDetailView: View {
                     id: orto.id,
                     orto: Orto.Update(
                         nome: nome,
-                        luogo: luogo.isEmpty ? nil : luogo,
+                        luogo: luogoFinal.isEmpty ? nil : luogoFinal,
                         latitudine: lat,
-                        longitudine: lon
+                        longitudine: lon,
+                        interno: interno
                     )
                 )
                 orto = updated
             } catch {
                 errorMessage = error.localizedDescription
             }
+        }
+    }
+
+    private func uploadPhoto(_ item: PhotosPickerItem) async {
+        isUploadingPhoto = true
+        defer { isUploadingPhoto = false }
+        do {
+            guard let data = try await item.loadTransferable(type: Data.self),
+                  let jpeg = UIImage(data: data)?.jpegData(compressionQuality: 0.7) else { return }
+            let url = try await repository.uploadOrtoPhoto(ortoId: orto.id, data: jpeg)
+            let updated = try await repository.updateOrto(
+                id: orto.id,
+                orto: Orto.Update(
+                    nome: nil,
+                    luogo: nil,
+                    latitudine: nil,
+                    longitudine: nil,
+                    interno: nil,
+                    fotoUrl: url
+                )
+            )
+            orto = updated
+        } catch {
+            errorMessage = error.localizedDescription
         }
     }
 
@@ -314,9 +409,7 @@ struct PiantaRowView: View {
 
     var body: some View {
         HStack(spacing: 12) {
-            Image(systemName: "leaf.fill")
-                .font(.title2)
-                .foregroundStyle(AppTheme.primaryGreen)
+            PlantIconView(pianta: pianta, size: 32)
                 .frame(width: 32)
 
             VStack(alignment: .leading, spacing: 4) {
@@ -354,7 +447,7 @@ struct PiantaRowView: View {
     NavigationStack {
         OrtoDetailView(orto: Orto(
             id: UUID(), userId: UUID(), nome: "Il mio orto", luogo: "Balcone",
-            latitudine: nil, longitudine: nil, createdAt: Date(), updatedAt: Date()
+            latitudine: nil, longitudine: nil, interno: false, fotoUrl: nil, createdAt: Date(), updatedAt: Date()
         ))
         .environment(SupabaseRepository.shared)
         .environment(LanguageManager.shared)

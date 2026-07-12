@@ -15,7 +15,37 @@ final class AuthManager {
     var isLoading: Bool = true
     var isAdmin: Bool = false
 
+    private var observationTask: Task<Void, Never>?
+
     private init() {}
+
+    /// Osserva i cambi di stato auth (refresh token, signOut, scadenza sessione).
+    /// Senza questo, una sessione persa a metà uso lascia `isAuthenticated = true`
+    /// stale: l'UI mostra le tab ma il client invia richieste anon → RLS 42501.
+    func startObserving() {
+        guard observationTask == nil else { return }
+        observationTask = Task { [weak self] in
+            guard let self else { return }
+            for await (event, session) in client.auth.authStateChanges {
+                switch event {
+                case .initialSession, .signedIn, .tokenRefreshed, .userUpdated:
+                    self.applySession(session)
+                case .signedOut:
+                    self.applySession(nil)
+                default:
+                    break
+                }
+                self.isLoading = false
+            }
+        }
+    }
+
+    private func applySession(_ session: Session?) {
+        self.session = session
+        self.user = session?.user
+        self.isAuthenticated = session != nil
+        self.isAdmin = session?.user.userMetadata["is_admin"]?.boolValue ?? false
+    }
 
     func checkSession() async {
         isLoading = true
@@ -61,11 +91,12 @@ final class AuthManager {
         await checkSession()
     }
 
-    func signInWithApple(idToken: String) async throws {
-        let result = try await client.auth.signInWithIdToken(credentials: .init(provider: .apple, idToken: idToken))
+    func signInWithApple(idToken: String, nonce: String) async throws {
+        let result = try await client.auth.signInWithIdToken(credentials: .init(provider: .apple, idToken: idToken, nonce: nonce))
         session = result
         user = result.user
         isAuthenticated = true
+        isAdmin = result.user.userMetadata["is_admin"]?.boolValue ?? false
     }
 
     func signOut() async {

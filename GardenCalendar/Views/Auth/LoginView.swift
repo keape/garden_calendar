@@ -1,4 +1,5 @@
 import SwiftUI
+import AuthenticationServices
 
 /// Schermata di login con email/password, link registrazione, reset password e Apple Sign-In.
 struct LoginView: View {
@@ -180,10 +181,17 @@ struct LoginView: View {
     }
 
     private func performAppleSignIn() {
-        // Apple Sign-In would be integrated via AuthenticationServices
-        // For now, this is a placeholder
-        errorMessage = lang.auth.appleSignInComingSoon
-        showError = true
+        Task {
+            do {
+                let (idToken, nonce) = try await AppleSignInCoordinator().signIn()
+                try await authManager.signInWithApple(idToken: idToken, nonce: nonce)
+            } catch let error as ASAuthorizationError where error.code == .canceled {
+                // Utente annulla il pannello Apple: nessun alert.
+            } catch {
+                errorMessage = error.localizedDescription
+                showError = true
+            }
+        }
     }
 }
 

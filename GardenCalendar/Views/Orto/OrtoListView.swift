@@ -10,6 +10,7 @@ struct OrtoListView: View {
     @State private var showNewOrto = false
     @State private var newNome = ""
     @State private var newLuogo = ""
+    @State private var newInterno = false
     @State private var ortoToDelete: Orto?
     @State private var showDeleteConfirm = false
     @State private var errorMessage: String?
@@ -104,11 +105,20 @@ struct OrtoListView: View {
     private var newOrtoSheet: some View {
         NavigationStack {
             Form {
-                Section(lang.garden.gardenDetailsSection) {
+                Section {
                     TextField(lang.garden.gardenNamePlaceholder, text: $newNome)
                         .autocorrectionDisabled()
+                    Toggle(lang.garden.indoorToggle, isOn: $newInterno)
+                        .tint(AppTheme.primaryGreen)
+                } header: {
+                    Text(lang.garden.gardenDetailsSection)
+                } footer: {
+                    if newInterno {
+                        Text(lang.garden.indoorFooter)
+                    }
                 }
 
+                if !newInterno {
                 Section(lang.garden.locationSection) {
                     HStack {
                         TextField(lang.garden.citySearchPlaceholder, text: $newLuogo)
@@ -134,6 +144,7 @@ struct OrtoListView: View {
                             .font(.caption)
                             .foregroundStyle(.secondary)
                     }
+                }
                 }
 
                 Section {
@@ -177,17 +188,20 @@ struct OrtoListView: View {
         let nome = newNome.trimmingCharacters(in: .whitespaces)
         let luogo = newLuogo.trimmingCharacters(in: .whitespaces)
         guard let userId = authManager.user?.id else { return }
-        var lat = resolvedLatitude
-        var lon = resolvedLongitude
+        let interno = newInterno
+        var lat = interno ? nil : resolvedLatitude
+        var lon = interno ? nil : resolvedLongitude
+        let luogoFinal = interno ? "" : luogo
         showNewOrto = false
         newNome = ""
         newLuogo = ""
+        newInterno = false
         resolvedLatitude = nil
         resolvedLongitude = nil
         Task {
             // Geocodifica se l'utente ha scritto la città senza premere Return
-            if lat == nil && !luogo.isEmpty {
-                let placemarks = try? await CLGeocoder().geocodeAddressString(luogo)
+            if !interno && lat == nil && !luogoFinal.isEmpty {
+                let placemarks = try? await CLGeocoder().geocodeAddressString(luogoFinal)
                 if let loc = placemarks?.first?.location {
                     lat = loc.coordinate.latitude
                     lon = loc.coordinate.longitude
@@ -196,7 +210,7 @@ struct OrtoListView: View {
             do {
                 let nuovo = try await repository.createOrto(
                     userId: userId,
-                    orto: Orto.Create(nome: nome, luogo: luogo.isEmpty ? nil : luogo, latitudine: lat, longitudine: lon)
+                    orto: Orto.Create(nome: nome, luogo: luogoFinal.isEmpty ? nil : luogoFinal, latitudine: lat, longitudine: lon, interno: interno)
                 )
                 orti.append(nuovo)
             } catch {
