@@ -124,6 +124,19 @@ struct LoginView: View {
                         }
                         .padding(.horizontal, 24)
 
+                        // Google Sign-In button
+                        Button(action: performGoogleSignIn) {
+                            Label(lang.auth.googleSignIn, systemImage: "g.circle.fill")
+                                .fontWeight(.semibold)
+                                .frame(maxWidth: .infinity)
+                                .padding(.vertical, 14)
+                                .background(AppTheme.cardBackground)
+                                .foregroundStyle(AppTheme.textPrimary)
+                                .clipShape(RoundedRectangle(cornerRadius: 12))
+                                .overlay(RoundedRectangle(cornerRadius: 12).stroke(AppTheme.cardSecondaryWarm, lineWidth: 1))
+                        }
+                        .padding(.horizontal, 24)
+
                         Spacer().frame(height: 40)
                     }
                 }
@@ -187,6 +200,17 @@ struct LoginView: View {
                 try await authManager.signInWithApple(idToken: idToken, nonce: nonce)
             } catch let error as ASAuthorizationError where error.code == .canceled {
                 // Utente annulla il pannello Apple: nessun alert.
+            } catch {
+                errorMessage = error.localizedDescription
+                showError = true
+            }
+        }
+    }
+
+    private func performGoogleSignIn() {
+        Task {
+            do {
+                try await authManager.signInWithGoogle()
             } catch {
                 errorMessage = error.localizedDescription
                 showError = true
