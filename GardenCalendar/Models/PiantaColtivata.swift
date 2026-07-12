@@ -46,6 +46,17 @@ struct PiantaColtivata: Codable, Identifiable, Hashable {
 
 // MARK: - DTO per le mutate API
 
+/// La colonna `data_semina` è di tipo `date` (no timezone): va inviata come
+/// stringa "yyyy-MM-dd" nel calendario locale, non come timestamp ISO8601 UTC
+/// (altrimenti Postgres tronca al giorno UTC, che per fusi orari positivi è
+/// sempre il giorno precedente a mezzanotte locale).
+private let dataSeminaFormatter: ISO8601DateFormatter = {
+    let formatter = ISO8601DateFormatter()
+    formatter.formatOptions = [.withFullDate]
+    formatter.timeZone = .current
+    return formatter
+}()
+
 extension PiantaColtivata {
     struct Create: Encodable {
         let ortoId: UUID
@@ -65,6 +76,17 @@ extension PiantaColtivata {
             case note
             case fotoUrl = "foto_url"
         }
+
+        func encode(to encoder: Encoder) throws {
+            var container = encoder.container(keyedBy: CodingKeys.self)
+            try container.encode(ortoId, forKey: .ortoId)
+            try container.encode(specieId, forKey: .specieId)
+            try container.encode(nomePersonalizzato, forKey: .nomePersonalizzato)
+            try container.encode(dataSeminaFormatter.string(from: dataSemina), forKey: .dataSemina)
+            try container.encode(growthDays, forKey: .growthDays)
+            try container.encode(note, forKey: .note)
+            try container.encode(fotoUrl, forKey: .fotoUrl)
+        }
     }
 
     struct Update: Encodable {
@@ -80,6 +102,15 @@ extension PiantaColtivata {
             case growthDays = "growth_days"
             case note
             case fotoUrl = "foto_url"
+        }
+
+        func encode(to encoder: Encoder) throws {
+            var container = encoder.container(keyedBy: CodingKeys.self)
+            try container.encode(nomePersonalizzato, forKey: .nomePersonalizzato)
+            try container.encode(dataSemina.map { dataSeminaFormatter.string(from: $0) }, forKey: .dataSemina)
+            try container.encode(growthDays, forKey: .growthDays)
+            try container.encode(note, forKey: .note)
+            try container.encode(fotoUrl, forKey: .fotoUrl)
         }
     }
 
