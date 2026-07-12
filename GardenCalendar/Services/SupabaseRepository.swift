@@ -421,6 +421,7 @@ final class SupabaseRepository {
     ) async throws -> ScheduleResponse {
         let formatter = ISO8601DateFormatter()
         formatter.formatOptions = [.withFullDate]
+        formatter.timeZone = .current
         let dateStr = formatter.string(from: dataSemina)
 
         let request = ScheduleRequest(
