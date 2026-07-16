@@ -115,7 +115,7 @@ struct OrtoDetailView: View {
         .sheet(isPresented: $showAddPianta, onDismiss: {
             Task { await loadPiante() }
         }) {
-            AggiungiPiantaView(ortoId: orto.id)
+            AggiungiPiantaView(ortoId: orto.id, orto: orto)
         }
         .sheet(isPresented: $showEditOrto) {
             editOrtoSheet

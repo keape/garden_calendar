@@ -85,7 +85,6 @@ struct Strings {
         let languagePickerLabel: String
         let infoSection: String
         let versionLabel: String
-        let builtWithLabel: String
         let deleteAccountButton: String
         let deleteAccountFooter: String
         let deleteConfirmTitle: String
@@ -201,6 +200,9 @@ struct Strings {
         let wateringLabel: String
         let exposureLabel: String
         let harvestMonthsLabel: String
+        let bloomMonthsLabel: String
+        let phLabel: String
+        let toleranceTempLabel: String
         let everyNDaysShortFormat: String
         let afterNDaysShortFormat: String
         let addPhotoButton: String
@@ -263,7 +265,36 @@ struct Strings {
     struct TabsStrings {
         let calendar: String
         let gardens: String
+        let diagnosis: String
+        let magazine: String
         let settings: String
+    }
+
+    struct MagazineStrings {
+        let navTitle: String
+        let headerFormat: String
+        let emptyTitle: String
+        let emptyDesc: String
+        let seminaBadge: String
+        let raccoltaBadge: String
+        let fiorituraBadge: String
+        let whySection: String
+        let descriptionSection: String
+        let careSection: String
+        let companionsSection: String
+        let activitiesSection: String
+    }
+
+    struct DiagnosisStrings {
+        let navTitle: String
+        let selectPlant: String
+        let noPlants: String
+        let takePhoto: String
+        let chooseFromLibrary: String
+        let analyzeButton: String
+        let analyzing: String
+        let resultTitle: String
+        let errorMissingPlantOrPhoto: String
     }
 
     let common:        Common
@@ -276,6 +307,8 @@ struct Strings {
     let journal:       JournalStrings
     let notifications: NotificationsStrings
     let tabs:          TabsStrings
+    let diagnosis:     DiagnosisStrings
+    let magazine:      MagazineStrings
 }
 
 // MARK: - Italian
@@ -344,7 +377,6 @@ extension Strings {
             languagePickerLabel: "Lingua / Language",
             infoSection: "Info",
             versionLabel: "Versione",
-            builtWithLabel: "Sviluppata con",
             deleteAccountButton: "Elimina account",
             deleteAccountFooter: "L'eliminazione dell'account cancellerà tutti i tuoi dati. Questa azione è irreversibile.",
             deleteConfirmTitle: "Elimina account",
@@ -457,6 +489,9 @@ extension Strings {
             wateringLabel: "Annaffiatura",
             exposureLabel: "Esposizione",
             harvestMonthsLabel: "Mesi raccolta",
+            bloomMonthsLabel: "Mesi fioritura",
+            phLabel: "pH terreno",
+            toleranceTempLabel: "Temperatura minima tollerata",
             everyNDaysShortFormat: "ogni %dgg",
             afterNDaysShortFormat: "dopo %dgg",
             addPhotoButton: "Aggiungi foto",
@@ -515,7 +550,34 @@ extension Strings {
         tabs: TabsStrings(
             calendar: "Calendario",
             gardens: "Giardini",
+            diagnosis: "Diagnosi",
+            magazine: "Magazine",
             settings: "Impostazioni"
+        ),
+        diagnosis: DiagnosisStrings(
+            navTitle: "Diagnosi pianta",
+            selectPlant: "Seleziona pianta",
+            noPlants: "Nessuna pianta disponibile",
+            takePhoto: "Scatta foto",
+            chooseFromLibrary: "Scegli dalla libreria",
+            analyzeButton: "Analizza",
+            analyzing: "Analisi in corso…",
+            resultTitle: "Diagnosi",
+            errorMissingPlantOrPhoto: "Seleziona una pianta e una foto prima di analizzare"
+        ),
+        magazine: MagazineStrings(
+            navTitle: "Magazine",
+            headerFormat: "Piante del mese: %@",
+            emptyTitle: "Nessun articolo questo mese",
+            emptyDesc: "Torna a trovarci il mese prossimo per nuovi suggerimenti.",
+            seminaBadge: "Semina",
+            raccoltaBadge: "Raccolta",
+            fiorituraBadge: "Fioritura",
+            whySection: "Perché questo mese",
+            descriptionSection: "Descrizione",
+            careSection: "Cure",
+            companionsSection: "Piante compagne",
+            activitiesSection: "Attività suggerite"
         )
     )
 }
@@ -586,7 +648,6 @@ extension Strings {
             languagePickerLabel: "Language / Lingua",
             infoSection: "Info",
             versionLabel: "Version",
-            builtWithLabel: "Built with",
             deleteAccountButton: "Delete account",
             deleteAccountFooter: "Deleting your account will erase all your data. This action is irreversible.",
             deleteConfirmTitle: "Delete account",
@@ -699,6 +760,9 @@ extension Strings {
             wateringLabel: "Watering",
             exposureLabel: "Exposure",
             harvestMonthsLabel: "Harvest months",
+            bloomMonthsLabel: "Bloom months",
+            phLabel: "Soil pH",
+            toleranceTempLabel: "Minimum tolerated temperature",
             everyNDaysShortFormat: "every %dd",
             afterNDaysShortFormat: "after %dd",
             addPhotoButton: "Add photo",
@@ -757,7 +821,34 @@ extension Strings {
         tabs: TabsStrings(
             calendar: "Calendar",
             gardens: "Gardens",
+            diagnosis: "Diagnosis",
+            magazine: "Magazine",
             settings: "Settings"
+        ),
+        diagnosis: DiagnosisStrings(
+            navTitle: "Plant diagnosis",
+            selectPlant: "Select plant",
+            noPlants: "No plants available",
+            takePhoto: "Take photo",
+            chooseFromLibrary: "Choose from library",
+            analyzeButton: "Analyze",
+            analyzing: "Analyzing…",
+            resultTitle: "Diagnosis",
+            errorMissingPlantOrPhoto: "Select a plant and a photo before analyzing"
+        ),
+        magazine: MagazineStrings(
+            navTitle: "Magazine",
+            headerFormat: "Plants of the month: %@",
+            emptyTitle: "No articles this month",
+            emptyDesc: "Check back next month for new suggestions.",
+            seminaBadge: "Sowing",
+            raccoltaBadge: "Harvest",
+            fiorituraBadge: "Bloom",
+            whySection: "Why this month",
+            descriptionSection: "Description",
+            careSection: "Care",
+            companionsSection: "Companion plants",
+            activitiesSection: "Suggested activities"
         )
     )
 }
@@ -786,6 +877,8 @@ final class LanguageManager {
     var journal:       Strings.JournalStrings       { strings.journal }
     var notifications: Strings.NotificationsStrings { strings.notifications }
     var tabs:          Strings.TabsStrings          { strings.tabs }
+    var diagnosis:     Strings.DiagnosisStrings     { strings.diagnosis }
+    var magazine:      Strings.MagazineStrings      { strings.magazine }
 
     private init() {
         let saved = UserDefaults.standard.string(forKey: "appLanguage") ?? "it"

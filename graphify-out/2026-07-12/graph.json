@@ -102,7 +102,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "foundation",
-      "community": 40,
+      "community": 67,
       "norm_label": "foundation"
     },
     {
@@ -189,7 +189,7 @@
       "label": "SettingsStrings",
       "file_type": "code",
       "source_file": "GardenCalendar/Localization/Strings.swift",
-      "source_location": "L60",
+      "source_location": "L61",
       "_origin": "ast",
       "id": "gardencalendar_localization_strings_settingsstrings",
       "community": 7,
@@ -266,10 +266,20 @@
       "norm_label": "tabsstrings"
     },
     {
+      "label": "DiagnosisStrings",
+      "file_type": "code",
+      "source_file": "GardenCalendar/Localization/Strings.swift",
+      "source_location": "L269",
+      "_origin": "ast",
+      "id": "gardencalendar_localization_strings_diagnosisstrings",
+      "community": 7,
+      "norm_label": "diagnosisstrings"
+    },
+    {
       "label": "LanguageManager",
       "file_type": "code",
       "source_file": "GardenCalendar/Localization/Strings.swift",
-      "source_location": "L764",
+      "source_location": "L803",
       "_origin": "ast",
       "id": "gardencalendar_localization_strings_languagemanager",
       "community": 7,
@@ -279,7 +289,7 @@
       "label": ".init()",
       "file_type": "code",
       "source_file": "GardenCalendar/Localization/Strings.swift",
-      "source_location": "L787",
+      "source_location": "L827",
       "_origin": "ast",
       "id": "gardencalendar_localization_strings_languagemanager_init",
       "community": 7,
@@ -292,7 +302,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "gardencalendar_models_attivita",
-      "community": 21,
+      "community": 57,
       "norm_label": "attivita.swift"
     },
     {
@@ -302,7 +312,7 @@
       "source_location": "L4",
       "_origin": "ast",
       "id": "gardencalendar_models_attivita_attivita",
-      "community": 21,
+      "community": 57,
       "norm_label": "attivita"
     },
     {
@@ -312,7 +322,7 @@
       "source_location": "",
       "_origin": "ast",
       "id": "codable",
-      "community": 15,
+      "community": 7,
       "norm_label": "codable"
     },
     {
@@ -322,7 +332,7 @@
       "source_location": "",
       "_origin": "ast",
       "id": "identifiable",
-      "community": 40,
+      "community": 84,
       "norm_label": "identifiable"
     },
     {
@@ -332,7 +342,7 @@
       "source_location": "",
       "_origin": "ast",
       "id": "gardencalendar_models_attivita_swift_uuid",
-      "community": 21,
+      "community": 57,
       "norm_label": "uuid"
     },
     {
@@ -342,7 +352,7 @@
       "source_location": "",
       "_origin": "ast",
       "id": "gardencalendar_models_attivita_swift_string",
-      "community": 21,
+      "community": 57,
       "norm_label": "string"
     },
     {
@@ -352,7 +362,7 @@
       "source_location": "",
       "_origin": "ast",
       "id": "gardencalendar_models_attivita_swift_bool",
-      "community": 21,
+      "community": 57,
       "norm_label": "bool"
     },
     {
@@ -362,7 +372,7 @@
       "source_location": "",
       "_origin": "ast",
       "id": "gardencalendar_models_attivita_swift_int",
-      "community": 21,
+      "community": 57,
       "norm_label": "int"
     },
     {
@@ -372,7 +382,7 @@
       "source_location": "L19",
       "_origin": "ast",
       "id": "gardencalendar_models_attivita_codingkeys",
-      "community": 21,
+      "community": 57,
       "norm_label": "codingkeys"
     },
     {
@@ -392,7 +402,7 @@
       "source_location": "L20",
       "_origin": "ast",
       "id": "gardencalendar_models_attivita_codingkeys_id",
-      "community": 21,
+      "community": 57,
       "norm_label": "id"
     },
     {
@@ -402,7 +412,7 @@
       "source_location": "L21",
       "_origin": "ast",
       "id": "gardencalendar_models_attivita_codingkeys_piantaid",
-      "community": 21,
+      "community": 57,
       "norm_label": "piantaid"
     },
     {
@@ -412,7 +422,7 @@
       "source_location": "L22",
       "_origin": "ast",
       "id": "gardencalendar_models_attivita_codingkeys_nome",
-      "community": 21,
+      "community": 57,
       "norm_label": "nome"
     },
     {
@@ -422,7 +432,7 @@
       "source_location": "L23",
       "_origin": "ast",
       "id": "gardencalendar_models_attivita_codingkeys_data",
-      "community": 21,
+      "community": 57,
       "norm_label": "data"
     },
     {
@@ -432,7 +442,7 @@
       "source_location": "L24",
       "_origin": "ast",
       "id": "gardencalendar_models_attivita_codingkeys_done",
-      "community": 21,
+      "community": 57,
       "norm_label": "done"
     },
     {
@@ -442,7 +452,7 @@
       "source_location": "L25",
       "_origin": "ast",
       "id": "gardencalendar_models_attivita_codingkeys_rainadjusted",
-      "community": 21,
+      "community": 57,
       "norm_label": "rainadjusted"
     },
     {
@@ -452,7 +462,7 @@
       "source_location": "L26",
       "_origin": "ast",
       "id": "gardencalendar_models_attivita_codingkeys_rainrescheduled",
-      "community": 21,
+      "community": 57,
       "norm_label": "rainrescheduled"
     },
     {
@@ -462,7 +472,7 @@
       "source_location": "L27",
       "_origin": "ast",
       "id": "gardencalendar_models_attivita_codingkeys_userevent",
-      "community": 21,
+      "community": 57,
       "norm_label": "userevent"
     },
     {
@@ -472,7 +482,7 @@
       "source_location": "L28",
       "_origin": "ast",
       "id": "gardencalendar_models_attivita_codingkeys_sourceaction",
-      "community": 21,
+      "community": 57,
       "norm_label": "sourceaction"
     },
     {
@@ -482,7 +492,7 @@
       "source_location": "L29",
       "_origin": "ast",
       "id": "gardencalendar_models_attivita_codingkeys_note",
-      "community": 21,
+      "community": 57,
       "norm_label": "note"
     },
     {
@@ -492,7 +502,7 @@
       "source_location": "L30",
       "_origin": "ast",
       "id": "gardencalendar_models_attivita_codingkeys_color",
-      "community": 21,
+      "community": 57,
       "norm_label": "color"
     },
     {
@@ -502,7 +512,7 @@
       "source_location": "L31",
       "_origin": "ast",
       "id": "gardencalendar_models_attivita_codingkeys_recurrencedays",
-      "community": 21,
+      "community": 57,
       "norm_label": "recurrencedays"
     },
     {
@@ -512,7 +522,7 @@
       "source_location": "L32",
       "_origin": "ast",
       "id": "gardencalendar_models_attivita_codingkeys_createdat",
-      "community": 21,
+      "community": 57,
       "norm_label": "createdat"
     },
     {
@@ -522,7 +532,7 @@
       "source_location": "L68",
       "_origin": "ast",
       "id": "gardencalendar_models_attivita_create",
-      "community": 21,
+      "community": 57,
       "norm_label": "create"
     },
     {
@@ -532,7 +542,7 @@
       "source_location": "",
       "_origin": "ast",
       "id": "encodable",
-      "community": 21,
+      "community": 58,
       "norm_label": "encodable"
     },
     {
@@ -542,7 +552,7 @@
       "source_location": "L96",
       "_origin": "ast",
       "id": "gardencalendar_models_attivita_update",
-      "community": 21,
+      "community": 57,
       "norm_label": "update"
     },
     {
@@ -552,7 +562,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "gardencalendar_models_orto",
-      "community": 21,
+      "community": 58,
       "norm_label": "orto.swift"
     },
     {
@@ -562,7 +572,7 @@
       "source_location": "L3",
       "_origin": "ast",
       "id": "gardencalendar_models_orto_orto",
-      "community": 45,
+      "community": 49,
       "norm_label": "orto"
     },
     {
@@ -582,7 +592,7 @@
       "source_location": "",
       "_origin": "ast",
       "id": "gardencalendar_models_orto_swift_uuid",
-      "community": 45,
+      "community": 49,
       "norm_label": "uuid"
     },
     {
@@ -592,7 +602,7 @@
       "source_location": "",
       "_origin": "ast",
       "id": "gardencalendar_models_orto_swift_string",
-      "community": 21,
+      "community": 58,
       "norm_label": "string"
     },
     {
@@ -602,7 +612,7 @@
       "source_location": "",
       "_origin": "ast",
       "id": "gardencalendar_models_orto_swift_double",
-      "community": 21,
+      "community": 58,
       "norm_label": "double"
     },
     {
@@ -612,7 +622,7 @@
       "source_location": "",
       "_origin": "ast",
       "id": "gardencalendar_models_orto_swift_bool",
-      "community": 21,
+      "community": 58,
       "norm_label": "bool"
     },
     {
@@ -622,7 +632,7 @@
       "source_location": "L15",
       "_origin": "ast",
       "id": "gardencalendar_models_orto_codingkeys",
-      "community": 21,
+      "community": 53,
       "norm_label": "codingkeys"
     },
     {
@@ -632,7 +642,7 @@
       "source_location": "L16",
       "_origin": "ast",
       "id": "gardencalendar_models_orto_codingkeys_id",
-      "community": 21,
+      "community": 53,
       "norm_label": "id"
     },
     {
@@ -642,7 +652,7 @@
       "source_location": "L17",
       "_origin": "ast",
       "id": "gardencalendar_models_orto_codingkeys_userid",
-      "community": 21,
+      "community": 53,
       "norm_label": "userid"
     },
     {
@@ -652,7 +662,7 @@
       "source_location": "L18",
       "_origin": "ast",
       "id": "gardencalendar_models_orto_codingkeys_nome",
-      "community": 21,
+      "community": 53,
       "norm_label": "nome"
     },
     {
@@ -662,7 +672,7 @@
       "source_location": "L19",
       "_origin": "ast",
       "id": "gardencalendar_models_orto_codingkeys_luogo",
-      "community": 21,
+      "community": 53,
       "norm_label": "luogo"
     },
     {
@@ -672,7 +682,7 @@
       "source_location": "L20",
       "_origin": "ast",
       "id": "gardencalendar_models_orto_codingkeys_latitudine",
-      "community": 21,
+      "community": 53,
       "norm_label": "latitudine"
     },
     {
@@ -682,7 +692,7 @@
       "source_location": "L21",
       "_origin": "ast",
       "id": "gardencalendar_models_orto_codingkeys_longitudine",
-      "community": 21,
+      "community": 53,
       "norm_label": "longitudine"
     },
     {
@@ -692,7 +702,7 @@
       "source_location": "L22",
       "_origin": "ast",
       "id": "gardencalendar_models_orto_codingkeys_interno",
-      "community": 21,
+      "community": 53,
       "norm_label": "interno"
     },
     {
@@ -702,7 +712,7 @@
       "source_location": "L23",
       "_origin": "ast",
       "id": "gardencalendar_models_orto_codingkeys_fotourl",
-      "community": 21,
+      "community": 53,
       "norm_label": "fotourl"
     },
     {
@@ -712,7 +722,7 @@
       "source_location": "L24",
       "_origin": "ast",
       "id": "gardencalendar_models_orto_codingkeys_createdat",
-      "community": 21,
+      "community": 53,
       "norm_label": "createdat"
     },
     {
@@ -722,7 +732,7 @@
       "source_location": "L25",
       "_origin": "ast",
       "id": "gardencalendar_models_orto_codingkeys_updatedat",
-      "community": 21,
+      "community": 53,
       "norm_label": "updatedat"
     },
     {
@@ -732,7 +742,7 @@
       "source_location": "L30",
       "_origin": "ast",
       "id": "gardencalendar_models_orto_orto_init",
-      "community": 45,
+      "community": 49,
       "norm_label": ".init()"
     },
     {
@@ -742,7 +752,7 @@
       "source_location": "",
       "_origin": "ast",
       "id": "gardencalendar_models_orto_swift_decoder",
-      "community": 45,
+      "community": 49,
       "norm_label": "decoder"
     },
     {
@@ -752,7 +762,7 @@
       "source_location": "L46",
       "_origin": "ast",
       "id": "gardencalendar_models_orto_create",
-      "community": 21,
+      "community": 58,
       "norm_label": "create"
     },
     {
@@ -762,7 +772,7 @@
       "source_location": "L54",
       "_origin": "ast",
       "id": "gardencalendar_models_orto_update",
-      "community": 21,
+      "community": 58,
       "norm_label": "update"
     },
     {
@@ -1042,7 +1052,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "gardencalendar_models_plantknowledge",
-      "community": 15,
+      "community": 7,
       "norm_label": "plantknowledge.swift"
     },
     {
@@ -1052,7 +1062,7 @@
       "source_location": "L3",
       "_origin": "ast",
       "id": "gardencalendar_models_plantknowledge_planttype",
-      "community": 15,
+      "community": 7,
       "norm_label": "planttype"
     },
     {
@@ -1062,7 +1072,7 @@
       "source_location": "",
       "_origin": "ast",
       "id": "sendable",
-      "community": 15,
+      "community": 7,
       "norm_label": "sendable"
     },
     {
@@ -1072,7 +1082,7 @@
       "source_location": "L4",
       "_origin": "ast",
       "id": "gardencalendar_models_plantknowledge_planttype_ortaggio",
-      "community": 15,
+      "community": 7,
       "norm_label": "ortaggio"
     },
     {
@@ -1082,7 +1092,7 @@
       "source_location": "L4",
       "_origin": "ast",
       "id": "gardencalendar_models_plantknowledge_planttype_aromatica",
-      "community": 15,
+      "community": 7,
       "norm_label": "aromatica"
     },
     {
@@ -1092,7 +1102,7 @@
       "source_location": "L4",
       "_origin": "ast",
       "id": "gardencalendar_models_plantknowledge_planttype_frutto",
-      "community": 15,
+      "community": 7,
       "norm_label": "frutto"
     },
     {
@@ -1102,7 +1112,7 @@
       "source_location": "L4",
       "_origin": "ast",
       "id": "gardencalendar_models_plantknowledge_planttype_fiore",
-      "community": 15,
+      "community": 7,
       "norm_label": "fiore"
     },
     {
@@ -1112,7 +1122,7 @@
       "source_location": "L4",
       "_origin": "ast",
       "id": "gardencalendar_models_plantknowledge_planttype_altro",
-      "community": 15,
+      "community": 7,
       "norm_label": "altro"
     },
     {
@@ -1122,7 +1132,7 @@
       "source_location": "L27",
       "_origin": "ast",
       "id": "gardencalendar_models_plantknowledge_plantknowledge",
-      "community": 15,
+      "community": 7,
       "norm_label": "plantknowledge"
     },
     {
@@ -1132,7 +1142,7 @@
       "source_location": "",
       "_origin": "ast",
       "id": "gardencalendar_models_plantknowledge_swift_uuid",
-      "community": 15,
+      "community": 7,
       "norm_label": "uuid"
     },
     {
@@ -1142,7 +1152,7 @@
       "source_location": "",
       "_origin": "ast",
       "id": "gardencalendar_models_plantknowledge_swift_int",
-      "community": 15,
+      "community": 7,
       "norm_label": "int"
     },
     {
@@ -1352,7 +1362,7 @@
       "source_location": "L71",
       "_origin": "ast",
       "id": "gardencalendar_models_plantknowledge_plantknowledge_init",
-      "community": 15,
+      "community": 7,
       "norm_label": ".init()"
     },
     {
@@ -1362,7 +1372,7 @@
       "source_location": "",
       "_origin": "ast",
       "id": "gardencalendar_models_plantknowledge_swift_decoder",
-      "community": 15,
+      "community": 7,
       "norm_label": "decoder"
     },
     {
@@ -1372,7 +1382,7 @@
       "source_location": "L131",
       "_origin": "ast",
       "id": "gardencalendar_models_plantknowledge_attivitasuggerita",
-      "community": 15,
+      "community": 7,
       "norm_label": "attivitasuggerita"
     },
     {
@@ -1562,7 +1572,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "gardencalendar_models_wikinote",
-      "community": 40,
+      "community": 67,
       "norm_label": "wikinote.swift"
     },
     {
@@ -1572,7 +1582,7 @@
       "source_location": "L3",
       "_origin": "ast",
       "id": "gardencalendar_models_wikinote_wikinote",
-      "community": 40,
+      "community": 84,
       "norm_label": "wikinote"
     },
     {
@@ -1582,7 +1592,7 @@
       "source_location": "",
       "_origin": "ast",
       "id": "gardencalendar_models_wikinote_swift_uuid",
-      "community": 40,
+      "community": 84,
       "norm_label": "uuid"
     },
     {
@@ -1592,7 +1602,7 @@
       "source_location": "",
       "_origin": "ast",
       "id": "gardencalendar_models_wikinote_swift_string",
-      "community": 40,
+      "community": 84,
       "norm_label": "string"
     },
     {
@@ -1602,7 +1612,7 @@
       "source_location": "",
       "_origin": "ast",
       "id": "gardencalendar_models_wikinote_swift_bool",
-      "community": 40,
+      "community": 84,
       "norm_label": "bool"
     },
     {
@@ -1612,7 +1622,7 @@
       "source_location": "L11",
       "_origin": "ast",
       "id": "gardencalendar_models_wikinote_codingkeys",
-      "community": 40,
+      "community": 83,
       "norm_label": "codingkeys"
     },
     {
@@ -1622,7 +1632,7 @@
       "source_location": "L12",
       "_origin": "ast",
       "id": "gardencalendar_models_wikinote_codingkeys_id",
-      "community": 40,
+      "community": 83,
       "norm_label": "id"
     },
     {
@@ -1632,7 +1642,7 @@
       "source_location": "L13",
       "_origin": "ast",
       "id": "gardencalendar_models_wikinote_codingkeys_slug",
-      "community": 40,
+      "community": 83,
       "norm_label": "slug"
     },
     {
@@ -1642,7 +1652,7 @@
       "source_location": "L14",
       "_origin": "ast",
       "id": "gardencalendar_models_wikinote_codingkeys_markdowncontent",
-      "community": 40,
+      "community": 83,
       "norm_label": "markdowncontent"
     },
     {
@@ -1652,7 +1662,7 @@
       "source_location": "L15",
       "_origin": "ast",
       "id": "gardencalendar_models_wikinote_codingkeys_processed",
-      "community": 40,
+      "community": 83,
       "norm_label": "processed"
     },
     {
@@ -1662,7 +1672,7 @@
       "source_location": "L16",
       "_origin": "ast",
       "id": "gardencalendar_models_wikinote_codingkeys_createdat",
-      "community": 40,
+      "community": 83,
       "norm_label": "createdat"
     },
     {
@@ -1672,7 +1682,7 @@
       "source_location": "L17",
       "_origin": "ast",
       "id": "gardencalendar_models_wikinote_codingkeys_updatedat",
-      "community": 40,
+      "community": 83,
       "norm_label": "updatedat"
     },
     {
@@ -1711,11 +1721,11 @@
       "label": "UIKit",
       "file_type": "code",
       "type": "module",
-      "source_file": "GardenCalendar/Theme/AppTheme.swift",
+      "source_file": "GardenCalendar/Views/Components/CameraPicker.swift",
       "source_location": "L2",
       "_origin": "ast",
       "id": "uikit",
-      "community": 37,
+      "community": 59,
       "norm_label": "uikit"
     },
     {
@@ -1735,7 +1745,7 @@
       "source_location": "",
       "_origin": "ast",
       "id": "nsobject",
-      "community": 45,
+      "community": 48,
       "norm_label": "nsobject"
     },
     {
@@ -1905,7 +1915,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "gardencalendar_services_authmanager",
-      "community": 40,
+      "community": 67,
       "norm_label": "authmanager.swift"
     },
     {
@@ -1916,7 +1926,7 @@
       "source_location": "L2",
       "_origin": "ast",
       "id": "supabase",
-      "community": 40,
+      "community": 67,
       "norm_label": "supabase"
     },
     {
@@ -1927,7 +1937,7 @@
       "source_location": "L2",
       "_origin": "ast",
       "id": "observation",
-      "community": 40,
+      "community": 67,
       "norm_label": "observation"
     },
     {
@@ -2101,10 +2111,20 @@
       "norm_label": ".signinwithapple()"
     },
     {
-      "label": ".signOut()",
+      "label": ".signInWithGoogle()",
       "file_type": "code",
       "source_file": "GardenCalendar/Services/AuthManager.swift",
       "source_location": "L102",
+      "_origin": "ast",
+      "id": "gardencalendar_services_authmanager_authmanager_signinwithgoogle",
+      "community": 106,
+      "norm_label": ".signinwithgoogle()"
+    },
+    {
+      "label": ".signOut()",
+      "file_type": "code",
+      "source_file": "GardenCalendar/Services/AuthManager.swift",
+      "source_location": "L109",
       "_origin": "ast",
       "id": "gardencalendar_services_authmanager_authmanager_signout",
       "community": 106,
@@ -2114,7 +2134,7 @@
       "label": ".resetPassword()",
       "file_type": "code",
       "source_file": "GardenCalendar/Services/AuthManager.swift",
-      "source_location": "L110",
+      "source_location": "L117",
       "_origin": "ast",
       "id": "gardencalendar_services_authmanager_authmanager_resetpassword",
       "community": 106,
@@ -2127,7 +2147,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "gardencalendar_services_localcache",
-      "community": 40,
+      "community": 42,
       "norm_label": "localcache.swift"
     },
     {
@@ -2137,7 +2157,7 @@
       "source_location": "L6",
       "_origin": "ast",
       "id": "gardencalendar_services_localcache_localcache",
-      "community": 84,
+      "community": 42,
       "norm_label": "localcache"
     },
     {
@@ -2147,7 +2167,7 @@
       "source_location": "",
       "_origin": "ast",
       "id": "gardencalendar_services_localcache_swift_url",
-      "community": 84,
+      "community": 42,
       "norm_label": "url"
     },
     {
@@ -2157,7 +2177,7 @@
       "source_location": "L19",
       "_origin": "ast",
       "id": "gardencalendar_services_localcache_localcache_fileurl",
-      "community": 84,
+      "community": 42,
       "norm_label": ".fileurl()"
     },
     {
@@ -2167,7 +2187,7 @@
       "source_location": "",
       "_origin": "ast",
       "id": "gardencalendar_services_localcache_swift_string",
-      "community": 84,
+      "community": 42,
       "norm_label": "string"
     },
     {
@@ -2177,7 +2197,7 @@
       "source_location": "",
       "_origin": "ast",
       "id": "jsonencoder",
-      "community": 84,
+      "community": 42,
       "norm_label": "jsonencoder"
     },
     {
@@ -2187,7 +2207,7 @@
       "source_location": "",
       "_origin": "ast",
       "id": "jsondecoder",
-      "community": 15,
+      "community": 42,
       "norm_label": "jsondecoder"
     },
     {
@@ -2197,7 +2217,7 @@
       "source_location": "L38",
       "_origin": "ast",
       "id": "gardencalendar_services_localcache_localcache_save",
-      "community": 84,
+      "community": 42,
       "norm_label": ".save()"
     },
     {
@@ -2207,7 +2227,7 @@
       "source_location": "",
       "_origin": "ast",
       "id": "t",
-      "community": 84,
+      "community": 42,
       "norm_label": "t"
     },
     {
@@ -2217,7 +2237,7 @@
       "source_location": "L44",
       "_origin": "ast",
       "id": "gardencalendar_services_localcache_localcache_load",
-      "community": 84,
+      "community": 42,
       "norm_label": ".load()"
     },
     {
@@ -2227,7 +2247,7 @@
       "source_location": "L52",
       "_origin": "ast",
       "id": "gardencalendar_services_localcache_localcache_monthkey",
-      "community": 84,
+      "community": 42,
       "norm_label": ".monthkey()"
     },
     {
@@ -2237,7 +2257,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "gardencalendar_services_locationhelper",
-      "community": 45,
+      "community": 121,
       "norm_label": "locationhelper.swift"
     },
     {
@@ -2248,7 +2268,7 @@
       "source_location": "L2",
       "_origin": "ast",
       "id": "corelocation",
-      "community": 45,
+      "community": 121,
       "norm_label": "corelocation"
     },
     {
@@ -2258,7 +2278,7 @@
       "source_location": "L3",
       "_origin": "ast",
       "id": "gardencalendar_services_locationhelper_locationhelper",
-      "community": 45,
+      "community": 48,
       "norm_label": "locationhelper"
     },
     {
@@ -2268,7 +2288,7 @@
       "source_location": "",
       "_origin": "ast",
       "id": "cllocationmanagerdelegate",
-      "community": 45,
+      "community": 48,
       "norm_label": "cllocationmanagerdelegate"
     },
     {
@@ -2278,7 +2298,7 @@
       "source_location": "",
       "_origin": "ast",
       "id": "gardencalendar_services_locationhelper_swift_cllocation",
-      "community": 45,
+      "community": 48,
       "norm_label": "cllocation"
     },
     {
@@ -2288,7 +2308,7 @@
       "source_location": "L9",
       "_origin": "ast",
       "id": "gardencalendar_services_locationhelper_locationhelper_init",
-      "community": 45,
+      "community": 48,
       "norm_label": ".init()"
     },
     {
@@ -2298,7 +2318,7 @@
       "source_location": "L15",
       "_origin": "ast",
       "id": "gardencalendar_services_locationhelper_locationhelper_requestlocation",
-      "community": 45,
+      "community": 48,
       "norm_label": ".requestlocation()"
     },
     {
@@ -2308,7 +2328,7 @@
       "source_location": "L27",
       "_origin": "ast",
       "id": "gardencalendar_services_locationhelper_locationhelper_locationmanager",
-      "community": 45,
+      "community": 48,
       "norm_label": ".locationmanager()"
     },
     {
@@ -2318,7 +2338,7 @@
       "source_location": "",
       "_origin": "ast",
       "id": "cllocationmanager",
-      "community": 45,
+      "community": 48,
       "norm_label": "cllocationmanager"
     },
     {
@@ -2328,7 +2348,7 @@
       "source_location": "",
       "_origin": "ast",
       "id": "gardencalendar_services_locationhelper_swift_error",
-      "community": 45,
+      "community": 48,
       "norm_label": "error"
     },
     {
@@ -2338,7 +2358,7 @@
       "source_location": "L36",
       "_origin": "ast",
       "id": "gardencalendar_services_locationhelper_locationhelper_locationmanagerdidchangeauthorization",
-      "community": 45,
+      "community": 48,
       "norm_label": ".locationmanagerdidchangeauthorization()"
     },
     {
@@ -2348,7 +2368,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "gardencalendar_services_notificationmanager",
-      "community": 105,
+      "community": 21,
       "norm_label": "notificationmanager.swift"
     },
     {
@@ -2359,7 +2379,7 @@
       "source_location": "L2",
       "_origin": "ast",
       "id": "usernotifications",
-      "community": 105,
+      "community": 21,
       "norm_label": "usernotifications"
     },
     {
@@ -2369,7 +2389,7 @@
       "source_location": "L5",
       "_origin": "ast",
       "id": "gardencalendar_services_notificationmanager_notificationmanager",
-      "community": 105,
+      "community": 21,
       "norm_label": "notificationmanager"
     },
     {
@@ -2379,7 +2399,7 @@
       "source_location": "",
       "_origin": "ast",
       "id": "gardencalendar_services_notificationmanager_swift_bool",
-      "community": 105,
+      "community": 21,
       "norm_label": "bool"
     },
     {
@@ -2389,7 +2409,7 @@
       "source_location": "",
       "_origin": "ast",
       "id": "gardencalendar_services_notificationmanager_swift_int",
-      "community": 105,
+      "community": 21,
       "norm_label": "int"
     },
     {
@@ -2399,7 +2419,7 @@
       "source_location": "L27",
       "_origin": "ast",
       "id": "gardencalendar_services_notificationmanager_notificationmanager_init",
-      "community": 105,
+      "community": 21,
       "norm_label": ".init()"
     },
     {
@@ -2409,7 +2429,7 @@
       "source_location": "L30",
       "_origin": "ast",
       "id": "gardencalendar_services_notificationmanager_notificationmanager_requestauthorization",
-      "community": 105,
+      "community": 21,
       "norm_label": ".requestauthorization()"
     },
     {
@@ -2419,7 +2439,7 @@
       "source_location": "L45",
       "_origin": "ast",
       "id": "gardencalendar_services_notificationmanager_notificationmanager_reschedule",
-      "community": 105,
+      "community": 21,
       "norm_label": ".reschedule()"
     },
     {
@@ -2429,7 +2449,7 @@
       "source_location": "",
       "_origin": "ast",
       "id": "gardencalendar_services_notificationmanager_swift_attivita",
-      "community": 105,
+      "community": 21,
       "norm_label": "attivita"
     },
     {
@@ -2439,7 +2459,7 @@
       "source_location": "L91",
       "_origin": "ast",
       "id": "gardencalendar_services_notificationmanager_notificationmanager_cancelall",
-      "community": 105,
+      "community": 21,
       "norm_label": ".cancelall()"
     },
     {
@@ -2449,7 +2469,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "gardencalendar_services_perenualapiclient",
-      "community": 15,
+      "community": 3,
       "norm_label": "perenualapiclient.swift"
     },
     {
@@ -2459,7 +2479,7 @@
       "source_location": "L3",
       "_origin": "ast",
       "id": "gardencalendar_services_perenualapiclient_perenualapiclient",
-      "community": 15,
+      "community": 3,
       "norm_label": "perenualapiclient"
     },
     {
@@ -2469,7 +2489,7 @@
       "source_location": "",
       "_origin": "ast",
       "id": "gardencalendar_services_perenualapiclient_swift_string",
-      "community": 15,
+      "community": 3,
       "norm_label": "string"
     },
     {
@@ -2479,7 +2499,7 @@
       "source_location": "L7",
       "_origin": "ast",
       "id": "gardencalendar_services_perenualapiclient_perenualapiclient_init",
-      "community": 15,
+      "community": 3,
       "norm_label": ".init()"
     },
     {
@@ -2489,7 +2509,7 @@
       "source_location": "L11",
       "_origin": "ast",
       "id": "gardencalendar_services_perenualapiclient_perenualapiclient_search",
-      "community": 15,
+      "community": 3,
       "norm_label": ".search()"
     },
     {
@@ -2499,7 +2519,7 @@
       "source_location": "L21",
       "_origin": "ast",
       "id": "gardencalendar_services_perenualapiclient_perenualapiclient_toplantknowledge",
-      "community": 15,
+      "community": 3,
       "norm_label": ".toplantknowledge()"
     },
     {
@@ -2509,7 +2529,7 @@
       "source_location": "L78",
       "_origin": "ast",
       "id": "gardencalendar_services_perenualapiclient_perenualsearchresponse",
-      "community": 15,
+      "community": 3,
       "norm_label": "perenualsearchresponse"
     },
     {
@@ -2519,7 +2539,7 @@
       "source_location": "",
       "_origin": "ast",
       "id": "decodable",
-      "community": 15,
+      "community": 3,
       "norm_label": "decodable"
     },
     {
@@ -2529,7 +2549,7 @@
       "source_location": "L82",
       "_origin": "ast",
       "id": "gardencalendar_services_perenualapiclient_perenualplant",
-      "community": 15,
+      "community": 3,
       "norm_label": "perenualplant"
     },
     {
@@ -2539,7 +2559,7 @@
       "source_location": "",
       "_origin": "ast",
       "id": "gardencalendar_services_perenualapiclient_swift_int",
-      "community": 15,
+      "community": 3,
       "norm_label": "int"
     },
     {
@@ -2549,7 +2569,7 @@
       "source_location": "L90",
       "_origin": "ast",
       "id": "gardencalendar_services_perenualapiclient_codingkeys",
-      "community": 15,
+      "community": 3,
       "norm_label": "codingkeys"
     },
     {
@@ -2559,7 +2579,7 @@
       "source_location": "L91",
       "_origin": "ast",
       "id": "gardencalendar_services_perenualapiclient_codingkeys_id",
-      "community": 15,
+      "community": 3,
       "norm_label": "id"
     },
     {
@@ -2569,7 +2589,7 @@
       "source_location": "L92",
       "_origin": "ast",
       "id": "gardencalendar_services_perenualapiclient_codingkeys_commonname",
-      "community": 15,
+      "community": 3,
       "norm_label": "commonname"
     },
     {
@@ -2579,7 +2599,7 @@
       "source_location": "L93",
       "_origin": "ast",
       "id": "gardencalendar_services_perenualapiclient_codingkeys_scientificname",
-      "community": 15,
+      "community": 3,
       "norm_label": "scientificname"
     },
     {
@@ -2589,7 +2609,7 @@
       "source_location": "L94",
       "_origin": "ast",
       "id": "gardencalendar_services_perenualapiclient_codingkeys_watering",
-      "community": 15,
+      "community": 3,
       "norm_label": "watering"
     },
     {
@@ -2599,7 +2619,7 @@
       "source_location": "L95",
       "_origin": "ast",
       "id": "gardencalendar_services_perenualapiclient_codingkeys_sunlight",
-      "community": 15,
+      "community": 3,
       "norm_label": "sunlight"
     },
     {
@@ -2609,7 +2629,7 @@
       "source_location": "L96",
       "_origin": "ast",
       "id": "gardencalendar_services_perenualapiclient_codingkeys_defaultimage",
-      "community": 15,
+      "community": 3,
       "norm_label": "defaultimage"
     },
     {
@@ -2619,7 +2639,7 @@
       "source_location": "L100",
       "_origin": "ast",
       "id": "gardencalendar_services_perenualapiclient_perenualimage",
-      "community": 15,
+      "community": 3,
       "norm_label": "perenualimage"
     },
     {
@@ -2629,7 +2649,7 @@
       "source_location": "L102",
       "_origin": "ast",
       "id": "gardencalendar_services_perenualapiclient_codingkeys_mediumurl",
-      "community": 15,
+      "community": 3,
       "norm_label": "mediumurl"
     },
     {
@@ -2639,7 +2659,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "gardencalendar_services_plantcatalogservice",
-      "community": 40,
+      "community": 67,
       "norm_label": "plantcatalogservice.swift"
     },
     {
@@ -2649,7 +2669,7 @@
       "source_location": "L4",
       "_origin": "ast",
       "id": "gardencalendar_services_plantcatalogservice_plantcatalogservice",
-      "community": 15,
+      "community": 2,
       "norm_label": "plantcatalogservice"
     },
     {
@@ -2659,7 +2679,7 @@
       "source_location": "",
       "_origin": "ast",
       "id": "gardencalendar_services_plantcatalogservice_swift_string",
-      "community": 15,
+      "community": 2,
       "norm_label": "string"
     },
     {
@@ -2669,7 +2689,7 @@
       "source_location": "L16",
       "_origin": "ast",
       "id": "gardencalendar_services_plantcatalogservice_plantcatalogservice_init",
-      "community": 15,
+      "community": 2,
       "norm_label": ".init()"
     },
     {
@@ -2679,7 +2699,7 @@
       "source_location": "L18",
       "_origin": "ast",
       "id": "gardencalendar_services_plantcatalogservice_plantcatalogservice_search",
-      "community": 15,
+      "community": 2,
       "norm_label": ".search()"
     },
     {
@@ -2699,7 +2719,7 @@
       "source_location": "L38",
       "_origin": "ast",
       "id": "gardencalendar_services_plantcatalogservice_plantcatalogservice_fetchexternal",
-      "community": 15,
+      "community": 2,
       "norm_label": ".fetchexternal()"
     },
     {
@@ -2709,7 +2729,7 @@
       "source_location": "L58",
       "_origin": "ast",
       "id": "gardencalendar_services_plantcatalogservice_plantcatalogservice_isexternalsource",
-      "community": 15,
+      "community": 7,
       "norm_label": ".isexternalsource()"
     },
     {
@@ -2719,7 +2739,7 @@
       "source_location": "",
       "_origin": "ast",
       "id": "gardencalendar_services_plantcatalogservice_swift_bool",
-      "community": 15,
+      "community": 7,
       "norm_label": "bool"
     },
     {
@@ -2959,7 +2979,7 @@
       "source_location": "L188",
       "_origin": "ast",
       "id": "gardencalendar_services_rainadjuster_openmeteoresponse",
-      "community": 15,
+      "community": 3,
       "norm_label": "openmeteoresponse"
     },
     {
@@ -2969,7 +2989,7 @@
       "source_location": "L191",
       "_origin": "ast",
       "id": "gardencalendar_services_rainadjuster_daily",
-      "community": 15,
+      "community": 3,
       "norm_label": "daily"
     },
     {
@@ -3479,7 +3499,7 @@
       "source_location": "L447",
       "_origin": "ast",
       "id": "gardencalendar_services_supabaserepository_codingkeys",
-      "community": 2,
+      "community": 42,
       "norm_label": "codingkeys"
     },
     {
@@ -3489,7 +3509,7 @@
       "source_location": "L448",
       "_origin": "ast",
       "id": "gardencalendar_services_supabaserepository_codingkeys_piantaid",
-      "community": 2,
+      "community": 42,
       "norm_label": "piantaid"
     },
     {
@@ -3499,7 +3519,7 @@
       "source_location": "L449",
       "_origin": "ast",
       "id": "gardencalendar_services_supabaserepository_codingkeys_datasemina",
-      "community": 2,
+      "community": 42,
       "norm_label": "datasemina"
     },
     {
@@ -3509,7 +3529,7 @@
       "source_location": "L450",
       "_origin": "ast",
       "id": "gardencalendar_services_supabaserepository_codingkeys_growthdays",
-      "community": 2,
+      "community": 42,
       "norm_label": "growthdays"
     },
     {
@@ -3519,7 +3539,7 @@
       "source_location": "L451",
       "_origin": "ast",
       "id": "gardencalendar_services_supabaserepository_codingkeys_activities",
-      "community": 84,
+      "community": 42,
       "norm_label": "activities"
     },
     {
@@ -3539,7 +3559,7 @@
       "source_location": "L462",
       "_origin": "ast",
       "id": "gardencalendar_services_supabaserepository_codingkeys_nome",
-      "community": 2,
+      "community": 42,
       "norm_label": "nome"
     },
     {
@@ -3549,7 +3569,7 @@
       "source_location": "L463",
       "_origin": "ast",
       "id": "gardencalendar_services_supabaserepository_codingkeys_offsetdays",
-      "community": 2,
+      "community": 42,
       "norm_label": "offsetdays"
     },
     {
@@ -3559,7 +3579,7 @@
       "source_location": "L464",
       "_origin": "ast",
       "id": "gardencalendar_services_supabaserepository_codingkeys_recurrencedays",
-      "community": 2,
+      "community": 42,
       "norm_label": "recurrencedays"
     },
     {
@@ -3569,7 +3589,7 @@
       "source_location": "L465",
       "_origin": "ast",
       "id": "gardencalendar_services_supabaserepository_codingkeys_color",
-      "community": 2,
+      "community": 42,
       "norm_label": "color"
     },
     {
@@ -3593,10 +3613,50 @@
       "norm_label": ".scheduleactivities()"
     },
     {
+      "label": "DiagnoseRequest",
+      "file_type": "code",
+      "source_file": "GardenCalendar/Services/SupabaseRepository.swift",
+      "source_location": "L500",
+      "_origin": "ast",
+      "id": "gardencalendar_services_supabaserepository_diagnoserequest",
+      "community": 2,
+      "norm_label": "diagnoserequest"
+    },
+    {
+      "label": "imageBase64",
+      "file_type": "code",
+      "source_file": "GardenCalendar/Services/SupabaseRepository.swift",
+      "source_location": "L506",
+      "_origin": "ast",
+      "id": "gardencalendar_services_supabaserepository_codingkeys_imagebase64",
+      "community": 42,
+      "norm_label": "imagebase64"
+    },
+    {
+      "label": "DiagnoseResponse",
+      "file_type": "code",
+      "source_file": "GardenCalendar/Services/SupabaseRepository.swift",
+      "source_location": "L510",
+      "_origin": "ast",
+      "id": "gardencalendar_services_supabaserepository_diagnoseresponse",
+      "community": 2,
+      "norm_label": "diagnoseresponse"
+    },
+    {
+      "label": ".diagnosePlant()",
+      "file_type": "code",
+      "source_file": "GardenCalendar/Services/SupabaseRepository.swift",
+      "source_location": "L514",
+      "_origin": "ast",
+      "id": "gardencalendar_services_supabaserepository_supabaserepository_diagnoseplant",
+      "community": 2,
+      "norm_label": ".diagnoseplant()"
+    },
+    {
       "label": "RepositoryError",
       "file_type": "code",
       "source_file": "GardenCalendar/Services/SupabaseRepository.swift",
-      "source_location": "L501",
+      "source_location": "L525",
       "_origin": "ast",
       "id": "gardencalendar_services_supabaserepository_repositoryerror",
       "community": 2,
@@ -3606,7 +3666,7 @@
       "label": "invalidDate",
       "file_type": "code",
       "source_file": "GardenCalendar/Services/SupabaseRepository.swift",
-      "source_location": "L502",
+      "source_location": "L526",
       "_origin": "ast",
       "id": "gardencalendar_services_supabaserepository_repositoryerror_invaliddate",
       "community": 2,
@@ -3616,7 +3676,7 @@
       "label": "notAuthenticated",
       "file_type": "code",
       "source_file": "GardenCalendar/Services/SupabaseRepository.swift",
-      "source_location": "L503",
+      "source_location": "L527",
       "_origin": "ast",
       "id": "gardencalendar_services_supabaserepository_repositoryerror_notauthenticated",
       "community": 2,
@@ -3629,7 +3689,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "gardencalendar_services_widgetactivity",
-      "community": 40,
+      "community": 67,
       "norm_label": "widgetactivity.swift"
     },
     {
@@ -3639,7 +3699,7 @@
       "source_location": "L6",
       "_origin": "ast",
       "id": "gardencalendar_services_widgetactivity_widgetactivity",
-      "community": 40,
+      "community": 68,
       "norm_label": "widgetactivity"
     },
     {
@@ -3649,7 +3709,7 @@
       "source_location": "",
       "_origin": "ast",
       "id": "gardencalendar_services_widgetactivity_swift_uuid",
-      "community": 40,
+      "community": 68,
       "norm_label": "uuid"
     },
     {
@@ -3659,7 +3719,7 @@
       "source_location": "",
       "_origin": "ast",
       "id": "gardencalendar_services_widgetactivity_swift_string",
-      "community": 40,
+      "community": 68,
       "norm_label": "string"
     },
     {
@@ -3669,7 +3729,7 @@
       "source_location": "",
       "_origin": "ast",
       "id": "gardencalendar_services_widgetactivity_swift_bool",
-      "community": 40,
+      "community": 68,
       "norm_label": "bool"
     },
     {
@@ -3679,7 +3739,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "gardencalendar_services_widgetdataexporter",
-      "community": 40,
+      "community": 64,
       "norm_label": "widgetdataexporter.swift"
     },
     {
@@ -3690,7 +3750,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "widgetkit",
-      "community": 40,
+      "community": 64,
       "norm_label": "widgetkit"
     },
     {
@@ -3700,7 +3760,7 @@
       "source_location": "L4",
       "_origin": "ast",
       "id": "gardencalendar_services_widgetdataexporter_widgetdataexporter",
-      "community": 40,
+      "community": 64,
       "norm_label": "widgetdataexporter"
     },
     {
@@ -3710,7 +3770,7 @@
       "source_location": "L6",
       "_origin": "ast",
       "id": "gardencalendar_services_widgetdataexporter_widgetdataexporter_export",
-      "community": 84,
+      "community": 42,
       "norm_label": ".export()"
     },
     {
@@ -3720,7 +3780,7 @@
       "source_location": "",
       "_origin": "ast",
       "id": "gardencalendar_services_widgetdataexporter_swift_attivita",
-      "community": 84,
+      "community": 42,
       "norm_label": "attivita"
     },
     {
@@ -3730,7 +3790,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "gardencalendar_supabaseconfig",
-      "community": 40,
+      "community": 67,
       "norm_label": "supabaseconfig.swift"
     },
     {
@@ -3887,7 +3947,7 @@
       "label": ".performLogin()",
       "file_type": "code",
       "source_file": "GardenCalendar/Views/Auth/LoginView.swift",
-      "source_location": "L166",
+      "source_location": "L179",
       "_origin": "ast",
       "id": "gardencalendar_views_auth_loginview_loginview_performlogin",
       "community": 37,
@@ -3897,11 +3957,21 @@
       "label": ".performAppleSignIn()",
       "file_type": "code",
       "source_file": "GardenCalendar/Views/Auth/LoginView.swift",
-      "source_location": "L183",
+      "source_location": "L196",
       "_origin": "ast",
       "id": "gardencalendar_views_auth_loginview_loginview_performapplesignin",
       "community": 37,
       "norm_label": ".performapplesignin()"
+    },
+    {
+      "label": ".performGoogleSignIn()",
+      "file_type": "code",
+      "source_file": "GardenCalendar/Views/Auth/LoginView.swift",
+      "source_location": "L210",
+      "_origin": "ast",
+      "id": "gardencalendar_views_auth_loginview_loginview_performgooglesignin",
+      "community": 37,
+      "norm_label": ".performgooglesignin()"
     },
     {
       "label": "SignUpView.swift",
@@ -3910,7 +3980,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "gardencalendar_views_auth_signupview",
-      "community": 114,
+      "community": 121,
       "norm_label": "signupview.swift"
     },
     {
@@ -3920,7 +3990,7 @@
       "source_location": "L4",
       "_origin": "ast",
       "id": "gardencalendar_views_auth_signupview_signupview",
-      "community": 114,
+      "community": 121,
       "norm_label": "signupview"
     },
     {
@@ -3930,7 +4000,7 @@
       "source_location": "",
       "_origin": "ast",
       "id": "gardencalendar_views_auth_signupview_swift_string",
-      "community": 114,
+      "community": 121,
       "norm_label": "string"
     },
     {
@@ -3940,7 +4010,7 @@
       "source_location": "",
       "_origin": "ast",
       "id": "gardencalendar_views_auth_signupview_swift_bool",
-      "community": 114,
+      "community": 121,
       "norm_label": "bool"
     },
     {
@@ -3950,7 +4020,7 @@
       "source_location": "L146",
       "_origin": "ast",
       "id": "gardencalendar_views_auth_signupview_signupview_performsignup",
-      "community": 114,
+      "community": 121,
       "norm_label": ".performsignup()"
     },
     {
@@ -3960,7 +4030,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "gardencalendar_views_calendario_calendarview",
-      "community": 84,
+      "community": 42,
       "norm_label": "calendarview.swift"
     },
     {
@@ -3970,7 +4040,7 @@
       "source_location": "L3",
       "_origin": "ast",
       "id": "gardencalendar_views_calendario_calendarview_calendargridview",
-      "community": 84,
+      "community": 42,
       "norm_label": "calendargridview"
     },
     {
@@ -3980,7 +4050,7 @@
       "source_location": "",
       "_origin": "ast",
       "id": "gardencalendar_views_calendario_calendarview_swift_attivita",
-      "community": 84,
+      "community": 42,
       "norm_label": "attivita"
     },
     {
@@ -3990,7 +4060,7 @@
       "source_location": "",
       "_origin": "ast",
       "id": "gardencalendar_views_calendario_calendarview_swift_uuid",
-      "community": 84,
+      "community": 42,
       "norm_label": "uuid"
     },
     {
@@ -4000,7 +4070,7 @@
       "source_location": "",
       "_origin": "ast",
       "id": "gardencalendar_views_calendario_calendarview_swift_string",
-      "community": 84,
+      "community": 42,
       "norm_label": "string"
     },
     {
@@ -4010,7 +4080,7 @@
       "source_location": "",
       "_origin": "ast",
       "id": "gardencalendar_views_calendario_calendarview_swift_double",
-      "community": 84,
+      "community": 42,
       "norm_label": "double"
     },
     {
@@ -4020,7 +4090,7 @@
       "source_location": "L54",
       "_origin": "ast",
       "id": "gardencalendar_views_calendario_calendarview_viewmode",
-      "community": 84,
+      "community": 42,
       "norm_label": "viewmode"
     },
     {
@@ -4030,7 +4100,7 @@
       "source_location": "L55",
       "_origin": "ast",
       "id": "gardencalendar_views_calendario_calendarview_viewmode_calendar",
-      "community": 84,
+      "community": 42,
       "norm_label": "calendar"
     },
     {
@@ -4040,7 +4110,7 @@
       "source_location": "L56",
       "_origin": "ast",
       "id": "gardencalendar_views_calendario_calendarview_viewmode_agenda",
-      "community": 84,
+      "community": 42,
       "norm_label": "agenda"
     },
     {
@@ -4050,7 +4120,7 @@
       "source_location": "L213",
       "_origin": "ast",
       "id": "gardencalendar_views_calendario_calendarview_calendargridview_pillsegmentbutton",
-      "community": 84,
+      "community": 42,
       "norm_label": ".pillsegmentbutton()"
     },
     {
@@ -4060,7 +4130,7 @@
       "source_location": "L281",
       "_origin": "ast",
       "id": "gardencalendar_views_calendario_calendarview_calendargridview_filterchip",
-      "community": 84,
+      "community": 42,
       "norm_label": ".filterchip()"
     },
     {
@@ -4070,7 +4140,7 @@
       "source_location": "",
       "_origin": "ast",
       "id": "gardencalendar_views_calendario_calendarview_swift_bool",
-      "community": 84,
+      "community": 42,
       "norm_label": "bool"
     },
     {
@@ -4080,7 +4150,7 @@
       "source_location": "L382",
       "_origin": "ast",
       "id": "gardencalendar_views_calendario_calendarview_calendargridview_cellview",
-      "community": 84,
+      "community": 42,
       "norm_label": ".cellview()"
     },
     {
@@ -4090,7 +4160,7 @@
       "source_location": "",
       "_origin": "ast",
       "id": "gardencalendar_views_calendario_calendarview_swift_int",
-      "community": 84,
+      "community": 42,
       "norm_label": "int"
     },
     {
@@ -4100,7 +4170,7 @@
       "source_location": "L456",
       "_origin": "ast",
       "id": "gardencalendar_views_calendario_calendarview_calendargridview_datecolor",
-      "community": 84,
+      "community": 42,
       "norm_label": ".datecolor()"
     },
     {
@@ -4110,7 +4180,7 @@
       "source_location": "L565",
       "_origin": "ast",
       "id": "gardencalendar_views_calendario_calendarview_calendargridview_toggledonelocally",
-      "community": 84,
+      "community": 42,
       "norm_label": ".toggledonelocally()"
     },
     {
@@ -4120,7 +4190,7 @@
       "source_location": "L571",
       "_origin": "ast",
       "id": "gardencalendar_views_calendario_calendarview_calendargridview_confirmagendareschedule",
-      "community": 84,
+      "community": 42,
       "norm_label": ".confirmagendareschedule()"
     },
     {
@@ -4130,7 +4200,7 @@
       "source_location": "L590",
       "_origin": "ast",
       "id": "gardencalendar_views_calendario_calendarview_calendargridview_agendadateheader",
-      "community": 84,
+      "community": 42,
       "norm_label": ".agendadateheader()"
     },
     {
@@ -4140,7 +4210,7 @@
       "source_location": "L618",
       "_origin": "ast",
       "id": "gardencalendar_views_calendario_calendarview_calendargridview_applyrainrescheduling",
-      "community": 84,
+      "community": 42,
       "norm_label": ".applyrainrescheduling()"
     },
     {
@@ -4150,7 +4220,7 @@
       "source_location": "L679",
       "_origin": "ast",
       "id": "gardencalendar_views_calendario_calendarview_calendargridview_loadallactivities",
-      "community": 84,
+      "community": 42,
       "norm_label": ".loadallactivities()"
     },
     {
@@ -4160,7 +4230,7 @@
       "source_location": "L692",
       "_origin": "ast",
       "id": "gardencalendar_views_calendario_calendarview_calendargridview_loadfiltersdata",
-      "community": 84,
+      "community": 42,
       "norm_label": ".loadfiltersdata()"
     },
     {
@@ -4170,7 +4240,7 @@
       "source_location": "L711",
       "_origin": "ast",
       "id": "gardencalendar_views_calendario_calendarview_calendargridview_loadmonth",
-      "community": 84,
+      "community": 42,
       "norm_label": ".loadmonth()"
     },
     {
@@ -4434,13 +4504,183 @@
       "norm_label": ".color()"
     },
     {
+      "label": "CameraPicker.swift",
+      "file_type": "code",
+      "source_file": "GardenCalendar/Views/Components/CameraPicker.swift",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "gardencalendar_views_components_camerapicker",
+      "community": 59,
+      "norm_label": "camerapicker.swift"
+    },
+    {
+      "label": "CameraPicker",
+      "file_type": "code",
+      "source_file": "GardenCalendar/Views/Components/CameraPicker.swift",
+      "source_location": "L5",
+      "_origin": "ast",
+      "id": "gardencalendar_views_components_camerapicker_camerapicker",
+      "community": 59,
+      "norm_label": "camerapicker"
+    },
+    {
+      "label": "UIViewControllerRepresentable",
+      "file_type": "code",
+      "source_file": "",
+      "source_location": "",
+      "_origin": "ast",
+      "id": "uiviewcontrollerrepresentable",
+      "community": 59,
+      "norm_label": "uiviewcontrollerrepresentable"
+    },
+    {
+      "label": "UIImage",
+      "file_type": "code",
+      "source_file": "",
+      "source_location": "",
+      "_origin": "ast",
+      "id": "gardencalendar_views_components_camerapicker_swift_uiimage",
+      "community": 59,
+      "norm_label": "uiimage"
+    },
+    {
+      "label": "Void",
+      "file_type": "code",
+      "source_file": "",
+      "source_location": "",
+      "_origin": "ast",
+      "id": "gardencalendar_views_components_camerapicker_swift_void",
+      "community": 59,
+      "norm_label": "void"
+    },
+    {
+      "label": ".makeUIViewController()",
+      "file_type": "code",
+      "source_file": "GardenCalendar/Views/Components/CameraPicker.swift",
+      "source_location": "L9",
+      "_origin": "ast",
+      "id": "gardencalendar_views_components_camerapicker_camerapicker_makeuiviewcontroller",
+      "community": 59,
+      "norm_label": ".makeuiviewcontroller()"
+    },
+    {
+      "label": "Context",
+      "file_type": "code",
+      "source_file": "",
+      "source_location": "",
+      "_origin": "ast",
+      "id": "gardencalendar_views_components_camerapicker_swift_context",
+      "community": 59,
+      "norm_label": "context"
+    },
+    {
+      "label": "UIImagePickerController",
+      "file_type": "code",
+      "source_file": "",
+      "source_location": "",
+      "_origin": "ast",
+      "id": "uiimagepickercontroller",
+      "community": 59,
+      "norm_label": "uiimagepickercontroller"
+    },
+    {
+      "label": ".updateUIViewController()",
+      "file_type": "code",
+      "source_file": "GardenCalendar/Views/Components/CameraPicker.swift",
+      "source_location": "L16",
+      "_origin": "ast",
+      "id": "gardencalendar_views_components_camerapicker_camerapicker_updateuiviewcontroller",
+      "community": 59,
+      "norm_label": ".updateuiviewcontroller()"
+    },
+    {
+      "label": ".makeCoordinator()",
+      "file_type": "code",
+      "source_file": "GardenCalendar/Views/Components/CameraPicker.swift",
+      "source_location": "L18",
+      "_origin": "ast",
+      "id": "gardencalendar_views_components_camerapicker_camerapicker_makecoordinator",
+      "community": 59,
+      "norm_label": ".makecoordinator()"
+    },
+    {
+      "label": "Coordinator",
+      "file_type": "code",
+      "source_file": "GardenCalendar/Views/Components/CameraPicker.swift",
+      "source_location": "L22",
+      "_origin": "ast",
+      "id": "gardencalendar_views_components_camerapicker_coordinator",
+      "community": 59,
+      "norm_label": "coordinator"
+    },
+    {
+      "label": "UIImagePickerControllerDelegate",
+      "file_type": "code",
+      "source_file": "",
+      "source_location": "",
+      "_origin": "ast",
+      "id": "uiimagepickercontrollerdelegate",
+      "community": 59,
+      "norm_label": "uiimagepickercontrollerdelegate"
+    },
+    {
+      "label": "UINavigationControllerDelegate",
+      "file_type": "code",
+      "source_file": "",
+      "source_location": "",
+      "_origin": "ast",
+      "id": "uinavigationcontrollerdelegate",
+      "community": 59,
+      "norm_label": "uinavigationcontrollerdelegate"
+    },
+    {
+      "label": ".init()",
+      "file_type": "code",
+      "source_file": "GardenCalendar/Views/Components/CameraPicker.swift",
+      "source_location": "L25",
+      "_origin": "ast",
+      "id": "gardencalendar_views_components_camerapicker_coordinator_init",
+      "community": 59,
+      "norm_label": ".init()"
+    },
+    {
+      "label": ".imagePickerController()",
+      "file_type": "code",
+      "source_file": "GardenCalendar/Views/Components/CameraPicker.swift",
+      "source_location": "L29",
+      "_origin": "ast",
+      "id": "gardencalendar_views_components_camerapicker_coordinator_imagepickercontroller",
+      "community": 59,
+      "norm_label": ".imagepickercontroller()"
+    },
+    {
+      "label": "Any",
+      "file_type": "code",
+      "source_file": "",
+      "source_location": "",
+      "_origin": "ast",
+      "id": "any",
+      "community": 59,
+      "norm_label": "any"
+    },
+    {
+      "label": ".imagePickerControllerDidCancel()",
+      "file_type": "code",
+      "source_file": "GardenCalendar/Views/Components/CameraPicker.swift",
+      "source_location": "L36",
+      "_origin": "ast",
+      "id": "gardencalendar_views_components_camerapicker_coordinator_imagepickercontrollerdidcancel",
+      "community": 59,
+      "norm_label": ".imagepickercontrollerdidcancel()"
+    },
+    {
       "label": "PlantEmoji.swift",
       "file_type": "code",
       "source_file": "GardenCalendar/Views/Components/PlantEmoji.swift",
       "source_location": "L1",
       "_origin": "ast",
       "id": "gardencalendar_views_components_plantemoji",
-      "community": 139,
+      "community": 15,
       "norm_label": "plantemoji.swift"
     },
     {
@@ -4450,7 +4690,7 @@
       "source_location": "L6",
       "_origin": "ast",
       "id": "gardencalendar_views_components_plantemoji_emojiforplant",
-      "community": 139,
+      "community": 15,
       "norm_label": "emojiforplant()"
     },
     {
@@ -4460,7 +4700,7 @@
       "source_location": "",
       "_origin": "ast",
       "id": "gardencalendar_views_components_plantemoji_swift_string",
-      "community": 139,
+      "community": 15,
       "norm_label": "string"
     },
     {
@@ -4470,7 +4710,7 @@
       "source_location": "L70",
       "_origin": "ast",
       "id": "gardencalendar_views_components_plantemoji_planticonview",
-      "community": 139,
+      "community": 15,
       "norm_label": "planticonview"
     },
     {
@@ -4480,7 +4720,7 @@
       "source_location": "",
       "_origin": "ast",
       "id": "gardencalendar_views_components_plantemoji_swift_cgfloat",
-      "community": 139,
+      "community": 15,
       "norm_label": "cgfloat"
     },
     {
@@ -4490,7 +4730,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "gardencalendar_views_components_suggerimentiseminaview",
-      "community": 46,
+      "community": 105,
       "norm_label": "suggerimentiseminaview.swift"
     },
     {
@@ -4500,7 +4740,7 @@
       "source_location": "L6",
       "_origin": "ast",
       "id": "gardencalendar_views_components_suggerimentiseminaview_suggerimentiseminaview",
-      "community": 46,
+      "community": 105,
       "norm_label": "suggerimentiseminaview"
     },
     {
@@ -4510,7 +4750,7 @@
       "source_location": "",
       "_origin": "ast",
       "id": "gardencalendar_views_components_suggerimentiseminaview_swift_uuid",
-      "community": 46,
+      "community": 105,
       "norm_label": "uuid"
     },
     {
@@ -4520,7 +4760,7 @@
       "source_location": "",
       "_origin": "ast",
       "id": "gardencalendar_views_components_suggerimentiseminaview_swift_bool",
-      "community": 46,
+      "community": 105,
       "norm_label": "bool"
     },
     {
@@ -4530,7 +4770,7 @@
       "source_location": "",
       "_origin": "ast",
       "id": "gardencalendar_views_components_suggerimentiseminaview_swift_int",
-      "community": 46,
+      "community": 105,
       "norm_label": "int"
     },
     {
@@ -4540,7 +4780,7 @@
       "source_location": "",
       "_origin": "ast",
       "id": "gardencalendar_views_components_suggerimentiseminaview_swift_string",
-      "community": 46,
+      "community": 105,
       "norm_label": "string"
     },
     {
@@ -4550,7 +4790,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "gardencalendar_views_components_weathericon",
-      "community": 49,
+      "community": 65,
       "norm_label": "weathericon.swift"
     },
     {
@@ -4560,7 +4800,7 @@
       "source_location": "L6",
       "_origin": "ast",
       "id": "gardencalendar_views_components_weathericon_weathericon",
-      "community": 49,
+      "community": 65,
       "norm_label": "weathericon"
     },
     {
@@ -4570,7 +4810,7 @@
       "source_location": "",
       "_origin": "ast",
       "id": "gardencalendar_views_components_weathericon_swift_int",
-      "community": 49,
+      "community": 65,
       "norm_label": "int"
     },
     {
@@ -4580,7 +4820,7 @@
       "source_location": "",
       "_origin": "ast",
       "id": "gardencalendar_views_components_weathericon_swift_cgfloat",
-      "community": 49,
+      "community": 65,
       "norm_label": "cgfloat"
     },
     {
@@ -4590,8 +4830,109 @@
       "source_location": "",
       "_origin": "ast",
       "id": "gardencalendar_views_components_weathericon_swift_string",
-      "community": 49,
+      "community": 65,
       "norm_label": "string"
+    },
+    {
+      "label": "DiagnosiView.swift",
+      "file_type": "code",
+      "source_file": "GardenCalendar/Views/Diagnosi/DiagnosiView.swift",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "gardencalendar_views_diagnosi_diagnosiview",
+      "community": 121,
+      "norm_label": "diagnosiview.swift"
+    },
+    {
+      "label": "PhotosUI",
+      "file_type": "code",
+      "type": "module",
+      "source_file": "GardenCalendar/Views/Piante/PiantaDetailView.swift",
+      "source_location": "L2",
+      "_origin": "ast",
+      "id": "photosui",
+      "community": 121,
+      "norm_label": "photosui"
+    },
+    {
+      "label": "DiagnosiView",
+      "file_type": "code",
+      "source_file": "GardenCalendar/Views/Diagnosi/DiagnosiView.swift",
+      "source_location": "L4",
+      "_origin": "ast",
+      "id": "gardencalendar_views_diagnosi_diagnosiview_diagnosiview",
+      "community": 61,
+      "norm_label": "diagnosiview"
+    },
+    {
+      "label": "UIImage",
+      "file_type": "code",
+      "source_file": "",
+      "source_location": "",
+      "_origin": "ast",
+      "id": "gardencalendar_views_diagnosi_diagnosiview_swift_uiimage",
+      "community": 61,
+      "norm_label": "uiimage"
+    },
+    {
+      "label": "PhotosPickerItem",
+      "file_type": "code",
+      "source_file": "",
+      "source_location": "",
+      "_origin": "ast",
+      "id": "gardencalendar_views_diagnosi_diagnosiview_swift_photospickeritem",
+      "community": 61,
+      "norm_label": "photospickeritem"
+    },
+    {
+      "label": "String",
+      "file_type": "code",
+      "source_file": "",
+      "source_location": "",
+      "_origin": "ast",
+      "id": "gardencalendar_views_diagnosi_diagnosiview_swift_string",
+      "community": 61,
+      "norm_label": "string"
+    },
+    {
+      "label": ".resultCard()",
+      "file_type": "code",
+      "source_file": "GardenCalendar/Views/Diagnosi/DiagnosiView.swift",
+      "source_location": "L134",
+      "_origin": "ast",
+      "id": "gardencalendar_views_diagnosi_diagnosiview_diagnosiview_resultcard",
+      "community": 61,
+      "norm_label": ".resultcard()"
+    },
+    {
+      "label": ".loadPiante()",
+      "file_type": "code",
+      "source_file": "GardenCalendar/Views/Diagnosi/DiagnosiView.swift",
+      "source_location": "L151",
+      "_origin": "ast",
+      "id": "gardencalendar_views_diagnosi_diagnosiview_diagnosiview_loadpiante",
+      "community": 61,
+      "norm_label": ".loadpiante()"
+    },
+    {
+      "label": ".loadPickedPhoto()",
+      "file_type": "code",
+      "source_file": "GardenCalendar/Views/Diagnosi/DiagnosiView.swift",
+      "source_location": "L160",
+      "_origin": "ast",
+      "id": "gardencalendar_views_diagnosi_diagnosiview_diagnosiview_loadpickedphoto",
+      "community": 61,
+      "norm_label": ".loadpickedphoto()"
+    },
+    {
+      "label": ".analyze()",
+      "file_type": "code",
+      "source_file": "GardenCalendar/Views/Diagnosi/DiagnosiView.swift",
+      "source_location": "L170",
+      "_origin": "ast",
+      "id": "gardencalendar_views_diagnosi_diagnosiview_diagnosiview_analyze",
+      "community": 61,
+      "norm_label": ".analyze()"
     },
     {
       "label": "QuickJournalView.swift",
@@ -4600,7 +4941,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "gardencalendar_views_journal_quickjournalview",
-      "community": 121,
+      "community": 63,
       "norm_label": "quickjournalview.swift"
     },
     {
@@ -4710,19 +5051,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "gardencalendar_views_orto_ortodetailview",
-      "community": 44,
+      "community": 121,
       "norm_label": "ortodetailview.swift"
-    },
-    {
-      "label": "PhotosUI",
-      "file_type": "code",
-      "type": "module",
-      "source_file": "GardenCalendar/Views/Piante/PiantaDetailView.swift",
-      "source_location": "L2",
-      "_origin": "ast",
-      "id": "photosui",
-      "community": 44,
-      "norm_label": "photosui"
     },
     {
       "label": "OrtoDetailView",
@@ -4871,7 +5201,7 @@
       "source_location": "L406",
       "_origin": "ast",
       "id": "gardencalendar_views_orto_ortodetailview_piantarowview",
-      "community": 44,
+      "community": 121,
       "norm_label": "piantarowview"
     },
     {
@@ -4881,7 +5211,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "gardencalendar_views_orto_ortolistview",
-      "community": 45,
+      "community": 121,
       "norm_label": "ortolistview.swift"
     },
     {
@@ -4891,7 +5221,7 @@
       "source_location": "L4",
       "_origin": "ast",
       "id": "gardencalendar_views_orto_ortolistview_ortolistview",
-      "community": 45,
+      "community": 49,
       "norm_label": "ortolistview"
     },
     {
@@ -4901,7 +5231,7 @@
       "source_location": "",
       "_origin": "ast",
       "id": "gardencalendar_views_orto_ortolistview_swift_string",
-      "community": 45,
+      "community": 49,
       "norm_label": "string"
     },
     {
@@ -4911,7 +5241,7 @@
       "source_location": "",
       "_origin": "ast",
       "id": "gardencalendar_views_orto_ortolistview_swift_double",
-      "community": 45,
+      "community": 49,
       "norm_label": "double"
     },
     {
@@ -4921,7 +5251,7 @@
       "source_location": "L178",
       "_origin": "ast",
       "id": "gardencalendar_views_orto_ortolistview_ortolistview_loadorti",
-      "community": 45,
+      "community": 49,
       "norm_label": ".loadorti()"
     },
     {
@@ -4931,7 +5261,7 @@
       "source_location": "L187",
       "_origin": "ast",
       "id": "gardencalendar_views_orto_ortolistview_ortolistview_saveneworto",
-      "community": 45,
+      "community": 49,
       "norm_label": ".saveneworto()"
     },
     {
@@ -4941,7 +5271,7 @@
       "source_location": "L222",
       "_origin": "ast",
       "id": "gardencalendar_views_orto_ortolistview_ortolistview_geocodecityname",
-      "community": 45,
+      "community": 49,
       "norm_label": ".geocodecityname()"
     },
     {
@@ -4951,7 +5281,7 @@
       "source_location": "L237",
       "_origin": "ast",
       "id": "gardencalendar_views_orto_ortolistview_ortolistview_reversegeocode",
-      "community": 45,
+      "community": 49,
       "norm_label": ".reversegeocode()"
     },
     {
@@ -4961,7 +5291,7 @@
       "source_location": "",
       "_origin": "ast",
       "id": "gardencalendar_views_orto_ortolistview_swift_cllocation",
-      "community": 45,
+      "community": 49,
       "norm_label": "cllocation"
     },
     {
@@ -4971,7 +5301,7 @@
       "source_location": "L248",
       "_origin": "ast",
       "id": "gardencalendar_views_orto_ortolistview_ortolistview_deleteorto",
-      "community": 45,
+      "community": 49,
       "norm_label": ".deleteorto()"
     },
     {
@@ -4981,7 +5311,7 @@
       "source_location": "L262",
       "_origin": "ast",
       "id": "gardencalendar_views_orto_ortolistview_ortocardrow",
-      "community": 45,
+      "community": 121,
       "norm_label": "ortocardrow"
     },
     {
@@ -4991,7 +5321,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "gardencalendar_views_piante_aggiungipiantaview",
-      "community": 139,
+      "community": 15,
       "norm_label": "aggiungipiantaview.swift"
     },
     {
@@ -5001,7 +5331,7 @@
       "source_location": "L3",
       "_origin": "ast",
       "id": "gardencalendar_views_piante_aggiungipiantaview_aggiungipiantaview",
-      "community": 139,
+      "community": 15,
       "norm_label": "aggiungipiantaview"
     },
     {
@@ -5011,7 +5341,7 @@
       "source_location": "",
       "_origin": "ast",
       "id": "gardencalendar_views_piante_aggiungipiantaview_swift_uuid",
-      "community": 139,
+      "community": 15,
       "norm_label": "uuid"
     },
     {
@@ -5021,7 +5351,7 @@
       "source_location": "",
       "_origin": "ast",
       "id": "templateactivity",
-      "community": 139,
+      "community": 15,
       "norm_label": "templateactivity"
     },
     {
@@ -5031,7 +5361,7 @@
       "source_location": "L24",
       "_origin": "ast",
       "id": "gardencalendar_views_piante_aggiungipiantaview_aggiungipiantaview_init",
-      "community": 139,
+      "community": 15,
       "norm_label": ".init()"
     },
     {
@@ -5041,7 +5371,7 @@
       "source_location": "L125",
       "_origin": "ast",
       "id": "gardencalendar_views_piante_aggiungipiantaview_aggiungipiantaview_catalogsection",
-      "community": 139,
+      "community": 15,
       "norm_label": ".catalogsection()"
     },
     {
@@ -5051,7 +5381,7 @@
       "source_location": "",
       "_origin": "ast",
       "id": "gardencalendar_views_piante_aggiungipiantaview_swift_string",
-      "community": 139,
+      "community": 15,
       "norm_label": "string"
     },
     {
@@ -5061,7 +5391,7 @@
       "source_location": "",
       "_origin": "ast",
       "id": "gardencalendar_views_piante_aggiungipiantaview_swift_bool",
-      "community": 139,
+      "community": 15,
       "norm_label": "bool"
     },
     {
@@ -5071,7 +5401,7 @@
       "source_location": "L241",
       "_origin": "ast",
       "id": "gardencalendar_views_piante_aggiungipiantaview_aggiungipiantaview_addfromknowledge",
-      "community": 139,
+      "community": 15,
       "norm_label": ".addfromknowledge()"
     },
     {
@@ -5081,7 +5411,7 @@
       "source_location": "L250",
       "_origin": "ast",
       "id": "gardencalendar_views_piante_aggiungipiantaview_aggiungipiantaview_savepianta",
-      "community": 139,
+      "community": 15,
       "norm_label": ".savepianta()"
     },
     {
@@ -5091,7 +5421,7 @@
       "source_location": "L310",
       "_origin": "ast",
       "id": "gardencalendar_views_piante_aggiungipiantaview_aggiungipiantaview_colorstring",
-      "community": 139,
+      "community": 15,
       "norm_label": ".colorstring()"
     },
     {
@@ -5101,7 +5431,7 @@
       "source_location": "L322",
       "_origin": "ast",
       "id": "gardencalendar_views_piante_aggiungipiantaview_templateactivity",
-      "community": 139,
+      "community": 15,
       "norm_label": "templateactivity"
     },
     {
@@ -5111,7 +5441,7 @@
       "source_location": "",
       "_origin": "ast",
       "id": "gardencalendar_views_piante_aggiungipiantaview_swift_int",
-      "community": 139,
+      "community": 15,
       "norm_label": "int"
     },
     {
@@ -5121,7 +5451,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "gardencalendar_views_piante_modificaintervallosheet",
-      "community": 5,
+      "community": 121,
       "norm_label": "modificaintervallosheet.swift"
     },
     {
@@ -5321,7 +5651,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "gardencalendar_views_piante_piantadetailview",
-      "community": 44,
+      "community": 41,
       "norm_label": "piantadetailview.swift"
     },
     {
@@ -5428,10 +5758,10 @@
       "label": "AttivitaRow",
       "file_type": "code",
       "source_file": "GardenCalendar/Views/Piante/PiantaDetailView.swift",
-      "source_location": "L331",
+      "source_location": "L338",
       "_origin": "ast",
       "id": "gardencalendar_views_piante_piantadetailview_attivitarow",
-      "community": 44,
+      "community": 41,
       "norm_label": "attivitarow"
     },
     {
@@ -5441,27 +5771,27 @@
       "source_location": "",
       "_origin": "ast",
       "id": "gardencalendar_views_piante_piantadetailview_swift_void",
-      "community": 44,
+      "community": 41,
       "norm_label": "void"
     },
     {
       "label": "RaccoltoRow",
       "file_type": "code",
       "source_file": "GardenCalendar/Views/Piante/PiantaDetailView.swift",
-      "source_location": "L380",
+      "source_location": "L387",
       "_origin": "ast",
       "id": "gardencalendar_views_piante_piantadetailview_raccoltorow",
-      "community": 44,
+      "community": 41,
       "norm_label": "raccoltorow"
     },
     {
       "label": "NuovoRaccoltoSheet",
       "file_type": "code",
       "source_file": "GardenCalendar/Views/Piante/PiantaDetailView.swift",
-      "source_location": "L421",
+      "source_location": "L428",
       "_origin": "ast",
       "id": "gardencalendar_views_piante_piantadetailview_nuovoraccoltosheet",
-      "community": 44,
+      "community": 41,
       "norm_label": "nuovoraccoltosheet"
     },
     {
@@ -5471,17 +5801,17 @@
       "source_location": "",
       "_origin": "ast",
       "id": "gardencalendar_views_piante_piantadetailview_swift_double",
-      "community": 44,
+      "community": 41,
       "norm_label": "double"
     },
     {
       "label": ".save()",
       "file_type": "code",
       "source_file": "GardenCalendar/Views/Piante/PiantaDetailView.swift",
-      "source_location": "L482",
+      "source_location": "L489",
       "_origin": "ast",
       "id": "gardencalendar_views_piante_piantadetailview_nuovoraccoltosheet_save",
-      "community": 44,
+      "community": 41,
       "norm_label": ".save()"
     },
     {
@@ -5681,7 +6011,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "gardencalendar_views_settings_settingsview",
-      "community": 42,
+      "community": 44,
       "norm_label": "settingsview.swift"
     },
     {
@@ -5691,7 +6021,7 @@
       "source_location": "L5",
       "_origin": "ast",
       "id": "gardencalendar_views_settings_settingsview_settingsview",
-      "community": 42,
+      "community": 44,
       "norm_label": "settingsview"
     },
     {
@@ -5701,7 +6031,7 @@
       "source_location": "",
       "_origin": "ast",
       "id": "gardencalendar_views_settings_settingsview_swift_string",
-      "community": 42,
+      "community": 44,
       "norm_label": "string"
     },
     {
@@ -5711,67 +6041,77 @@
       "source_location": "",
       "_origin": "ast",
       "id": "gardencalendar_views_settings_settingsview_swift_double",
-      "community": 42,
+      "community": 44,
       "norm_label": "double"
     },
     {
       "label": ".sectionHeader()",
       "file_type": "code",
       "source_file": "GardenCalendar/Views/Settings/SettingsView.swift",
-      "source_location": "L276",
+      "source_location": "L269",
       "_origin": "ast",
       "id": "gardencalendar_views_settings_settingsview_settingsview_sectionheader",
-      "community": 42,
+      "community": 44,
       "norm_label": ".sectionheader()"
     },
     {
       "label": ".loadSettings()",
       "file_type": "code",
       "source_file": "GardenCalendar/Views/Settings/SettingsView.swift",
-      "source_location": "L283",
+      "source_location": "L276",
       "_origin": "ast",
       "id": "gardencalendar_views_settings_settingsview_settingsview_loadsettings",
-      "community": 42,
+      "community": 44,
       "norm_label": ".loadsettings()"
+    },
+    {
+      "label": ".loadOrti()",
+      "file_type": "code",
+      "source_file": "GardenCalendar/Views/Settings/SettingsView.swift",
+      "source_location": "L286",
+      "_origin": "ast",
+      "id": "gardencalendar_views_settings_settingsview_settingsview_loadorti",
+      "community": 44,
+      "norm_label": ".loadorti()"
     },
     {
       "label": "ThemeMode",
       "file_type": "code",
       "source_file": "GardenCalendar/Views/Settings/SettingsView.swift",
-      "source_location": "L296",
+      "source_location": "L302",
       "_origin": "ast",
       "id": "gardencalendar_views_settings_settingsview_thememode",
-      "community": 42,
+      "community": 44,
       "norm_label": "thememode"
     },
     {
       "label": "light",
       "file_type": "code",
       "source_file": "GardenCalendar/Views/Settings/SettingsView.swift",
-      "source_location": "L297",
+      "source_location": "L303",
       "_origin": "ast",
       "id": "gardencalendar_views_settings_settingsview_thememode_light",
-      "community": 42,
+      "community": 44,
       "norm_label": "light"
     },
     {
       "label": "dark",
       "file_type": "code",
       "source_file": "GardenCalendar/Views/Settings/SettingsView.swift",
-      "source_location": "L298",
+      "source_location": "L304",
       "_origin": "ast",
       "id": "gardencalendar_views_settings_settingsview_thememode_dark",
-      "community": 42,
+      "community": 44,
       "norm_label": "dark"
     },
     {
       "label": "automatic",
       "file_type": "code",
       "source_file": "GardenCalendar/Views/Settings/SettingsView.swift",
-      "source_location": "L299",
+      "source_location": "L305",
       "_origin": "ast",
       "id": "gardencalendar_views_settings_settingsview_thememode_automatic",
-      "community": 42,
+      "community": 44,
       "norm_label": "automatic"
     },
     {
@@ -5781,7 +6121,7 @@
       "source_location": "",
       "_origin": "ast",
       "id": "colorscheme",
-      "community": 42,
+      "community": 44,
       "norm_label": "colorscheme"
     },
     {
@@ -5791,7 +6131,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "gardencalendarwidget_gardencalendarwidget",
-      "community": 40,
+      "community": 64,
       "norm_label": "gardencalendarwidget.swift"
     },
     {
@@ -5850,7 +6190,7 @@
       "source_file": "",
       "source_location": "",
       "_origin": "ast",
-      "id": "context",
+      "id": "gardencalendarwidget_gardencalendarwidget_swift_context",
       "community": 40,
       "norm_label": "context"
     },
@@ -5911,7 +6251,7 @@
       "source_location": "L38",
       "_origin": "ast",
       "id": "gardencalendarwidget_gardencalendarwidget_gardencalendarwidgetview",
-      "community": 40,
+      "community": 68,
       "norm_label": "gardencalendarwidgetview"
     },
     {
@@ -5921,7 +6261,7 @@
       "source_location": "",
       "_origin": "ast",
       "id": "gardencalendarwidget_gardencalendarwidget_swift_int",
-      "community": 40,
+      "community": 68,
       "norm_label": "int"
     },
     {
@@ -5931,7 +6271,7 @@
       "source_location": "L100",
       "_origin": "ast",
       "id": "gardencalendarwidget_gardencalendarwidget_gardencalendarwidgetview_color",
-      "community": 40,
+      "community": 68,
       "norm_label": ".color()"
     },
     {
@@ -5941,7 +6281,7 @@
       "source_location": "",
       "_origin": "ast",
       "id": "gardencalendarwidget_gardencalendarwidget_swift_string",
-      "community": 40,
+      "community": 68,
       "norm_label": "string"
     },
     {
@@ -5951,7 +6291,7 @@
       "source_location": "L114",
       "_origin": "ast",
       "id": "gardencalendarwidget_gardencalendarwidget_gardencalendarwidget",
-      "community": 40,
+      "community": 64,
       "norm_label": "gardencalendarwidget"
     },
     {
@@ -5961,7 +6301,7 @@
       "source_location": "",
       "_origin": "ast",
       "id": "widget",
-      "community": 40,
+      "community": 64,
       "norm_label": "widget"
     },
     {
@@ -5971,7 +6311,7 @@
       "source_location": "",
       "_origin": "ast",
       "id": "widgetconfiguration",
-      "community": 40,
+      "community": 64,
       "norm_label": "widgetconfiguration"
     },
     {
@@ -5981,7 +6321,7 @@
       "source_location": "L125",
       "_origin": "ast",
       "id": "gardencalendarwidget_gardencalendarwidget_gardencalendarwidgetbundle",
-      "community": 40,
+      "community": 64,
       "norm_label": "gardencalendarwidgetbundle"
     },
     {
@@ -5991,7 +6331,7 @@
       "source_location": "",
       "_origin": "ast",
       "id": "widgetbundle",
-      "community": 40,
+      "community": 64,
       "norm_label": "widgetbundle"
     },
     {
@@ -6081,6 +6421,36 @@
       "_origin": "ast",
       "id": "supabase_functions_admin_dashboard_index_corsheaders",
       "community": 132,
+      "norm_label": "corsheaders"
+    },
+    {
+      "label": "index.ts",
+      "file_type": "code",
+      "source_file": "supabase/functions/diagnose-plant/index.ts",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "supabase_functions_diagnose_plant_index",
+      "community": 62,
+      "norm_label": "index.ts"
+    },
+    {
+      "label": "DiagnoseRequest",
+      "file_type": "code",
+      "source_file": "supabase/functions/diagnose-plant/index.ts",
+      "source_location": "L9",
+      "_origin": "ast",
+      "id": "supabase_functions_diagnose_plant_index_diagnoserequest",
+      "community": 62,
+      "norm_label": "diagnoserequest"
+    },
+    {
+      "label": "corsHeaders",
+      "file_type": "code",
+      "source_file": "supabase/functions/diagnose-plant/index.ts",
+      "source_location": "L38",
+      "_origin": "ast",
+      "id": "supabase_functions_diagnose_plant_index_corsheaders",
+      "community": 62,
       "norm_label": "corsheaders"
     },
     {
@@ -12241,6 +12611,17 @@
       "relation": "imports",
       "context": "import",
       "confidence": "EXTRACTED",
+      "source_file": "GardenCalendar/Views/Components/CameraPicker.swift",
+      "source_location": "L1",
+      "weight": 1.0,
+      "source": "gardencalendar_views_components_camerapicker",
+      "target": "swiftui",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
       "source_file": "GardenCalendar/Views/Components/PlantEmoji.swift",
       "source_location": "L2",
       "weight": 1.0,
@@ -12267,6 +12648,17 @@
       "source_location": "L1",
       "weight": 1.0,
       "source": "gardencalendar_views_components_weathericon",
+      "target": "swiftui",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "GardenCalendar/Views/Diagnosi/DiagnosiView.swift",
+      "source_location": "L1",
+      "weight": 1.0,
+      "source": "gardencalendar_views_diagnosi_diagnosiview",
       "target": "swiftui",
       "confidence_score": 1.0
     },
@@ -12570,6 +12962,28 @@
     {
       "relation": "references",
       "confidence": "EXTRACTED",
+      "source_file": "GardenCalendar/Views/Diagnosi/DiagnosiView.swift",
+      "source_location": "L122",
+      "weight": 1.0,
+      "context": "field",
+      "source": "gardencalendar_views_diagnosi_diagnosiview_diagnosiview",
+      "target": "view",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "GardenCalendar/Views/Diagnosi/DiagnosiView.swift",
+      "source_location": "L134",
+      "weight": 1.0,
+      "context": "return_type",
+      "source": "gardencalendar_views_diagnosi_diagnosiview_diagnosiview_resultcard",
+      "target": "view",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
       "source_file": "GardenCalendar/Views/Journal/QuickJournalView.swift",
       "source_location": "L239",
       "weight": 1.0,
@@ -12692,7 +13106,7 @@
       "relation": "references",
       "confidence": "EXTRACTED",
       "source_file": "GardenCalendar/Views/Piante/PiantaDetailView.swift",
-      "source_location": "L337",
+      "source_location": "L344",
       "weight": 1.0,
       "context": "field",
       "source": "gardencalendar_views_piante_piantadetailview_attivitarow",
@@ -12703,7 +13117,7 @@
       "relation": "references",
       "confidence": "EXTRACTED",
       "source_file": "GardenCalendar/Views/Piante/PiantaDetailView.swift",
-      "source_location": "L436",
+      "source_location": "L443",
       "weight": 1.0,
       "context": "field",
       "source": "gardencalendar_views_piante_piantadetailview_nuovoraccoltosheet",
@@ -12725,7 +13139,7 @@
       "relation": "references",
       "confidence": "EXTRACTED",
       "source_file": "GardenCalendar/Views/Piante/PiantaDetailView.swift",
-      "source_location": "L384",
+      "source_location": "L391",
       "weight": 1.0,
       "context": "field",
       "source": "gardencalendar_views_piante_piantadetailview_raccoltorow",
@@ -12857,7 +13271,7 @@
       "relation": "references",
       "confidence": "EXTRACTED",
       "source_file": "GardenCalendar/Views/Settings/SettingsView.swift",
-      "source_location": "L276",
+      "source_location": "L269",
       "weight": 1.0,
       "context": "return_type",
       "source": "gardencalendar_views_settings_settingsview_settingsview_sectionheader",
@@ -12971,6 +13385,16 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "GardenCalendar/Localization/Strings.swift",
+      "source_location": "L269",
+      "weight": 1.0,
+      "source": "gardencalendar_localization_strings",
+      "target": "gardencalendar_localization_strings_diagnosisstrings",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "GardenCalendar/Localization/Strings.swift",
       "source_location": "L212",
       "weight": 1.0,
       "source": "gardencalendar_localization_strings",
@@ -12991,7 +13415,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "GardenCalendar/Localization/Strings.swift",
-      "source_location": "L764",
+      "source_location": "L803",
       "weight": 1.0,
       "source": "gardencalendar_localization_strings",
       "target": "gardencalendar_localization_strings_languagemanager",
@@ -13021,7 +13445,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "GardenCalendar/Localization/Strings.swift",
-      "source_location": "L60",
+      "source_location": "L61",
       "weight": 1.0,
       "source": "gardencalendar_localization_strings",
       "target": "gardencalendar_localization_strings_settingsstrings",
@@ -13031,7 +13455,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "GardenCalendar/Localization/Strings.swift",
-      "source_location": "L523",
+      "source_location": "L549",
       "weight": 1.0,
       "source": "gardencalendar_localization_strings",
       "target": "gardencalendar_localization_strings_strings",
@@ -13290,7 +13714,7 @@
       "relation": "references",
       "confidence": "EXTRACTED",
       "source_file": "GardenCalendar/Localization/Strings.swift",
-      "source_location": "L769",
+      "source_location": "L808",
       "weight": 1.0,
       "context": "field",
       "source": "gardencalendar_localization_strings_languagemanager",
@@ -13302,7 +13726,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "GardenCalendar/Localization/Strings.swift",
-      "source_location": "L789",
+      "source_location": "L829",
       "weight": 1.0,
       "source": "gardencalendar_localization_strings_languagemanager_init",
       "target": "gardencalendar_localization_strings_applanguage",
@@ -13312,7 +13736,7 @@
       "relation": "references",
       "confidence": "EXTRACTED",
       "source_file": "GardenCalendar/Localization/Strings.swift",
-      "source_location": "L57",
+      "source_location": "L58",
       "weight": 1.0,
       "context": "field",
       "source": "gardencalendar_localization_strings_auth",
@@ -13349,6 +13773,17 @@
       "weight": 1.0,
       "context": "field",
       "source": "gardencalendar_localization_strings_daydetailstrings",
+      "target": "string",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "GardenCalendar/Localization/Strings.swift",
+      "source_location": "L278",
+      "weight": 1.0,
+      "context": "field",
+      "source": "gardencalendar_localization_strings_diagnosisstrings",
       "target": "string",
       "confidence_score": 1.0
     },
@@ -13411,7 +13846,7 @@
       "relation": "references",
       "confidence": "EXTRACTED",
       "source_file": "GardenCalendar/Localization/Strings.swift",
-      "source_location": "L265",
+      "source_location": "L266",
       "weight": 1.0,
       "context": "field",
       "source": "gardencalendar_localization_strings_tabsstrings",
@@ -13496,7 +13931,7 @@
       "relation": "implements",
       "confidence": "EXTRACTED",
       "source_file": "GardenCalendar/Views/Settings/SettingsView.swift",
-      "source_location": "L296",
+      "source_location": "L302",
       "weight": 1.0,
       "source": "gardencalendar_views_settings_settingsview_thememode",
       "target": "caseiterable",
@@ -13506,7 +13941,7 @@
       "relation": "references",
       "confidence": "EXTRACTED",
       "source_file": "GardenCalendar/Localization/Strings.swift",
-      "source_location": "L785",
+      "source_location": "L825",
       "weight": 1.0,
       "context": "field",
       "source": "gardencalendar_localization_strings_languagemanager",
@@ -13518,7 +13953,7 @@
       "context": "field",
       "confidence": "EXTRACTED",
       "source_file": "GardenCalendar/Localization/Strings.swift",
-      "source_location": "L269",
+      "source_location": "L282",
       "weight": 1.0,
       "source": "gardencalendar_localization_strings_strings",
       "target": "gardencalendar_localization_strings_auth",
@@ -13529,7 +13964,7 @@
       "context": "field",
       "confidence": "EXTRACTED",
       "source_file": "GardenCalendar/Localization/Strings.swift",
-      "source_location": "L271",
+      "source_location": "L284",
       "weight": 1.0,
       "source": "gardencalendar_localization_strings_strings",
       "target": "gardencalendar_localization_strings_calendarstrings",
@@ -13540,7 +13975,7 @@
       "context": "field",
       "confidence": "EXTRACTED",
       "source_file": "GardenCalendar/Localization/Strings.swift",
-      "source_location": "L268",
+      "source_location": "L281",
       "weight": 1.0,
       "source": "gardencalendar_localization_strings_strings",
       "target": "gardencalendar_localization_strings_common",
@@ -13551,7 +13986,7 @@
       "context": "field",
       "confidence": "EXTRACTED",
       "source_file": "GardenCalendar/Localization/Strings.swift",
-      "source_location": "L272",
+      "source_location": "L285",
       "weight": 1.0,
       "source": "gardencalendar_localization_strings_strings",
       "target": "gardencalendar_localization_strings_daydetailstrings",
@@ -13562,7 +13997,18 @@
       "context": "field",
       "confidence": "EXTRACTED",
       "source_file": "GardenCalendar/Localization/Strings.swift",
-      "source_location": "L274",
+      "source_location": "L291",
+      "weight": 1.0,
+      "source": "gardencalendar_localization_strings_strings",
+      "target": "gardencalendar_localization_strings_diagnosisstrings",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "context": "field",
+      "confidence": "EXTRACTED",
+      "source_file": "GardenCalendar/Localization/Strings.swift",
+      "source_location": "L287",
       "weight": 1.0,
       "source": "gardencalendar_localization_strings_strings",
       "target": "gardencalendar_localization_strings_gardenstrings",
@@ -13573,7 +14019,7 @@
       "context": "field",
       "confidence": "EXTRACTED",
       "source_file": "GardenCalendar/Localization/Strings.swift",
-      "source_location": "L275",
+      "source_location": "L288",
       "weight": 1.0,
       "source": "gardencalendar_localization_strings_strings",
       "target": "gardencalendar_localization_strings_journalstrings",
@@ -13584,7 +14030,7 @@
       "context": "field",
       "confidence": "EXTRACTED",
       "source_file": "GardenCalendar/Localization/Strings.swift",
-      "source_location": "L276",
+      "source_location": "L289",
       "weight": 1.0,
       "source": "gardencalendar_localization_strings_strings",
       "target": "gardencalendar_localization_strings_notificationsstrings",
@@ -13595,7 +14041,7 @@
       "context": "field",
       "confidence": "EXTRACTED",
       "source_file": "GardenCalendar/Localization/Strings.swift",
-      "source_location": "L273",
+      "source_location": "L286",
       "weight": 1.0,
       "source": "gardencalendar_localization_strings_strings",
       "target": "gardencalendar_localization_strings_plantsstrings",
@@ -13606,7 +14052,7 @@
       "context": "field",
       "confidence": "EXTRACTED",
       "source_file": "GardenCalendar/Localization/Strings.swift",
-      "source_location": "L270",
+      "source_location": "L283",
       "weight": 1.0,
       "source": "gardencalendar_localization_strings_strings",
       "target": "gardencalendar_localization_strings_settingsstrings",
@@ -13617,7 +14063,7 @@
       "context": "field",
       "confidence": "EXTRACTED",
       "source_file": "GardenCalendar/Localization/Strings.swift",
-      "source_location": "L277",
+      "source_location": "L290",
       "weight": 1.0,
       "source": "gardencalendar_localization_strings_strings",
       "target": "gardencalendar_localization_strings_tabsstrings",
@@ -13627,7 +14073,7 @@
       "relation": "method",
       "confidence": "EXTRACTED",
       "source_file": "GardenCalendar/Localization/Strings.swift",
-      "source_location": "L787",
+      "source_location": "L827",
       "weight": 1.0,
       "source": "gardencalendar_localization_strings_languagemanager",
       "target": "gardencalendar_localization_strings_languagemanager_init",
@@ -14210,7 +14656,7 @@
       "relation": "implements",
       "confidence": "EXTRACTED",
       "source_file": "GardenCalendar/Services/SupabaseRepository.swift",
-      "source_location": "L461",
+      "source_location": "L504",
       "weight": 1.0,
       "source": "gardencalendar_services_supabaserepository_codingkeys",
       "target": "codingkey",
@@ -14294,6 +14740,16 @@
       "source_location": "L25",
       "weight": 1.0,
       "source": "gardencalendar_models_raccolto_raccoltocreate",
+      "target": "encodable",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "implements",
+      "confidence": "EXTRACTED",
+      "source_file": "GardenCalendar/Services/SupabaseRepository.swift",
+      "source_location": "L500",
+      "weight": 1.0,
+      "source": "gardencalendar_services_supabaserepository_diagnoserequest",
       "target": "encodable",
       "confidence_score": 1.0
     },
@@ -15043,6 +15499,17 @@
     {
       "relation": "references",
       "confidence": "EXTRACTED",
+      "source_file": "GardenCalendar/Views/Diagnosi/DiagnosiView.swift",
+      "source_location": "L10",
+      "weight": 1.0,
+      "context": "field",
+      "source": "gardencalendar_views_diagnosi_diagnosiview_diagnosiview",
+      "target": "gardencalendar_models_piantacoltivata_piantacoltivata",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
       "source_file": "GardenCalendar/Views/Journal/QuickJournalView.swift",
       "source_location": "L13",
       "weight": 1.0,
@@ -15187,7 +15654,7 @@
       "relation": "references",
       "confidence": "EXTRACTED",
       "source_file": "GardenCalendar/Views/Piante/PiantaDetailView.swift",
-      "source_location": "L422",
+      "source_location": "L429",
       "weight": 1.0,
       "context": "field",
       "source": "gardencalendar_views_piante_piantadetailview_nuovoraccoltosheet",
@@ -16351,7 +16818,7 @@
       "relation": "references",
       "confidence": "EXTRACTED",
       "source_file": "GardenCalendar/Views/Piante/PiantaDetailView.swift",
-      "source_location": "L381",
+      "source_location": "L388",
       "weight": 1.0,
       "context": "field",
       "source": "gardencalendar_views_piante_piantadetailview_raccoltorow",
@@ -16499,7 +16966,7 @@
       "confidence": "INFERRED",
       "confidence_score": 0.8,
       "source_file": "GardenCalendar/Views/Piante/PiantaDetailView.swift",
-      "source_location": "L487",
+      "source_location": "L494",
       "weight": 1.0,
       "source": "gardencalendar_views_piante_piantadetailview_nuovoraccoltosheet_save",
       "target": "gardencalendar_models_raccolto_raccoltocreate"
@@ -16714,6 +17181,17 @@
       "confidence_score": 1.0
     },
     {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "GardenCalendar/Views/Components/CameraPicker.swift",
+      "source_location": "L2",
+      "weight": 1.0,
+      "source": "gardencalendar_views_components_camerapicker",
+      "target": "uikit",
+      "confidence_score": 1.0
+    },
+    {
       "relation": "implements",
       "confidence": "EXTRACTED",
       "source_file": "GardenCalendar/Services/AppleSignInCoordinator.swift",
@@ -16832,7 +17310,7 @@
       "confidence": "INFERRED",
       "confidence_score": 0.8,
       "source_file": "GardenCalendar/Views/Auth/LoginView.swift",
-      "source_location": "L186",
+      "source_location": "L199",
       "weight": 1.0,
       "source": "gardencalendar_views_auth_loginview_loginview_performapplesignin",
       "target": "gardencalendar_services_applesignincoordinator_applesignincoordinator"
@@ -16844,6 +17322,16 @@
       "source_location": "L3",
       "weight": 1.0,
       "source": "gardencalendar_services_locationhelper_locationhelper",
+      "target": "nsobject",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "inherits",
+      "confidence": "EXTRACTED",
+      "source_file": "GardenCalendar/Views/Components/CameraPicker.swift",
+      "source_location": "L22",
+      "weight": 1.0,
+      "source": "gardencalendar_views_components_camerapicker_coordinator",
       "target": "nsobject",
       "confidence_score": 1.0
     },
@@ -17119,7 +17607,7 @@
       "relation": "method",
       "confidence": "EXTRACTED",
       "source_file": "GardenCalendar/Services/AuthManager.swift",
-      "source_location": "L110",
+      "source_location": "L117",
       "weight": 1.0,
       "source": "gardencalendar_services_authmanager_authmanager",
       "target": "gardencalendar_services_authmanager_authmanager_resetpassword",
@@ -17150,6 +17638,16 @@
       "confidence": "EXTRACTED",
       "source_file": "GardenCalendar/Services/AuthManager.swift",
       "source_location": "L102",
+      "weight": 1.0,
+      "source": "gardencalendar_services_authmanager_authmanager",
+      "target": "gardencalendar_services_authmanager_authmanager_signinwithgoogle",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "GardenCalendar/Services/AuthManager.swift",
+      "source_location": "L109",
       "weight": 1.0,
       "source": "gardencalendar_services_authmanager_authmanager",
       "target": "gardencalendar_services_authmanager_authmanager_signout",
@@ -17300,7 +17798,7 @@
       "relation": "references",
       "confidence": "EXTRACTED",
       "source_file": "GardenCalendar/Services/AuthManager.swift",
-      "source_location": "L110",
+      "source_location": "L117",
       "weight": 1.0,
       "context": "parameter_type",
       "source": "gardencalendar_services_authmanager_authmanager_resetpassword",
@@ -17368,7 +17866,18 @@
       "confidence": "INFERRED",
       "confidence_score": 0.8,
       "source_file": "GardenCalendar/Services/AuthManager.swift",
-      "source_location": "L111",
+      "source_location": "L103",
+      "weight": 1.0,
+      "source": "gardencalendar_services_authmanager_authmanager_signinwithgoogle",
+      "target": "gardencalendar_supabaseconfig_supabaseconfig"
+    },
+    {
+      "relation": "references",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "GardenCalendar/Services/AuthManager.swift",
+      "source_location": "L118",
       "weight": 1.0,
       "source": "gardencalendar_services_authmanager_authmanager_resetpassword",
       "target": "gardencalendar_supabaseconfig_supabaseconfig"
@@ -18297,6 +18806,16 @@
       "source_location": "L188",
       "weight": 1.0,
       "source": "gardencalendar_services_rainadjuster_openmeteoresponse",
+      "target": "decodable",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "implements",
+      "confidence": "EXTRACTED",
+      "source_file": "GardenCalendar/Services/SupabaseRepository.swift",
+      "source_location": "L510",
+      "weight": 1.0,
+      "source": "gardencalendar_services_supabaserepository_diagnoseresponse",
       "target": "decodable",
       "confidence_score": 1.0
     },
@@ -19409,7 +19928,7 @@
       "relation": "implements",
       "confidence": "EXTRACTED",
       "source_file": "GardenCalendar/Services/SupabaseRepository.swift",
-      "source_location": "L501",
+      "source_location": "L525",
       "weight": 1.0,
       "source": "gardencalendar_services_supabaserepository_repositoryerror",
       "target": "localizederror",
@@ -19584,7 +20103,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "GardenCalendar/Services/SupabaseRepository.swift",
-      "source_location": "L461",
+      "source_location": "L504",
       "weight": 1.0,
       "source": "gardencalendar_services_supabaserepository",
       "target": "gardencalendar_services_supabaserepository_codingkeys",
@@ -19594,7 +20113,27 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "GardenCalendar/Services/SupabaseRepository.swift",
-      "source_location": "L501",
+      "source_location": "L500",
+      "weight": 1.0,
+      "source": "gardencalendar_services_supabaserepository",
+      "target": "gardencalendar_services_supabaserepository_diagnoserequest",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "GardenCalendar/Services/SupabaseRepository.swift",
+      "source_location": "L510",
+      "weight": 1.0,
+      "source": "gardencalendar_services_supabaserepository",
+      "target": "gardencalendar_services_supabaserepository_diagnoseresponse",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "GardenCalendar/Services/SupabaseRepository.swift",
+      "source_location": "L525",
       "weight": 1.0,
       "source": "gardencalendar_services_supabaserepository",
       "target": "gardencalendar_services_supabaserepository_repositoryerror",
@@ -19718,6 +20257,16 @@
       "weight": 1.0,
       "source": "gardencalendar_services_supabaserepository_supabaserepository",
       "target": "gardencalendar_services_supabaserepository_supabaserepository_deleteraccolto",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "GardenCalendar/Services/SupabaseRepository.swift",
+      "source_location": "L514",
+      "weight": 1.0,
+      "source": "gardencalendar_services_supabaserepository_supabaserepository",
+      "target": "gardencalendar_services_supabaserepository_supabaserepository_diagnoseplant",
       "confidence_score": 1.0
     },
     {
@@ -20031,6 +20580,17 @@
       "relation": "references",
       "confidence": "EXTRACTED",
       "source_file": "GardenCalendar/Services/SupabaseRepository.swift",
+      "source_location": "L501",
+      "weight": 1.0,
+      "context": "field",
+      "source": "gardencalendar_services_supabaserepository_diagnoserequest",
+      "target": "gardencalendar_services_supabaserepository_swift_uuid",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "GardenCalendar/Services/SupabaseRepository.swift",
       "source_location": "L442",
       "weight": 1.0,
       "context": "field",
@@ -20079,6 +20639,17 @@
       "weight": 1.0,
       "context": "parameter_type",
       "source": "gardencalendar_services_supabaserepository_supabaserepository_deleteraccolto",
+      "target": "gardencalendar_services_supabaserepository_swift_uuid",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "GardenCalendar/Services/SupabaseRepository.swift",
+      "source_location": "L514",
+      "weight": 1.0,
+      "context": "parameter_type",
+      "source": "gardencalendar_services_supabaserepository_supabaserepository_diagnoseplant",
       "target": "gardencalendar_services_supabaserepository_swift_uuid",
       "confidence_score": 1.0
     },
@@ -20372,7 +20943,7 @@
       "relation": "implements",
       "confidence": "EXTRACTED",
       "source_file": "GardenCalendar/Services/SupabaseRepository.swift",
-      "source_location": "L461",
+      "source_location": "L504",
       "weight": 1.0,
       "source": "gardencalendar_services_supabaserepository_codingkeys",
       "target": "gardencalendar_services_supabaserepository_swift_string",
@@ -20382,7 +20953,29 @@
       "relation": "references",
       "confidence": "EXTRACTED",
       "source_file": "GardenCalendar/Services/SupabaseRepository.swift",
-      "source_location": "L505",
+      "source_location": "L502",
+      "weight": 1.0,
+      "context": "field",
+      "source": "gardencalendar_services_supabaserepository_diagnoserequest",
+      "target": "gardencalendar_services_supabaserepository_swift_string",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "GardenCalendar/Services/SupabaseRepository.swift",
+      "source_location": "L511",
+      "weight": 1.0,
+      "context": "field",
+      "source": "gardencalendar_services_supabaserepository_diagnoseresponse",
+      "target": "gardencalendar_services_supabaserepository_swift_string",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "GardenCalendar/Services/SupabaseRepository.swift",
+      "source_location": "L529",
       "weight": 1.0,
       "context": "field",
       "source": "gardencalendar_services_supabaserepository_repositoryerror",
@@ -20419,6 +21012,17 @@
       "weight": 1.0,
       "context": "field",
       "source": "gardencalendar_services_supabaserepository_scheduleresponse",
+      "target": "gardencalendar_services_supabaserepository_swift_string",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "GardenCalendar/Services/SupabaseRepository.swift",
+      "source_location": "L514",
+      "weight": 1.0,
+      "context": "parameter_type",
+      "source": "gardencalendar_services_supabaserepository_supabaserepository_diagnoseplant",
       "target": "gardencalendar_services_supabaserepository_swift_string",
       "confidence_score": 1.0
     },
@@ -20939,6 +21543,16 @@
       "relation": "case_of",
       "confidence": "EXTRACTED",
       "source_file": "GardenCalendar/Services/SupabaseRepository.swift",
+      "source_location": "L506",
+      "weight": 1.0,
+      "source": "gardencalendar_services_supabaserepository_codingkeys",
+      "target": "gardencalendar_services_supabaserepository_codingkeys_imagebase64",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "case_of",
+      "confidence": "EXTRACTED",
+      "source_file": "GardenCalendar/Services/SupabaseRepository.swift",
       "source_location": "L462",
       "weight": 1.0,
       "source": "gardencalendar_services_supabaserepository_codingkeys",
@@ -20959,7 +21573,7 @@
       "relation": "case_of",
       "confidence": "EXTRACTED",
       "source_file": "GardenCalendar/Services/SupabaseRepository.swift",
-      "source_location": "L448",
+      "source_location": "L505",
       "weight": 1.0,
       "source": "gardencalendar_services_supabaserepository_codingkeys",
       "target": "gardencalendar_services_supabaserepository_codingkeys_piantaid",
@@ -21031,10 +21645,43 @@
       "target": "gardencalendar_supabaseconfig_supabaseconfig"
     },
     {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "GardenCalendar/Services/SupabaseRepository.swift",
+      "source_location": "L515",
+      "weight": 1.0,
+      "source": "gardencalendar_services_supabaserepository_supabaserepository_diagnoseplant",
+      "target": "gardencalendar_services_supabaserepository_diagnoserequest",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "GardenCalendar/Services/SupabaseRepository.swift",
+      "source_location": "L514",
+      "weight": 1.0,
+      "context": "return_type",
+      "source": "gardencalendar_services_supabaserepository_supabaserepository_diagnoseplant",
+      "target": "gardencalendar_services_supabaserepository_diagnoseresponse",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "GardenCalendar/Services/SupabaseRepository.swift",
+      "source_location": "L516",
+      "weight": 1.0,
+      "source": "gardencalendar_services_supabaserepository_supabaserepository_diagnoseplant",
+      "target": "gardencalendar_supabaseconfig_supabaseconfig"
+    },
+    {
       "relation": "case_of",
       "confidence": "EXTRACTED",
       "source_file": "GardenCalendar/Services/SupabaseRepository.swift",
-      "source_location": "L502",
+      "source_location": "L526",
       "weight": 1.0,
       "source": "gardencalendar_services_supabaserepository_repositoryerror",
       "target": "gardencalendar_services_supabaserepository_repositoryerror_invaliddate",
@@ -21044,7 +21691,7 @@
       "relation": "case_of",
       "confidence": "EXTRACTED",
       "source_file": "GardenCalendar/Services/SupabaseRepository.swift",
-      "source_location": "L503",
+      "source_location": "L527",
       "weight": 1.0,
       "source": "gardencalendar_services_supabaserepository_repositoryerror",
       "target": "gardencalendar_services_supabaserepository_repositoryerror_notauthenticated",
@@ -21540,7 +22187,7 @@
       "relation": "method",
       "confidence": "EXTRACTED",
       "source_file": "GardenCalendar/Views/Auth/LoginView.swift",
-      "source_location": "L183",
+      "source_location": "L196",
       "weight": 1.0,
       "source": "gardencalendar_views_auth_loginview_loginview",
       "target": "gardencalendar_views_auth_loginview_loginview_performapplesignin",
@@ -21550,7 +22197,17 @@
       "relation": "method",
       "confidence": "EXTRACTED",
       "source_file": "GardenCalendar/Views/Auth/LoginView.swift",
-      "source_location": "L166",
+      "source_location": "L210",
+      "weight": 1.0,
+      "source": "gardencalendar_views_auth_loginview_loginview",
+      "target": "gardencalendar_views_auth_loginview_loginview_performgooglesignin",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "GardenCalendar/Views/Auth/LoginView.swift",
+      "source_location": "L179",
       "weight": 1.0,
       "source": "gardencalendar_views_auth_loginview_loginview",
       "target": "gardencalendar_views_auth_loginview_loginview_performlogin",
@@ -22394,6 +23051,270 @@
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
+      "source_file": "GardenCalendar/Views/Components/CameraPicker.swift",
+      "source_location": "L5",
+      "weight": 1.0,
+      "source": "gardencalendar_views_components_camerapicker",
+      "target": "gardencalendar_views_components_camerapicker_camerapicker",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "GardenCalendar/Views/Components/CameraPicker.swift",
+      "source_location": "L22",
+      "weight": 1.0,
+      "source": "gardencalendar_views_components_camerapicker",
+      "target": "gardencalendar_views_components_camerapicker_coordinator",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "GardenCalendar/Views/Components/CameraPicker.swift",
+      "source_location": "L18",
+      "weight": 1.0,
+      "source": "gardencalendar_views_components_camerapicker_camerapicker",
+      "target": "gardencalendar_views_components_camerapicker_camerapicker_makecoordinator",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "GardenCalendar/Views/Components/CameraPicker.swift",
+      "source_location": "L9",
+      "weight": 1.0,
+      "source": "gardencalendar_views_components_camerapicker_camerapicker",
+      "target": "gardencalendar_views_components_camerapicker_camerapicker_makeuiviewcontroller",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "GardenCalendar/Views/Components/CameraPicker.swift",
+      "source_location": "L16",
+      "weight": 1.0,
+      "source": "gardencalendar_views_components_camerapicker_camerapicker",
+      "target": "gardencalendar_views_components_camerapicker_camerapicker_updateuiviewcontroller",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "GardenCalendar/Views/Components/CameraPicker.swift",
+      "source_location": "L6",
+      "weight": 1.0,
+      "context": "field",
+      "source": "gardencalendar_views_components_camerapicker_camerapicker",
+      "target": "gardencalendar_views_components_camerapicker_swift_uiimage",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "GardenCalendar/Views/Components/CameraPicker.swift",
+      "source_location": "L6",
+      "weight": 1.0,
+      "context": "field",
+      "source": "gardencalendar_views_components_camerapicker_camerapicker",
+      "target": "gardencalendar_views_components_camerapicker_swift_void",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "implements",
+      "confidence": "EXTRACTED",
+      "source_file": "GardenCalendar/Views/Components/CameraPicker.swift",
+      "source_location": "L5",
+      "weight": 1.0,
+      "source": "gardencalendar_views_components_camerapicker_camerapicker",
+      "target": "uiviewcontrollerrepresentable",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "GardenCalendar/Views/Components/CameraPicker.swift",
+      "source_location": "L23",
+      "weight": 1.0,
+      "context": "field",
+      "source": "gardencalendar_views_components_camerapicker_coordinator",
+      "target": "gardencalendar_views_components_camerapicker_swift_uiimage",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "GardenCalendar/Views/Components/CameraPicker.swift",
+      "source_location": "L25",
+      "weight": 1.0,
+      "context": "parameter_type",
+      "source": "gardencalendar_views_components_camerapicker_coordinator_init",
+      "target": "gardencalendar_views_components_camerapicker_swift_uiimage",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "GardenCalendar/Views/Components/CameraPicker.swift",
+      "source_location": "L23",
+      "weight": 1.0,
+      "context": "field",
+      "source": "gardencalendar_views_components_camerapicker_coordinator",
+      "target": "gardencalendar_views_components_camerapicker_swift_void",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "GardenCalendar/Views/Components/CameraPicker.swift",
+      "source_location": "L25",
+      "weight": 1.0,
+      "context": "parameter_type",
+      "source": "gardencalendar_views_components_camerapicker_coordinator_init",
+      "target": "gardencalendar_views_components_camerapicker_swift_void",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "GardenCalendar/Views/Components/CameraPicker.swift",
+      "source_location": "L9",
+      "weight": 1.0,
+      "context": "parameter_type",
+      "source": "gardencalendar_views_components_camerapicker_camerapicker_makeuiviewcontroller",
+      "target": "gardencalendar_views_components_camerapicker_swift_context",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "context": "return_type",
+      "confidence": "EXTRACTED",
+      "source_file": "GardenCalendar/Views/Components/CameraPicker.swift",
+      "source_location": "L9",
+      "weight": 1.0,
+      "source": "gardencalendar_views_components_camerapicker_camerapicker_makeuiviewcontroller",
+      "target": "uiimagepickercontroller",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "GardenCalendar/Views/Components/CameraPicker.swift",
+      "source_location": "L16",
+      "weight": 1.0,
+      "context": "parameter_type",
+      "source": "gardencalendar_views_components_camerapicker_camerapicker_updateuiviewcontroller",
+      "target": "gardencalendar_views_components_camerapicker_swift_context",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "GardenCalendar/Views/Components/CameraPicker.swift",
+      "source_location": "L16",
+      "weight": 1.0,
+      "context": "parameter_type",
+      "source": "gardencalendar_views_components_camerapicker_camerapicker_updateuiviewcontroller",
+      "target": "uiimagepickercontroller",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "GardenCalendar/Views/Components/CameraPicker.swift",
+      "source_location": "L29",
+      "weight": 1.0,
+      "context": "parameter_type",
+      "source": "gardencalendar_views_components_camerapicker_coordinator_imagepickercontroller",
+      "target": "uiimagepickercontroller",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "GardenCalendar/Views/Components/CameraPicker.swift",
+      "source_location": "L36",
+      "weight": 1.0,
+      "context": "parameter_type",
+      "source": "gardencalendar_views_components_camerapicker_coordinator_imagepickercontrollerdidcancel",
+      "target": "uiimagepickercontroller",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "context": "return_type",
+      "confidence": "EXTRACTED",
+      "source_file": "GardenCalendar/Views/Components/CameraPicker.swift",
+      "source_location": "L18",
+      "weight": 1.0,
+      "source": "gardencalendar_views_components_camerapicker_camerapicker_makecoordinator",
+      "target": "gardencalendar_views_components_camerapicker_coordinator",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "GardenCalendar/Views/Components/CameraPicker.swift",
+      "source_location": "L29",
+      "weight": 1.0,
+      "source": "gardencalendar_views_components_camerapicker_coordinator",
+      "target": "gardencalendar_views_components_camerapicker_coordinator_imagepickercontroller",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "GardenCalendar/Views/Components/CameraPicker.swift",
+      "source_location": "L36",
+      "weight": 1.0,
+      "source": "gardencalendar_views_components_camerapicker_coordinator",
+      "target": "gardencalendar_views_components_camerapicker_coordinator_imagepickercontrollerdidcancel",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "GardenCalendar/Views/Components/CameraPicker.swift",
+      "source_location": "L25",
+      "weight": 1.0,
+      "source": "gardencalendar_views_components_camerapicker_coordinator",
+      "target": "gardencalendar_views_components_camerapicker_coordinator_init",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "implements",
+      "confidence": "EXTRACTED",
+      "source_file": "GardenCalendar/Views/Components/CameraPicker.swift",
+      "source_location": "L22",
+      "weight": 1.0,
+      "source": "gardencalendar_views_components_camerapicker_coordinator",
+      "target": "uiimagepickercontrollerdelegate",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "implements",
+      "confidence": "EXTRACTED",
+      "source_file": "GardenCalendar/Views/Components/CameraPicker.swift",
+      "source_location": "L22",
+      "weight": 1.0,
+      "source": "gardencalendar_views_components_camerapicker_coordinator",
+      "target": "uinavigationcontrollerdelegate",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "GardenCalendar/Views/Components/CameraPicker.swift",
+      "source_location": "L29",
+      "weight": 1.0,
+      "context": "parameter_type",
+      "source": "gardencalendar_views_components_camerapicker_coordinator_imagepickercontroller",
+      "target": "any",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
       "source_file": "GardenCalendar/Views/Components/PlantEmoji.swift",
       "source_location": "L6",
       "weight": 1.0,
@@ -22539,6 +23460,155 @@
       "context": "field",
       "source": "gardencalendar_views_components_weathericon_weathericon",
       "target": "gardencalendar_views_components_weathericon_swift_string",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "GardenCalendar/Views/Diagnosi/DiagnosiView.swift",
+      "source_location": "L4",
+      "weight": 1.0,
+      "source": "gardencalendar_views_diagnosi_diagnosiview",
+      "target": "gardencalendar_views_diagnosi_diagnosiview_diagnosiview",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "GardenCalendar/Views/Diagnosi/DiagnosiView.swift",
+      "source_location": "L2",
+      "weight": 1.0,
+      "source": "gardencalendar_views_diagnosi_diagnosiview",
+      "target": "photosui",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "GardenCalendar/Views/Orto/OrtoDetailView.swift",
+      "source_location": "L3",
+      "weight": 1.0,
+      "source": "gardencalendar_views_orto_ortodetailview",
+      "target": "photosui",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "GardenCalendar/Views/Piante/PiantaDetailView.swift",
+      "source_location": "L2",
+      "weight": 1.0,
+      "source": "gardencalendar_views_piante_piantadetailview",
+      "target": "photosui",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "GardenCalendar/Views/Diagnosi/DiagnosiView.swift",
+      "source_location": "L170",
+      "weight": 1.0,
+      "source": "gardencalendar_views_diagnosi_diagnosiview_diagnosiview",
+      "target": "gardencalendar_views_diagnosi_diagnosiview_diagnosiview_analyze",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "GardenCalendar/Views/Diagnosi/DiagnosiView.swift",
+      "source_location": "L151",
+      "weight": 1.0,
+      "source": "gardencalendar_views_diagnosi_diagnosiview_diagnosiview",
+      "target": "gardencalendar_views_diagnosi_diagnosiview_diagnosiview_loadpiante",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "GardenCalendar/Views/Diagnosi/DiagnosiView.swift",
+      "source_location": "L160",
+      "weight": 1.0,
+      "source": "gardencalendar_views_diagnosi_diagnosiview_diagnosiview",
+      "target": "gardencalendar_views_diagnosi_diagnosiview_diagnosiview_loadpickedphoto",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "GardenCalendar/Views/Diagnosi/DiagnosiView.swift",
+      "source_location": "L134",
+      "weight": 1.0,
+      "source": "gardencalendar_views_diagnosi_diagnosiview_diagnosiview",
+      "target": "gardencalendar_views_diagnosi_diagnosiview_diagnosiview_resultcard",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "GardenCalendar/Views/Diagnosi/DiagnosiView.swift",
+      "source_location": "L12",
+      "weight": 1.0,
+      "context": "field",
+      "source": "gardencalendar_views_diagnosi_diagnosiview_diagnosiview",
+      "target": "gardencalendar_views_diagnosi_diagnosiview_swift_photospickeritem",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "GardenCalendar/Views/Diagnosi/DiagnosiView.swift",
+      "source_location": "L16",
+      "weight": 1.0,
+      "context": "field",
+      "source": "gardencalendar_views_diagnosi_diagnosiview_diagnosiview",
+      "target": "gardencalendar_views_diagnosi_diagnosiview_swift_string",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "GardenCalendar/Views/Diagnosi/DiagnosiView.swift",
+      "source_location": "L11",
+      "weight": 1.0,
+      "context": "field",
+      "source": "gardencalendar_views_diagnosi_diagnosiview_diagnosiview",
+      "target": "gardencalendar_views_diagnosi_diagnosiview_swift_uiimage",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "GardenCalendar/Views/Diagnosi/DiagnosiView.swift",
+      "source_location": "L163",
+      "weight": 1.0,
+      "source": "gardencalendar_views_diagnosi_diagnosiview_diagnosiview_loadpickedphoto",
+      "target": "gardencalendar_views_diagnosi_diagnosiview_swift_uiimage",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "GardenCalendar/Views/Diagnosi/DiagnosiView.swift",
+      "source_location": "L160",
+      "weight": 1.0,
+      "context": "parameter_type",
+      "source": "gardencalendar_views_diagnosi_diagnosiview_diagnosiview_loadpickedphoto",
+      "target": "gardencalendar_views_diagnosi_diagnosiview_swift_photospickeritem",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "GardenCalendar/Views/Diagnosi/DiagnosiView.swift",
+      "source_location": "L134",
+      "weight": 1.0,
+      "context": "parameter_type",
+      "source": "gardencalendar_views_diagnosi_diagnosiview_diagnosiview_resultcard",
+      "target": "gardencalendar_views_diagnosi_diagnosiview_swift_string",
       "confidence_score": 1.0
     },
     {
@@ -22717,28 +23787,6 @@
       "weight": 1.0,
       "source": "gardencalendar_views_orto_ortodetailview",
       "target": "gardencalendar_views_orto_ortodetailview_piantarowview",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "GardenCalendar/Views/Orto/OrtoDetailView.swift",
-      "source_location": "L3",
-      "weight": 1.0,
-      "source": "gardencalendar_views_orto_ortodetailview",
-      "target": "photosui",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "GardenCalendar/Views/Piante/PiantaDetailView.swift",
-      "source_location": "L2",
-      "weight": 1.0,
-      "source": "gardencalendar_views_piante_piantadetailview",
-      "target": "photosui",
       "confidence_score": 1.0
     },
     {
@@ -23449,7 +24497,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "GardenCalendar/Views/Piante/PiantaDetailView.swift",
-      "source_location": "L331",
+      "source_location": "L338",
       "weight": 1.0,
       "source": "gardencalendar_views_piante_piantadetailview",
       "target": "gardencalendar_views_piante_piantadetailview_attivitarow",
@@ -23459,7 +24507,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "GardenCalendar/Views/Piante/PiantaDetailView.swift",
-      "source_location": "L421",
+      "source_location": "L428",
       "weight": 1.0,
       "source": "gardencalendar_views_piante_piantadetailview",
       "target": "gardencalendar_views_piante_piantadetailview_nuovoraccoltosheet",
@@ -23479,7 +24527,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "GardenCalendar/Views/Piante/PiantaDetailView.swift",
-      "source_location": "L380",
+      "source_location": "L387",
       "weight": 1.0,
       "source": "gardencalendar_views_piante_piantadetailview",
       "target": "gardencalendar_views_piante_piantadetailview_raccoltorow",
@@ -23583,7 +24631,7 @@
       "relation": "references",
       "confidence": "EXTRACTED",
       "source_file": "GardenCalendar/Views/Piante/PiantaDetailView.swift",
-      "source_location": "L332",
+      "source_location": "L339",
       "weight": 1.0,
       "context": "field",
       "source": "gardencalendar_views_piante_piantadetailview_attivitarow",
@@ -23616,7 +24664,7 @@
       "relation": "references",
       "confidence": "EXTRACTED",
       "source_file": "GardenCalendar/Views/Piante/PiantaDetailView.swift",
-      "source_location": "L334",
+      "source_location": "L341",
       "weight": 1.0,
       "context": "field",
       "source": "gardencalendar_views_piante_piantadetailview_attivitarow",
@@ -23627,7 +24675,7 @@
       "relation": "references",
       "confidence": "EXTRACTED",
       "source_file": "GardenCalendar/Views/Piante/PiantaDetailView.swift",
-      "source_location": "L382",
+      "source_location": "L389",
       "weight": 1.0,
       "context": "field",
       "source": "gardencalendar_views_piante_piantadetailview_raccoltorow",
@@ -23638,7 +24686,7 @@
       "relation": "method",
       "confidence": "EXTRACTED",
       "source_file": "GardenCalendar/Views/Piante/PiantaDetailView.swift",
-      "source_location": "L482",
+      "source_location": "L489",
       "weight": 1.0,
       "source": "gardencalendar_views_piante_piantadetailview_nuovoraccoltosheet",
       "target": "gardencalendar_views_piante_piantadetailview_nuovoraccoltosheet_save",
@@ -23648,7 +24696,7 @@
       "relation": "references",
       "confidence": "EXTRACTED",
       "source_file": "GardenCalendar/Views/Piante/PiantaDetailView.swift",
-      "source_location": "L428",
+      "source_location": "L435",
       "weight": 1.0,
       "context": "field",
       "source": "gardencalendar_views_piante_piantadetailview_nuovoraccoltosheet",
@@ -23942,7 +24990,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "GardenCalendar/Views/Settings/SettingsView.swift",
-      "source_location": "L296",
+      "source_location": "L302",
       "weight": 1.0,
       "source": "gardencalendar_views_settings_settingsview",
       "target": "gardencalendar_views_settings_settingsview_thememode",
@@ -23952,7 +25000,17 @@
       "relation": "method",
       "confidence": "EXTRACTED",
       "source_file": "GardenCalendar/Views/Settings/SettingsView.swift",
-      "source_location": "L283",
+      "source_location": "L286",
+      "weight": 1.0,
+      "source": "gardencalendar_views_settings_settingsview_settingsview",
+      "target": "gardencalendar_views_settings_settingsview_settingsview_loadorti",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "GardenCalendar/Views/Settings/SettingsView.swift",
+      "source_location": "L276",
       "weight": 1.0,
       "source": "gardencalendar_views_settings_settingsview_settingsview",
       "target": "gardencalendar_views_settings_settingsview_settingsview_loadsettings",
@@ -23962,7 +25020,7 @@
       "relation": "method",
       "confidence": "EXTRACTED",
       "source_file": "GardenCalendar/Views/Settings/SettingsView.swift",
-      "source_location": "L276",
+      "source_location": "L269",
       "weight": 1.0,
       "source": "gardencalendar_views_settings_settingsview_settingsview",
       "target": "gardencalendar_views_settings_settingsview_settingsview_sectionheader",
@@ -24005,7 +25063,7 @@
       "relation": "references",
       "confidence": "EXTRACTED",
       "source_file": "GardenCalendar/Views/Settings/SettingsView.swift",
-      "source_location": "L276",
+      "source_location": "L269",
       "weight": 1.0,
       "context": "parameter_type",
       "source": "gardencalendar_views_settings_settingsview_settingsview_sectionheader",
@@ -24016,7 +25074,7 @@
       "relation": "implements",
       "confidence": "EXTRACTED",
       "source_file": "GardenCalendar/Views/Settings/SettingsView.swift",
-      "source_location": "L296",
+      "source_location": "L302",
       "weight": 1.0,
       "source": "gardencalendar_views_settings_settingsview_thememode",
       "target": "gardencalendar_views_settings_settingsview_swift_string",
@@ -24026,7 +25084,7 @@
       "relation": "references",
       "confidence": "EXTRACTED",
       "source_file": "GardenCalendar/Views/Settings/SettingsView.swift",
-      "source_location": "L301",
+      "source_location": "L307",
       "weight": 1.0,
       "context": "field",
       "source": "gardencalendar_views_settings_settingsview_thememode",
@@ -24037,7 +25095,7 @@
       "relation": "case_of",
       "confidence": "EXTRACTED",
       "source_file": "GardenCalendar/Views/Settings/SettingsView.swift",
-      "source_location": "L299",
+      "source_location": "L305",
       "weight": 1.0,
       "source": "gardencalendar_views_settings_settingsview_thememode",
       "target": "gardencalendar_views_settings_settingsview_thememode_automatic",
@@ -24047,7 +25105,7 @@
       "relation": "case_of",
       "confidence": "EXTRACTED",
       "source_file": "GardenCalendar/Views/Settings/SettingsView.swift",
-      "source_location": "L298",
+      "source_location": "L304",
       "weight": 1.0,
       "source": "gardencalendar_views_settings_settingsview_thememode",
       "target": "gardencalendar_views_settings_settingsview_thememode_dark",
@@ -24057,7 +25115,7 @@
       "relation": "case_of",
       "confidence": "EXTRACTED",
       "source_file": "GardenCalendar/Views/Settings/SettingsView.swift",
-      "source_location": "L297",
+      "source_location": "L303",
       "weight": 1.0,
       "source": "gardencalendar_views_settings_settingsview_thememode",
       "target": "gardencalendar_views_settings_settingsview_thememode_light",
@@ -24225,7 +25283,7 @@
       "weight": 1.0,
       "context": "parameter_type",
       "source": "gardencalendarwidget_gardencalendarwidget_activitiesprovider_placeholder",
-      "target": "context",
+      "target": "gardencalendarwidget_gardencalendarwidget_swift_context",
       "confidence_score": 1.0
     },
     {
@@ -24236,7 +25294,7 @@
       "weight": 1.0,
       "context": "parameter_type",
       "source": "gardencalendarwidget_gardencalendarwidget_activitiesprovider_getsnapshot",
-      "target": "context",
+      "target": "gardencalendarwidget_gardencalendarwidget_swift_context",
       "confidence_score": 1.0
     },
     {
@@ -24247,7 +25305,7 @@
       "weight": 1.0,
       "context": "parameter_type",
       "source": "gardencalendarwidget_gardencalendarwidget_activitiesprovider_gettimeline",
-      "target": "context",
+      "target": "gardencalendarwidget_gardencalendarwidget_swift_context",
       "confidence_score": 1.0
     },
     {
@@ -24418,6 +25476,26 @@
       "weight": 1.0,
       "source": "supabase_functions_admin_dashboard_index",
       "target": "supabase_functions_admin_dashboard_index_corsheaders",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "supabase/functions/diagnose-plant/index.ts",
+      "source_location": "L38",
+      "weight": 1.0,
+      "source": "supabase_functions_diagnose_plant_index",
+      "target": "supabase_functions_diagnose_plant_index_corsheaders",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "supabase/functions/diagnose-plant/index.ts",
+      "source_location": "L9",
+      "weight": 1.0,
+      "source": "supabase_functions_diagnose_plant_index",
+      "target": "supabase_functions_diagnose_plant_index_diagnoserequest",
       "confidence_score": 1.0
     },
     {
@@ -27932,5 +29010,5 @@
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "c39b93735c8db995dfb27b2ce90478fc2025860b"
+  "built_at_commit": "d090238b330ac0a59b5bac3d414a2ecf12975f53"
 }

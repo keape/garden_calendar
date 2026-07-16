@@ -23,6 +23,11 @@
 		B10008 /* AuthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B20008 /* AuthManager.swift */; };
 		B10031 /* AppleSignInCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B20031 /* AppleSignInCoordinator.swift */; };
 		B10009 /* RainAdjuster.swift in Sources */ = {isa = PBXBuildFile; fileRef = B20009 /* RainAdjuster.swift */; };
+		B10034 /* ClimateNormalsClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = B20034 /* ClimateNormalsClient.swift */; };
+		B10035 /* SowingCalculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B20035 /* SowingCalculator.swift */; };
+		B10036 /* MagazineArticle.swift in Sources */ = {isa = PBXBuildFile; fileRef = B20036 /* MagazineArticle.swift */; };
+		B10037 /* MagazineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B20037 /* MagazineView.swift */; };
+		B10038 /* ArticleDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B20038 /* ArticleDetailView.swift */; };
 		B10010 /* SupabaseRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = B20010 /* SupabaseRepository.swift */; };
 		B10011 /* AppTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = B20011 /* AppTheme.swift */; };
 		B10012 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B20012 /* LoginView.swift */; };
@@ -33,6 +38,8 @@
 		B10017 /* WeatherIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = B20017 /* WeatherIcon.swift */; };
 		B10029 /* PlantEmoji.swift in Sources */ = {isa = PBXBuildFile; fileRef = B20029 /* PlantEmoji.swift */; };
 		B10030 /* SuggerimentiSeminaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B20030 /* SuggerimentiSeminaView.swift */; };
+		B10032 /* CameraPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = B20032 /* CameraPicker.swift */; };
+		B10033 /* DiagnosiView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B20033 /* DiagnosiView.swift */; };
 		B10018 /* QuickJournalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B20018 /* QuickJournalView.swift */; };
 		B10019 /* OrtoDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B20019 /* OrtoDetailView.swift */; };
 		B10020 /* OrtoListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B20020 /* OrtoListView.swift */; };
@@ -79,6 +86,11 @@
 		B20008 /* AuthManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthManager.swift; sourceTree = "<group>"; };
 		B20031 /* AppleSignInCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleSignInCoordinator.swift; sourceTree = "<group>"; };
 		B20009 /* RainAdjuster.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RainAdjuster.swift; sourceTree = "<group>"; };
+		B20034 /* ClimateNormalsClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClimateNormalsClient.swift; sourceTree = "<group>"; };
+		B20035 /* SowingCalculator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SowingCalculator.swift; sourceTree = "<group>"; };
+		B20036 /* MagazineArticle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MagazineArticle.swift; sourceTree = "<group>"; };
+		B20037 /* MagazineView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MagazineView.swift; sourceTree = "<group>"; };
+		B20038 /* ArticleDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleDetailView.swift; sourceTree = "<group>"; };
 		B20010 /* SupabaseRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SupabaseRepository.swift; sourceTree = "<group>"; };
 		B20011 /* AppTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppTheme.swift; sourceTree = "<group>"; };
 		B20012 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
@@ -89,6 +101,8 @@
 		B20017 /* WeatherIcon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherIcon.swift; sourceTree = "<group>"; };
 		B20029 /* PlantEmoji.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlantEmoji.swift; sourceTree = "<group>"; };
 		B20030 /* SuggerimentiSeminaView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuggerimentiSeminaView.swift; sourceTree = "<group>"; };
+		B20032 /* CameraPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraPicker.swift; sourceTree = "<group>"; };
+		B20033 /* DiagnosiView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiagnosiView.swift; sourceTree = "<group>"; };
 		B20018 /* QuickJournalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuickJournalView.swift; sourceTree = "<group>"; };
 		B20019 /* OrtoDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrtoDetailView.swift; sourceTree = "<group>"; };
 		B20020 /* OrtoListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrtoListView.swift; sourceTree = "<group>"; };
@@ -223,6 +237,7 @@
 				D20005 /* Raccolto.swift */,
 				B20006 /* PlantKnowledge.swift */,
 				B20007 /* WikiNote.swift */,
+				B20036 /* MagazineArticle.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -238,6 +253,8 @@
 				D220008 /* PerenualAPIClient.swift */,
 				D220007 /* PlantCatalogService.swift */,
 				B20009 /* RainAdjuster.swift */,
+				B20034 /* ClimateNormalsClient.swift */,
+				B20035 /* SowingCalculator.swift */,
 				B20010 /* SupabaseRepository.swift */,
 				D20004 /* WidgetActivity.swift */,
 				D20003 /* WidgetDataExporter.swift */,
@@ -271,8 +288,19 @@
 				B40012 /* Orto */,
 				B40013 /* Piante */,
 				B40014 /* Settings */,
+				B40015 /* Diagnosi */,
+				B40016 /* Magazine */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		B40016 /* Magazine */ = {
+			isa = PBXGroup;
+			children = (
+				B20037 /* MagazineView.swift */,
+				B20038 /* ArticleDetailView.swift */,
+			);
+			path = Magazine;
 			sourceTree = "<group>";
 		};
 		B40008 /* Auth */ = {
@@ -300,8 +328,17 @@
 				B20017 /* WeatherIcon.swift */,
 				B20029 /* PlantEmoji.swift */,
 				B20030 /* SuggerimentiSeminaView.swift */,
+				B20032 /* CameraPicker.swift */,
 			);
 			path = Components;
+			sourceTree = "<group>";
+		};
+		B40015 /* Diagnosi */ = {
+			isa = PBXGroup;
+			children = (
+				B20033 /* DiagnosiView.swift */,
+			);
+			path = Diagnosi;
 			sourceTree = "<group>";
 		};
 		B40011 /* Journal */ = {
@@ -487,6 +524,8 @@
 				B10008 /* AuthManager.swift in Sources */,
 				B10031 /* AppleSignInCoordinator.swift in Sources */,
 				B10009 /* RainAdjuster.swift in Sources */,
+				B10034 /* ClimateNormalsClient.swift in Sources */,
+				B10035 /* SowingCalculator.swift in Sources */,
 				B10010 /* SupabaseRepository.swift in Sources */,
 				B10011 /* AppTheme.swift in Sources */,
 				B10012 /* LoginView.swift in Sources */,
@@ -497,6 +536,8 @@
 				B10017 /* WeatherIcon.swift in Sources */,
 				B10029 /* PlantEmoji.swift in Sources */,
 				B10030 /* SuggerimentiSeminaView.swift in Sources */,
+				B10032 /* CameraPicker.swift in Sources */,
+				B10033 /* DiagnosiView.swift in Sources */,
 				B10018 /* QuickJournalView.swift in Sources */,
 				B10019 /* OrtoDetailView.swift in Sources */,
 				B10020 /* OrtoListView.swift in Sources */,
@@ -517,6 +558,9 @@
 				D110008 /* PerenualAPIClient.swift in Sources */,
 				D110009 /* PlantDetailSheet.swift in Sources */,
 				F10001 /* Strings.swift in Sources */,
+				B10036 /* MagazineArticle.swift in Sources */,
+				B10037 /* MagazineView.swift in Sources */,
+				B10038 /* ArticleDetailView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -662,7 +706,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "Apple Distribution: Alessandro Capobianco (4A5H2U7Q42)";
 				DEVELOPMENT_TEAM = 4A5H2U7Q42;
 				PROVISIONING_PROFILE_SPECIFIER = "GardenCalendar AppStore";
-				CURRENT_PROJECT_VERSION = 4;
+				CURRENT_PROJECT_VERSION = 5;
 				DEVELOPMENT_ASSET_PATHS = "\"GardenCalendar/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -677,7 +721,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.2;
+				MARKETING_VERSION = 1.3;
 				PRODUCT_BUNDLE_IDENTIFIER = com.gardencalendar.app;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
@@ -694,11 +738,9 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = GardenCalendar/GardenCalendar.entitlements;
-				CODE_SIGN_STYLE = Manual;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "Apple Distribution: Alessandro Capobianco (4A5H2U7Q42)";
+				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 4A5H2U7Q42;
-				PROVISIONING_PROFILE_SPECIFIER = "GardenCalendar AppStore";
-				CURRENT_PROJECT_VERSION = 4;
+				CURRENT_PROJECT_VERSION = 5;
 				DEVELOPMENT_ASSET_PATHS = "\"GardenCalendar/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -713,7 +755,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.2;
+				MARKETING_VERSION = 1.3;
 				PRODUCT_BUNDLE_IDENTIFIER = com.gardencalendar.app;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
@@ -734,7 +776,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "Apple Distribution: Alessandro Capobianco (4A5H2U7Q42)";
 				DEVELOPMENT_TEAM = 4A5H2U7Q42;
 				PROVISIONING_PROFILE_SPECIFIER = "GardenCalendarWidget AppStore";
-				CURRENT_PROJECT_VERSION = 4;
+				CURRENT_PROJECT_VERSION = 5;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = GardenCalendarWidget/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "Garden Calendar";
@@ -744,7 +786,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 1.2;
+				MARKETING_VERSION = 1.3;
 				PRODUCT_BUNDLE_IDENTIFIER = com.gardencalendar.app.widget;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -762,11 +804,9 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
 				CODE_SIGN_ENTITLEMENTS = GardenCalendarWidget/GardenCalendarWidget.entitlements;
-				CODE_SIGN_STYLE = Manual;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "Apple Distribution: Alessandro Capobianco (4A5H2U7Q42)";
+				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 4A5H2U7Q42;
-				PROVISIONING_PROFILE_SPECIFIER = "GardenCalendarWidget AppStore";
-				CURRENT_PROJECT_VERSION = 4;
+				CURRENT_PROJECT_VERSION = 5;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = GardenCalendarWidget/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "Garden Calendar";
@@ -776,7 +816,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 1.2;
+				MARKETING_VERSION = 1.3;
 				PRODUCT_BUNDLE_IDENTIFIER = com.gardencalendar.app.widget;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;

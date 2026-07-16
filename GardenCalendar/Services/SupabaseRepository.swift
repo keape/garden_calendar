@@ -494,6 +494,30 @@ final class SupabaseRepository {
             options: FunctionInvokeOptions(body: request)
         )
     }
+
+    // MARK: - Diagnosi pianta (LLM vision)
+
+    struct DiagnoseRequest: Encodable {
+        let piantaId: UUID
+        let imageBase64: String
+
+        enum CodingKeys: String, CodingKey {
+            case piantaId = "pianta_id"
+            case imageBase64 = "image_base64"
+        }
+    }
+
+    struct DiagnoseResponse: Decodable {
+        let diagnosis: String
+    }
+
+    func diagnosePlant(piantaId: UUID, imageBase64: String) async throws -> DiagnoseResponse {
+        let request = DiagnoseRequest(piantaId: piantaId, imageBase64: imageBase64)
+        return try await client.functions.invoke(
+            "diagnose-plant",
+            options: FunctionInvokeOptions(body: request)
+        )
+    }
 }
 
 // MARK: - Errori

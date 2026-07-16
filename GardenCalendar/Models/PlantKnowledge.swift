@@ -47,6 +47,15 @@ struct PlantKnowledge: Codable, Identifiable, Sendable {
     let pianteCompagne: [String]?
     let pianteIncompatibili: [String]?
 
+    // Campi agronomici (opzionali — piante legacy li hanno nil)
+    let phMin: Double?
+    let phMax: Double?
+    let tempGermMin: Double?
+    let tempOttMin: Double?
+    let tempOttMax: Double?
+    let tempTollMin: Double?
+    let mesiFioritura: [Int]?
+
     enum CodingKeys: String, CodingKey {
         case id, slug
         case specieNome = "specie_nome"
@@ -66,6 +75,13 @@ struct PlantKnowledge: Codable, Identifiable, Sendable {
         case mesiRaccolta = "mesi_raccolta"
         case pianteCompagne = "piante_compagne"
         case pianteIncompatibili = "piante_incompatibili"
+        case phMin = "ph_min"
+        case phMax = "ph_max"
+        case tempGermMin = "temp_germ_min"
+        case tempOttMin = "temp_ott_min"
+        case tempOttMax = "temp_ott_max"
+        case tempTollMin = "temp_toll_min"
+        case mesiFioritura = "mesi_fioritura"
     }
 
     init(
@@ -76,7 +92,10 @@ struct PlantKnowledge: Codable, Identifiable, Sendable {
         annaffiatura: String? = nil, esposizione: String? = nil,
         tipo: PlantType? = nil, difficolta: String? = nil,
         imageUrl: String? = nil, mesiRaccolta: [Int]? = nil,
-        pianteCompagne: [String]? = nil, pianteIncompatibili: [String]? = nil
+        pianteCompagne: [String]? = nil, pianteIncompatibili: [String]? = nil,
+        phMin: Double? = nil, phMax: Double? = nil,
+        tempGermMin: Double? = nil, tempOttMin: Double? = nil, tempOttMax: Double? = nil,
+        tempTollMin: Double? = nil, mesiFioritura: [Int]? = nil
     ) {
         self.id = id; self.slug = slug; self.specieNome = specieNome
         self.growthDays = growthDays; self.attivitaSuggerite = attivitaSuggerite
@@ -87,6 +106,9 @@ struct PlantKnowledge: Codable, Identifiable, Sendable {
         self.tipo = tipo; self.difficolta = difficolta; self.imageUrl = imageUrl
         self.mesiRaccolta = mesiRaccolta; self.pianteCompagne = pianteCompagne
         self.pianteIncompatibili = pianteIncompatibili
+        self.phMin = phMin; self.phMax = phMax
+        self.tempGermMin = tempGermMin; self.tempOttMin = tempOttMin; self.tempOttMax = tempOttMax
+        self.tempTollMin = tempTollMin; self.mesiFioritura = mesiFioritura
     }
 
     init(from decoder: Decoder) throws {
@@ -124,6 +146,14 @@ struct PlantKnowledge: Codable, Identifiable, Sendable {
         mesiRaccolta = try? c.decodeIfPresent([Int].self, forKey: .mesiRaccolta)
         pianteCompagne = try? c.decodeIfPresent([String].self, forKey: .pianteCompagne)
         pianteIncompatibili = try? c.decodeIfPresent([String].self, forKey: .pianteIncompatibili)
+
+        phMin = try? c.decodeIfPresent(Double.self, forKey: .phMin)
+        phMax = try? c.decodeIfPresent(Double.self, forKey: .phMax)
+        tempGermMin = try? c.decodeIfPresent(Double.self, forKey: .tempGermMin)
+        tempOttMin = try? c.decodeIfPresent(Double.self, forKey: .tempOttMin)
+        tempOttMax = try? c.decodeIfPresent(Double.self, forKey: .tempOttMax)
+        tempTollMin = try? c.decodeIfPresent(Double.self, forKey: .tempTollMin)
+        mesiFioritura = try? c.decodeIfPresent([Int].self, forKey: .mesiFioritura)
     }
 }
 

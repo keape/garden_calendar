@@ -6,6 +6,15 @@ struct PlantDetailSheet: View {
 
     let knowledge: PlantKnowledge
     let onAdd: ((PlantKnowledge) -> Void)?
+    /// Orto di riferimento: se ha coordinate, semina/raccolta vengono ricalcolate sul suo clima locale.
+    var orto: Orto? = nil
+
+    @State private var normals: MonthlyClimateNormals?
+
+    /// Finestra semina/raccolta effettiva: calcolata sul clima dell'orto se disponibile, altrimenti baseline.
+    private var window: SowingWindow {
+        SowingCalculator.compute(for: knowledge, normals: normals)
+    }
 
     private var monthAbbrs: [String] {
         let fmt = DateFormatter()
@@ -19,11 +28,13 @@ struct PlantDetailSheet: View {
                 VStack(alignment: .leading, spacing: 0) {
                     headerSection
                     Divider().padding(.horizontal)
-                    if !knowledge.seminaMesiEsterno.isEmpty || !knowledge.seminaMesiInterno.isEmpty {
+                    if !window.seminaEsterno.isEmpty || !window.seminaInterno.isEmpty {
                         sowingSection
                         Divider().padding(.horizontal)
                     }
-                    if knowledge.annaffiatura != nil || knowledge.esposizione != nil || knowledge.mesiRaccolta != nil {
+                    if knowledge.annaffiatura != nil || knowledge.esposizione != nil
+                        || !window.raccolta.isEmpty || !window.fioritura.isEmpty
+                        || knowledge.phMin != nil || knowledge.tempTollMin != nil {
                         careSection
                         Divider().padding(.horizontal)
                     }
@@ -51,6 +62,10 @@ struct PlantDetailSheet: View {
                     }
                 }
             }
+        }
+        .task {
+            guard let lat = orto?.latitudine, let lon = orto?.longitudine else { return }
+            normals = try? await ClimateNormalsClient.shared.fetchNormals(latitude: lat, longitude: lon)
         }
     }
 
@@ -118,8 +133,8 @@ struct PlantDetailSheet: View {
         VStack(alignment: .leading, spacing: 10) {
             sectionHeader(lang.plants.seedingSection)
             VStack(alignment: .leading, spacing: 6) {
-                monthRow(label: "🌍", months: knowledge.seminaMesiEsterno, color: AppTheme.primaryGreen)
-                monthRow(label: "🏠", months: knowledge.seminaMesiInterno, color: AppTheme.activityBlue)
+                monthRow(label: "🌍", months: window.seminaEsterno, color: AppTheme.primaryGreen)
+                monthRow(label: "🏠", months: window.seminaInterno, color: AppTheme.activityBlue)
             }
             .padding(.horizontal)
             .padding(.bottom, 16)
@@ -153,8 +168,17 @@ struct PlantDetailSheet: View {
                 if let e = knowledge.esposizione {
                     careRow(icon: "sun.max.fill", label: lang.plants.exposureLabel, value: e, color: AppTheme.accentAmbra)
                 }
-                if let m = knowledge.mesiRaccolta, !m.isEmpty {
-                    careRow(icon: "basket.fill", label: lang.plants.harvestMonthsLabel, value: monthNamesShort(m), color: AppTheme.activityOrange)
+                if !window.raccolta.isEmpty {
+                    careRow(icon: "basket.fill", label: lang.plants.harvestMonthsLabel, value: monthNamesShort(window.raccolta), color: AppTheme.activityOrange)
+                }
+                if !window.fioritura.isEmpty {
+                    careRow(icon: "camera.macro", label: lang.plants.bloomMonthsLabel, value: monthNamesShort(window.fioritura), color: AppTheme.activityOrange)
+                }
+                if let phMin = knowledge.phMin, let phMax = knowledge.phMax {
+                    careRow(icon: "eyedropper.halffull", label: lang.plants.phLabel, value: String(format: "%.1f – %.1f", phMin, phMax), color: AppTheme.primaryGreen)
+                }
+                if let t = knowledge.tempTollMin {
+                    careRow(icon: "thermometer.snowflake", label: lang.plants.toleranceTempLabel, value: String(format: "%.0f°C", t), color: AppTheme.activityBlue)
                 }
             }
             .padding(.horizontal)

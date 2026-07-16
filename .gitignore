@@ -72,3 +72,7 @@ Package.resolved
 
 ## superpowers scratch
 .superpowers/
+
+## local build/archive output
+build/
+supabase/.temp/

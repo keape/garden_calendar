@@ -265,12 +265,25 @@ struct OrtoCardRow: View {
     var body: some View {
         HStack(spacing: 14) {
             ZStack {
-                Circle()
-                    .fill(AppTheme.primaryGreen.opacity(0.12))
+                if let fotoUrl = orto.fotoUrl, let url = URL(string: fotoUrl) {
+                    AsyncImage(url: url) { image in
+                        image
+                            .resizable()
+                            .scaledToFill()
+                    } placeholder: {
+                        Circle()
+                            .fill(AppTheme.primaryGreen.opacity(0.12))
+                    }
                     .frame(width: 44, height: 44)
-                Image(systemName: "tree.fill")
-                    .font(.system(size: 20))
-                    .foregroundStyle(AppTheme.primaryGreen)
+                    .clipShape(Circle())
+                } else {
+                    Circle()
+                        .fill(AppTheme.primaryGreen.opacity(0.12))
+                        .frame(width: 44, height: 44)
+                    Image(systemName: "tree.fill")
+                        .font(.system(size: 20))
+                        .foregroundStyle(AppTheme.primaryGreen)
+                }
             }
 
             VStack(alignment: .leading, spacing: 3) {

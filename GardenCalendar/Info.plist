@@ -20,8 +20,12 @@
 	<string>3</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
+	<key>ITSAppUsesNonExemptEncryption</key>
+	<false/>
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string>La posizione serve per calcolare le precipitazioni locali</string>
+	<key>NSCameraUsageDescription</key>
+	<string>La fotocamera serve per fotografare le piante da diagnosticare</string>
 	<key>UIAppFonts</key>
 	<array>
 		<string>Lora-Bold.ttf</string>

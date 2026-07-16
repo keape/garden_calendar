@@ -12,8 +12,8 @@ struct SettingsView: View {
     @State private var showLogoutConfirm = false
 
     // Orto preferito
-    @State private var preferredGarden = "Il mio orto"
-    @State private var gardenOptions: [String] = ["Il mio orto", "Orto sul balcone", "Giardino"]
+    @State private var preferredGarden = ""
+    @State private var gardenOptions: [String] = []
 
     // Meteo
     @State private var weatherLocation = ""
@@ -74,6 +74,7 @@ struct SettingsView: View {
                     .pickerStyle(.menu)
                     .font(.dmSans(15))
                     .listRowBackground(AppTheme.cardBackground)
+                    .disabled(gardenOptions.isEmpty)
                 }
 
                 // MARK: - Meteo
@@ -209,17 +210,6 @@ struct SettingsView: View {
                             .foregroundStyle(AppTheme.textSecondary)
                     }
                     .listRowBackground(AppTheme.cardBackground)
-
-                    HStack {
-                        Text(lang.settings.builtWithLabel)
-                            .font(.dmSans(15))
-                            .foregroundStyle(AppTheme.textPrimary)
-                        Spacer()
-                        Label("Nous Research", systemImage: "brain")
-                            .font(.dmSans(12))
-                            .foregroundStyle(AppTheme.textSecondary)
-                    }
-                    .listRowBackground(AppTheme.cardBackground)
                 }
 
                 // MARK: - Elimina account
@@ -270,6 +260,9 @@ struct SettingsView: View {
             .onAppear {
                 loadSettings()
             }
+            .task {
+                await loadOrti()
+            }
         }
     }
 
@@ -287,6 +280,19 @@ struct SettingsView: View {
         }
         if let build = Bundle.main.infoDictionary?["CFBundleVersion"] as? String {
             buildNumber = build
+        }
+    }
+
+    private func loadOrti() async {
+        guard let userId = authManager.user?.id else { return }
+        do {
+            let orti = try await repository.fetchOrti(userId: userId)
+            gardenOptions = orti.map(\.nome)
+            if preferredGarden.isEmpty {
+                preferredGarden = gardenOptions.first ?? ""
+            }
+        } catch {
+            // silently ignore: la sezione resta disabilitata se il fetch fallisce
         }
     }
 }

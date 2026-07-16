@@ -33,6 +33,16 @@ struct ContentView: View {
                     Label(lang.tabs.gardens, systemImage: "leaf")
                 }
 
+            DiagnosiView()
+                .tabItem {
+                    Label(lang.tabs.diagnosis, systemImage: "stethoscope")
+                }
+
+            MagazineView()
+                .tabItem {
+                    Label(lang.tabs.magazine, systemImage: "book")
+                }
+
             SettingsView()
                 .tabItem {
                     Label(lang.tabs.settings, systemImage: "gearshape")

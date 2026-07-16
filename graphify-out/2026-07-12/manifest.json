@@ -70,8 +70,8 @@
     "semantic_hash": ""
   },
   "GardenCalendar/ContentView.swift": {
-    "mtime": 1781164399.743604,
-    "ast_hash": "51771037420df7f287730dd75de29c0b",
+    "mtime": 1783891755.3309574,
+    "ast_hash": "f03b1a8802b95b193730036b716d9080",
     "semantic_hash": ""
   },
   "GardenCalendar/SupabaseConfig.swift": {
@@ -140,13 +140,13 @@
     "semantic_hash": ""
   },
   "GardenCalendar/Views/Settings/SettingsView.swift": {
-    "mtime": 1781161728.911037,
-    "ast_hash": "cdfb17cd975e68b8e614068513692f69",
+    "mtime": 1783891912.2908216,
+    "ast_hash": "0bc12c24993badc94e4fc5eb374ccf06",
     "semantic_hash": ""
   },
   "GardenCalendar/Views/Auth/LoginView.swift": {
-    "mtime": 1783888458.478704,
-    "ast_hash": "678cd5e9f605176b28cd97f6d05672dd",
+    "mtime": 1783890413.4441779,
+    "ast_hash": "ef6593eb1bcf6ede1a340e45decbaf55",
     "semantic_hash": ""
   },
   "GardenCalendar/Views/Auth/SignUpView.swift": {
@@ -170,8 +170,8 @@
     "semantic_hash": ""
   },
   "GardenCalendar/Views/Piante/PiantaDetailView.swift": {
-    "mtime": 1781944668.9131172,
-    "ast_hash": "205b94cb9272d4b3f0b4ab91575325b6",
+    "mtime": 1783889869.9797187,
+    "ast_hash": "113c2122542be338485ffaa446c847a2",
     "semantic_hash": ""
   },
   "GardenCalendar/Views/Piante/AggiungiPiantaView.swift": {
@@ -190,13 +190,13 @@
     "semantic_hash": ""
   },
   "GardenCalendar/Services/SupabaseRepository.swift": {
-    "mtime": 1783889855.5445228,
-    "ast_hash": "a53330b9fcc2ce43e1714087efca460c",
+    "mtime": 1783891697.7718318,
+    "ast_hash": "9811a0f3e2c1f0e152ea4c9fbd8cabf0",
     "semantic_hash": ""
   },
   "GardenCalendar/Services/AuthManager.swift": {
-    "mtime": 1783888440.3760586,
-    "ast_hash": "91fd13e1bf8bce54f1f209f3104f6df2",
+    "mtime": 1783890289.4213321,
+    "ast_hash": "af77c0c6c59906dd24b7f94db5e03106",
     "semantic_hash": ""
   },
   "GardenCalendar/Services/RainAdjuster.swift": {
@@ -1260,8 +1260,8 @@
     "semantic_hash": ""
   },
   "GardenCalendar/Localization/Strings.swift": {
-    "mtime": 1783889696.2789097,
-    "ast_hash": "52b403a2cab83c23d308249115bb1c7f",
+    "mtime": 1783891923.686206,
+    "ast_hash": "61b05f33503b88a7ff716a6674252b74",
     "semantic_hash": ""
   },
   "docs/superpowers/plans/2026-06-10-localization.md": {
@@ -1482,6 +1482,21 @@
   "docs/superpowers/specs/2026-07-12-google-signin-design.md": {
     "mtime": 1783889102.2293174,
     "ast_hash": "894ec1e6f9d254ec42b74044bd56bf8d",
+    "semantic_hash": ""
+  },
+  "supabase/functions/diagnose-plant/index.ts": {
+    "mtime": 1783891684.6695745,
+    "ast_hash": "425dc67a097252b5e67852fef3145465",
+    "semantic_hash": ""
+  },
+  "GardenCalendar/Views/Components/CameraPicker.swift": {
+    "mtime": 1783891705.207019,
+    "ast_hash": "308717e089628089208370aef966ba4f",
+    "semantic_hash": ""
+  },
+  "GardenCalendar/Views/Diagnosi/DiagnosiView.swift": {
+    "mtime": 1783891835.1195526,
+    "ast_hash": "30408aea9a44a7dde6364bfaa9dd79c8",
     "semantic_hash": ""
   }
 }

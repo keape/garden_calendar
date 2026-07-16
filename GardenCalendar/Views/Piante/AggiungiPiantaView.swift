@@ -7,6 +7,8 @@ struct AggiungiPiantaView: View {
     @Environment(LanguageManager.self) private var lang
 
     let ortoId: UUID?
+    /// Orto completo (con coordinate), per calcolare semina/raccolta locali nella scheda pianta.
+    var orto: Orto? = nil
 
     @State private var searchText = ""
     @State private var detailKnowledge: PlantKnowledge? = nil
@@ -21,8 +23,9 @@ struct AggiungiPiantaView: View {
     @State private var alertIsSuccess = false
     @State private var isSaving = false
 
-    init(ortoId: UUID? = nil) {
+    init(ortoId: UUID? = nil, orto: Orto? = nil) {
         self.ortoId = ortoId
+        self.orto = orto
     }
 
     var body: some View {
@@ -87,7 +90,7 @@ struct AggiungiPiantaView: View {
             .sheet(item: $detailKnowledge) { knowledge in
                 PlantDetailSheet(knowledge: knowledge, onAdd: { k in
                     addFromKnowledge(k)
-                })
+                }, orto: orto)
                 .environment(lang)
             }
             .task(id: searchText) {
