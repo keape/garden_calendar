@@ -1,5 +1,11 @@
 import Foundation
 
+/// Categoria della pianta coltivata: determina se ha un ciclo di crescita
+/// verso un raccolto (orto) o cure ricorrenti senza raccolto (ornamentale).
+enum PiantaCategoria: String, Codable, CaseIterable, Sendable {
+    case raccolto, ornamentale
+}
+
 struct PiantaColtivata: Codable, Identifiable, Hashable {
     let id: UUID
     let ortoId: UUID
@@ -7,6 +13,7 @@ struct PiantaColtivata: Codable, Identifiable, Hashable {
     let nomePersonalizzato: String
     let dataSemina: Date
     let growthDays: Int
+    let tipo: PiantaCategoria
     let note: String?
     let fotoUrl: String?
     let activityOverrides: [ActivityOverride]?
@@ -24,11 +31,48 @@ struct PiantaColtivata: Codable, Identifiable, Hashable {
         case nomePersonalizzato = "nome_personalizzato"
         case dataSemina = "data_semina"
         case growthDays = "growth_days"
+        case tipo
         case note
         case fotoUrl = "foto_url"
         case activityOverrides = "activity_overrides"
         case createdAt = "created_at"
         case updatedAt = "updated_at"
+    }
+
+    init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        id = try container.decode(UUID.self, forKey: .id)
+        ortoId = try container.decode(UUID.self, forKey: .ortoId)
+        specieId = try container.decodeIfPresent(UUID.self, forKey: .specieId)
+        nomePersonalizzato = try container.decode(String.self, forKey: .nomePersonalizzato)
+        dataSemina = try container.decode(Date.self, forKey: .dataSemina)
+        growthDays = try container.decode(Int.self, forKey: .growthDays)
+        // Righe legacy (create prima della colonna `tipo`) restano `.raccolto`.
+        tipo = try container.decodeIfPresent(PiantaCategoria.self, forKey: .tipo) ?? .raccolto
+        note = try container.decodeIfPresent(String.self, forKey: .note)
+        fotoUrl = try container.decodeIfPresent(String.self, forKey: .fotoUrl)
+        activityOverrides = try container.decodeIfPresent([ActivityOverride].self, forKey: .activityOverrides)
+        createdAt = try container.decode(Date.self, forKey: .createdAt)
+        updatedAt = try container.decode(Date.self, forKey: .updatedAt)
+    }
+
+    init(
+        id: UUID, ortoId: UUID, specieId: UUID?, nomePersonalizzato: String,
+        dataSemina: Date, growthDays: Int, tipo: PiantaCategoria, note: String?,
+        fotoUrl: String?, activityOverrides: [ActivityOverride]?, createdAt: Date, updatedAt: Date
+    ) {
+        self.id = id
+        self.ortoId = ortoId
+        self.specieId = specieId
+        self.nomePersonalizzato = nomePersonalizzato
+        self.dataSemina = dataSemina
+        self.growthDays = growthDays
+        self.tipo = tipo
+        self.note = note
+        self.fotoUrl = fotoUrl
+        self.activityOverrides = activityOverrides
+        self.createdAt = createdAt
+        self.updatedAt = updatedAt
     }
 
     /// Giorni trascorsi dalla semina a oggi.
@@ -64,8 +108,23 @@ extension PiantaColtivata {
         let nomePersonalizzato: String
         let dataSemina: Date
         let growthDays: Int
+        let tipo: PiantaCategoria
         let note: String?
         let fotoUrl: String?
+
+        init(
+            ortoId: UUID, specieId: UUID?, nomePersonalizzato: String, dataSemina: Date,
+            growthDays: Int, tipo: PiantaCategoria = .raccolto, note: String?, fotoUrl: String?
+        ) {
+            self.ortoId = ortoId
+            self.specieId = specieId
+            self.nomePersonalizzato = nomePersonalizzato
+            self.dataSemina = dataSemina
+            self.growthDays = growthDays
+            self.tipo = tipo
+            self.note = note
+            self.fotoUrl = fotoUrl
+        }
 
         enum CodingKeys: String, CodingKey {
             case ortoId = "orto_id"
@@ -73,6 +132,7 @@ extension PiantaColtivata {
             case nomePersonalizzato = "nome_personalizzato"
             case dataSemina = "data_semina"
             case growthDays = "growth_days"
+            case tipo
             case note
             case fotoUrl = "foto_url"
         }
@@ -84,6 +144,7 @@ extension PiantaColtivata {
             try container.encode(nomePersonalizzato, forKey: .nomePersonalizzato)
             try container.encode(dataSeminaFormatter.string(from: dataSemina), forKey: .dataSemina)
             try container.encode(growthDays, forKey: .growthDays)
+            try container.encode(tipo, forKey: .tipo)
             try container.encode(note, forKey: .note)
             try container.encode(fotoUrl, forKey: .fotoUrl)
         }

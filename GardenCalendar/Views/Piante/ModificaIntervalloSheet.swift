@@ -118,10 +118,13 @@ struct ModificaIntervalloSheet: View {
                 recurrenceDays: isRicorrente ? valore : attivita.recurrenceDays,
                 offsetDays: isRicorrente ? currentOffsetDays() : valore
             )
+            // Ornamentale: growthDays è 0 (nessun ciclo), usa lo stesso orizzonte
+            // fisso adottato in AggiungiPiantaView per le cure ricorrenti.
+            let scheduleHorizon = pianta.tipo == .raccolto ? pianta.growthDays : 365
             try await repository.rescheduleActivity(
                 piantaId: pianta.id,
                 dataSemina: pianta.dataSemina,
-                growthDays: pianta.growthDays,
+                growthDays: scheduleHorizon,
                 activity: activity
             )
             dismiss()

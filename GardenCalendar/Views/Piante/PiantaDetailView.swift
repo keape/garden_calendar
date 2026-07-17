@@ -139,9 +139,11 @@ struct PiantaDetailView: View {
             }
 
             HStack(spacing: 16) {
-                Label("\(pianta.giorniTrascorsi)g / \(pianta.growthDays)g", systemImage: "clock")
-                    .font(.dmSans(15, weight: .medium))
-                    .foregroundStyle(AppTheme.textSecondary)
+                if pianta.tipo == .raccolto {
+                    Label("\(pianta.giorniTrascorsi)g / \(pianta.growthDays)g", systemImage: "clock")
+                        .font(.dmSans(15, weight: .medium))
+                        .foregroundStyle(AppTheme.textSecondary)
+                }
 
                 Label(String(format: lang.plants.activitiesCountFormat, attivita.count), systemImage: "checklist")
                     .font(.dmSans(15, weight: .medium))
@@ -153,23 +155,37 @@ struct PiantaDetailView: View {
     // MARK: - Progress Section
 
     private var progressSection: some View {
-        VStack(spacing: 4) {
-            ProgressView(value: pianta.progressoCiclo)
-                .tint(pianta.progressoCiclo >= 1.0 ? AppTheme.accentAmbra : AppTheme.primaryGreen)
-                .scaleEffect(x: 1, y: 2, anchor: .center)
+        Group {
+            if pianta.tipo == .raccolto {
+                VStack(spacing: 4) {
+                    ProgressView(value: pianta.progressoCiclo)
+                        .tint(pianta.progressoCiclo >= 1.0 ? AppTheme.accentAmbra : AppTheme.primaryGreen)
+                        .scaleEffect(x: 1, y: 2, anchor: .center)
 
-            HStack {
-                Text(pianta.dataSemina, style: .date)
-                    .font(.dmSans(12))
-                    .foregroundStyle(AppTheme.textSecondary)
-                Spacer()
-                Text(pianta.progressoCiclo >= 1.0 ? lang.plants.completedLabel : "\(Int(pianta.progressoCiclo * 100))%")
-                    .font(.dmSans(12, weight: .semibold))
-                    .foregroundStyle(AppTheme.primaryGreen)
-                Spacer()
-                Text(pianta.dataRaccoltaPrevista, style: .date)
-                    .font(.dmSans(12))
-                    .foregroundStyle(AppTheme.textSecondary)
+                    HStack {
+                        Text(pianta.dataSemina, style: .date)
+                            .font(.dmSans(12))
+                            .foregroundStyle(AppTheme.textSecondary)
+                        Spacer()
+                        Text(pianta.progressoCiclo >= 1.0 ? lang.plants.completedLabel : "\(Int(pianta.progressoCiclo * 100))%")
+                            .font(.dmSans(12, weight: .semibold))
+                            .foregroundStyle(AppTheme.primaryGreen)
+                        Spacer()
+                        Text(pianta.dataRaccoltaPrevista, style: .date)
+                            .font(.dmSans(12))
+                            .foregroundStyle(AppTheme.textSecondary)
+                    }
+                }
+            } else {
+                HStack {
+                    Text(lang.plants.plantedDateLabel)
+                        .font(.dmSans(12))
+                        .foregroundStyle(AppTheme.textSecondary)
+                    Spacer()
+                    Text(pianta.dataSemina, style: .date)
+                        .font(.dmSans(12, weight: .semibold))
+                        .foregroundStyle(AppTheme.textSecondary)
+                }
             }
         }
         .padding()
@@ -516,6 +532,7 @@ struct NuovoRaccoltoSheet: View {
             nomePersonalizzato: "Pomodoro",
             dataSemina: Calendar.current.date(byAdding: .day, value: -30, to: Date())!,
             growthDays: 90,
+            tipo: .raccolto,
             note: nil,
             fotoUrl: nil,
             activityOverrides: nil,

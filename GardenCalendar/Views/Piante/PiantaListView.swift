@@ -127,16 +127,22 @@ struct PiantaCardView: View {
                     .foregroundStyle(AppTheme.textPrimary)
                     .lineLimit(1)
 
-                Text(String(format: lang.plants.totalDaysFormat, pianta.growthDays))
-                    .font(.dmSans(12))
-                    .foregroundStyle(AppTheme.textSecondary)
+                if pianta.tipo == .raccolto {
+                    Text(String(format: lang.plants.totalDaysFormat, pianta.growthDays))
+                        .font(.dmSans(12))
+                        .foregroundStyle(AppTheme.textSecondary)
 
-                ProgressView(value: pianta.progressoCiclo)
-                    .tint(AppTheme.primaryGreen)
+                    ProgressView(value: pianta.progressoCiclo)
+                        .tint(AppTheme.primaryGreen)
 
-                Text("\(pianta.giorniTrascorsi)g / \(pianta.growthDays)g")
-                    .font(.dmSans(12))
-                    .foregroundStyle(AppTheme.textSecondary)
+                    Text("\(pianta.giorniTrascorsi)g / \(pianta.growthDays)g")
+                        .font(.dmSans(12))
+                        .foregroundStyle(AppTheme.textSecondary)
+                } else {
+                    Text(lang.plants.plantedDateLabel + ": " + pianta.dataSemina.formatted(date: .abbreviated, time: .omitted))
+                        .font(.dmSans(12))
+                        .foregroundStyle(AppTheme.textSecondary)
+                }
             }
             .frame(maxWidth: .infinity, alignment: .leading)
         }

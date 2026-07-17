@@ -13,10 +13,19 @@ struct AggiungiPiantaView: View {
     @State private var searchText = ""
     @State private var detailKnowledge: PlantKnowledge? = nil
 
+    @State private var categoria: PiantaCategoria = .raccolto
     @State private var customName = ""
     @State private var customGrowthDays = 90
     @State private var customSeminaDate = Date()
     @State private var importedActivities: [TemplateActivity] = []
+
+    @State private var wateringEnabled = false
+    @State private var wateringDays = 7
+    @State private var fertilizingEnabled = false
+    @State private var fertilizingDays = 30
+
+    /// Orizzonte di generazione delle cure ricorrenti per piante ornamentali (senza ciclo di crescita).
+    private let ornamentalScheduleHorizon = 365
 
     @State private var showAlert = false
     @State private var alertMessage = ""
@@ -26,6 +35,8 @@ struct AggiungiPiantaView: View {
     init(ortoId: UUID? = nil, orto: Orto? = nil) {
         self.ortoId = ortoId
         self.orto = orto
+        // Un orto "da appartamento" suggerisce di default piante ornamentali.
+        _categoria = State(initialValue: orto?.interno == true ? .ornamentale : .raccolto)
     }
 
     var body: some View {
@@ -189,15 +200,48 @@ struct AggiungiPiantaView: View {
                 .foregroundStyle(.secondary)
                 .padding(.horizontal)
 
+            Picker(lang.plants.categoryPicker, selection: $categoria) {
+                Text(lang.plants.categoryRaccolto).tag(PiantaCategoria.raccolto)
+                Text(lang.plants.categoryOrnamentale).tag(PiantaCategoria.ornamentale)
+            }
+            .pickerStyle(.segmented)
+            .padding(.horizontal)
+
             VStack(spacing: 0) {
                 Form {
                     TextField(lang.plants.plantNamePlaceholder, text: $customName)
                         .autocorrectionDisabled()
-                    Stepper(String(format: lang.plants.growthCycleFormat, customGrowthDays), value: $customGrowthDays, in: 1...730)
-                    DatePicker(lang.plants.seedingDateLabel, selection: $customSeminaDate, displayedComponents: .date)
+                    switch categoria {
+                    case .raccolto:
+                        Stepper(String(format: lang.plants.growthCycleFormat, customGrowthDays), value: $customGrowthDays, in: 1...730)
+                        DatePicker(lang.plants.seedingDateLabel, selection: $customSeminaDate, displayedComponents: .date)
+                    case .ornamentale:
+                        DatePicker(lang.plants.plantedDateLabel, selection: $customSeminaDate, displayedComponents: .date)
+                    }
                 }
                 .scrollDisabled(true)
-                .frame(height: 200)
+                .frame(height: categoria == .raccolto ? 200 : 130)
+
+                if categoria == .ornamentale {
+                    Form {
+                        Section(lang.plants.recurringCareSection) {
+                            Toggle(String(format: lang.plants.wateringEveryNDaysFormat, wateringDays), isOn: $wateringEnabled)
+                            if wateringEnabled {
+                                Stepper(value: $wateringDays, in: 1...90) {
+                                    EmptyView()
+                                }
+                            }
+                            Toggle(String(format: lang.plants.fertilizingEveryNDaysFormat, fertilizingDays), isOn: $fertilizingEnabled)
+                            if fertilizingEnabled {
+                                Stepper(value: $fertilizingDays, in: 1...365) {
+                                    EmptyView()
+                                }
+                            }
+                        }
+                    }
+                    .scrollDisabled(true)
+                    .frame(height: 220)
+                }
             }
             .background(AppTheme.cardBackground)
             .clipShape(RoundedRectangle(cornerRadius: 12))
@@ -242,12 +286,25 @@ struct AggiungiPiantaView: View {
     }
 
     private func addFromKnowledge(_ knowledge: PlantKnowledge) {
+        categoria = .raccolto
         customName = knowledge.specieNome
         customGrowthDays = knowledge.growthDays
         importedActivities = knowledge.attivitaSuggerite.map {
             TemplateActivity(name: $0.nome, offsetDays: $0.offsetDays, recurrenceDays: $0.recurrenceDays)
         }
         savePianta()
+    }
+
+    /// Cure ricorrenti (annaffiatura/concimazione) attivate per la modalità ornamentale.
+    private var recurringCareActivities: [TemplateActivity] {
+        var activities: [TemplateActivity] = []
+        if wateringEnabled {
+            activities.append(TemplateActivity(name: "Irrigazione", offsetDays: 0, recurrenceDays: wateringDays))
+        }
+        if fertilizingEnabled {
+            activities.append(TemplateActivity(name: "Concimazione", offsetDays: 0, recurrenceDays: fertilizingDays))
+        }
+        return activities
     }
 
     private func savePianta() {
@@ -269,6 +326,12 @@ struct AggiungiPiantaView: View {
         let seminaDate = Calendar.current.startOfDay(for: customSeminaDate)
         isSaving = true
 
+        // Ornamentale: nessun ciclo di crescita (growthDays=0); lo scheduling delle
+        // cure ricorrenti usa un orizzonte fisso invece del ciclo verso il raccolto.
+        let effectiveGrowthDays = categoria == .raccolto ? customGrowthDays : 0
+        let scheduleHorizon = categoria == .raccolto ? customGrowthDays : ornamentalScheduleHorizon
+        let activitiesToSchedule = categoria == .raccolto ? importedActivities : importedActivities + recurringCareActivities
+
         Task {
             do {
                 let nuovaPianta = try await repository.createPianta(pianta: PiantaColtivata.Create(
@@ -276,13 +339,14 @@ struct AggiungiPiantaView: View {
                     specieId: nil,
                     nomePersonalizzato: nome,
                     dataSemina: seminaDate,
-                    growthDays: customGrowthDays,
+                    growthDays: effectiveGrowthDays,
+                    tipo: categoria,
                     note: nil,
                     fotoUrl: nil
                 ))
 
-                if !importedActivities.isEmpty {
-                    let scheduled = importedActivities.map {
+                if !activitiesToSchedule.isEmpty {
+                    let scheduled = activitiesToSchedule.map {
                         SupabaseRepository.ScheduledTemplateActivity(
                             nome: $0.name,
                             offsetDays: $0.offsetDays,
@@ -293,7 +357,7 @@ struct AggiungiPiantaView: View {
                     _ = try await repository.scheduleActivities(
                         piantaId: nuovaPianta.id,
                         dataSemina: seminaDate,
-                        growthDays: customGrowthDays,
+                        growthDays: scheduleHorizon,
                         activities: scheduled
                     )
                 }

@@ -417,27 +417,35 @@ struct PiantaRowView: View {
                     .font(.dmSans(15, weight: .medium))
                     .foregroundStyle(AppTheme.textPrimary)
 
-                HStack(spacing: 8) {
-                    Text(String(format: lang.plants.totalDaysFormat, pianta.growthDays))
+                if pianta.tipo == .raccolto {
+                    HStack(spacing: 8) {
+                        Text(String(format: lang.plants.totalDaysFormat, pianta.growthDays))
+                            .font(.dmSans(12))
+                            .foregroundStyle(AppTheme.textSecondary)
+
+                        if pianta.progressoCiclo >= 1.0 {
+                            Image(systemName: "checkmark.circle.fill")
+                                .font(.caption)
+                                .foregroundStyle(.green)
+                        }
+                    }
+
+                    ProgressView(value: pianta.progressoCiclo)
+                        .tint(AppTheme.primaryGreen)
+                } else {
+                    Text(lang.plants.plantedDateLabel + ": " + pianta.dataSemina.formatted(date: .abbreviated, time: .omitted))
                         .font(.dmSans(12))
                         .foregroundStyle(AppTheme.textSecondary)
-
-                    if pianta.progressoCiclo >= 1.0 {
-                        Image(systemName: "checkmark.circle.fill")
-                            .font(.caption)
-                            .foregroundStyle(.green)
-                    }
                 }
-
-                ProgressView(value: pianta.progressoCiclo)
-                    .tint(AppTheme.primaryGreen)
             }
 
             Spacer()
 
-            Text("\(pianta.giorniTrascorsi)g")
-                .font(.dmSans(12, weight: .semibold))
-                .foregroundStyle(AppTheme.textSecondary)
+            if pianta.tipo == .raccolto {
+                Text("\(pianta.giorniTrascorsi)g")
+                    .font(.dmSans(12, weight: .semibold))
+                    .foregroundStyle(AppTheme.textSecondary)
+            }
         }
         .padding(.vertical, 4)
     }

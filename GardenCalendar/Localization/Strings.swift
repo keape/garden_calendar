@@ -210,6 +210,13 @@ struct Strings {
         let removePhotoButton: String
         let onlineCatalogSection: String
         let partialDataBadge: String
+        let categoryPicker: String
+        let categoryRaccolto: String
+        let categoryOrnamentale: String
+        let plantedDateLabel: String
+        let recurringCareSection: String
+        let wateringEveryNDaysFormat: String
+        let fertilizingEveryNDaysFormat: String
     }
 
     struct GardenStrings {
@@ -498,7 +505,14 @@ extension Strings {
             changePhotoButton: "Cambia foto",
             removePhotoButton: "Rimuovi foto",
             onlineCatalogSection: "Cerca online",
-            partialDataBadge: "Dati parziali"
+            partialDataBadge: "Dati parziali",
+            categoryPicker: "Categoria",
+            categoryRaccolto: "Da orto",
+            categoryOrnamentale: "Ornamentale",
+            plantedDateLabel: "In casa da",
+            recurringCareSection: "Cure ricorrenti",
+            wateringEveryNDaysFormat: "Annaffia ogni %d giorni",
+            fertilizingEveryNDaysFormat: "Concima ogni %d giorni"
         ),
         garden: GardenStrings(
             navTitle: "I miei giardini",
@@ -769,7 +783,14 @@ extension Strings {
             changePhotoButton: "Change photo",
             removePhotoButton: "Remove photo",
             onlineCatalogSection: "Search online",
-            partialDataBadge: "Partial data"
+            partialDataBadge: "Partial data",
+            categoryPicker: "Category",
+            categoryRaccolto: "Vegetable garden",
+            categoryOrnamentale: "Ornamental",
+            plantedDateLabel: "Home since",
+            recurringCareSection: "Recurring care",
+            wateringEveryNDaysFormat: "Water every %d days",
+            fertilizingEveryNDaysFormat: "Fertilize every %d days"
         ),
         garden: GardenStrings(
             navTitle: "My gardens",
