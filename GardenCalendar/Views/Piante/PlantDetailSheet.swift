@@ -28,12 +28,12 @@ struct PlantDetailSheet: View {
                 VStack(alignment: .leading, spacing: 0) {
                     headerSection
                     Divider().padding(.horizontal)
-                    if !window.seminaEsterno.isEmpty || !window.seminaInterno.isEmpty {
+                    if !window.seminaEsterno.isEmpty || !window.seminaInterno.isEmpty
+                        || !window.raccolta.isEmpty || !window.fioritura.isEmpty {
                         sowingSection
                         Divider().padding(.horizontal)
                     }
                     if knowledge.annaffiatura != nil || knowledge.esposizione != nil
-                        || !window.raccolta.isEmpty || !window.fioritura.isEmpty
                         || knowledge.phMin != nil || knowledge.tempTollMin != nil {
                         careSection
                         Divider().padding(.horizontal)
@@ -107,7 +107,7 @@ struct PlantDetailSheet: View {
                         badgeView(tipo.emoji + " " + tipo.displayName, color: AppTheme.primaryGreen)
                     }
                     if let diff = knowledge.difficolta {
-                        badgeView(diff, color: difficultyColor(diff))
+                        badgeView(lang.plants.difficultyLabel + ": " + diff, color: difficultyColor(diff))
                     }
                 }
             }
@@ -129,30 +129,74 @@ struct PlantDetailSheet: View {
 
     // MARK: - Sowing Calendar
 
+    private var ganttRows: [(icon: String, label: String, months: [Int], color: Color)] {
+        [
+            ("🌍", lang.plants.seminaOutdoorLabel, window.seminaEsterno, AppTheme.primaryGreen),
+            ("🏠", lang.plants.seminaIndoorLabel, window.seminaInterno, AppTheme.activityBlue),
+            ("🧺", lang.plants.harvestMonthsLabel, window.raccolta, AppTheme.activityOrange),
+            ("🌸", lang.plants.bloomMonthsLabel, window.fioritura, AppTheme.activityOrange),
+        ].filter { !$0.months.isEmpty }
+    }
+
     private var sowingSection: some View {
         VStack(alignment: .leading, spacing: 10) {
             sectionHeader(lang.plants.seedingSection)
-            VStack(alignment: .leading, spacing: 6) {
-                monthRow(label: "🌍", months: window.seminaEsterno, color: AppTheme.primaryGreen)
-                monthRow(label: "🏠", months: window.seminaInterno, color: AppTheme.activityBlue)
+            VStack(alignment: .leading, spacing: 10) {
+                ganttTimeline
+                VStack(spacing: 6) {
+                    ForEach(ganttRows, id: \.label) { row in
+                        ganttBar(months: row.months, color: row.color)
+                    }
+                }
+                VStack(spacing: 8) {
+                    ForEach(ganttRows, id: \.label) { row in
+                        legendRow(icon: row.icon, label: row.label, months: row.months, color: row.color)
+                    }
+                }
             }
             .padding(.horizontal)
             .padding(.bottom, 16)
         }
     }
 
-    private func monthRow(label: String, months: [Int], color: Color) -> some View {
-        HStack(spacing: 4) {
-            Text(label).font(.system(size: 14))
+    private var ganttTimeline: some View {
+        HStack(spacing: 0) {
             ForEach(1...12, id: \.self) { m in
-                let active = months.contains(m)
                 Text(monthAbbrs[m - 1])
-                    .font(.dmSans(9, weight: active ? .semibold : .regular))
-                    .foregroundStyle(active ? .white : AppTheme.textSecondary.opacity(0.5))
-                    .frame(width: 22, height: 22)
-                    .background(active ? color : color.opacity(0.08))
-                    .clipShape(RoundedRectangle(cornerRadius: 4))
+                    .font(.dmSans(9))
+                    .foregroundStyle(AppTheme.textSecondary.opacity(0.6))
+                    .frame(maxWidth: .infinity)
             }
+        }
+    }
+
+    private func ganttBar(months: [Int], color: Color) -> some View {
+        let start = months.min() ?? 1
+        let end = months.max() ?? 1
+        return GeometryReader { geo in
+            let unit = geo.size.width / 12
+            RoundedRectangle(cornerRadius: 4)
+                .fill(color)
+                .frame(width: unit * CGFloat(end - start + 1), height: 18)
+                .offset(x: unit * CGFloat(start - 1))
+        }
+        .frame(height: 18)
+    }
+
+    private func legendRow(icon: String, label: String, months: [Int], color: Color) -> some View {
+        let start = months.min() ?? 1
+        let end = months.max() ?? 1
+        return HStack(spacing: 6) {
+            RoundedRectangle(cornerRadius: 3)
+                .fill(color)
+                .frame(width: 12, height: 12)
+            Text("\(icon) \(label)")
+                .font(.dmSans(12))
+                .foregroundStyle(AppTheme.textPrimary)
+            Spacer()
+            Text(start == end ? monthAbbrs[start - 1] : "\(monthAbbrs[start - 1]) – \(monthAbbrs[end - 1])")
+                .font(.dmSans(12, weight: .semibold))
+                .foregroundStyle(AppTheme.textPrimary)
         }
     }
 
@@ -167,12 +211,6 @@ struct PlantDetailSheet: View {
                 }
                 if let e = knowledge.esposizione {
                     careRow(icon: "sun.max.fill", label: lang.plants.exposureLabel, value: e, color: AppTheme.accentAmbra)
-                }
-                if !window.raccolta.isEmpty {
-                    careRow(icon: "basket.fill", label: lang.plants.harvestMonthsLabel, value: monthNamesShort(window.raccolta), color: AppTheme.activityOrange)
-                }
-                if !window.fioritura.isEmpty {
-                    careRow(icon: "camera.macro", label: lang.plants.bloomMonthsLabel, value: monthNamesShort(window.fioritura), color: AppTheme.activityOrange)
                 }
                 if let phMin = knowledge.phMin, let phMax = knowledge.phMax {
                     careRow(icon: "eyedropper.halffull", label: lang.plants.phLabel, value: String(format: "%.1f – %.1f", phMin, phMax), color: AppTheme.primaryGreen)
@@ -318,12 +356,5 @@ struct PlantDetailSheet: View {
         case "difficile": return AppTheme.activityRed
         default: return AppTheme.activityOrange
         }
-    }
-
-    private func monthNamesShort(_ months: [Int]) -> String {
-        months.sorted().compactMap { m -> String? in
-            guard (1...12).contains(m) else { return nil }
-            return monthAbbrs[m - 1]
-        }.joined(separator: ", ")
     }
 }

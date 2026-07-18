@@ -226,11 +226,17 @@ final class SupabaseRepository {
 
     /// Marca un'attività ricorrente come completata e riprogramma la prossima occorrenza
     /// a partire da oggi (data reale di completamento) invece che dalla data originaria schedulata.
+    /// Se l'attività completata è nel futuro (pianificazione anticipata), la prossima occorrenza
+    /// parte dalla sua data anziché da oggi, per evitare che ricada sullo stesso giorno appena completato.
     func completeActivity(_ activity: Attivita) async throws {
         try await setDone(id: activity.id, done: true)
 
+        let today = Calendar.current.startOfDay(for: Date())
+        let activityDay = Calendar.current.startOfDay(for: activity.data)
+        let basis = max(today, activityDay)
+
         guard let recurrenceDays = activity.recurrenceDays, recurrenceDays > 0,
-              let newDate = Calendar.current.date(byAdding: .day, value: recurrenceDays, to: Calendar.current.startOfDay(for: Date()))
+              let newDate = Calendar.current.date(byAdding: .day, value: recurrenceDays, to: basis)
         else { return }
 
         if let next = try await fetchNextIrrigation(piantaId: activity.piantaId, nome: activity.nome, after: activity.data) {

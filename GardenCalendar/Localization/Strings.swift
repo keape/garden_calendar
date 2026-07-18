@@ -201,6 +201,9 @@ struct Strings {
         let exposureLabel: String
         let harvestMonthsLabel: String
         let bloomMonthsLabel: String
+        let seminaOutdoorLabel: String
+        let seminaIndoorLabel: String
+        let difficultyLabel: String
         let phLabel: String
         let toleranceTempLabel: String
         let everyNDaysShortFormat: String
@@ -217,6 +220,10 @@ struct Strings {
         let recurringCareSection: String
         let wateringEveryNDaysFormat: String
         let fertilizingEveryNDaysFormat: String
+        let catalogNavTitle: String
+        let categoryAllFilter: String
+        let seedableNowFilter: String
+        let chooseGardenTitle: String
     }
 
     struct GardenStrings {
@@ -273,7 +280,7 @@ struct Strings {
         let calendar: String
         let gardens: String
         let diagnosis: String
-        let magazine: String
+        let plants: String
         let settings: String
     }
 
@@ -497,6 +504,9 @@ extension Strings {
             exposureLabel: "Esposizione",
             harvestMonthsLabel: "Mesi raccolta",
             bloomMonthsLabel: "Mesi fioritura",
+            seminaOutdoorLabel: "Semina esterno",
+            seminaIndoorLabel: "Semina interno/protetta",
+            difficultyLabel: "Difficoltà",
             phLabel: "pH terreno",
             toleranceTempLabel: "Temperatura minima tollerata",
             everyNDaysShortFormat: "ogni %dgg",
@@ -512,7 +522,11 @@ extension Strings {
             plantedDateLabel: "In casa da",
             recurringCareSection: "Cure ricorrenti",
             wateringEveryNDaysFormat: "Annaffia ogni %d giorni",
-            fertilizingEveryNDaysFormat: "Concima ogni %d giorni"
+            fertilizingEveryNDaysFormat: "Concima ogni %d giorni",
+            catalogNavTitle: "Catalogo piante",
+            categoryAllFilter: "Tutte",
+            seedableNowFilter: "Seminabili ora",
+            chooseGardenTitle: "Scegli un orto"
         ),
         garden: GardenStrings(
             navTitle: "I miei giardini",
@@ -565,7 +579,7 @@ extension Strings {
             calendar: "Calendario",
             gardens: "Giardini",
             diagnosis: "Diagnosi",
-            magazine: "Magazine",
+            plants: "Piante",
             settings: "Impostazioni"
         ),
         diagnosis: DiagnosisStrings(
@@ -775,6 +789,9 @@ extension Strings {
             exposureLabel: "Exposure",
             harvestMonthsLabel: "Harvest months",
             bloomMonthsLabel: "Bloom months",
+            seminaOutdoorLabel: "Outdoor sowing",
+            seminaIndoorLabel: "Indoor sowing",
+            difficultyLabel: "Difficulty",
             phLabel: "Soil pH",
             toleranceTempLabel: "Minimum tolerated temperature",
             everyNDaysShortFormat: "every %dd",
@@ -790,7 +807,11 @@ extension Strings {
             plantedDateLabel: "Home since",
             recurringCareSection: "Recurring care",
             wateringEveryNDaysFormat: "Water every %d days",
-            fertilizingEveryNDaysFormat: "Fertilize every %d days"
+            fertilizingEveryNDaysFormat: "Fertilize every %d days",
+            catalogNavTitle: "Plant catalog",
+            categoryAllFilter: "All",
+            seedableNowFilter: "Seedable now",
+            chooseGardenTitle: "Choose a garden"
         ),
         garden: GardenStrings(
             navTitle: "My gardens",
@@ -843,7 +864,7 @@ extension Strings {
             calendar: "Calendar",
             gardens: "Gardens",
             diagnosis: "Diagnosis",
-            magazine: "Magazine",
+            plants: "Plants",
             settings: "Settings"
         ),
         diagnosis: DiagnosisStrings(

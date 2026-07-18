@@ -146,10 +146,13 @@ struct ModificaIntervalloSheet: View {
             let knowledge = try await repository.fetchPlantKnowledge(id: specieId)
             if let def = knowledge.attivitaSuggerite.first(where: { $0.nome == attivita.nome }) {
                 let activity = buildActivity(recurrenceDays: def.recurrenceDays, offsetDays: def.offsetDays)
+                // Ornamentale: growthDays è 0 (nessun ciclo), usa lo stesso orizzonte
+                // fisso adottato in AggiungiPiantaView per le cure ricorrenti.
+                let scheduleHorizon = pianta.tipo == .raccolto ? pianta.growthDays : 365
                 try await repository.rescheduleActivity(
                     piantaId: pianta.id,
                     dataSemina: pianta.dataSemina,
-                    growthDays: pianta.growthDays,
+                    growthDays: scheduleHorizon,
                     activity: activity
                 )
             }

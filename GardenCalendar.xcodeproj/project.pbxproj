@@ -58,10 +58,12 @@
 		D110006 /* PlantCatalogService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D220007 /* PlantCatalogService.swift */; };
 		D110008 /* PerenualAPIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = D220008 /* PerenualAPIClient.swift */; };
 		D110009 /* PlantDetailSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = D220009 /* PlantDetailSheet.swift */; };
+		CA10001 /* CatalogoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA20001 /* CatalogoView.swift */; };
 		D10004 /* WidgetActivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = D20004 /* WidgetActivity.swift */; };
 		D220007 /* PlantCatalogService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlantCatalogService.swift; sourceTree = "<group>"; };
 		D220008 /* PerenualAPIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PerenualAPIClient.swift; sourceTree = "<group>"; };
 		D220009 /* PlantDetailSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlantDetailSheet.swift; sourceTree = "<group>"; };
+		CA20001 /* CatalogoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatalogoView.swift; sourceTree = "<group>"; };
 		D10005 /* Raccolto.swift in Sources */ = {isa = PBXBuildFile; fileRef = D20005 /* Raccolto.swift */; };
 		F10001 /* Strings.swift in Sources */ = {isa = PBXBuildFile; fileRef = F20001 /* Strings.swift */; };
 		E10001 /* GardenCalendarWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = E20001 /* GardenCalendarWidget.swift */; };
@@ -368,6 +370,7 @@
 				B20022 /* PiantaDetailView.swift */,
 				B20023 /* PiantaListView.swift */,
 				D220009 /* PlantDetailSheet.swift */,
+				CA20001 /* CatalogoView.swift */,
 			);
 			path = Piante;
 			sourceTree = "<group>";
@@ -557,6 +560,7 @@
 				D110006 /* PlantCatalogService.swift in Sources */,
 				D110008 /* PerenualAPIClient.swift in Sources */,
 				D110009 /* PlantDetailSheet.swift in Sources */,
+				CA10001 /* CatalogoView.swift in Sources */,
 				F10001 /* Strings.swift in Sources */,
 				B10036 /* MagazineArticle.swift in Sources */,
 				B10037 /* MagazineView.swift in Sources */,

@@ -9,6 +9,8 @@ struct AggiungiPiantaView: View {
     let ortoId: UUID?
     /// Orto completo (con coordinate), per calcolare semina/raccolta locali nella scheda pianta.
     var orto: Orto? = nil
+    /// Se valorizzata (es. arrivo dal catalogo tab Piante), precompila e salva subito questa pianta.
+    var initialKnowledge: PlantKnowledge? = nil
 
     @State private var searchText = ""
     @State private var detailKnowledge: PlantKnowledge? = nil
@@ -32,9 +34,10 @@ struct AggiungiPiantaView: View {
     @State private var alertIsSuccess = false
     @State private var isSaving = false
 
-    init(ortoId: UUID? = nil, orto: Orto? = nil) {
+    init(ortoId: UUID? = nil, orto: Orto? = nil, initialKnowledge: PlantKnowledge? = nil) {
         self.ortoId = ortoId
         self.orto = orto
+        self.initialKnowledge = initialKnowledge
         // Un orto "da appartamento" suggerisce di default piante ornamentali.
         _categoria = State(initialValue: orto?.interno == true ? .ornamentale : .raccolto)
     }
@@ -110,6 +113,11 @@ struct AggiungiPiantaView: View {
                 try? await Task.sleep(for: .milliseconds(300))
                 guard !Task.isCancelled else { return }
                 await catalogService.search(query: trimmed, in: repository)
+            }
+            .task {
+                if let initialKnowledge {
+                    addFromKnowledge(initialKnowledge)
+                }
             }
         }
     }

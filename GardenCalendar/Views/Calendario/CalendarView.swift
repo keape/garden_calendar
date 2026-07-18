@@ -16,9 +16,6 @@ struct CalendarGridView: View {
     @State private var orti: [Orto] = []
     @State private var piante: [PiantaColtivata] = []
 
-    // Catalogo specie (per i suggerimenti di semina)
-    @State private var catalogo: [PlantKnowledge] = []
-
     // Filtri attivi
     @State private var filterOrtoId: UUID? = nil
     @State private var filterTipologia: String? = nil
@@ -300,7 +297,6 @@ struct CalendarGridView: View {
 
     private var calendarContent: some View {
         VStack(spacing: 0) {
-            SuggerimentiSeminaView(catalogo: catalogo, orti: orti, filterOrtoId: filterOrtoId)
             VStack(spacing: 0) {
                 monthNavigator
                 weekDayHeader
@@ -702,9 +698,6 @@ struct CalendarGridView: View {
             LocalCache.save(fetchedPiante, key: LocalCache.pianteKey)
         } else {
             piante = LocalCache.load([PiantaColtivata].self, key: LocalCache.pianteKey) ?? []
-        }
-        if catalogo.isEmpty, let fetchedCatalogo = try? await repository.fetchCatalogo() {
-            catalogo = fetchedCatalogo
         }
     }
 

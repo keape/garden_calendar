@@ -38,9 +38,9 @@ struct ContentView: View {
                     Label(lang.tabs.diagnosis, systemImage: "stethoscope")
                 }
 
-            MagazineView()
+            CatalogoView()
                 .tabItem {
-                    Label(lang.tabs.magazine, systemImage: "book")
+                    Label(lang.tabs.plants, systemImage: "book")
                 }
 
             SettingsView()
