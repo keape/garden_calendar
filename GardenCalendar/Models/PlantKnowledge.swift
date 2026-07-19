@@ -1,7 +1,7 @@
 import Foundation
 
 enum PlantType: String, Codable, CaseIterable, Sendable {
-    case ortaggio, aromatica, frutto, fiore, altro
+    case ortaggio, aromatica, frutto, fiore, albero, altro
 
     var displayName: String {
         switch self {
@@ -9,6 +9,7 @@ enum PlantType: String, Codable, CaseIterable, Sendable {
         case .aromatica: return "Aromatica"
         case .frutto: return "Frutto"
         case .fiore: return "Fiore"
+        case .albero: return "Albero"
         case .altro: return "Altro"
         }
     }
@@ -19,6 +20,7 @@ enum PlantType: String, Codable, CaseIterable, Sendable {
         case .aromatica: return "🌿"
         case .frutto: return "🍓"
         case .fiore: return "🌸"
+        case .albero: return "🌳"
         case .altro: return "🌱"
         }
     }
