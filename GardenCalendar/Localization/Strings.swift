@@ -224,6 +224,19 @@ struct Strings {
         let categoryAllFilter: String
         let seedableNowFilter: String
         let chooseGardenTitle: String
+        let filtersButtonLabel: String
+        let filtersSheetTitle: String
+        let difficultyFilterSection: String
+        let exposureFilterSection: String
+        let harvestMonthFilterSection: String
+        let difficultyEasy: String
+        let difficultyMedium: String
+        let difficultyHard: String
+        let exposureSun: String
+        let exposurePartialShade: String
+        let exposureShade: String
+        let resetFiltersButtonLabel: String
+        let doneButtonLabel: String
     }
 
     struct GardenStrings {
@@ -526,7 +539,20 @@ extension Strings {
             catalogNavTitle: "Catalogo piante",
             categoryAllFilter: "Tutte",
             seedableNowFilter: "Seminabili ora",
-            chooseGardenTitle: "Scegli un orto"
+            chooseGardenTitle: "Scegli un orto",
+            filtersButtonLabel: "Filtri",
+            filtersSheetTitle: "Filtra catalogo",
+            difficultyFilterSection: "Difficoltà",
+            exposureFilterSection: "Esposizione",
+            harvestMonthFilterSection: "Mese di raccolta",
+            difficultyEasy: "Facile",
+            difficultyMedium: "Media",
+            difficultyHard: "Difficile",
+            exposureSun: "Sole",
+            exposurePartialShade: "Mezza ombra",
+            exposureShade: "Ombra",
+            resetFiltersButtonLabel: "Reimposta filtri",
+            doneButtonLabel: "Fine"
         ),
         garden: GardenStrings(
             navTitle: "I miei giardini",
@@ -811,7 +837,20 @@ extension Strings {
             catalogNavTitle: "Plant catalog",
             categoryAllFilter: "All",
             seedableNowFilter: "Seedable now",
-            chooseGardenTitle: "Choose a garden"
+            chooseGardenTitle: "Choose a garden",
+            filtersButtonLabel: "Filters",
+            filtersSheetTitle: "Filter catalog",
+            difficultyFilterSection: "Difficulty",
+            exposureFilterSection: "Exposure",
+            harvestMonthFilterSection: "Harvest month",
+            difficultyEasy: "Easy",
+            difficultyMedium: "Medium",
+            difficultyHard: "Hard",
+            exposureSun: "Full sun",
+            exposurePartialShade: "Partial shade",
+            exposureShade: "Shade",
+            resetFiltersButtonLabel: "Reset filters",
+            doneButtonLabel: "Done"
         ),
         garden: GardenStrings(
             navTitle: "My gardens",
