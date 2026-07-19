@@ -13,6 +13,10 @@ struct CatalogoView: View {
     @State private var searchText = ""
     @State private var categoriaFiltro: PlantType? = nil
     @State private var soloSeminabiliOra = false
+    @State private var difficoltaFiltro: String? = nil
+    @State private var esposizioneFiltro: EsposizioneBucket? = nil
+    @State private var meseRaccoltaFiltro: Int? = nil
+    @State private var showFiltriSheet = false
     @State private var normals: MonthlyClimateNormals?
 
     @State private var detailKnowledge: PlantKnowledge? = nil
@@ -53,6 +57,15 @@ struct CatalogoView: View {
                 return mesi.contains(mese)
             }
         }
+        if let difficoltaFiltro {
+            risultato = risultato.filter { $0.difficolta?.lowercased() == difficoltaFiltro }
+        }
+        if let esposizioneFiltro {
+            risultato = risultato.filter { esposizioneBucket(for: $0.esposizione) == esposizioneFiltro }
+        }
+        if let meseRaccoltaFiltro {
+            risultato = risultato.filter { $0.mesiRaccolta?.contains(meseRaccoltaFiltro) == true }
+        }
         guard !searchText.isEmpty else { return risultato }
         return risultato.filter {
             $0.specieNome.localizedCaseInsensitiveContains(searchText)
@@ -60,12 +73,20 @@ struct CatalogoView: View {
         }
     }
 
+    private var activeFilterCount: Int {
+        [difficoltaFiltro != nil, esposizioneFiltro != nil, meseRaccoltaFiltro != nil]
+            .filter { $0 }.count
+    }
+
     var body: some View {
         NavigationStack {
             VStack(spacing: 0) {
-                searchBar
-                    .padding(.horizontal)
-                    .padding(.top, 8)
+                HStack(spacing: 8) {
+                    searchBar
+                    filtersButton
+                }
+                .padding(.horizontal)
+                .padding(.top, 8)
 
                 categoryFilterBar
                     .padding(.top, 8)
@@ -114,6 +135,10 @@ struct CatalogoView: View {
                     }
                 }
             }
+            .sheet(isPresented: $showFiltriSheet) {
+                filtriSheet
+                    .environment(lang)
+            }
             .sheet(item: $addPiantaContext) { context in
                 AggiungiPiantaView(ortoId: context.orto?.id, orto: context.orto, initialKnowledge: context.knowledge)
                     .environment(lang)
@@ -156,6 +181,123 @@ struct CatalogoView: View {
                 }
             }
             .padding(.horizontal)
+        }
+    }
+
+    private var filtersButton: some View {
+        Button {
+            showFiltriSheet = true
+        } label: {
+            ZStack(alignment: .topTrailing) {
+                Image(systemName: "slider.horizontal.3")
+                    .font(.system(size: 16, weight: .medium))
+                    .foregroundStyle(AppTheme.textPrimary)
+                    .padding(12)
+                    .background(AppTheme.cardSecondary)
+                    .clipShape(RoundedRectangle(cornerRadius: 12))
+                if activeFilterCount > 0 {
+                    Text("\(activeFilterCount)")
+                        .font(.dmSans(10, weight: .bold))
+                        .foregroundStyle(.white)
+                        .padding(4)
+                        .background(AppTheme.primaryGreen)
+                        .clipShape(Circle())
+                        .offset(x: 6, y: -6)
+                }
+            }
+        }
+        .accessibilityLabel(lang.plants.filtersButtonLabel)
+    }
+
+    private var monthAbbrs: [String] {
+        let fmt = DateFormatter()
+        fmt.locale = Locale(identifier: lang.dayDetail.dateLocale)
+        return fmt.shortStandaloneMonthSymbols
+    }
+
+    private var filtriSheet: some View {
+        NavigationStack {
+            List {
+                Section(lang.plants.difficultyFilterSection) {
+                    ForEach(["facile", "media", "difficile"], id: \.self) { livello in
+                        filtroRow(
+                            label: livelloLabel(livello),
+                            isSelected: difficoltaFiltro == livello
+                        ) {
+                            difficoltaFiltro = difficoltaFiltro == livello ? nil : livello
+                        }
+                    }
+                }
+                Section(lang.plants.exposureFilterSection) {
+                    ForEach(EsposizioneBucket.allCases, id: \.self) { bucket in
+                        filtroRow(
+                            label: esposizioneLabel(bucket),
+                            isSelected: esposizioneFiltro == bucket
+                        ) {
+                            esposizioneFiltro = esposizioneFiltro == bucket ? nil : bucket
+                        }
+                    }
+                }
+                Section(lang.plants.harvestMonthFilterSection) {
+                    ForEach(1...12, id: \.self) { mese in
+                        filtroRow(
+                            label: monthAbbrs[mese - 1],
+                            isSelected: meseRaccoltaFiltro == mese
+                        ) {
+                            meseRaccoltaFiltro = meseRaccoltaFiltro == mese ? nil : mese
+                        }
+                    }
+                }
+                Section {
+                    Button(role: .destructive) {
+                        difficoltaFiltro = nil
+                        esposizioneFiltro = nil
+                        meseRaccoltaFiltro = nil
+                    } label: {
+                        Text(lang.plants.resetFiltersButtonLabel)
+                    }
+                    .disabled(activeFilterCount == 0)
+                }
+            }
+            .navigationTitle(lang.plants.filtersSheetTitle)
+            .navigationBarTitleDisplayMode(.inline)
+            .toolbar {
+                ToolbarItem(placement: .confirmationAction) {
+                    Button(lang.plants.doneButtonLabel) {
+                        showFiltriSheet = false
+                    }
+                }
+            }
+        }
+    }
+
+    private func filtroRow(label: String, isSelected: Bool, action: @escaping () -> Void) -> some View {
+        Button(action: action) {
+            HStack {
+                Text(label)
+                    .foregroundStyle(AppTheme.textPrimary)
+                Spacer()
+                if isSelected {
+                    Image(systemName: "checkmark")
+                        .foregroundStyle(AppTheme.primaryGreen)
+                }
+            }
+        }
+    }
+
+    private func livelloLabel(_ livello: String) -> String {
+        switch livello {
+        case "facile": return lang.plants.difficultyEasy
+        case "media": return lang.plants.difficultyMedium
+        default: return lang.plants.difficultyHard
+        }
+    }
+
+    private func esposizioneLabel(_ bucket: EsposizioneBucket) -> String {
+        switch bucket {
+        case .sole: return lang.plants.exposureSun
+        case .mezzaOmbra: return lang.plants.exposurePartialShade
+        case .ombra: return lang.plants.exposureShade
         }
     }
 
