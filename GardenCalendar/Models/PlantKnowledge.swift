@@ -24,6 +24,27 @@ enum PlantType: String, Codable, CaseIterable, Sendable {
     }
 }
 
+enum EsposizioneBucket: String, CaseIterable, Sendable {
+    case sole, mezzaOmbra, ombra
+}
+
+/// Bucketizza il campo testo libero `esposizione` (generato da AI extraction, es.
+/// "Pieno sole (6+ ore)", "Sole o mezza ombra") in una categoria filtrabile.
+/// Priorità: mezza ombra > ombra > sole, perché "mezza ombra" contiene "ombra" come sottostringa.
+func esposizioneBucket(for esposizione: String?) -> EsposizioneBucket? {
+    guard let testo = esposizione?.lowercased() else { return nil }
+    if testo.contains("mezza ombra") || testo.contains("mezz'ombra") {
+        return .mezzaOmbra
+    }
+    if testo.contains("ombra") {
+        return .ombra
+    }
+    if testo.contains("sole") {
+        return .sole
+    }
+    return nil
+}
+
 struct PlantKnowledge: Codable, Identifiable, Sendable {
     let id: UUID
     let slug: String
