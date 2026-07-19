@@ -206,12 +206,13 @@ struct CatalogoView: View {
                 }
             }
         }
+        .accessibilityLabel(lang.plants.filtersButtonLabel)
     }
 
     private var monthAbbrs: [String] {
         let fmt = DateFormatter()
         fmt.locale = Locale(identifier: lang.dayDetail.dateLocale)
-        return fmt.veryShortStandaloneMonthSymbols
+        return fmt.shortStandaloneMonthSymbols
     }
 
     private var filtriSheet: some View {
