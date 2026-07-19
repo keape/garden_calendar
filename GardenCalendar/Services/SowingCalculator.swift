@@ -28,13 +28,24 @@ enum SowingCalculator {
         }
 
         let tempTollMin = plant.tempTollMin ?? tempGermMin
+        let tempOttMin = plant.tempOttMin ?? tempGermMin
+        let tempOttMax = plant.tempOttMax
+        let growthMonths = max(1, Int((Double(plant.growthDays) / 30.0).rounded()))
 
-        // Semina esterno: mese abbastanza caldo per germinare E oltre la soglia di tolleranza al freddo
-        // (tMin medio del mese > soglia tolleranza, cioè niente gelate attese).
+        // Semina esterno: mese nel range di temperatura ottimale (non solo sopra la soglia minima
+        // di germinazione, altrimenti piante molto rustiche come la peonia risultano "seminabili"
+        // quasi tutto l'anno) E il mese di raccolta/fioritura previsto (semina + growthMonths)
+        // deve restare oltre la soglia di tolleranza al freddo, altrimenti il ciclo non fa in tempo
+        // a completarsi prima che tornino le gelate (es. anguria seminata a settembre).
         let seminaEsterno = (1...12).filter { month in
             guard let mean = normals.meanTemp[month] else { return false }
             let minOk = normals.meanMinTemp[month].map { $0 > tempTollMin } ?? true
-            return mean >= tempGermMin && minOk
+            let withinOptimal = mean >= tempOttMin && (tempOttMax.map { mean <= $0 } ?? true)
+            guard mean >= tempGermMin && minOk && withinOptimal else { return false }
+
+            let harvestMonth = shiftMonth(month, by: growthMonths)
+            let harvestOk = normals.meanMinTemp[harvestMonth].map { $0 > tempTollMin } ?? true
+            return harvestOk
         }.sorted()
 
         // Semina interno/protetta: solo vincolo di temperatura media (protetta dal gelo),
@@ -44,7 +55,6 @@ enum SowingCalculator {
             return mean >= tempGermMin
         }.sorted()
 
-        let growthMonths = max(1, Int((Double(plant.growthDays) / 30.0).rounded()))
         let esitoMesi = Set(seminaEsterno.map { shiftMonth($0, by: growthMonths) })
 
         let isOrnamentale = plant.tipo == .fiore

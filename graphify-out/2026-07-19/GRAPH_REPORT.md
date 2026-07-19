@@ -1,7 +1,7 @@
-# Graph Report - garden-calendar-ios  (2026-07-19)
+# Graph Report - garden-calendar-ios  (2026-07-18)
 
 ## Corpus Check
-- 128 files · ~138,071 words
+- 128 files · ~137,978 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary

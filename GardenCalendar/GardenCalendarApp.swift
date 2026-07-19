@@ -6,6 +6,7 @@ struct GardenCalendarApp: App {
     @State private var repository = SupabaseRepository.shared
     @State private var langManager = LanguageManager.shared
     @State private var catalogService = PlantCatalogService.shared
+    @State private var themeManager = ThemeManager.shared
 
     var body: some Scene {
         WindowGroup {
@@ -14,6 +15,8 @@ struct GardenCalendarApp: App {
                 .environment(repository)
                 .environment(langManager)
                 .environment(catalogService)
+                .environment(themeManager)
+                .preferredColorScheme(themeManager.theme.colorScheme)
                 .onAppear {
                     authManager.startObserving()
                 }

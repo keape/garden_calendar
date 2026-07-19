@@ -70,8 +70,8 @@
     "semantic_hash": ""
   },
   "GardenCalendar/ContentView.swift": {
-    "mtime": 1784016141.1052008,
-    "ast_hash": "b1459fd510303162ce35300969ac1825",
+    "mtime": 1784328050.6686227,
+    "ast_hash": "24ddd3e19f90b83c035730e6491ab29f",
     "semantic_hash": ""
   },
   "GardenCalendar/SupabaseConfig.swift": {
@@ -140,8 +140,8 @@
     "semantic_hash": ""
   },
   "GardenCalendar/Views/Settings/SettingsView.swift": {
-    "mtime": 1783891924.8672001,
-    "ast_hash": "0bc12c24993badc94e4fc5eb374ccf06",
+    "mtime": 1784383585.8982408,
+    "ast_hash": "32162d41822bf247f9537fba1932b1a4",
     "semantic_hash": ""
   },
   "GardenCalendar/Views/Auth/LoginView.swift": {
@@ -1527,6 +1527,11 @@
   "supabase/migrations/20260717000001_piante_coltivate_tipo.sql": {
     "mtime": 1784277633.9017296,
     "ast_hash": "d620380333bc92962416527a90d4d790",
+    "semantic_hash": ""
+  },
+  "GardenCalendar/Views/Piante/CatalogoView.swift": {
+    "mtime": 1784326238.2883449,
+    "ast_hash": "edbdc3691bac626d8ce8a18b6b65d157",
     "semantic_hash": ""
   }
 }

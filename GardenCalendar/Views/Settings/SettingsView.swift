@@ -6,6 +6,7 @@ struct SettingsView: View {
     @Environment(SupabaseRepository.self) private var repository
     @Environment(AuthManager.self) private var authManager
     @Environment(LanguageManager.self) private var lang
+    @Environment(ThemeManager.self) private var themeManager
 
     // Profilo
     @State private var email = ""
@@ -23,9 +24,6 @@ struct SettingsView: View {
     @State private var notificationsEnabled = NotificationManager.shared.isEnabled
     @State private var notificationHour = NotificationManager.shared.notificationHour
     @State private var showNotificationsDenied = false
-
-    // Aspetto
-    @State private var selectedTheme: ThemeMode = .automatic
 
     // App Info
     @State private var appVersion = "1.0.0"
@@ -177,7 +175,10 @@ struct SettingsView: View {
 
                 // MARK: - Aspetto
                 Section(header: sectionHeader(lang.settings.appearanceSection)) {
-                    Picker(lang.settings.themePicker, selection: $selectedTheme) {
+                    Picker(lang.settings.themePicker, selection: Binding(
+                        get: { themeManager.theme },
+                        set: { themeManager.theme = $0 }
+                    )) {
                         Text(lang.settings.themeLight).tag(ThemeMode.light)
                         Text(lang.settings.themeDark).tag(ThemeMode.dark)
                         Text(lang.settings.themeAuto).tag(ThemeMode.automatic)
@@ -313,9 +314,26 @@ enum ThemeMode: String, CaseIterable {
     }
 }
 
+@Observable
+final class ThemeManager {
+    static let shared = ThemeManager()
+
+    var theme: ThemeMode {
+        didSet {
+            UserDefaults.standard.set(theme.rawValue, forKey: "appTheme")
+        }
+    }
+
+    private init() {
+        let saved = UserDefaults.standard.string(forKey: "appTheme") ?? ThemeMode.automatic.rawValue
+        self.theme = ThemeMode(rawValue: saved) ?? .automatic
+    }
+}
+
 #Preview {
     SettingsView()
         .environment(SupabaseRepository.shared)
         .environment(AuthManager.shared)
         .environment(LanguageManager.shared)
+        .environment(ThemeManager.shared)
 }
