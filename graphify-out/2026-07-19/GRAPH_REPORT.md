@@ -1,16 +1,16 @@
-# Graph Report - garden-calendar-ios  (2026-07-18)
+# Graph Report - garden-calendar-ios  (2026-07-19)
 
 ## Corpus Check
-- 128 files · ~137,978 words
+- 129 files · ~138,321 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 1322 nodes · 1775 edges · 279 communities (131 shown, 148 thin omitted)
+- 1323 nodes · 1778 edges · 287 communities (139 shown, 148 thin omitted)
 - Extraction: 97% EXTRACTED · 3% INFERRED · 0% AMBIGUOUS · INFERRED: 59 edges (avg confidence: 0.8)
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `c2ab1fe2`
+- Built from commit: `a5db8df7`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -71,7 +71,7 @@
 - [[_COMMUNITY_ModificaPiantaSheet|ModificaPiantaSheet]]
 - [[_COMMUNITY_Community 63|Community 63]]
 - [[_COMMUNITY_CodingKeys|CodingKeys]]
-- [[_COMMUNITY_OrtoListView.swift|OrtoListView.swift]]
+- [[_COMMUNITY_PiantaColtivata|PiantaColtivata]]
 - [[_COMMUNITY_Community 66|Community 66]]
 - [[_COMMUNITY_GardenCalendarWidget.swift|GardenCalendarWidget.swift]]
 - [[_COMMUNITY_SuggerimentiSeminaView|SuggerimentiSeminaView]]
@@ -87,6 +87,9 @@
 - [[_COMMUNITY_Community 79|Community 79]]
 - [[_COMMUNITY_Fix suggerimenti AI nome pianta e contraddizione seminatrapianto|Fix suggerimenti AI: nome pianta e contraddizione semina/trapianto]]
 - [[_COMMUNITY_Implementazione icona app Garden Calendar|Implementazione icona app Garden Calendar]]
+- [[_COMMUNITY_OrtoDetailView.swift|OrtoDetailView.swift]]
+- [[_COMMUNITY_Attivita|Attivita]]
+- [[_COMMUNITY_index.ts|index.ts]]
 - [[_COMMUNITY_Community 85|Community 85]]
 - [[_COMMUNITY_Community 86|Community 86]]
 - [[_COMMUNITY_Community 87|Community 87]]
@@ -107,6 +110,7 @@
 - [[_COMMUNITY_Rifiuto App Store 5.1.2(i) — Privacy Tracking ATT|Rifiuto App Store 5.1.2(i) — Privacy Tracking ATT]]
 - [[_COMMUNITY_Dark mode, fix palette contrasto, upload ASC v1.1|Dark mode, fix palette contrasto, upload ASC v1.1]]
 - [[_COMMUNITY_Community 104|Community 104]]
+- [[_COMMUNITY_ModificaPiantaSheet|ModificaPiantaSheet]]
 - [[_COMMUNITY_Community 106|Community 106]]
 - [[_COMMUNITY_Fix bug attività salvata nel giorno precedente|Fix bug: attività salvata nel giorno precedente]]
 - [[_COMMUNITY_Filtri calendario propagati a DayDetailView|Filtri calendario propagati a DayDetailView]]
@@ -114,10 +118,14 @@
 - [[_COMMUNITY_Community 110|Community 110]]
 - [[_COMMUNITY_Feature foto giardino nelle impostazioni orto|Feature foto giardino nelle impostazioni orto]]
 - [[_COMMUNITY_Rain Reschedule Implementation Plan|Rain Reschedule Implementation Plan]]
+- [[_COMMUNITY_WeatherIcon|WeatherIcon]]
+- [[_COMMUNITY_Identifiable|Identifiable]]
 - [[_COMMUNITY_Community 115|Community 115]]
 - [[_COMMUNITY_Debug simulatore iOS su disco esterno Lexar|Debug simulatore iOS su disco esterno Lexar]]
 - [[_COMMUNITY_Community 117|Community 117]]
 - [[_COMMUNITY_Community 118|Community 118]]
+- [[_COMMUNITY_.encode|.encode]]
+- [[_COMMUNITY_NuovaAttivitaSheet|NuovaAttivitaSheet]]
 - [[_COMMUNITY_Community 121|Community 121]]
 - [[_COMMUNITY_Community 122|Community 122]]
 - [[_COMMUNITY_Community 124|Community 124]]
@@ -262,12 +270,12 @@
 10. `Foundation` - 21 edges
 
 ## Surprising Connections (you probably didn't know these)
-- `ActivitiesEntry` --references--> `Date`  [EXTRACTED]
-  GardenCalendarWidget/GardenCalendarWidget.swift → GardenCalendar/Services/RainAdjuster.swift
 - `addDays()` --references--> `Date`  [EXTRACTED]
   supabase/functions/schedule-activities/index.ts → GardenCalendar/Services/RainAdjuster.swift
 - `formatDate()` --references--> `Date`  [EXTRACTED]
   supabase/functions/schedule-activities/index.ts → GardenCalendar/Services/RainAdjuster.swift
+- `ActivitiesEntry` --references--> `Date`  [EXTRACTED]
+  GardenCalendarWidget/GardenCalendarWidget.swift → GardenCalendar/Services/RainAdjuster.swift
 - `OrtoDetailView` --calls--> `LocationHelper`  [INFERRED]
   GardenCalendar/Views/Orto/OrtoDetailView.swift → GardenCalendar/Services/LocationHelper.swift
 - `OrtoListView` --calls--> `LocationHelper`  [INFERRED]
@@ -276,7 +284,7 @@
 ## Import Cycles
 - None detected.
 
-## Communities (279 total, 148 thin omitted)
+## Communities (287 total, 148 thin omitted)
 
 ### Community 0 - "Orto Data Model"
 Cohesion: 0.08
@@ -299,8 +307,8 @@ Cohesion: 0.12
 Nodes (16): CodingKeys, activityOverrides, createdAt, dataSemina, fotoUrl, growthDays, id, nome (+8 more)
 
 ### Community 7 - "Community 7"
-Cohesion: 0.07
-Nodes (44): Codable, Encoder, AppLanguage, en, it, Auth, CalendarStrings, Common (+36 more)
+Cohesion: 0.25
+Nodes (18): AppLanguage, en, it, Auth, CalendarStrings, Common, DayDetailStrings, DiagnosisStrings (+10 more)
 
 ### Community 11 - "Attività CodingKeys"
 Cohesion: 0.40
@@ -319,8 +327,8 @@ Cohesion: 0.13
 Nodes (14): Localizzazione IT/EN — Implementation Plan, Nota architetturale, Task 10: Aggiornare `QuickJournalView.swift` e `NotificationManager.swift`, Task 11: Aggiornare i `#Preview` con `LanguageManager`, Task 1: Creare `GardenCalendar/Localization/Strings.swift`, Task 2: Iniettare `LanguageManager` in root + aggiornare `ContentView`, Task 3: Aggiornare `SettingsView.swift`, Task 4: Aggiornare `LoginView.swift` e `SignUpView.swift` (+6 more)
 
 ### Community 15 - "Add Plant View"
-Cohesion: 0.09
-Nodes (14): Foundation, NotificationManager, Attivita, Bool, Int, WidgetDataExporter, emojiForPlant(), PlantIconView (+6 more)
+Cohesion: 0.07
+Nodes (22): Foundation, CodingKeys, createdAt, id, markdownContent, processed, slug, updatedAt (+14 more)
 
 ### Community 17 - "Global Constraints"
 Cohesion: 0.25
@@ -359,8 +367,8 @@ Cohesion: 0.07
 Nodes (31): AttivitaSuggerita, PlantKnowledge, PlantType, altro, aromatica, fiore, frutto, ortaggio (+23 more)
 
 ### Community 41 - "Community 41"
-Cohesion: 0.09
-Nodes (23): CodingKeys, createdAt, data, id, note, piantaId, quantita, unita (+15 more)
+Cohesion: 0.15
+Nodes (10): AttivitaRow, NuovoRaccoltoSheet, PiantaDetailView, RaccoltoRow, Attivita, Double, Int, PhotosPickerItem (+2 more)
 
 ### Community 42 - "ThemeMode"
 Cohesion: 0.07
@@ -415,24 +423,28 @@ Cohesion: 0.29
 Nodes (6): Contesto tecnico rilevante, Cosa abbiamo fatto, Decisioni prese, Problemi incontrati e soluzioni, Prossimi passi, Upload Build 2 su App Store Connect — debug provisioning + IPA manuale
 
 ### Community 61 - "CodingKeys"
-Cohesion: 0.07
-Nodes (33): Attivita, CodingKeys, color, createdAt, data, done, id, nome (+25 more)
+Cohesion: 0.14
+Nodes (14): CodingKeys, color, createdAt, data, done, id, nome, note (+6 more)
 
 ### Community 63 - "Community 63"
-Cohesion: 0.31
+Cohesion: 0.27
 Nodes (4): QuickJournalView, Bool, Int, String
 
 ### Community 64 - "CodingKeys"
 Cohesion: 0.09
 Nodes (22): CaseIterable, ColorScheme, MagazineArticle, MagazineGenerator, PlantRelevance, fioritura, raccolta, semina (+14 more)
 
+### Community 65 - "PiantaColtivata"
+Cohesion: 0.27
+Nodes (14): Codable, ActivityOverride, Create, PiantaCategoria, ornamentale, raccolto, PiantaColtivata, Decoder (+6 more)
+
 ### Community 67 - "GardenCalendarWidget.swift"
 Cohesion: 0.12
 Nodes (19): Bool, String, UUID, WidgetActivity, ActivitiesEntry, ActivitiesProvider, GardenCalendarWidget, GardenCalendarWidgetBundle (+11 more)
 
 ### Community 68 - "SuggerimentiSeminaView"
-Cohesion: 0.33
-Nodes (5): SuggerimentiSeminaView, Bool, Int, String, UUID
+Cohesion: 0.18
+Nodes (13): CodingKeys, createdAt, data, id, note, piantaId, quantita, unita (+5 more)
 
 ### Community 69 - "ActivityColorDot"
 Cohesion: 0.47
@@ -482,6 +494,18 @@ Nodes (5): Contesto tecnico rilevante, Cosa abbiamo fatto, Decisioni prese, Fix 
 Cohesion: 0.33
 Nodes (5): Contesto tecnico rilevante, Cosa abbiamo fatto, Decisioni prese, Implementazione icona app Garden Calendar, Prossimi passi
 
+### Community 82 - "OrtoDetailView.swift"
+Cohesion: 0.25
+Nodes (4): CoreLocation, PiantaRowView, OrtoCardRow, PhotosUI
+
+### Community 83 - "Attivita"
+Cohesion: 0.50
+Nodes (7): Attivita, Create, Bool, Int, String, UUID, Update
+
+### Community 84 - "index.ts"
+Cohesion: 0.25
+Nodes (6): addDays(), Attivita, corsHeaders, formatDate(), ScheduleRequest, TemplateActivity
+
 ### Community 86 - "Community 86"
 Cohesion: 0.33
 Nodes (5): Contesto tecnico rilevante, Cosa abbiamo fatto, Decisioni prese, Naturalista UX Redesign — implementazione completa, Prossimi passi
@@ -513,6 +537,10 @@ Nodes (5): Contesto tecnico rilevante, Cosa abbiamo fatto, Decisioni prese, Pros
 ### Community 93 - "Community 93"
 Cohesion: 0.33
 Nodes (5): Contesto tecnico rilevante, Cosa abbiamo fatto, Decisioni prese, Prossimi passi, Upload build su App Store Connect via CLI
+
+### Community 94 - "Community 94"
+Cohesion: 0.27
+Nodes (5): AppTheme, Color, Font, CGFloat, String
 
 ### Community 95 - "App Store rejection fix — ATT, deep link email, demo account"
 Cohesion: 0.33
@@ -554,6 +582,10 @@ Nodes (5): Contesto tecnico rilevante, Cosa abbiamo fatto, Dark mode, fix palett
 Cohesion: 0.33
 Nodes (5): 7 feature GardenCalendar: giardino interno, foto piante, suggerimenti semina, cleanup, Contesto tecnico rilevante, Cosa abbiamo fatto, Decisioni prese, Prossimi passi
 
+### Community 105 - "ModificaPiantaSheet"
+Cohesion: 0.33
+Nodes (4): ModificaPiantaSheet, Attivita, Int, String
+
 ### Community 106 - "Community 106"
 Cohesion: 0.14
 Nodes (9): AuthManager, Bool, String, Task, URL, Void, Never, Session (+1 more)
@@ -567,8 +599,8 @@ Cohesion: 0.33
 Nodes (5): Contesto tecnico rilevante, Cosa abbiamo fatto, Decisioni prese, Filtri calendario propagati a DayDetailView, Prossimi passi
 
 ### Community 109 - "DiagnosiView"
-Cohesion: 0.21
-Nodes (6): DiagnosiView, PhotosPickerItem, String, UIImage, PiantaRowView, PhotosUI
+Cohesion: 0.36
+Nodes (4): DiagnosiView, PhotosPickerItem, String, UIImage
 
 ### Community 110 - "Community 110"
 Cohesion: 0.13
@@ -581,6 +613,14 @@ Nodes (5): Contesto tecnico rilevante, Cosa abbiamo fatto, Decisioni prese, Feat
 ### Community 112 - "Rain Reschedule Implementation Plan"
 Cohesion: 0.40
 Nodes (4): Rain Reschedule Implementation Plan, Task 1: Aggiunge `RescheduleAction` e `computeRescheduling()` a `RainAdjuster`, Task 2: Aggiunge 3 nuovi metodi a `SupabaseRepository`, Task 3: Wiring in `CalendarGridView`
+
+### Community 113 - "WeatherIcon"
+Cohesion: 0.40
+Nodes (4): CGFloat, Int, String, WeatherIcon
+
+### Community 114 - "Identifiable"
+Cohesion: 0.50
+Nodes (4): Bool, UUID, WikiNote, Identifiable
 
 ### Community 115 - "Community 115"
 Cohesion: 0.40
@@ -600,15 +640,15 @@ Nodes (3): corsHeaders, ExtractRequest, LLMResponse
 
 ### Community 121 - "Community 121"
 Cohesion: 0.13
-Nodes (9): App, ContentView, GardenCalendarApp, CGFloat, Int, String, WeatherIcon, Scene (+1 more)
+Nodes (10): App, ContentView, GardenCalendarApp, SuggerimentiSeminaView, Bool, Int, String, UUID (+2 more)
 
 ### Community 124 - "Community 124"
 Cohesion: 0.50
 Nodes (3): imports, @supabase/functions-js, @supabase/supabase-js
 
 ### Community 125 - "Community 125"
-Cohesion: 0.22
-Nodes (7): AppTheme, Color, String, PlantDetailSheet, Int, String, Void
+Cohesion: 0.29
+Nodes (4): PlantDetailSheet, Int, String, Void
 
 ### Community 126 - "Community 126"
 Cohesion: 0.50
@@ -626,11 +666,11 @@ Nodes (9): DayActivityRow, DayDetailView, NaturalistaActivityRow, Attivita, Doub
 ## Suggested Questions
 _Questions this graph is uniquely positioned to answer:_
 
-- **Why does `Date` connect `Community 7` to `Day Detail & Activity`, `Community 3`, `GardenCalendarWidget.swift`, `Community 40`, `Community 41`, `ThemeMode`, `Community 168`, `CodingKeys`, `Orto.swift`, `CodingKeys`, `Community 63`?**
-  _High betweenness centrality (0.063) - this node is a cross-community bridge._
-- **Why does `PiantaColtivata` connect `Community 7` to `Day Detail & Activity`, `Community 40`, `Community 41`, `ThemeMode`, `DiagnosiView`, `LocationHelper`, `Add Plant View`, `SignUpView`, `Community 115`, `CodingKeys`, `Community 63`?**
+- **Why does `Date` connect `PiantaColtivata` to `Day Detail & Activity`, `Community 3`, `SuggerimentiSeminaView`, `GardenCalendarWidget.swift`, `Community 40`, `Community 168`, `ThemeMode`, `CodingKeys`, `Identifiable`, `Attivita`, `index.ts`, `Orto.swift`, `Community 63`?**
+  _High betweenness centrality (0.062) - this node is a cross-community bridge._
+- **Why does `PiantaColtivata` connect `PiantaColtivata` to `Day Detail & Activity`, `Community 7`, `Community 40`, `ModificaPiantaSheet`, `ThemeMode`, `Community 41`, `DiagnosiView`, `LocationHelper`, `Add Plant View`, `SignUpView`, `Identifiable`, `OrtoDetailView.swift`, `Community 115`, `NuovaAttivitaSheet`, `Community 63`?**
   _High betweenness centrality (0.056) - this node is a cross-community bridge._
-- **Why does `Foundation` connect `Add Plant View` to `CodingKeys`, `Day Detail & Activity`, `Community 3`, `GardenCalendarWidget.swift`, `Community 7`, `Community 40`, `Community 41`, `CodingKeys`, `Orto.swift`, `CodingKeys`?**
+- **Why does `Foundation` connect `Add Plant View` to `CodingKeys`, `PiantaColtivata`, `Day Detail & Activity`, `Community 3`, `SuggerimentiSeminaView`, `GardenCalendarWidget.swift`, `Community 7`, `Community 40`, `CodingKeys`, `Attivita`, `Orto.swift`?**
   _High betweenness centrality (0.040) - this node is a cross-community bridge._
 - **Are the 36 inferred relationships involving `SupabaseConfig` (e.g. with `.handleDeepLink()` and `.resetPassword()`) actually correct?**
   _`SupabaseConfig` has 36 INFERRED edges - model-reasoned connections that need verification._

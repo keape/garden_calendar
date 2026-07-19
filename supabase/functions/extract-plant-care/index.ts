@@ -202,6 +202,8 @@ Deno.serve(async (req) => {
       color: resolveColor(a.name),
     }))
 
+    const imageUrl = await fetchPlantPhoto(wikiNote.title)
+
     // Upsert into plant_knowledge
     const { data: knowledge, error: upsertError } = await supabaseAdmin
       .from("plant_knowledge")
@@ -210,6 +212,7 @@ Deno.serve(async (req) => {
         specie_nome: wikiNote.title,
         growth_days: llmResult.growth_days,
         attivita_suggerite: JSON.stringify(activitiesWithColors),
+        ...(imageUrl ? { image_url: imageUrl } : {}),
       }, { onConflict: "slug", ignoreDuplicates: false })
       .select()
       .single()
@@ -247,6 +250,26 @@ Deno.serve(async (req) => {
     )
   }
 })
+
+/// Cerca una foto della pianta su Pexels (query: nome pianta + "plant").
+/// Ritorna null se la chiave API non è configurata o la ricerca non produce risultati.
+async function fetchPlantPhoto(plantName: string): Promise<string | null> {
+  const pexelsKey = Deno.env.get("PEXELS_API_KEY")
+  if (!pexelsKey) return null
+
+  try {
+    const query = encodeURIComponent(`${plantName} plant`)
+    const res = await fetch(
+      `https://api.pexels.com/v1/search?query=${query}&per_page=1&orientation=square`,
+      { headers: { Authorization: pexelsKey } }
+    )
+    if (!res.ok) return null
+    const data = await res.json()
+    return data.photos?.[0]?.src?.medium ?? null
+  } catch {
+    return null
+  }
+}
 
 function resolveColor(activityName: string): string {
   const name = activityName.toLowerCase()

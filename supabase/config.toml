@@ -21,6 +21,12 @@ entrypoint = "./functions/extract-plant-care/index.ts"
 # For example, if you want to serve static HTML pages in your function:
 # static_files = [ "./functions/extract-plant-care/*.html" ]
 
+[functions.backfill-plant-photos]
+enabled = true
+verify_jwt = false
+import_map = "./functions/backfill-plant-photos/deno.json"
+entrypoint = "./functions/backfill-plant-photos/index.ts"
+
 [functions.admin-dashboard]
 enabled = true
 verify_jwt = false

@@ -98,14 +98,17 @@ label{display:block;font-size:.85rem;color:#888;margin-bottom:4px}
       <div id="wl"></div>
     </div>
     <div id="k-t" class="h">
-      <h2 style="font-size:1.1rem;margin-bottom:12px">Catalogo Piante</h2>
+      <div class="f" style="margin-bottom:12px">
+        <h2 style="font-size:1.1rem">Catalogo Piante</h2>
+        <button class="btn btn-p" data-act="backfill-photos">Aggiorna foto mancanti</button>
+      </div>
       <div id="kl"></div>
     </div>
   </div>
 </div>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.46.1/dist/umd/supabase.min.js"></script>
 <script>
-const U='https://kusprtmfxrsnjycyzlgs.supabase.co',K='eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imt1c3BydG1meHJzbmp5Y3l6bGdzIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Nzk2NTE2OTUsImV4cCI6MjA5NTIyNzY5NX0.Xy9otBRvHYRjOFG7WJmYv-pla6lzIxbL7fF9xXFNZBY',EF=U+'/functions/v1/extract-plant-care'
+const U='https://kusprtmfxrsnjycyzlgs.supabase.co',K='eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imt1c3BydG1meHJzbmp5Y3l6bGdzIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Nzk2NTE2OTUsImV4cCI6MjA5NTIyNzY5NX0.Xy9otBRvHYRjOFG7WJmYv-pla6lzIxbL7fF9xXFNZBY',EF=U+'/functions/v1/extract-plant-care',BF=U+'/functions/v1/backfill-plant-photos'
 const sb=supabase.createClient(U,K)
 let user=null
 
@@ -192,6 +195,20 @@ async function know(){
     '</div></div>'
   }).join('')
 }
+async function backfillPhotos(btn){
+  const {data:{session}}=await sb.auth.getSession()
+  if(!session){msg('Sessione scaduta',false);return}
+  btn.disabled=true;btn.textContent='Aggiornamento...'
+  try{
+    const r=await fetch(BF,{method:'POST',headers:{'Authorization':'Bearer '+session.access_token,'Content-Type':'application/json'}})
+    const d=await r.json()
+    if(!r.ok)throw new Error(d.error||'Errore')
+    msg('Foto aggiornate: '+d.updated+'/'+d.total+(d.notFound?' ('+d.notFound+' senza risultati)':''),true)
+    await know()
+  }catch(e){msg('Errore: '+e.message,false)}
+  btn.disabled=false;btn.textContent='Aggiorna foto mancanti'
+}
+
 async function delKnow(id){
   if(!confirm('Eliminare?'))return
   const {error}=await sb.from('plant_knowledge').delete().eq('id',id)
@@ -218,6 +235,7 @@ document.getElementById('app').addEventListener('click', function(e) {
     doExtract(e.target.closest('.card').getAttribute('data-id')).then(()=>{e.target.disabled=false;e.target.textContent='Estrai'})
   }
   else if(act==='del-know') delKnow(e.target.closest('.card').getAttribute('data-id'))
+  else if(act==='backfill-photos') backfillPhotos(e.target)
 })
 
 // Tab switching

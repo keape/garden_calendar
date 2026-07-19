@@ -3,6 +3,7 @@ import SwiftUI
 struct PlantDetailSheet: View {
     @Environment(LanguageManager.self) private var lang
     @Environment(\.dismiss) private var dismiss
+    @Environment(SupabaseRepository.self) private var repository
 
     let knowledge: PlantKnowledge
     let onAdd: ((PlantKnowledge) -> Void)?
@@ -10,6 +11,7 @@ struct PlantDetailSheet: View {
     var orto: Orto? = nil
 
     @State private var normals: MonthlyClimateNormals?
+    @State private var selectedCompanion: PlantKnowledge?
 
     /// Finestra semina/raccolta effettiva: calcolata sul clima dell'orto se disponibile, altrimenti baseline.
     private var window: SowingWindow {
@@ -66,6 +68,10 @@ struct PlantDetailSheet: View {
         .task {
             guard let lat = orto?.latitudine, let lon = orto?.longitudine else { return }
             normals = try? await ClimateNormalsClient.shared.fetchNormals(latitude: lat, longitude: lon)
+        }
+        .sheet(item: $selectedCompanion) { companion in
+            PlantDetailSheet(knowledge: companion, onAdd: onAdd, orto: orto)
+                .environment(repository)
         }
     }
 
@@ -300,14 +306,26 @@ struct PlantDetailSheet: View {
     }
 
     private func chipView(_ text: String, color: Color) -> some View {
-        Text(text)
-            .font(.dmSans(12, weight: .medium))
-            .foregroundStyle(color)
-            .padding(.horizontal, 10)
-            .padding(.vertical, 5)
-            .background(color.opacity(0.10))
-            .clipShape(Capsule())
-            .overlay(Capsule().stroke(color.opacity(0.3), lineWidth: 1))
+        Button {
+            Task { await openCompanion(named: text) }
+        } label: {
+            Text(text)
+                .font(.dmSans(12, weight: .medium))
+                .foregroundStyle(color)
+                .padding(.horizontal, 10)
+                .padding(.vertical, 5)
+                .background(color.opacity(0.10))
+                .clipShape(Capsule())
+                .overlay(Capsule().stroke(color.opacity(0.3), lineWidth: 1))
+        }
+        .buttonStyle(.plain)
+    }
+
+    private func openCompanion(named name: String) async {
+        let results = (try? await repository.searchCatalogo(query: name)) ?? []
+        selectedCompanion = results.first {
+            $0.specieNome.localizedCaseInsensitiveCompare(name) == .orderedSame
+        } ?? results.first
     }
 
     // MARK: - CTA

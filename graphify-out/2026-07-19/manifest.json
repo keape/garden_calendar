@@ -1420,8 +1420,8 @@
     "semantic_hash": ""
   },
   "GardenCalendar/Views/Piante/PlantDetailSheet.swift": {
-    "mtime": 1784323315.5464587,
-    "ast_hash": "c7a0b6a56e9d6b747af038b9ca78eec6",
+    "mtime": 1784483416.584648,
+    "ast_hash": "679c08f677080bbaef62d1859017eb13",
     "semantic_hash": ""
   },
   "supabase/migrations/20260622000001_plant_seeding.sql": {
@@ -1505,8 +1505,8 @@
     "semantic_hash": ""
   },
   "GardenCalendar/Services/SowingCalculator.swift": {
-    "mtime": 1784015327.1027095,
-    "ast_hash": "fb8b6003babb3379ee20fca9f899361f",
+    "mtime": 1784463529.3164577,
+    "ast_hash": "2e52f1206a80d2226da8ff5ac0d48bc1",
     "semantic_hash": ""
   },
   "GardenCalendar/Models/MagazineArticle.swift": {
@@ -1532,6 +1532,11 @@
   "GardenCalendar/Views/Piante/CatalogoView.swift": {
     "mtime": 1784326238.2883449,
     "ast_hash": "edbdc3691bac626d8ce8a18b6b65d157",
+    "semantic_hash": ""
+  },
+  "supabase/migrations/20260719000001_plant_knowledge_drift_backfill.sql": {
+    "mtime": 1784464307.4097018,
+    "ast_hash": "ce0377fb6c38d0e0490863276fa7f494",
     "semantic_hash": ""
   }
 }

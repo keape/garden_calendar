@@ -30,9 +30,9 @@
     "semantic_hash": "af84e44d5c8e2c89ab58060848ce672d"
   },
   "supabase/functions/admin-dashboard/index.ts": {
-    "mtime": 1780605413.9492412,
-    "ast_hash": "cc8c1d6cab3d3b62df933bf697ed5897",
-    "semantic_hash": "cc8c1d6cab3d3b62df933bf697ed5897"
+    "mtime": 1784490729.0115666,
+    "ast_hash": "765fccd5539efc14fbc1e157a4ed8088",
+    "semantic_hash": ""
   },
   "supabase/functions/extract-plant-care/deno.json": {
     "mtime": 1780605413.9496071,
@@ -40,9 +40,9 @@
     "semantic_hash": "451896c0afd13dc61b5724c9e683cf79"
   },
   "supabase/functions/extract-plant-care/index.ts": {
-    "mtime": 1780605413.9499307,
-    "ast_hash": "f291fe0346bd46d50e1ebe6cfd850015",
-    "semantic_hash": "f291fe0346bd46d50e1ebe6cfd850015"
+    "mtime": 1784490686.9385378,
+    "ast_hash": "6527dec09b4ddd0d7614b0f9bc101566",
+    "semantic_hash": ""
   },
   "supabase/functions/schedule-activities/deno.json": {
     "mtime": 1780605413.9501424,
@@ -1420,8 +1420,8 @@
     "semantic_hash": ""
   },
   "GardenCalendar/Views/Piante/PlantDetailSheet.swift": {
-    "mtime": 1784323315.5464587,
-    "ast_hash": "c7a0b6a56e9d6b747af038b9ca78eec6",
+    "mtime": 1784483416.584648,
+    "ast_hash": "679c08f677080bbaef62d1859017eb13",
     "semantic_hash": ""
   },
   "supabase/migrations/20260622000001_plant_seeding.sql": {
@@ -1532,6 +1532,21 @@
   "GardenCalendar/Views/Piante/CatalogoView.swift": {
     "mtime": 1784326238.2883449,
     "ast_hash": "edbdc3691bac626d8ce8a18b6b65d157",
+    "semantic_hash": ""
+  },
+  "supabase/migrations/20260719000001_plant_knowledge_drift_backfill.sql": {
+    "mtime": 1784464307.4097018,
+    "ast_hash": "ce0377fb6c38d0e0490863276fa7f494",
+    "semantic_hash": ""
+  },
+  "supabase/functions/backfill-plant-photos/deno.json": {
+    "mtime": 1784490702.8034341,
+    "ast_hash": "451896c0afd13dc61b5724c9e683cf79",
+    "semantic_hash": ""
+  },
+  "supabase/functions/backfill-plant-photos/index.ts": {
+    "mtime": 1784490700.3588188,
+    "ast_hash": "38cc3fb26400cb5fa2087f1d97d80ec7",
     "semantic_hash": ""
   }
 }
