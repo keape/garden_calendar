@@ -16,6 +16,9 @@ struct CatalogoView: View {
     @State private var difficoltaFiltro: String? = nil
     @State private var esposizioneFiltro: EsposizioneBucket? = nil
     @State private var meseRaccoltaFiltro: Int? = nil
+    @State private var meseFiorituraFiltro: Int? = nil
+    @State private var phFiltro: PhBucket? = nil
+    @State private var portamentoFiltro: PortamentoBucket? = nil
     @State private var showFiltriSheet = false
     @State private var normals: MonthlyClimateNormals?
 
@@ -64,7 +67,19 @@ struct CatalogoView: View {
             risultato = risultato.filter { esposizioneBucket(for: $0.esposizione) == esposizioneFiltro }
         }
         if let meseRaccoltaFiltro {
-            risultato = risultato.filter { $0.mesiRaccolta?.contains(meseRaccoltaFiltro) == true }
+            risultato = risultato.filter { pk in
+                let window = SowingCalculator.compute(for: pk, normals: normals)
+                return window.raccolta.contains(meseRaccoltaFiltro)
+            }
+        }
+        if let meseFiorituraFiltro {
+            risultato = risultato.filter { $0.mesiFioritura?.contains(meseFiorituraFiltro) ?? false }
+        }
+        if let phFiltro {
+            risultato = risultato.filter { phBucket(min: $0.phMin, max: $0.phMax) == phFiltro }
+        }
+        if let portamentoFiltro {
+            risultato = risultato.filter { portamentoBucket(for: $0.portamento) == portamentoFiltro }
         }
         guard !searchText.isEmpty else { return risultato }
         return risultato.filter {
@@ -74,7 +89,8 @@ struct CatalogoView: View {
     }
 
     private var activeFilterCount: Int {
-        [difficoltaFiltro != nil, esposizioneFiltro != nil, meseRaccoltaFiltro != nil]
+        [difficoltaFiltro != nil, esposizioneFiltro != nil, meseRaccoltaFiltro != nil,
+         meseFiorituraFiltro != nil, phFiltro != nil, portamentoFiltro != nil]
             .filter { $0 }.count
     }
 
@@ -248,11 +264,44 @@ struct CatalogoView: View {
                         }
                     }
                 }
+                Section(lang.plants.bloomMonthFilterSection) {
+                    ForEach(1...12, id: \.self) { mese in
+                        filtroRow(
+                            label: monthAbbrs[mese - 1],
+                            isSelected: meseFiorituraFiltro == mese
+                        ) {
+                            meseFiorituraFiltro = meseFiorituraFiltro == mese ? nil : mese
+                        }
+                    }
+                }
+                Section(lang.plants.phFilterSection) {
+                    ForEach(PhBucket.allCases, id: \.self) { bucket in
+                        filtroRow(
+                            label: phLabel(bucket),
+                            isSelected: phFiltro == bucket
+                        ) {
+                            phFiltro = phFiltro == bucket ? nil : bucket
+                        }
+                    }
+                }
+                Section(lang.plants.growthHabitFilterSection) {
+                    ForEach(PortamentoBucket.allCases, id: \.self) { bucket in
+                        filtroRow(
+                            label: portamentoLabel(bucket),
+                            isSelected: portamentoFiltro == bucket
+                        ) {
+                            portamentoFiltro = portamentoFiltro == bucket ? nil : bucket
+                        }
+                    }
+                }
                 Section {
                     Button(role: .destructive) {
                         difficoltaFiltro = nil
                         esposizioneFiltro = nil
                         meseRaccoltaFiltro = nil
+                        meseFiorituraFiltro = nil
+                        phFiltro = nil
+                        portamentoFiltro = nil
                     } label: {
                         Text(lang.plants.resetFiltersButtonLabel)
                     }
@@ -298,6 +347,24 @@ struct CatalogoView: View {
         case .sole: return lang.plants.exposureSun
         case .mezzaOmbra: return lang.plants.exposurePartialShade
         case .ombra: return lang.plants.exposureShade
+        }
+    }
+
+    private func phLabel(_ bucket: PhBucket) -> String {
+        switch bucket {
+        case .acido: return lang.plants.phAcid
+        case .neutro: return lang.plants.phNeutral
+        case .alcalino: return lang.plants.phAlkaline
+        }
+    }
+
+    private func portamentoLabel(_ bucket: PortamentoBucket) -> String {
+        switch bucket {
+        case .tappezzante: return lang.plants.habitGroundcover
+        case .ricadente: return lang.plants.habitTrailing
+        case .rampicante: return lang.plants.habitClimbing
+        case .eretto: return lang.plants.habitUpright
+        case .cespuglioso: return lang.plants.habitBushy
         }
     }
 

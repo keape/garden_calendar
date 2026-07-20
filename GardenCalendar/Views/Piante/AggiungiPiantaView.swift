@@ -20,6 +20,7 @@ struct AggiungiPiantaView: View {
     @State private var customGrowthDays = 90
     @State private var customSeminaDate = Date()
     @State private var importedActivities: [TemplateActivity] = []
+    @State private var customFotoUrl: String? = nil
 
     @State private var wateringEnabled = false
     @State private var wateringDays = 7
@@ -297,6 +298,7 @@ struct AggiungiPiantaView: View {
         categoria = .raccolto
         customName = knowledge.specieNome
         customGrowthDays = knowledge.growthDays
+        customFotoUrl = knowledge.imageUrl
         importedActivities = knowledge.attivitaSuggerite.map {
             TemplateActivity(name: $0.nome, offsetDays: $0.offsetDays, recurrenceDays: $0.recurrenceDays)
         }
@@ -350,7 +352,7 @@ struct AggiungiPiantaView: View {
                     growthDays: effectiveGrowthDays,
                     tipo: categoria,
                     note: nil,
-                    fotoUrl: nil
+                    fotoUrl: customFotoUrl
                 ))
 
                 if !activitiesToSchedule.isEmpty {

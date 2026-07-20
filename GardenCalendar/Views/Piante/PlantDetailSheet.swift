@@ -36,7 +36,7 @@ struct PlantDetailSheet: View {
                         Divider().padding(.horizontal)
                     }
                     if knowledge.annaffiatura != nil || knowledge.esposizione != nil
-                        || knowledge.phMin != nil || knowledge.tempTollMin != nil {
+                        || knowledge.phMin != nil || knowledge.tempTollMin != nil || knowledge.terriccio != nil {
                         careSection
                         Divider().padding(.horizontal)
                     }
@@ -223,6 +223,9 @@ struct PlantDetailSheet: View {
                 }
                 if let t = knowledge.tempTollMin {
                     careRow(icon: "thermometer.snowflake", label: lang.plants.toleranceTempLabel, value: String(format: "%.0f°C", t), color: AppTheme.activityBlue)
+                }
+                if let s = knowledge.terriccio {
+                    careRow(icon: "square.3.layers.3d.down.right", label: lang.plants.soilLabel, value: s, color: AppTheme.accentAmbra)
                 }
             }
             .padding(.horizontal)

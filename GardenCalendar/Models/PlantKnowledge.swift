@@ -1,7 +1,7 @@
 import Foundation
 
 enum PlantType: String, Codable, CaseIterable, Sendable {
-    case ortaggio, aromatica, frutto, fiore, albero, altro
+    case ortaggio, aromatica, frutto, fiore, albero, appartamento, altro
 
     var displayName: String {
         switch self {
@@ -10,6 +10,7 @@ enum PlantType: String, Codable, CaseIterable, Sendable {
         case .frutto: return "Frutto"
         case .fiore: return "Fiore"
         case .albero: return "Albero"
+        case .appartamento: return "Appartamento"
         case .altro: return "Altro"
         }
     }
@@ -21,6 +22,7 @@ enum PlantType: String, Codable, CaseIterable, Sendable {
         case .frutto: return "🍓"
         case .fiore: return "🌸"
         case .albero: return "🌳"
+        case .appartamento: return "🪴"
         case .altro: return "🌱"
         }
     }
@@ -28,6 +30,34 @@ enum PlantType: String, Codable, CaseIterable, Sendable {
 
 enum EsposizioneBucket: String, CaseIterable, Sendable {
     case sole, mezzaOmbra, ombra
+}
+
+enum PhBucket: String, CaseIterable, Sendable { case acido, neutro, alcalino }
+
+/// Classifica una pianta per pH del terreno usando il punto medio del range ph_min..ph_max.
+/// acido < 6.5, neutro 6.5–7.5, alcalino > 7.5.
+func phBucket(min: Double?, max: Double?) -> PhBucket? {
+    let valori = [min, max].compactMap { $0 }
+    guard !valori.isEmpty else { return nil }
+    let medio = valori.reduce(0, +) / Double(valori.count)
+    if medio < 6.5 { return .acido }
+    if medio > 7.5 { return .alcalino }
+    return .neutro
+}
+
+enum PortamentoBucket: String, CaseIterable, Sendable {
+    case tappezzante, ricadente, rampicante, eretto, cespuglioso
+}
+
+/// Bucketizza il campo testo libero `portamento` in una categoria filtrabile.
+func portamentoBucket(for portamento: String?) -> PortamentoBucket? {
+    guard let t = portamento?.lowercased() else { return nil }
+    if t.contains("tappezz") || t.contains("striscian") || t.contains("prostrat") { return .tappezzante }
+    if t.contains("ricaden") || t.contains("pendul") { return .ricadente }
+    if t.contains("rampican") || t.contains("arrampic") { return .rampicante }
+    if t.contains("cespugli") || t.contains("cespito") { return .cespuglioso }
+    if t.contains("eretto") || t.contains("colonnar") || t.contains("verticale") { return .eretto }
+    return nil
 }
 
 /// Bucketizza il campo testo libero `esposizione` (generato da AI extraction, es.
@@ -63,12 +93,14 @@ struct PlantKnowledge: Codable, Identifiable, Sendable {
     let descrizione: String?
     let annaffiatura: String?
     let esposizione: String?
+    let terriccio: String?
     let tipo: PlantType?
     let difficolta: String?
     let imageUrl: String?
     let mesiRaccolta: [Int]?
     let pianteCompagne: [String]?
     let pianteIncompatibili: [String]?
+    let portamento: String?
 
     // Campi agronomici (opzionali — piante legacy li hanno nil)
     let phMin: Double?
@@ -92,12 +124,14 @@ struct PlantKnowledge: Codable, Identifiable, Sendable {
         case descrizione
         case annaffiatura
         case esposizione
+        case terriccio
         case tipo
         case difficolta
         case imageUrl = "image_url"
         case mesiRaccolta = "mesi_raccolta"
         case pianteCompagne = "piante_compagne"
         case pianteIncompatibili = "piante_incompatibili"
+        case portamento
         case phMin = "ph_min"
         case phMax = "ph_max"
         case tempGermMin = "temp_germ_min"
@@ -112,26 +146,27 @@ struct PlantKnowledge: Codable, Identifiable, Sendable {
         attivitaSuggerite: [AttivitaSuggerita], seminaMesiEsterno: [Int],
         seminaMesiInterno: [Int], createdAt: Date, updatedAt: Date,
         specieNomeScentifico: String? = nil, descrizione: String? = nil,
-        annaffiatura: String? = nil, esposizione: String? = nil,
+        annaffiatura: String? = nil, esposizione: String? = nil, terriccio: String? = nil,
         tipo: PlantType? = nil, difficolta: String? = nil,
         imageUrl: String? = nil, mesiRaccolta: [Int]? = nil,
         pianteCompagne: [String]? = nil, pianteIncompatibili: [String]? = nil,
         phMin: Double? = nil, phMax: Double? = nil,
         tempGermMin: Double? = nil, tempOttMin: Double? = nil, tempOttMax: Double? = nil,
-        tempTollMin: Double? = nil, mesiFioritura: [Int]? = nil
+        tempTollMin: Double? = nil, mesiFioritura: [Int]? = nil, portamento: String? = nil
     ) {
         self.id = id; self.slug = slug; self.specieNome = specieNome
         self.growthDays = growthDays; self.attivitaSuggerite = attivitaSuggerite
         self.seminaMesiEsterno = seminaMesiEsterno; self.seminaMesiInterno = seminaMesiInterno
         self.createdAt = createdAt; self.updatedAt = updatedAt
         self.specieNomeScentifico = specieNomeScentifico; self.descrizione = descrizione
-        self.annaffiatura = annaffiatura; self.esposizione = esposizione
+        self.annaffiatura = annaffiatura; self.esposizione = esposizione; self.terriccio = terriccio
         self.tipo = tipo; self.difficolta = difficolta; self.imageUrl = imageUrl
         self.mesiRaccolta = mesiRaccolta; self.pianteCompagne = pianteCompagne
         self.pianteIncompatibili = pianteIncompatibili
         self.phMin = phMin; self.phMax = phMax
         self.tempGermMin = tempGermMin; self.tempOttMin = tempOttMin; self.tempOttMax = tempOttMax
         self.tempTollMin = tempTollMin; self.mesiFioritura = mesiFioritura
+        self.portamento = portamento
     }
 
     init(from decoder: Decoder) throws {
@@ -163,6 +198,7 @@ struct PlantKnowledge: Codable, Identifiable, Sendable {
         descrizione = try? c.decodeIfPresent(String.self, forKey: .descrizione)
         annaffiatura = try? c.decodeIfPresent(String.self, forKey: .annaffiatura)
         esposizione = try? c.decodeIfPresent(String.self, forKey: .esposizione)
+        terriccio = try? c.decodeIfPresent(String.self, forKey: .terriccio)
         tipo = try? c.decodeIfPresent(PlantType.self, forKey: .tipo)
         difficolta = try? c.decodeIfPresent(String.self, forKey: .difficolta)
         imageUrl = try? c.decodeIfPresent(String.self, forKey: .imageUrl)
@@ -177,6 +213,7 @@ struct PlantKnowledge: Codable, Identifiable, Sendable {
         tempOttMax = try? c.decodeIfPresent(Double.self, forKey: .tempOttMax)
         tempTollMin = try? c.decodeIfPresent(Double.self, forKey: .tempTollMin)
         mesiFioritura = try? c.decodeIfPresent([Int].self, forKey: .mesiFioritura)
+        portamento = try? c.decodeIfPresent(String.self, forKey: .portamento)
     }
 }
 

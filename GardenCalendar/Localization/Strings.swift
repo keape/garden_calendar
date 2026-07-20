@@ -206,6 +206,7 @@ struct Strings {
         let difficultyLabel: String
         let phLabel: String
         let toleranceTempLabel: String
+        let soilLabel: String
         let everyNDaysShortFormat: String
         let afterNDaysShortFormat: String
         let addPhotoButton: String
@@ -235,6 +236,17 @@ struct Strings {
         let exposureSun: String
         let exposurePartialShade: String
         let exposureShade: String
+        let bloomMonthFilterSection: String
+        let phFilterSection: String
+        let phAcid: String
+        let phNeutral: String
+        let phAlkaline: String
+        let growthHabitFilterSection: String
+        let habitGroundcover: String
+        let habitTrailing: String
+        let habitClimbing: String
+        let habitUpright: String
+        let habitBushy: String
         let resetFiltersButtonLabel: String
         let doneButtonLabel: String
     }
@@ -512,7 +524,7 @@ extension Strings {
             careSection: "Cure",
             detailActivitiesSection: "Attività generate",
             companionsSection: "Piante compagne",
-            addToGardenButton: "Aggiungi all'orto",
+            addToGardenButton: "Aggiungi al giardino",
             wateringLabel: "Annaffiatura",
             exposureLabel: "Esposizione",
             harvestMonthsLabel: "Mesi raccolta",
@@ -522,6 +534,7 @@ extension Strings {
             difficultyLabel: "Difficoltà",
             phLabel: "pH terreno",
             toleranceTempLabel: "Temperatura minima tollerata",
+            soilLabel: "Terriccio",
             everyNDaysShortFormat: "ogni %dgg",
             afterNDaysShortFormat: "dopo %dgg",
             addPhotoButton: "Aggiungi foto",
@@ -551,6 +564,17 @@ extension Strings {
             exposureSun: "Sole",
             exposurePartialShade: "Mezza ombra",
             exposureShade: "Ombra",
+            bloomMonthFilterSection: "Mese di fioritura",
+            phFilterSection: "pH del terreno",
+            phAcid: "Acido",
+            phNeutral: "Neutro",
+            phAlkaline: "Alcalino",
+            growthHabitFilterSection: "Portamento",
+            habitGroundcover: "Tappezzante",
+            habitTrailing: "Ricadente",
+            habitClimbing: "Rampicante",
+            habitUpright: "Eretto",
+            habitBushy: "Cespuglioso",
             resetFiltersButtonLabel: "Reimposta filtri",
             doneButtonLabel: "Fine"
         ),
@@ -820,6 +844,7 @@ extension Strings {
             difficultyLabel: "Difficulty",
             phLabel: "Soil pH",
             toleranceTempLabel: "Minimum tolerated temperature",
+            soilLabel: "Soil",
             everyNDaysShortFormat: "every %dd",
             afterNDaysShortFormat: "after %dd",
             addPhotoButton: "Add photo",
@@ -849,6 +874,17 @@ extension Strings {
             exposureSun: "Full sun",
             exposurePartialShade: "Partial shade",
             exposureShade: "Shade",
+            bloomMonthFilterSection: "Bloom month",
+            phFilterSection: "Soil pH",
+            phAcid: "Acidic",
+            phNeutral: "Neutral",
+            phAlkaline: "Alkaline",
+            growthHabitFilterSection: "Growth habit",
+            habitGroundcover: "Groundcover",
+            habitTrailing: "Trailing",
+            habitClimbing: "Climbing",
+            habitUpright: "Upright",
+            habitBushy: "Bushy",
             resetFiltersButtonLabel: "Reset filters",
             doneButtonLabel: "Done"
         ),

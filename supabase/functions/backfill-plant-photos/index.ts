@@ -62,32 +62,80 @@ Deno.serve(async (req) => {
       )
     }
 
-    const { data: rows, error: fetchError } = await supabaseAdmin
-      .from("plant_knowledge")
-      .select("id, specie_nome, specie_nome_scientifico")
-      .is("image_url", null)
+    let overrides: { id: string; query: string; resultIndex?: number }[] = []
+    let previewOnly = false
+    try {
+      const body = await req.json()
+      if (Array.isArray(body?.overrides)) overrides = body.overrides
+      if (body?.previewOnly === true) previewOnly = true
+    } catch { /* no body / not JSON: normale backfill dei null */ }
 
-    if (fetchError) {
-      return new Response(
-        JSON.stringify({ error: "Errore lettura catalogo", details: fetchError.message }),
-        { status: 500, headers: { ...corsHeaders, "Content-Type": "application/json" } }
-      )
+    if (previewOnly) {
+      const results = []
+      for (const o of overrides) {
+        const res = await fetch(
+          `https://api.pexels.com/v1/search?query=${encodeURIComponent(o.query)}&per_page=5&orientation=square`,
+          { headers: { Authorization: pexelsKey } }
+        )
+        const data = res.ok ? await res.json() : { photos: [] }
+        results.push({
+          id: o.id,
+          query: o.query,
+          candidates: (data.photos ?? []).map((p: { src: { medium: string }; alt: string }) => ({ url: p.src.medium, alt: p.alt })),
+        })
+        await new Promise((r) => setTimeout(r, 250))
+      }
+      return new Response(JSON.stringify({ results }), { status: 200, headers: { ...corsHeaders, "Content-Type": "application/json" } })
+    }
+
+    let rows: { id: string; specie_nome: string; specie_nome_scientifico: string | null }[] = []
+    let resultIndexById = new Map<string, number>()
+
+    if (overrides.length > 0) {
+      const ids = overrides.map((o) => o.id)
+      const { data, error: fetchError } = await supabaseAdmin
+        .from("plant_knowledge")
+        .select("id, specie_nome, specie_nome_scientifico")
+        .in("id", ids)
+      if (fetchError) {
+        return new Response(
+          JSON.stringify({ error: "Errore lettura catalogo", details: fetchError.message }),
+          { status: 500, headers: { ...corsHeaders, "Content-Type": "application/json" } }
+        )
+      }
+      const queryById = new Map(overrides.map((o) => [o.id, o.query]))
+      resultIndexById = new Map(overrides.map((o) => [o.id, o.resultIndex ?? 0]))
+      rows = (data ?? []).map((r) => ({ ...r, specie_nome_scientifico: queryById.get(r.id) ?? r.specie_nome_scientifico }))
+    } else {
+      const { data, error: fetchError } = await supabaseAdmin
+        .from("plant_knowledge")
+        .select("id, specie_nome, specie_nome_scientifico")
+        .is("image_url", null)
+      if (fetchError) {
+        return new Response(
+          JSON.stringify({ error: "Errore lettura catalogo", details: fetchError.message }),
+          { status: 500, headers: { ...corsHeaders, "Content-Type": "application/json" } }
+        )
+      }
+      rows = data ?? []
     }
 
     let updated = 0
     let notFound = 0
     const failed: string[] = []
 
-    for (const row of rows ?? []) {
+    for (const row of rows) {
+      const isOverride = resultIndexById.has(row.id)
       const query = row.specie_nome_scientifico || row.specie_nome
+      const idx = resultIndexById.get(row.id) ?? 0
       try {
         const res = await fetch(
-          `https://api.pexels.com/v1/search?query=${encodeURIComponent(`${query} plant`)}&per_page=1&orientation=square`,
+          `https://api.pexels.com/v1/search?query=${encodeURIComponent(isOverride ? query : `${query} plant`)}&per_page=${idx + 1}&orientation=square`,
           { headers: { Authorization: pexelsKey } }
         )
         if (!res.ok) { failed.push(row.specie_nome); continue }
         const data = await res.json()
-        const imageUrl = data.photos?.[0]?.src?.medium
+        const imageUrl = data.photos?.[idx]?.src?.medium
         if (!imageUrl) { notFound++; continue }
 
         const { error: updateError } = await supabaseAdmin
@@ -104,7 +152,7 @@ Deno.serve(async (req) => {
     }
 
     return new Response(
-      JSON.stringify({ total: rows?.length ?? 0, updated, notFound, failed }),
+      JSON.stringify({ total: rows.length, updated, notFound, failed }),
       { status: 200, headers: { ...corsHeaders, "Content-Type": "application/json" } }
     )
   } catch (err) {
