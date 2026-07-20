@@ -100,6 +100,7 @@ Deno.serve(async (req) => {
           },
           body: JSON.stringify({
             model: "deepseek/deepseek-v4-flash",
+            max_tokens: 200,
             messages: [
               { role: "system", content: SYSTEM_PROMPT },
               { role: "user", content: userContent },
